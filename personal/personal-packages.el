@@ -2,15 +2,28 @@
 
 (require 'package)
 
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(setq package-archives
+      (append package-archives
+              '(("marmalade" . "http://marmalade-repo.org/packages/")
+                ("melpa" . "http://melpa.milkbox.net/packages/"))))
+
 (package-initialize)
 
-(when (not package-archive-contents)
-  (package-refresh-contents))
+;; install melpa package
+(unless (package-installed-p 'melpa)
+  (progn
+    (switch-to-buffer
+     (url-retrieve-synchronously
+      "https://raw.github.com/milkypostman/melpa/master/melpa.el"))
+    (package-install-from-buffer  (package-buffer-info) 'single)))
 
-(defvar personal-packages
+(defvar personal-stable-packages
   '(starter-kit
+    starter-kit-bindings
+    starter-kit-eshell
+    starter-kit-js
+    starter-kit-ruby
+    starter-kit-lisp
     ;; ac-slime
     ;; ace-jump-mode
     ;; ascope
@@ -37,9 +50,22 @@
     ;; yaml-mode
     ;; multiple-cursors
     )
-  "A list of packages that should be installed")
+  "A list of packages that should be installed from stable repos")
 
-(dolist (p personal-packages)
+(defvar personal-melpa-packages
+  '(helm)
+  "A list of packages that should be installed from melpa")
+
+;; Don't get stable packages from melpa
+(setq package-filter-function
+      (lambda (package version archive)
+        (or (not (string-equal archive "melpa"))
+            (not (memq package personal-stable-packages)))))
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(dolist (p (append personal-stable-packages personal-melpa-packages))
   (when (not (package-installed-p p))
     (package-install p)))
 
