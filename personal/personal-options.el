@@ -2,27 +2,27 @@
 
 (setq dired-use-ls-dired nil)
 
-;; ;;editing
+;; editing
 (global-subword-mode 1)
 
-;; ;;backup
+;; backup
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; ;;file
+;; file
 (setq delete-by-moving-to-trash t)
 (setq trash-directory (expand-file-name "~/.Trash"))
 
 (setq comint-scroll-to-bottom-on-output t)
 (setq-default major-mode 'text-mode)
 
-;;recompile modules directory
+;; recompile modules directory
 (defun personal-kill-emacs-hook ()
   (byte-recompile-directory personal-dir 0)
   (byte-recompile-file (concat user-emacs-directory "init.el") nil 0))
 
 (add-hook 'kill-emacs-hook 'personal-kill-emacs-hook)
-
+(setq browse-url-browser-function 'browse-default-macosx-browser)
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
 
 (provide 'personal-options)
