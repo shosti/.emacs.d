@@ -24,6 +24,7 @@
     starter-kit-js
     starter-kit-ruby
     starter-kit-lisp
+    parenface
     ;; ac-slime
     ;; ace-jump-mode
     ;; ascope
@@ -60,7 +61,7 @@
 (setq package-filter-function
       (lambda (package version archive)
         (or (not (string-equal archive "melpa"))
-            (not (memq package personal-stable-packages)))))
+            (memq package personal-melpa-packages))))
 
 (when (not package-archive-contents)
   (package-refresh-contents))
