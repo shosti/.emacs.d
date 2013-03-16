@@ -59,6 +59,7 @@
     helm
     edit-server
     google-c-style
+    jedi
     pretty-mode
     yasnippet)
   "A list of packages that should be installed from melpa")
