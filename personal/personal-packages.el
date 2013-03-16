@@ -26,7 +26,6 @@
     starter-kit-lisp
     ace-jump-mode
     ack-and-a-half
-    auto-complete
     c-eldoc
     clojure-mode
     coffee-mode
@@ -54,7 +53,8 @@
   "A list of packages that should be installed from stable repos")
 
 (defvar personal-melpa-packages
-  '(helm
+  '(auto-complete
+    helm
     edit-server
     google-c-style
     pretty-mode
