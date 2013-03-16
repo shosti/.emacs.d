@@ -1,6 +1,7 @@
 (defun set-up-lisp-coding ()
   (show-paren-mode 0)
-  (local-set-key (kbd "RET") 'paredit-newline))
+  (local-set-key (kbd "RET") 'paredit-newline)
+  (highlight-parentheses-mode))
 
 (mapc (lambda (hook)
         (add-hook hook 'set-up-lisp-coding))

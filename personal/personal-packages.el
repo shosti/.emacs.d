@@ -24,13 +24,11 @@
     starter-kit-js
     starter-kit-ruby
     starter-kit-lisp
+    ace-jump-mode
     ack-and-a-half
     auto-complete
     dirtrack
-    ;; ac-slime
-    ;; ace-jump-mode
     ;; ascope
-    ;; auto-complete
     ;; bitlbee
     ;; buffer-move
     ;; c-eldoc
@@ -41,7 +39,7 @@
     ;; gnuplot
     ;; google-c-style
     ;; google-contacts
-    ;; highlight-parentheses
+    highlight-parentheses
     ;; jedi
     ;; jinja2-mode
     ;; js-comint
