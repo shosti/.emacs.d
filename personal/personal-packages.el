@@ -27,16 +27,18 @@
     ace-jump-mode
     ack-and-a-half
     auto-complete
+    coffee-mode
     dirtrack
     highlight-parentheses
+    multiple-cursors
     undo-tree
+    yaml-mode
     ;; ascope
     ;; bitlbee
     ;; buffer-move
     ;; c-eldoc
     ;; coffee-mode
     ;; edit-server
-    ;; elisp-slime-nav
     ;; elscreen
     ;; gnuplot
     ;; google-c-style
@@ -44,11 +46,6 @@
     ;; jedi
     ;; jinja2-mode
     ;; js-comint
-    ;; parenface
-    ;; pretty-mode
-    ;; slime-ritz
-    ;; smex
-    ;; undo-tree
     ;; yaml-mode
     ;; multiple-cursors
     )
