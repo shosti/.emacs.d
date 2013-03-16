@@ -4,6 +4,7 @@
 
 ;; editing
 (global-subword-mode 1)
+(show-paren-mode 0)
 
 ;; backup
 (setq make-backup-files nil)
