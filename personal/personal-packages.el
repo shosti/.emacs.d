@@ -30,6 +30,7 @@
     c-eldoc
     clojure-mode
     coffee-mode
+    diminish
     dirtrack
     haskell-mode
     highlight-parentheses
@@ -41,9 +42,9 @@
     ;; ascope
     ;; bitlbee
     ;; buffer-move
-    ;; 
+    ;;
     ;; coffee-mode
-    ;; 
+    ;;
     ;; elscreen
     ;; gnuplot
     ;; google-c-style
