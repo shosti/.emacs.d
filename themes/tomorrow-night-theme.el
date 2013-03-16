@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;;; tomorrow-night-theme.el --- Custom face theme for Emacs
 
 ;; Copyright (C) 2010 .
@@ -19,8 +21,6 @@
 
 (deftheme tomorrow-night
   "Port to Emacs 24 of the Tomorrow Night theme")
-
-;;(require 'parenface)
 
 (let ((background   "#1d1f21")
       (cursor       "#aeafad")
@@ -108,9 +108,11 @@
    `(flyspell-incorrect-face ((t (:foreground ,red :underline t))))
 
    ;; parenface
-   ;;   `(paren-face ((t (:foreground ,selection))))
    `(esk-paren-face
      ((t (:foreground ,selection))))
+
+   ;; magit
+   `(magit-item-highlight ((t (:background ,current-line))))
 
    ;; misc
    `(isearch ((t (:background ,yellow :foreground ,red))))
@@ -126,7 +128,17 @@
      ;; black, red, green, yellow, blue, magenta, cyan, white
      [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])
    `(hl-paren-colors
-     '(,red ,orange ,yellow ,green))))
+     '(,red ,orange ,yellow ,green)))
+
+  (eval-after-load 'diff-mode
+    `(progn
+       (set-face-foreground 'diff-added ,green)
+       (set-face-foreground 'diff-removed ,red)))
+
+  (eval-after-load 'magit
+    `(progn
+       (set-face-foreground 'magit-diff-add ,green)
+       (set-face-foreground 'magit-diff-del ,red))))
 
 (provide-theme 'tomorrow-night)
 
