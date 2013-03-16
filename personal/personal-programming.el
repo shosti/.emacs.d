@@ -1,5 +1,4 @@
 (defun set-up-programming ()
-  (linum-mode 1)
   (whitespace-mode 0)
   (local-set-key (kbd "<C-return>") 'personal-move-line-down))
 
