@@ -38,14 +38,13 @@
     ;; buffer-move
     ;; c-eldoc
     ;; coffee-mode
-    ;; edit-server
+    ;; 
     ;; elscreen
     ;; gnuplot
     ;; google-c-style
     ;; google-contacts
     ;; jedi
     ;; jinja2-mode
-    ;; js-comint
     ;; yaml-mode
     ;; multiple-cursors
     )
@@ -53,6 +52,7 @@
 
 (defvar personal-melpa-packages
   '(helm
+    edit-server
     pretty-mode
     yasnippet)
   "A list of packages that should be installed from melpa")
