@@ -27,6 +27,7 @@
     ace-jump-mode
     ack-and-a-half
     auto-complete
+    c-eldoc
     coffee-mode
     dirtrack
     highlight-parentheses
@@ -36,7 +37,7 @@
     ;; ascope
     ;; bitlbee
     ;; buffer-move
-    ;; c-eldoc
+    ;; 
     ;; coffee-mode
     ;; 
     ;; elscreen
@@ -53,6 +54,7 @@
 (defvar personal-melpa-packages
   '(helm
     edit-server
+    google-c-style
     pretty-mode
     yasnippet)
   "A list of packages that should be installed from melpa")
