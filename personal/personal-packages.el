@@ -31,6 +31,7 @@
     clojure-mode
     coffee-mode
     dirtrack
+    haskell-mode
     highlight-parentheses
     nrepl
     multiple-cursors
