@@ -33,6 +33,7 @@
     dirtrack
     haskell-mode
     highlight-parentheses
+    js-comint
     nrepl
     multiple-cursors
     undo-tree
