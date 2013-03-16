@@ -10,7 +10,7 @@
   (setq helm-case-fold-search t)
   (setq helm-locate-case-fold-search t)
 
-  (setq helm-c-locate-command
+  (setq helm-locate-command
         (mapconcat 'identity
                    (cons "mdfind %s -name %s"
                          locate-dirs)
