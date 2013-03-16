@@ -4,6 +4,7 @@
 
 ;; editing
 (global-subword-mode 1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; backup
 (setq make-backup-files nil)
