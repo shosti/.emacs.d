@@ -20,7 +20,7 @@
 (deftheme tomorrow-night
   "Port to Emacs 24 of the Tomorrow Night theme")
 
-(require 'parenface)
+;;(require 'parenface)
 
 (let ((background   "#1d1f21")
       (cursor       "#aeafad")
@@ -108,7 +108,9 @@
    `(flyspell-incorrect-face ((t (:foreground ,red :underline t))))
 
    ;; parenface
-   `(paren-face ((t (:foreground ,selection))))
+   ;;   `(paren-face ((t (:foreground ,selection))))
+   `(esk-paren-face
+     ((t (:foreground ,selection))))
 
    ;; misc
    `(isearch ((t (:background ,yellow :foreground ,red))))

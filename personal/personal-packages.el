@@ -24,7 +24,6 @@
     starter-kit-js
     starter-kit-ruby
     starter-kit-lisp
-    parenface
     auto-complete
     ;; ac-slime
     ;; ace-jump-mode
