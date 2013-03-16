@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: provide
+# key: pro
+# --
+(provide '`(personal-package-name)`)$0
