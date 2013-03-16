@@ -28,9 +28,11 @@
     ack-and-a-half
     auto-complete
     c-eldoc
+    clojure-mode
     coffee-mode
     dirtrack
     highlight-parentheses
+    nrepl
     multiple-cursors
     undo-tree
     yaml-mode
