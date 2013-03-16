@@ -28,6 +28,8 @@
     ack-and-a-half
     auto-complete
     dirtrack
+    highlight-parentheses
+    undo-tree
     ;; ascope
     ;; bitlbee
     ;; buffer-move
@@ -39,7 +41,6 @@
     ;; gnuplot
     ;; google-c-style
     ;; google-contacts
-    highlight-parentheses
     ;; jedi
     ;; jinja2-mode
     ;; js-comint
