@@ -10,6 +10,7 @@
 (global-set-key "\C-x\C-z" 'ns-do-hide-emacs)
 (global-set-key "\C-x\C-m" 'smex)
 (global-set-key "\C-xg" 'magit-status)
+(global-set-key "\C-z" 'eshell)
 
 ;;packages
 (global-set-key (kbd "C-<f6>") 'package-list-packages)

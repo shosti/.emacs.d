@@ -53,8 +53,22 @@ it to exec-path and the PATH variable"
   (with-temp-buffer
     (insert-file-contents fpath)
     (setq exec-path
-          (append (mapcar 'chomp (split-string (buffer-string) ":" t))
+          (append (mapcar 'personal-chomp (split-string (buffer-string) ":" t))
                   exec-path))
     (setenv "PATH" (mapconcat 'identity exec-path ":"))))
+
+(defun personal-chomp (str)
+  "..."
+  (let ((s (if (symbolp str)(symbol-name str) str)))
+    (save-excursion
+      (while (and
+              (not (null (string-match "^\\( \\|\f\\|\t\\|\n\\)" s)))
+              (> (length s) (string-match "^\\( \\|\f\\|\t\\|\n\\)" s)))
+        (setq s (replace-match "" t nil s)))
+      (while (and
+              (not (null (string-match "\\( \\|\f\\|\t\\|\n\\)$" s)))
+              (> (length s) (string-match "\\( \\|\f\\|\t\\|\n\\)$" s)))
+        (setq s (replace-match "" t nil s))))
+    s))
 
 (provide 'personal-functions)

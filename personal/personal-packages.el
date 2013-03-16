@@ -24,7 +24,9 @@
     starter-kit-js
     starter-kit-ruby
     starter-kit-lisp
+    ack-and-a-half
     auto-complete
+    dirtrack
     ;; ac-slime
     ;; ace-jump-mode
     ;; ascope
