@@ -56,7 +56,8 @@
   "A list of packages that should be installed from stable repos")
 
 (defvar personal-melpa-packages
-  '(helm)
+  '(helm
+    yasnippet)
   "A list of packages that should be installed from melpa")
 
 ;; Don't get stable packages from melpa
