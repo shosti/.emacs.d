@@ -22,7 +22,6 @@
   (byte-recompile-file (concat user-emacs-directory "init.el") nil 0))
 
 (add-hook 'kill-emacs-hook 'personal-kill-emacs-hook)
-(setq browse-url-browser-function 'browse-default-macosx-browser)
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
 
 (provide 'personal-options)
