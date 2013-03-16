@@ -10,7 +10,6 @@
 (setq custom-file (concat user-emacs-directory "custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
 
-
 ;; basic functions and packages come first...
 (require 'personal-functions)
 (require 'personal-packages)
@@ -21,4 +20,11 @@
                 (personal-trim-until-regexp fname "\.el$"))
               (personal-list-elisp-files personal-dir)))
 
+;; load passwords
+(let ((password-file (expand-file-name "~/.passwords.gpg")))
+  (when (file-exists-p password-file)
+    (load password-file)))
+
 (load-theme 'tomorrow-night t)
+
+(server-start)

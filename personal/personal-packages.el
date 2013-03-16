@@ -26,6 +26,7 @@
     starter-kit-lisp
     ace-jump-mode
     ack-and-a-half
+    bitlbee
     c-eldoc
     clojure-mode
     coffee-mode
