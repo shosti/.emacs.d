@@ -56,6 +56,7 @@
 
 (defvar personal-melpa-packages
   '(helm
+    pretty-mode
     yasnippet)
   "A list of packages that should be installed from melpa")
 
