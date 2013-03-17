@@ -51,6 +51,7 @@
     google-c-style
     jedi
     pretty-mode
+    scala-mode2
     yasnippet)
   "A list of packages that should be installed from melpa")
 
