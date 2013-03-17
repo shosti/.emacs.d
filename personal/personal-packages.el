@@ -39,27 +39,15 @@
     multiple-cursors
     undo-tree
     yaml-mode
-    ;; ascope
-    ;; bitlbee
-    ;; buffer-move
-    ;;
-    ;; coffee-mode
-    ;;
-    ;; elscreen
-    ;; gnuplot
-    ;; google-c-style
-    ;; google-contacts
-    ;; jedi
-    ;; jinja2-mode
-    ;; yaml-mode
-    ;; multiple-cursors
     )
   "A list of packages that should be installed from stable repos")
 
 (defvar personal-melpa-packages
   '(auto-complete
+    expand-region
     helm
     edit-server
+    git-gutter
     google-c-style
     jedi
     pretty-mode
