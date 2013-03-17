@@ -8,20 +8,20 @@
 (global-set-key (kbd "M-o") 'other-window)
 
 ;; misc
-(global-set-key "\C-x\C-z" 'ns-do-hide-emacs)
-(global-set-key "\C-x\C-m" 'smex)
-(global-set-key "\C-xg" 'magit-status)
-(global-set-key "\C-cg" 'webjump)
+(global-set-key (kbd "C-x C-z") 'ns-do-hide-emacs)
+(global-set-key (kbd "C-x C-m") 'smex)
+(global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-c g") 'webjump)
 
 ;; packages
 (global-set-key (kbd "C-<f6>") 'package-list-packages)
 
 ;; anything
-(global-set-key "\C-x\C-b" 'helm-for-files)
-(global-set-key "\M-y" 'helm-show-kill-ring)
+(global-set-key (kbd "C-x C-b") 'helm-for-files)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 ;; compile
-(global-set-key "\C-ck" 'compile)
+(global-set-key (kbd "C-c k") 'compile)
 
 ;; ctl-z binding map
 (define-prefix-command 'ctl-z-map)
