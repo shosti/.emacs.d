@@ -67,6 +67,7 @@
 (global-set-key (kbd "<C-return>") 'personal-move-line-down)
 (global-set-key (kbd "C-w") 'personal-backward-kill-word)
 (global-set-key (kbd "M-j") 'personal-join-next-line)
+(global-set-key (kbd "C-M-j") 'join-line)
 (global-set-key (kbd "C-M-h") 'mark-defun) ; undo starter-kit binding
 (global-set-key (kbd "C-S-n") 'personal-fast-next-line)
 (global-set-key (kbd "C-S-p") 'personal-fast-previous-line)
