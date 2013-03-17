@@ -16,4 +16,4 @@
 (eval-after-load 'auto-complete
   '(diminish 'auto-complete-mode))
 
-(provide 'personal-diminsh)
+(provide 'personal-diminish)
