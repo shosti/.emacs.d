@@ -1,6 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Settings and keybindings for general editing
 
+;; Settings
+
+(global-subword-mode 1)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; Functions
 
 (defun personal-backward-kill-word (arg)
