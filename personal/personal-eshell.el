@@ -1,11 +1,10 @@
 (require 'eshell)
 (require 'dirtrack)
+(require 'personal-path)
 
 (setq eshell-scroll-to-bottom-on-input t)
 (setq eshell-scroll-show-maximum-output nil)
 (setq eshell-directory-name (concat personal-dir "/eshell/"))
-
-(personal-path-from-file "~/.path")
 
 (setenv "TERM" "dumb")
 (setenv "EDITOR" "emacsclient")
@@ -23,7 +22,6 @@
             (visual-line-mode 0)
             (dirtrack-mode 1)))
 
-(eshell)
 (setq eshell-visual-commands
       (append eshell-visual-commands '("mu" "sl")))
 

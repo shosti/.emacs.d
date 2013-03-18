@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Miscellaneous options and settings
 
+(require 'personal-path)
+
 ;; Settings
 
 (setq disabled-command-function nil)
@@ -20,6 +22,21 @@
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
 
 ;; Functions
+
+(defvar personal-passwords-loaded nil)
+
+(defun personal-load-password-file ()
+  (let ((password-file (expand-file-name "~/.passwords.gpg")))
+    (when (file-exists-p password-file)
+      (load password-file)
+      (setq personal-passwords-loaded t))))
+
+(defun personal-password (sym)
+  (unless personal-passwords-loaded
+    (personal-load-password-file))
+  (if (boundp sym)
+      (symbol-value sym)
+    nil))
 
 ;; recompile modules directory
 (defun personal-delete-current-buffer-file ()

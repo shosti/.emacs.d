@@ -20,11 +20,7 @@
                 (personal-trim-until-regexp fname "\.el$"))
               (personal-list-elisp-files personal-dir)))
 
-;; load passwords
-(let ((password-file (expand-file-name "~/.passwords.gpg")))
-  (when (file-exists-p password-file)
-    (load password-file)))
-
 (load-theme 'tomorrow-night t)
 
 (server-start)
+(eshell)

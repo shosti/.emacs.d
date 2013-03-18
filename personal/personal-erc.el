@@ -1,22 +1,30 @@
+;;; -*- lexical-binding: t -*-
+
+(require 'personal-options)
+
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
-(setq erc-autojoin-channels-alist '(("freenode.net"
-                                     "#emacs" "#clojure"
-                                     "#haskell")
-                                    ("mitx-irc.i4x.org" "#6002")))
+(eval-after-load 'erc
+  '(progn
 
-(setq erc-track-enable-keybindings nil)
+     (setq erc-autojoin-channels-alist '(("freenode.net"
+                                          "#emacs" "#clojure"
+                                          "#haskell")
+                                         ("mitx-irc.i4x.org" "#6002")))
 
-;; set your nickname
-(setq erc-nick "shosti")
+     (setq erc-track-enable-keybindings nil)
 
-;; auto identify
-(when (boundp 'erc-pass)
-  (require 'erc-services)
-  (erc-services-mode 1)
-  (setq erc-prompt-for-nickserv-password nil)
-  (setq erc-nickserv-passwords
-        `((freenode ((,erc-nick . ,erc-pass))))))
-(defun my-erc-connect ()
+     ;; set your nickname
+     (setq erc-nick "shosti")
+
+     ;; auto identify
+     (when (personal-password 'erc-pass)
+       (require 'erc-services)
+       (erc-services-mode 1)
+       (setq erc-prompt-for-nickserv-password nil)
+       (setq erc-nickserv-passwords
+             `((freenode ((,erc-nick . ,erc-pass))))))))
+
+(defun personal-erc-connect ()
   (interactive)
   (erc :server "irc.freenode.net")
   (erc :server "irc.mitx.mit.edu"))
