@@ -10,6 +10,7 @@
 (setq-default frame-background-mode 'dark)
 (blink-cursor-mode 1)
 (scroll-bar-mode 1)
+(menu-bar-mode 1)
 (setq)
 
 (when (boundp 'mouse-wheel-scroll-amount)
