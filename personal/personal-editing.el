@@ -5,6 +5,7 @@
 
 (global-subword-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(delete-selection-mode 1)
 
 ;; Functions
 
