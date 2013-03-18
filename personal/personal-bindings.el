@@ -25,6 +25,7 @@
 
 ;; ctl-z binding map
 (define-prefix-command 'ctl-z-map)
+(global-set-key (kbd "C-z") ctl-z-map)
 (define-key ctl-z-map (kbd "C-z") 'eshell)
 (define-key ctl-z-map (kbd "C-1") 'display-fill-screen)
 (define-key ctl-z-map (kbd "C-2") 'display-left-half)
