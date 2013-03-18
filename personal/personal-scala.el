@@ -1,11 +1,19 @@
 ;;; -*- lexical-binding: t -*-
 
-(let ((ensime-lib (concat user-emacs-directory "opt/ensime/elisp")))
-  (when (file-exists-p ensime-lib)
-    (add-to-list 'load-path ensime-lib)
-    (eval-after-load 'scala-mode2
-      '(progn
-         (require 'ensime)
-         (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)))))
+(defun load-ensime ()
+  (let ((ensime-lib (concat user-emacs-directory "opt/ensime/elisp")))
+    (when (file-exists-p ensime-lib)
+      (add-to-list 'load-path ensime-lib)
+      (require 'ensime)
+      (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+      ;; Hack to fix ensime comint prompt
+      (defadvice ensime-sbt (after set-process-echoes activate)
+        (setq comint-process-echoes t)))))
+
+(eval-after-load 'scala-mode2
+  '(progn
+     (load-ensime)
+     (define-key scala-mode-map (kbd "RET") 'newline-and-indent)))
 
 (provide 'personal-scala)
