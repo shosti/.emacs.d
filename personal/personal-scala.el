@@ -14,6 +14,7 @@
 (eval-after-load 'scala-mode2
   '(progn
      (load-ensime)
-     (define-key scala-mode-map (kbd "RET") 'newline-and-indent)))
+     (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
+     (define-key scala-mode-map (kbd "C-c C-c") 'ensime-inf-eval-buffer)))
 
 (provide 'personal-scala)
