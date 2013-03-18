@@ -36,10 +36,10 @@
     highlight-parentheses
     js-comint
     nrepl
+    markdown-mode
     multiple-cursors
     undo-tree
-    yaml-mode
-    )
+    yaml-mode)
   "A list of packages that should be installed from stable repos")
 
 (defvar personal-melpa-packages
@@ -50,6 +50,7 @@
     git-gutter
     google-c-style
     jedi
+    popup
     pretty-mode
     scala-mode2
     yasnippet)
