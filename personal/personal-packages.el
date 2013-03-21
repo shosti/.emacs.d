@@ -52,6 +52,7 @@
     git-gutter
     google-c-style
     jedi
+    mmm-mode
     popup
     pretty-mode
     scala-mode2
