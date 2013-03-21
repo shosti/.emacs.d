@@ -1,3 +1,5 @@
+(personal-require-package 'yasnippet 'melpa)
+
 (require 'yasnippet)
 
 (setq yas-snippet-dirs (list (concat user-emacs-directory "snippets")))

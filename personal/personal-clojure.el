@@ -1,3 +1,6 @@
+(personal-require-package 'clojure-mode)
+(personal-require-package 'nrepl)
+
 (require 'clojure-mode)
 
 (defun open-clojure-docs ()

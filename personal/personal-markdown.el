@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(personal-require-package 'markdown-mode)
+
 (defvar markdown-extensions
   '("markdown"
     "mdown"

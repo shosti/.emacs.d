@@ -1,3 +1,6 @@
+(personal-require-package 'starter-kit-eshell)
+(personal-require-package 'dirtrack)
+
 (require 'eshell)
 (require 'dirtrack)
 (require 'personal-path)

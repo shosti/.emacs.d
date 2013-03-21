@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(personal-require-package 'bitlbee)
+
 (require 'personal-options)
 
 ;; Join the a couple of interesting channels whenever connecting to Freenode.

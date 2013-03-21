@@ -1,3 +1,5 @@
+(personal-require-package 'jedi 'melpa)
+
 (defun set-up-python-mode ()
   (local-set-key (kbd "RET") 'personal-py-newline-and-indent))
 
@@ -8,5 +10,8 @@
   (if (bolp)
       (newline)
     (newline-and-indent)))
+
+(setq jedi:setup-keys t)
+(add-hook 'python-mode-hook 'jedi:setup)
 
 (provide 'personal-python)

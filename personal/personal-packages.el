@@ -2,6 +2,9 @@
 
 (require 'package)
 
+(defvar personal-melpa-packages nil
+  "A list of packages that should be installed from melpa")
+
 (setq package-archives
       (append package-archives
               '(("marmalade" . "http://marmalade-repo.org/packages/")
@@ -17,47 +20,7 @@
       "https://raw.github.com/milkypostman/melpa/master/melpa.el"))
     (package-install-from-buffer  (package-buffer-info) 'single)))
 
-(defvar personal-stable-packages
-  '(starter-kit
-    starter-kit-bindings
-    starter-kit-eshell
-    starter-kit-js
-    starter-kit-ruby
-    starter-kit-lisp
-    ace-jump-mode
-    ack-and-a-half
-    bitlbee
-    c-eldoc
-    clojure-mode
-    coffee-mode
-    diminish
-    dirtrack
-    haskell-mode
-    highlight-parentheses
-    js-comint
-    nrepl
-    markdown-mode
-    multiple-cursors
-    rinari
-    rvm
-    undo-tree
-    yaml-mode)
-  "A list of packages that should be installed from stable repos")
-
-(defvar personal-melpa-packages
-  '(auto-complete
-    expand-region
-    helm
-    edit-server
-    git-gutter
-    google-c-style
-    jedi
-    mmm-mode
-    popup
-    pretty-mode
-    scala-mode2
-    yasnippet)
-  "A list of packages that should be installed from melpa")
+(require 'melpa)
 
 ;; Don't get stable packages from melpa
 (setq package-filter-function
@@ -68,8 +31,13 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
-(dolist (p (append personal-stable-packages personal-melpa-packages))
-  (when (not (package-installed-p p))
-    (package-install p)))
+(defun personal-require-package (package &optional repo)
+  (unless (package-installed-p package)
+    (when (equal repo 'melpa)
+      (add-to-list 'personal-melpa-packages package)
+      (package-refresh-contents))
+    (package-install package)))
+
+(personal-require-package 'starter-kit)
 
 (provide 'personal-packages)

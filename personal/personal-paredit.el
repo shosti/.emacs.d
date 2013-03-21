@@ -1,3 +1,5 @@
+(personal-require-package 'paredit)
+
 (require 'personal-editing)
 (require 'paredit)
 

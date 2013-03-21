@@ -1,3 +1,6 @@
+(personal-require-package 'popup 'melpa)
+(personal-require-package 'auto-complete 'melpa)
+
 (require 'auto-complete-config)
 
 (ac-config-default)
@@ -7,4 +10,3 @@
 (ac-flyspell-workaround)
 
 (provide 'personal-auto-complete)
-

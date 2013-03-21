@@ -1,3 +1,5 @@
+(personal-require-package 'diminish)
+
 (require 'diminish)
 
 (eval-after-load 'elisp-slime-nav

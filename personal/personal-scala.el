@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(personal-require-package 'scala-mode2 'melpa)
+
 (defun load-ensime ()
   (let ((ensime-lib (concat user-emacs-directory "opt/ensime/elisp")))
     (when (file-exists-p ensime-lib)

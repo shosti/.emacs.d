@@ -1,8 +1,7 @@
-(defun set-up-inf-ruby-mode ()
-  (setq comint-process-echoes t))
-
-;; workaround bug in esk-ruby
-(defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
+(personal-require-package 'starter-kit-ruby)
+(personal-require-package 'rinari)
+(personal-require-package 'rvm)
+(personal-require-package 'mmm-mode 'melpa)
 
 (add-hook 'inf-ruby-mode-hook
           'set-up-inf-ruby-mode)

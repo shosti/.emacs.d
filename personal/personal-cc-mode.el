@@ -1,3 +1,6 @@
+(personal-require-package 'google-c-style 'melpa)
+(personal-require-package 'c-eldoc)
+
 (require 'google-c-style)
 (require 'c-eldoc)
 

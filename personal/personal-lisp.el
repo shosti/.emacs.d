@@ -1,3 +1,8 @@
+(personal-require-package 'starter-kit-lisp)
+(personal-require-package 'paredit)
+(personal-require-package 'clojure-mode)
+(personal-require-package 'highlight-parentheses)
+
 (defun set-up-lisp-coding ()
   (show-paren-mode 0)
   (local-set-key (kbd "RET") 'paredit-newline)

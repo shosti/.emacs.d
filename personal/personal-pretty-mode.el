@@ -1,3 +1,5 @@
+(personal-require-package 'pretty-mode 'melpa)
+
 (require 'pretty-mode)
 
 (setq pretty-patterns

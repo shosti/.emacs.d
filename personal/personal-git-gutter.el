@@ -1,3 +1,5 @@
+(personal-require-package 'git-gutter 'melpa)
+
 (require 'git-gutter)
 
 (global-git-gutter-mode 1)

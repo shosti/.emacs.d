@@ -1,3 +1,5 @@
+(personal-require-package 'magit)
+
 (eval-after-load 'magit
   '(progn
      (defadvice magit-status (around magit-fullscreen activate)
