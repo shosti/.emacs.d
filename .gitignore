@@ -4,8 +4,8 @@ auto-save-list
 recentf
 savehist
 saveplace
-personal/eshell/history
-personal/eshell/lastdir
+eshell/history
+eshell/lastdir
 personal/auto-snippets
 elpa
 el-get
