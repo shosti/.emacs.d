@@ -2,9 +2,10 @@
 (require 'dirtrack)
 (require 'personal-path)
 
-(setq eshell-scroll-to-bottom-on-input t)
-(setq eshell-scroll-show-maximum-output nil)
-(setq eshell-directory-name (concat user-emacs-directory "eshell/"))
+(setq eshell-scroll-to-bottom-on-input t
+      eshell-cmpl-cycle-completions t
+      eshell-scroll-show-maximum-output nil
+      eshell-directory-name (concat user-emacs-directory "eshell/"))
 
 (setenv "TERM" "dumb")
 (setenv "EDITOR" "emacsclient")
