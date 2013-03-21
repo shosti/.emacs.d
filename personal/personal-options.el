@@ -13,6 +13,7 @@
 (setq auto-save-default nil)
 
 ;; file
+(setq recentf-max-saved-items 50)
 (setq delete-by-moving-to-trash t)
 (setq trash-directory (expand-file-name "~/.Trash"))
 
