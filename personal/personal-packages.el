@@ -38,6 +38,7 @@
     nrepl
     markdown-mode
     multiple-cursors
+    rinari
     undo-tree
     yaml-mode)
   "A list of packages that should be installed from stable repos")
