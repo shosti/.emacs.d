@@ -7,4 +7,8 @@
 (add-hook 'inf-ruby-mode-hook
           'set-up-inf-ruby-mode)
 
+(eval-after-load 'ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "C-c v") 'ruby-load-file)))
+
 (provide 'personal-ruby)
