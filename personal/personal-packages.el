@@ -39,6 +39,7 @@
     markdown-mode
     multiple-cursors
     rinari
+    rvm
     undo-tree
     yaml-mode)
   "A list of packages that should be installed from stable repos")
