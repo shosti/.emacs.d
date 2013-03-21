@@ -4,7 +4,7 @@
 
 (setq eshell-scroll-to-bottom-on-input t)
 (setq eshell-scroll-show-maximum-output nil)
-(setq eshell-directory-name (concat personal-dir "/eshell/"))
+(setq eshell-directory-name (concat user-emacs-directory "eshell/"))
 
 (setenv "TERM" "dumb")
 (setenv "EDITOR" "emacsclient")
