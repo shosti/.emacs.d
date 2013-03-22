@@ -6,6 +6,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         paredit-forward-delete
+        ruby-end-space
         ))
 
 (setq mc/cmds-to-run-once
