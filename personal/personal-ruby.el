@@ -13,10 +13,16 @@
 ;; workaround for bug in starter-kit-ruby
 (defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
 
+;; hooks
 (defun set-up-ruby-mode ()
   (ruby-end-mode 1))
 
 (add-hook 'ruby-mode-hook 'set-up-ruby-mode)
+
+(defun set-up-inf-ruby-mode ()
+  (setq comint-process-echoes t))
+
+(add-hook 'inf-ruby-mode-hook 'set-up-inf-ruby-mode)
 
 ;; rvm
 (rvm-use-default)
