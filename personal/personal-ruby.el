@@ -1,7 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
 (personal-require-package 'starter-kit-ruby)
-(personal-require-package 'ruby-end)
+(personal-require-package 'ruby-end 'melpa)
+(personal-require-package 'ruby-tools 'melpa)
 (personal-require-package 'rinari)
 (personal-require-package 'rvm)
 (personal-require-package 'mmm-mode 'melpa)
@@ -10,12 +11,15 @@
   '(progn
      (define-key ruby-mode-map (kbd "C-c v") 'ruby-load-file)))
 
+(add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
+
 ;; workaround for bug in starter-kit-ruby
 (defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
 
 ;; hooks
 (defun set-up-ruby-mode ()
-  (ruby-end-mode 1))
+  (ruby-end-mode 1)
+  (ruby-tools-mode 1))
 
 (add-hook 'ruby-mode-hook 'set-up-ruby-mode)
 
