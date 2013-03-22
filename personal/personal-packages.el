@@ -32,11 +32,13 @@
   (package-refresh-contents))
 
 (defun personal-require-package (package &optional repo)
-  (unless (package-installed-p package)
-    (when (equal repo 'melpa)
-      (add-to-list 'personal-melpa-packages package)
-      (package-refresh-contents))
-    (package-install package)))
+  (let ((is-melpa (equal repo 'melpa)))
+    (when is-melpa
+      (add-to-list 'personal-melpa-packages package))
+    (unless (package-installed-p package)
+      (when is-melpa
+        (package-refresh-contents))
+      (package-install package))))
 
 (personal-require-package 'starter-kit)
 
