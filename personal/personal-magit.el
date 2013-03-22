@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'magit)
 
 (eval-after-load 'magit

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'undo-tree)
 
 (global-undo-tree-mode 1)

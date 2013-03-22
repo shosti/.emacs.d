@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'pretty-mode 'melpa)
 
 (require 'pretty-mode)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (add-hook 'ido-setup-hook
  (lambda ()
    ;; Go straight home

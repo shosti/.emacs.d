@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'jedi 'melpa)
 
 (defun set-up-python-mode ()

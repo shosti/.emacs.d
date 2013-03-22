@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'yasnippet 'melpa)
 
 (require 'yasnippet)

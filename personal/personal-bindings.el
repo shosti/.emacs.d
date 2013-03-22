@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;;; Miscellaneous keybindings
 
 (personal-require-package 'starter-kit-bindings)

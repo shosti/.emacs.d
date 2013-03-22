@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'google-c-style 'melpa)
 (personal-require-package 'c-eldoc)
 

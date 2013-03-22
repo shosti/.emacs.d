@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'starter-kit-ruby)
 (personal-require-package 'rinari)
 (personal-require-package 'rvm)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'popup 'melpa)
 (personal-require-package 'auto-complete 'melpa)
 

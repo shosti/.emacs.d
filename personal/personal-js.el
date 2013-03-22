@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'starter-kit-js)
 (personal-require-package 'js-comint)
 

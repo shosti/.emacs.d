@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'git-gutter 'melpa)
 
 (require 'git-gutter)

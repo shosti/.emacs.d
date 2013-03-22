@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'starter-kit-lisp)
 (personal-require-package 'paredit)
 (personal-require-package 'clojure-mode)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'starter-kit-eshell)
 (personal-require-package 'dirtrack)
 

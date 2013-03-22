@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'edit-server 'melpa)
 
 (require 'edit-server)

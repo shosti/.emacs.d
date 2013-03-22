@@ -1,5 +1,8 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'clojure-mode)
 (personal-require-package 'nrepl)
+(personal-require-package 'ac-nrepl)
 
 (require 'clojure-mode)
 

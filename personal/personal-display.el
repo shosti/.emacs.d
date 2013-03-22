@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (defconst full-height 53)
 (defconst full-width 155)
 

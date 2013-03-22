@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'coffee-mode)
 
 (defun set-up-coffee-mode ()

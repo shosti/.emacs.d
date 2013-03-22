@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'expand-region 'melpa)
 
 (require 'expand-region)

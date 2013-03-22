@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (personal-require-package 'helm 'melpa)
 
 (when (equal system-type 'darwin)
