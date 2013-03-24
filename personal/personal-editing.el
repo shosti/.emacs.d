@@ -69,7 +69,8 @@
       (copy-region-as-kill (line-beginning-position) (line-end-position))
       (end-of-line)
       (newline)
-      (yank))))
+      (yank))
+    (next-line)))
 
 ;; Keybindings
 
@@ -83,7 +84,7 @@
 (global-set-key (kbd "C-S-p") 'personal-fast-previous-line)
 (global-set-key (kbd "C-S-f") 'personal-fast-forward-char)
 (global-set-key (kbd "C-S-b") 'personal-fast-backward-char)
-(global-set-key (kbd "C-S-d") 'personal-duplicate-line)
+(global-set-key (kbd "C-c d") 'personal-duplicate-line)
 
 
 (provide 'personal-editing)
