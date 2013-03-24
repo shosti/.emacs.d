@@ -62,6 +62,15 @@
   (interactive)
   (ignore-errors (backward-char 5)))
 
+(defun personal-duplicate-line (&optional n)
+  (interactive "p")
+  (cl-dotimes (_ n)
+    (save-excursion
+      (copy-region-as-kill (line-beginning-position) (line-end-position))
+      (end-of-line)
+      (newline)
+      (yank))))
+
 ;; Keybindings
 
 (global-set-key (kbd "<S-return>") 'personal-eol-and-ret)
@@ -74,5 +83,7 @@
 (global-set-key (kbd "C-S-p") 'personal-fast-previous-line)
 (global-set-key (kbd "C-S-f") 'personal-fast-forward-char)
 (global-set-key (kbd "C-S-b") 'personal-fast-backward-char)
+(global-set-key (kbd "C-S-d") 'personal-duplicate-line)
+
 
 (provide 'personal-editing)
