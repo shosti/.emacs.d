@@ -1,4 +1,5 @@
 ;;; -*- lexical-binding: t -*-
+(require 'personal-bindings)
 
 (defconst full-height 53)
 (defconst full-width 155)
@@ -68,4 +69,8 @@
 
 ;; Keybindings
 (global-set-key (kbd "C-c s") 'personal-rotate-windows)
+(define-key ctl-z-map (kbd "C-1") 'display-fill-screen)
+(define-key ctl-z-map (kbd "C-2") 'display-left-half)
+(define-key ctl-z-map (kbd "C-3") 'display-right-half)
+
 (provide 'personal-display)
