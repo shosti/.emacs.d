@@ -24,4 +24,7 @@
              (font-lock-add-keywords nil
                                      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'paren-face)))))
 
+;; Keybindings
+(define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
+
 (provide 'personal-lisp)

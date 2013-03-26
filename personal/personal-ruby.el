@@ -8,10 +8,6 @@
 (personal-require-package 'rvm)
 (personal-require-package 'mmm-mode 'melpa)
 
-(eval-after-load 'ruby-mode
-  '(progn
-     (define-key ruby-mode-map (kbd "C-c v") 'ruby-load-file)))
-
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 
 ;; workaround for bug in starter-kit-ruby
@@ -28,6 +24,10 @@
 (defun set-up-inf-ruby-mode ()
   (ruby-tools-mode 1)
   (setq comint-process-echoes t))
+
+(defun personal-ruby-send-buffer ()
+  (interactive)
+  (ruby-send-region (buffer-end 0) (buffer-end 1)))
 
 (add-hook 'inf-ruby-mode-hook 'set-up-inf-ruby-mode)
 
@@ -48,5 +48,11 @@
 
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . html-erb-mode))
 (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
+
+;; Keybindings
+(eval-after-load 'ruby-mode
+  '(progn
+     (define-key ruby-mode-map (kbd "C-c C-c") 'personal-ruby-send-buffer)))
+
 
 (provide 'personal-ruby)
