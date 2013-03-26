@@ -49,7 +49,7 @@
     (if (not (and filename (file-exists-p filename)))
         (ido-kill-buffer)
       (when (yes-or-no-p "Are you sure you want to remove this file? ")
-        (delete-file filename)
+        (delete-file filename t)
         (kill-buffer buffer)
         (message "File '%s' successfully removed" filename)))))
 
