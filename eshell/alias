@@ -1,3 +1,4 @@
+alias buni bundle install
 alias bune bundle exec $*
 alias cdapi cd ~/src/emanuelevans-api/
 alias gapp appcfg.py --oauth2 $*
@@ -37,3 +38,4 @@ alias gc git clone $*
 alias cdw cd ~/src/emanuelevansdotcom
 alias cdse cd ~/src/ext
 alias gph git push heroku master
+alias rg rails generate $*
