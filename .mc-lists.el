@@ -6,6 +6,7 @@
 (setq mc/cmds-to-run-for-all
       '(
         paredit-forward-delete
+        personal-paredit-backward-kill-word
         ruby-end-space
         ))
 
