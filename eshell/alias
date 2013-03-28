@@ -1,3 +1,4 @@
+alias cddo cd ~/Downloads/
 alias buni bundle install
 alias bune bundle exec $*
 alias cdapi cd ~/src/emanuelevans-api/
@@ -39,3 +40,4 @@ alias cdw cd ~/src/emanuelevansdotcom
 alias cdse cd ~/src/ext
 alias gph git push heroku master
 alias rg rails generate $*
+alias carton sh ~/.carton/bin/carton $*
