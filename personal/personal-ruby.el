@@ -1,5 +1,4 @@
 ;;; -*- lexical-binding: t -*-
-
 (personal-require-package 'starter-kit-ruby)
 (personal-require-package 'ruby-end 'melpa)
 (personal-require-package 'ruby-tools 'melpa)
@@ -53,6 +52,5 @@
 (eval-after-load 'ruby-mode
   '(progn
      (define-key ruby-mode-map (kbd "C-c C-c") 'personal-ruby-send-buffer)))
-
 
 (provide 'personal-ruby)
