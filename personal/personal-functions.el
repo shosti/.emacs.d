@@ -1,5 +1,11 @@
 ;;; -*- lexical-binding: t -*-
 
+(personal-require-package 's)
+(personal-require-package 'dash)
+
+(require 's)
+(require 'dash)
+
 (defun personal-list-elisp-files (dir)
   (cl-remove-if-not (lambda (fname)
                    (string-match "\.el$" fname))

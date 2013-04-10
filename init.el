@@ -10,9 +10,11 @@
 (setq custom-file (concat user-emacs-directory "custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
 
-;; basic functions and packages come first...
-(require 'personal-functions)
+(message "Loading personal libraries...")
+
+;; basic packages and functions come first...
 (require 'personal-packages)
+(require 'personal-functions)
 
 ;; and then everything else
 (mapc (lambda (p) (require (intern p)))
