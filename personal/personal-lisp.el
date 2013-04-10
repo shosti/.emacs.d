@@ -18,11 +18,18 @@
         clojure-mode-hook
         scheme-mode-hook))
 
-;; Add parenface to Clojure
+;; Add parenface to Clojure and lisp interaction mode
 (add-hook 'clojure-mode-hook
           '(lambda ()
-             (font-lock-add-keywords nil
-                                     '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'paren-face)))))
+             (font-lock-add-keywords
+              nil
+              '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'paren-face)))))
+
+(add-hook 'lisp-interaction-mode-hook
+          '(lambda ()
+             (font-lock-add-keywords
+              nil
+              '(("(\\|)" . 'paren-face)))))
 
 ;; Keybindings
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
