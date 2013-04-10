@@ -5,6 +5,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        orgtbl-self-insert-command
         paredit-forward-delete
         personal-paredit-backward-kill-word
         ruby-end-space
