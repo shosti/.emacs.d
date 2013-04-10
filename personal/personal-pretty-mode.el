@@ -6,7 +6,7 @@
 
 (setq pretty-patterns
   (let* ((lispy '(scheme emacs-lisp lisp clojure))
-         (mley '(tuareg haskell sml))
+         (mley '(tuareg haskell sml scala))
          (c-like '(c c++ perl sh python java ess ruby))
          (all (append lispy mley c-like (list 'octave))))
     (pretty-compile-patterns
@@ -20,7 +20,7 @@
        (?← ("<-" ,@mley ess))
        (?→ ("->" ,@mley ess c c++ perl clojure coffee))
        (?↑ ("\\^" tuareg))
-       (?⇒ ("=>" sml perl ruby haskell clojure coffee))
+       (?⇒ ("=>" sml perl ruby haskell clojure coffee scala))
 ;;;    (?… ("\\.\\.\\." scheme))
 ;;;    (?∀ ("List.for_all" tuareg))
 ;;;    (?∃ ("List.exists" tuareg))
