@@ -8,6 +8,7 @@
 (personal-require-package 'mmm-mode 'melpa)
 
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
 
 ;; workaround for bug in starter-kit-ruby
 (defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
