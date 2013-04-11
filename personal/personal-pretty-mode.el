@@ -8,7 +8,7 @@
   (let* ((lispy '(scheme emacs-lisp lisp clojure))
          (mley '(tuareg haskell sml scala))
          (c-like '(c c++ perl sh python java ess ruby))
-         (all (append lispy mley c-like (list 'octave))))
+         (all (append lispy mley c-like (list 'octave 'haml))))
     (pretty-compile-patterns
      `(
        (?≠ ("!=" ,@c-like scheme octave)
@@ -17,10 +17,10 @@
            ("/=" haskell emacs-lisp))
        (?≤ ("<=" ,@all))
        (?≥ (">=" ,@all))
-       (?← ("<-" ,@mley ess))
-       (?→ ("->" ,@mley ess c c++ perl clojure coffee))
+       (?← ("<-" ,@all))
+       (?→ ("->" ,@all))
        (?↑ ("\\^" tuareg))
-       (?⇒ ("=>" sml perl ruby haskell clojure coffee scala))
+       (?⇒ ("=>" ,@all))
 ;;;    (?… ("\\.\\.\\." scheme))
 ;;;    (?∀ ("List.for_all" tuareg))
 ;;;    (?∃ ("List.exists" tuareg))
