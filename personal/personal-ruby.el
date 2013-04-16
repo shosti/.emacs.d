@@ -6,6 +6,7 @@
 (personal-require-package 'rinari 'melpa)
 (personal-require-package 'rvm)
 (personal-require-package 'mmm-mode 'melpa)
+(personal-require-package 'haml-mode 'melpa)
 
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
@@ -57,6 +58,12 @@
 ;; Keybindings
 (eval-after-load 'ruby-mode
   '(progn
-     (define-key ruby-mode-map (kbd "C-c C-c") 'personal-ruby-send-buffer)))
+     (define-key ruby-mode-map
+       (kbd "C-c C-c")
+       'personal-ruby-send-buffer)))
+
+(eval-after-load 'haml-mode
+  '(progn
+     (define-key haml-mode-map (kbd "RET") 'newline-and-indent)))
 
 (provide 'personal-ruby)
