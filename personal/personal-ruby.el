@@ -29,6 +29,11 @@
   (interactive)
   (ruby-send-region (buffer-end 0) (buffer-end 1)))
 
+(defun personal-rinari-guard ()
+  (interactive)
+  (let ((default-directory (rinari-root)))
+    (make-comint "guard" "bundle" nil "exec" "guard")))
+
 (add-hook 'inf-ruby-mode-hook 'set-up-inf-ruby-mode)
 
 ;; rvm
