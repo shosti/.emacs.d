@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: header
+# binding: C-M-;
+# --
+;;;${1:$(make-string (string-width text) ?\;)};;;
+;; ${1:`yas-selected-text`} ;;
+;;;${1:$(make-string (string-width text) ?\;)};;;
+$0
