@@ -11,18 +11,27 @@
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
 
-;; workaround for bug in starter-kit-ruby
-(defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
 
-;; hooks
-(defun set-up-ruby-mode ()
+(defun p-rinari-guard ()
+  (interactive)
+  (let ((default-directory (rinari-root)))
+    (make-comint "guard" "bundle" nil "exec" "guard")))
+
+;;;;;;;;;;;
+;; Hooks ;;
+;;;;;;;;;;;
+
+(defun p-set-up-ruby-mode ()
   (ruby-end-mode 1)
   (ruby-tools-mode 1)
   (electric-pair-mode 1))
 
-(add-hook 'ruby-mode-hook 'set-up-ruby-mode)
+(add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
-(defun set-up-inf-ruby-mode ()
+(defun p-set-up-inf-ruby-mode ()
   (ruby-tools-mode 1)
   (setq comint-process-echoes t))
 
@@ -30,19 +39,20 @@
   (interactive)
   (ruby-send-region (buffer-end 0) (buffer-end 1)))
 
-(defun p-rinari-guard ()
-  (interactive)
-  (let ((default-directory (rinari-root)))
-    (make-comint "guard" "bundle" nil "exec" "guard")))
+(add-hook 'inf-ruby-mode-hook 'p-set-up-inf-ruby-mode)
 
-(add-hook 'inf-ruby-mode-hook 'set-up-inf-ruby-mode)
+;;;;;;;;;
+;; RVM ;;
+;;;;;;;;;
 
-;; rvm
 (setq ruby-compilation-executable (expand-file-name "~/.rvm/bin/ruby"))
 (setq ruby-compilation-executable-rake (expand-file-name "~/.rvm/bin/rake"))
 (rvm-use-default)
 
-;; erb
+;;;;;;;;;
+;; ERB ;;
+;;;;;;;;;
+
 (require 'mmm-auto)
 
 (setq mmm-global-mode 'auto)
@@ -55,7 +65,10 @@
 (add-to-list 'auto-mode-alist '("\\.html\\.erb\\'" . html-erb-mode))
 (add-to-list 'auto-mode-alist '("\\.jst\\.ejs\\'"  . html-erb-mode))
 
-;; Keybindings
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
 (eval-after-load 'ruby-mode
   '(progn
      (define-key ruby-mode-map
@@ -66,4 +79,13 @@
   '(progn
      (define-key haml-mode-map (kbd "RET") 'newline-and-indent)))
 
+;;;;;;;;;;;;;;;;;
+;; Workarounds ;;
+;;;;;;;;;;;;;;;;;
+
+;; Bug in starter-kit-ruby
+(defalias 'inf-ruby-keys 'inf-ruby-setup-keybindings)
+
 (provide 'p-ruby)
+
+;;; p-ruby.el ends here
