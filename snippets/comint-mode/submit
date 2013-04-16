@@ -2,4 +2,4 @@
 # name: submit
 # key: sub
 # --
-submit emanuel.evans@gmail.com `(personal-password 'coursera-scala-pass)`
+submit emanuel.evans@gmail.com `(p-password 'coursera-scala-pass)`
