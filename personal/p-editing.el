@@ -1,13 +1,19 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Settings and keybindings for general editing
 
-;; Settings
+;;;;;;;;;;;;;;
+;; Settings ;;
+;;;;;;;;;;;;;;
+
 
 (global-subword-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (delete-selection-mode 1)
 
-;; Functions
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
+
 
 (defun p-backward-kill-word (arg)
   "If the region is active, kills region.  Otherwise, backwards kills word."
@@ -72,7 +78,10 @@
       (yank))
     (next-line)))
 
-;; Keybindings
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
 
 (global-set-key (kbd "<S-return>") 'p-eol-and-ret)
 (global-set-key (kbd "<C-return>") 'p-move-line-down)
@@ -86,5 +95,6 @@
 (global-set-key (kbd "C-S-b") 'p-fast-backward-char)
 (global-set-key (kbd "C-c d") 'p-duplicate-line)
 
-
 (provide 'p-editing)
+
+;;; p-editing.el ends here

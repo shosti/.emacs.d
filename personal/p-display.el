@@ -67,7 +67,10 @@
              (set-window-start w2 s1)
              (setq i (1+ i)))))))
 
-;; Keybindings
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
 (global-set-key (kbd "C-c s") 'p-rotate-windows)
 (define-key ctl-z-map (kbd "C-1") 'display-fill-screen)
 (define-key ctl-z-map (kbd "C-2") 'display-left-half)
