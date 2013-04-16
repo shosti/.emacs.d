@@ -2,4 +2,6 @@
 # name: provide
 # key: pro
 # --
-(provide '`(personal-package-name)`)$0
+(provide '`(p-package-name)`)$0
+
+;;; `(p-package-name)`.el ends here
