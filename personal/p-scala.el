@@ -8,6 +8,7 @@
       (add-to-list 'load-path ensime-lib)
       (require 'ensime)
       (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+      (setq ensime-ac-override-settings nil)
 
       ;; Hack to fix ensime comint prompt
       (defadvice ensime-sbt (after set-process-echoes activate)
@@ -20,3 +21,5 @@
      (define-key scala-mode-map (kbd "C-c C-c") 'ensime-inf-eval-buffer)))
 
 (provide 'p-scala)
+
+;;; p-scala.el ends here
