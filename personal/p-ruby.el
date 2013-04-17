@@ -8,6 +8,7 @@
 (p-require-package 'mmm-mode 'melpa)
 (p-require-package 'haml-mode 'melpa)
 (p-require-package 'yaml-mode 'melpa)
+(p-require-package 'zossima 'melpa)
 
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
@@ -26,9 +27,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (defun p-set-up-ruby-mode ()
+  (rinari-launch)
   (ruby-end-mode 1)
   (ruby-tools-mode 1)
-  (electric-pair-mode 1))
+  (electric-pair-mode 1)
+  (zossima-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
