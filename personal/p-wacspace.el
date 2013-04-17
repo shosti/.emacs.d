@@ -34,13 +34,17 @@
    (:aux2 (:buffer "*ensime-sbt*"))))
 
 (defwacspace (ruby-mode rinari-minor-mode)
-  (:before p-rinari-guard)
+  (:before (lambda ()
+             (p-rinari-guard)
+             (rinari-console)))
   (:default
    (:winconf 3winv)
    (:frame full)
    (:aux1 (:cmd wacs-eshell))
    (:aux2 (:buffer "*guard*")))
   (:1
+   (:aux1 (:buffer "*rails console*")))
+  (:2
    (:winconf 2winh)
    (:frame right)))
 
@@ -60,3 +64,5 @@
 (define-key ctl-z-map (kbd "C-s") 'wacspace-save)
 
 (provide 'p-wacspace)
+
+;;; p-wacspace.el ends here

@@ -12,3 +12,5 @@
 (ac-flyspell-workaround)
 
 (provide 'p-auto-complete)
+
+;;; p-auto-complete.el ends here
