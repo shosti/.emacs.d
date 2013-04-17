@@ -46,7 +46,8 @@
    (:aux1 (:buffer "*rails console*")))
   (:2
    (:winconf 2winh)
-   (:frame right)))
+   (:frame right)
+   (:aux1 (:buffer "*guard*"))))
 
 (defwacspace (emacs-lisp-mode)
   (:default
