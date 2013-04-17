@@ -7,6 +7,7 @@
 (p-require-package 'rvm)
 (p-require-package 'mmm-mode 'melpa)
 (p-require-package 'haml-mode 'melpa)
+(p-require-package 'yaml-mode 'melpa)
 
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
