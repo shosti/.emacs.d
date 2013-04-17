@@ -3,6 +3,7 @@
 (p-require-package 'clojure-mode)
 (p-require-package 'nrepl)
 (p-require-package 'ac-nrepl)
+(p-require-package 'lein 'melpa)
 
 (require 'clojure-mode)
 
@@ -41,3 +42,5 @@
           'set-up-clojure-mode)
 
 (provide 'p-clojure)
+
+;;; p-clojure.el ends here
