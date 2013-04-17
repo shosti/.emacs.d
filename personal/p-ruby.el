@@ -20,9 +20,9 @@
   (let ((default-directory (rinari-root)))
     (make-comint "guard" "bundle" nil "exec" "guard")))
 
-;;;;;;;;;;;
-;; Hooks ;;
-;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;
+;; Hooks and Config ;;
+;;;;;;;;;;;;;;;;;;;;;;
 
 (defun p-set-up-ruby-mode ()
   (ruby-end-mode 1)
@@ -40,6 +40,8 @@
   (ruby-send-region (buffer-end 0) (buffer-end 1)))
 
 (add-hook 'inf-ruby-mode-hook 'p-set-up-inf-ruby-mode)
+
+(global-rinari-mode 1)
 
 ;;;;;;;;;
 ;; RVM ;;
