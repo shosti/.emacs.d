@@ -3,17 +3,25 @@
 
 (require 'p-path)
 
-;; Settings
+;;;;;;;;;;;;;;
+;; Settings ;;
+;;;;;;;;;;;;;;
 
 (setq disabled-command-function nil)
 (setq dired-use-ls-dired nil)
 
-;; backup
+;;;;;;;;;;;;
+;; Backup ;;
+;;;;;;;;;;;;
+
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 
-;; file
-(setq recentf-max-saved-items 50)
+;;;;;;;;;;
+;; File ;;
+;;;;;;;;;;
+
+(setq recentf-max-saved-items 200)
 (setq delete-by-moving-to-trash t)
 (setq trash-directory (expand-file-name "~/.Trash"))
 
@@ -22,7 +30,9 @@
 
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
 
-;; Functions
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
 
 (defvar p-passwords-loaded nil)
 
@@ -76,9 +86,13 @@
 
 (add-hook 'kill-emacs-hook 'p-kill-emacs-hook)
 
-;; Keybindings
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
 
 (global-set-key (kbd "C-x C-r") 'p-rename-current-buffer-file)
 (global-set-key (kbd "C-x C-k") 'p-delete-current-buffer-file)
 
 (provide 'p-options)
+
+;;; p-options.el ends here
