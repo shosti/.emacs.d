@@ -10,6 +10,11 @@
       (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
       (setq ensime-ac-override-settings nil)
 
+      (defun p-set-up-ensime ()
+        (add-to-list 'ac-sources 'ac-source-ensime-completions))
+
+      (add-hook 'scala-mode-hook 'p-set-up-ensime)
+
       ;; Hack to fix ensime comint prompt
       (defadvice ensime-sbt (after set-process-echoes activate)
         (setq comint-process-echoes t)))))
