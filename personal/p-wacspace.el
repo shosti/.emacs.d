@@ -7,14 +7,39 @@
 (require 'ensime)
 (require 'findr)
 
-(wacs-set-frame-fn full display-fill-screen)
-(wacs-set-frame-fn right display-right-half)
-(wacs-set-frame-fn left display-left-half)
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
+
+(wacs-set-frame-fn full p-display-fill-screen)
+(wacs-set-frame-fn right p-display-right-half)
+(wacs-set-frame-fn left p-display-left-half)
+
+;;;;;;;;;;;;;;;;;;;;;;
+;; Helper Functions ;;
+;;;;;;;;;;;;;;;;;;;;;;
+
+(defun p-find-first-matching-file (name dir)
+  (-> name
+    (findr dir)
+    (car)
+    (find-file)))
 
 (defun p-scala-test-file ()
-  (find-file (car (findr "Suite.scala$"
-                         (concat (wacs-project-dir)
-                                 "src/test/scala")))))
+  (p-find-first-matching-file "Suite.scala$"
+                              (concat (wacs-project-dir)
+                                      "src/test/scala")))
+
+(defun p-elisp-feature-file? ()
+  (file-exists-p
+   (concat (p-trim-until-regexp default-directory
+                                "features")
+           "Carton")))
+
+;;;;;;;;;;;;;;;
+;; Wacspaces ;;
+;;;;;;;;;;;;;;;
 
 (defwacspace (scala-mode)
   (:before (lambda ()
@@ -47,17 +72,36 @@
   (:2
    (:winconf 2winh)
    (:frame right)
+   (:aux1 (:cmd wacs-eshell)))
+  (:3
+   (:winconf 2winh)
+   (:frame right)
    (:aux1 (:buffer "*guard*"))))
 
 (defwacspace (emacs-lisp-mode)
   (:default
    (:winconf 3winv)
    (:frame full)
-   (:aux1 (:cmd eshell))
+   (:aux1 (:cmd wacs-eshell))
    (:aux2 (:buffer "*scratch*")))
   (:1
    (:winconf 2winh)
    (:frame right)))
+
+(defwacspace (feature-mode
+              (lambda ()
+                (p-elisp-feature-file?)))
+  (:default
+   (:winconf 2winv)
+   (:frame full)
+   (:aux1 (:cmd (lambda ()
+                  (p-find-first-matching-file "steps.el$"
+                                              default-directory))))))
+
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
 
 (define-key ctl-z-map (kbd "w") 'wacspace)
 (define-key ctl-z-map (kbd "C-w") 'wacspace)
