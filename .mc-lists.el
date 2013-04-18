@@ -15,4 +15,5 @@
       '(
         isearch-abort
         isearch-forward-regexp
+        yas-abort-snippet
         ))
