@@ -18,7 +18,7 @@
 (when (boundp 'mouse-wheel-scroll-amount)
   (setq mouse-wheel-scroll-amount '(0.01)))
 
-(defun display-fill-screen ()
+(defun p-display-fill-screen ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
                            '((top . 22)
@@ -26,7 +26,7 @@
                              (height . 53)
                              (width . 155))))
 
-(defun display-left-half ()
+(defun p-display-left-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
                            '((top . 22)
@@ -34,7 +34,7 @@
                              (height . 53)
                              (width . 82))))
 
-(defun display-right-half ()
+(defun p-display-right-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
                            '((top . 22)
@@ -72,8 +72,8 @@
 ;;;;;;;;;;;;;;;;;
 
 (global-set-key (kbd "C-c s") 'p-rotate-windows)
-(define-key ctl-z-map (kbd "C-1") 'display-fill-screen)
-(define-key ctl-z-map (kbd "C-2") 'display-left-half)
-(define-key ctl-z-map (kbd "C-3") 'display-right-half)
+(define-key ctl-z-map (kbd "C-1") 'p-display-fill-screen)
+(define-key ctl-z-map (kbd "C-2") 'p-display-left-half)
+(define-key ctl-z-map (kbd "C-3") 'p-display-right-half)
 
 (provide 'p-display)
