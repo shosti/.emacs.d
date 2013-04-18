@@ -4,6 +4,8 @@
 (p-require-package 'paredit)
 (p-require-package 'clojure-mode)
 (p-require-package 'highlight-parentheses)
+(p-require-package 'macrostep)
+(p-require-package 'redshank 'melpa)
 
 (defun set-up-lisp-coding ()
   (show-paren-mode 0)
@@ -31,7 +33,12 @@
               nil
               '(("(\\|)" . 'paren-face)))))
 
-;; Keybindings
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 
 (provide 'p-lisp)
+
+;;; p-lisp.el ends here
