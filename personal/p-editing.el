@@ -78,11 +78,20 @@
       (yank))
     (next-line)))
 
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
 (global-set-key (kbd "<S-return>") 'p-eol-and-ret)
 (global-set-key (kbd "<C-return>") 'p-move-line-down)
 (global-set-key (kbd "C-w") 'p-backward-kill-word)
