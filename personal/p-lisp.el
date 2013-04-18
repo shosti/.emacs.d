@@ -7,13 +7,28 @@
 (p-require-package 'macrostep)
 (p-require-package 'redshank 'melpa)
 
-(defun set-up-lisp-coding ()
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
+(setq redshank-install-lisp-support nil)
+
+;;;;;;;;;;;
+;; Hooks ;;
+;;;;;;;;;;;
+
+(defun p-set-up-lisp-coding ()
   (show-paren-mode 0)
   (local-set-key (kbd "RET") 'paredit-newline)
   (highlight-parentheses-mode))
 
+(defun p-set-up-emacs-lisp-mode ()
+  (redshank-mode 1))
+
+(add-hook 'emacs-lisp-mode-hook 'p-set-up-emacs-lisp-mode)
+
 (mapc (lambda (hook)
-        (add-hook hook 'set-up-lisp-coding))
+        (add-hook hook 'p-set-up-lisp-coding))
       '(emacs-lisp-mode-hook
         lisp-interaction-mode-hook
         lisp-mode-hook
