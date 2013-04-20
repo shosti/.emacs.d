@@ -24,6 +24,17 @@
     (switch-to-buffer guard-buffer)
     (compilation-shell-minor-mode 1)))
 
+(defun eshell/visit-created ()
+  "Visits the last file created by a rails generator in another
+window."
+  (interactive)
+  (save-excursion
+    (let* ((line-beginning (search-backward "create "))
+           (line-end (line-end-position))
+           (fname (--> (buffer-substring line-beginning line-end)
+                    (s-split " " it t)
+                    (cadr it))))
+      (find-file-other-window (concat default-directory fname))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;
