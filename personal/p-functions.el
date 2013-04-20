@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 's)
-(p-require-package 'dash)
+(p-require-package 's 'melpa)
+(p-require-package 'dash 'melpa)
 
 (require 's)
 (require 'dash)
@@ -40,4 +40,11 @@
         (setq s (replace-match "" t nil s))))
     s))
 
+(defun p-current-file-sans-extension ()
+  (-> (buffer-file-name)
+    (file-name-nondirectory)
+    (file-name-sans-extension)))
+
 (provide 'p-functions)
+
+;;; p-functions.el ends here
