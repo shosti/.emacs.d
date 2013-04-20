@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: incs
-# key: I
-# --
-#include <$1${2:.h}>

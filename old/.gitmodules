@@ -1,3 +1,0 @@
-[submodule "vendor/pylookup"]
-	path = vendor/pylookup
-	url = https://github.com/tsgates/pylookup.git

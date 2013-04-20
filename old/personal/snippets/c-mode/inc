@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Inc
-# key: Inc
-# --
-#include <$0.h>
