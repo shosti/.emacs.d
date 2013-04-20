@@ -29,11 +29,14 @@
 (global-set-key (kbd "C-<f6>") 'package-list-packages)
 
 ;;;;;;;;;;;;;;
-;; anything ;;
+;; helm/ido ;;
 ;;;;;;;;;;;;;;
 
 (global-set-key (kbd "C-x C-b") 'helm-for-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(define-key helm-map (kbd "C-w") nil)
+(defun p-set-up-ido-keybindings ()
+  )
 
 ;;;;;;;;;;;;;
 ;; compile ;;
