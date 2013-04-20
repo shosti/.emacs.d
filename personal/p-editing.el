@@ -5,7 +5,6 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-
 (global-subword-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (delete-selection-mode 1)
@@ -13,7 +12,6 @@
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
-
 
 (defun p-backward-kill-word (arg)
   "If the region is active, kills region.  Otherwise, backwards kills word."
@@ -75,6 +73,7 @@
       (copy-region-as-kill (line-beginning-position) (line-end-position))
       (end-of-line)
       (newline)
+      (beginning-of-line)
       (yank))
     (next-line)))
 
