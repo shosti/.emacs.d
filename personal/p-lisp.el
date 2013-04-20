@@ -35,6 +35,12 @@
         clojure-mode-hook
         scheme-mode-hook))
 
+(defun p-paredit-in-minibuffer ()
+  (when (eq this-command 'eval-expression)
+    (paredit-mode 1)))
+
+(add-hook 'minibuffer-setup-hook 'p-paredit-in-minibuffer)
+
 ;; Add parenface to Clojure and lisp interaction mode
 (add-hook 'clojure-mode-hook
           '(lambda ()
