@@ -19,8 +19,11 @@
 
 (defun p-rinari-guard ()
   (interactive)
-  (let ((default-directory (rinari-root)))
-    (make-comint "guard" "bundle" nil "exec" "guard")))
+  (let* ((default-directory (rinari-root))
+         (guard-buffer (make-comint "guard" "bundle" nil "exec" "guard")))
+    (switch-to-buffer guard-buffer)
+    (compilation-shell-minor-mode 1)))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;
