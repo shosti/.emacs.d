@@ -34,9 +34,8 @@
 
 (global-set-key (kbd "C-x C-b") 'helm-for-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(define-key helm-map (kbd "C-w") nil)
-(defun p-set-up-ido-keybindings ()
-  )
+(eval-after-load 'helm
+  '(define-key helm-map (kbd "C-w") nil))
 
 ;;;;;;;;;;;;;
 ;; compile ;;
