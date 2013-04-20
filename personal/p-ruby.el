@@ -40,13 +40,19 @@ window."
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-(defun p-set-up-ruby-mode ()
-  (rinari-launch)
-  (ruby-end-mode 1)
-  (ruby-tools-mode 1)
-  (electric-pair-mode 1))
+  (defun p-set-up-ruby-mode ()
+    (ruby-end-mode 1)
+    (ruby-tools-mode 1)
+    (electric-pair-mode 1)))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
+
+(--each '(ruby-mode-hook
+          eshell-mode-hook
+          scss-mode-hook
+          html-erb-mode-hook
+          coffee-mode-hook)
+  (add-hook it 'rinari-launch))
 
 (defun p-set-up-inf-ruby-mode ()
   (ruby-tools-mode 1)
