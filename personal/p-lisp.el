@@ -53,6 +53,7 @@
 ;;;;;;;;;;;;;;;;;
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "C-c C-m") 'macrostep-expand)
 
 (provide 'p-lisp)
 
