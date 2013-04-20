@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'magit)
+(p-require-package 'magit 'melpa)
 
 (eval-after-load 'magit
   '(progn
