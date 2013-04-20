@@ -7,6 +7,10 @@
 (require 'dirtrack)
 (require 'p-path)
 
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
 (setq eshell-scroll-to-bottom-on-input t
       eshell-cmpl-cycle-completions t
       eshell-scroll-show-maximum-output nil
@@ -21,14 +25,21 @@
 (setenv "PYTHONPATH"
         "/usr/local/lib/python2.7/site-packages")
 
-(add-hook 'eshell-mode-hook
-          (lambda ()
-            (setq eshell-path-env (getenv "PATH"))
-            ;;hack--not sure why it doesn't actually work
-            (visual-line-mode 0)
-            (dirtrack-mode 1)))
-
 (setq eshell-visual-commands
       (append eshell-visual-commands '("mu" "sl")))
 
+;;;;;;;;;;;
+;; Hooks ;;
+;;;;;;;;;;;
+
+(defun p-set-up-eshell ()
+  (setq eshell-path-env (getenv "PATH"))
+  ;;hack--not sure why it doesn't actually work
+  (visual-line-mode 0)
+  (dirtrack-mode 1))
+
+(add-hook 'eshell-mode-hook 'p-set-up-eshell)
+
 (provide 'p-eshell)
+
+;;; p-eshell.el ends here
