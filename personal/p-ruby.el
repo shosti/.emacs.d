@@ -20,7 +20,12 @@
 (defun p-rinari-guard ()
   (interactive)
   (let* ((default-directory (rinari-root))
-         (guard-buffer (make-comint "guard" "bundle" nil "exec" "guard")))
+         (guard-buffer
+          (make-comint-in-buffer "guard"
+                                 (concat "*guard*<"
+                                         default-directory
+                                         ">")
+                                 "bundle" nil "exec" "guard")))
     (switch-to-buffer guard-buffer)
     (compilation-shell-minor-mode 1)))
 
@@ -37,7 +42,7 @@ window."
       (find-file-other-window (concat default-directory fname))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
-;; Hooks and Config ;;
+  ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
   (defun p-set-up-ruby-mode ()
