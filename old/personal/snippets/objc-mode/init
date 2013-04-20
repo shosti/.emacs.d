@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: init
+# key: init
+# --
+- (id)init$1 {
+    self = super init${2:$1};
+    if (!self)
+        return nil;
+
+    $0
+    
+    return self;
+}

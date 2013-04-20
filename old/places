@@ -1,0 +1,12 @@
+;;; -*- coding: utf-8 -*-
+(("/Users/eman/.emacs.d/elpa/elisp-slime-nav-20130127.1205/elisp-slime-nav-autoloads.el" . 1261)
+ ("/Users/eman/.emacs.d/elpa/inf-ruby-20121215.1127/inf-ruby-autoloads.el" . 1273)
+ ("/Users/eman/.emacs.d/elpa/melpa-20120202.1322/melpa-autoloads.el" . 2539)
+ ("/Users/eman/.emacs.d/init.el" . 567)
+ ("/Users/eman/.emacs.d/personal/personal-display.el" . 1303)
+ ("/Users/eman/.emacs.d/personal/personal-functions.el" . 278)
+ ("/Users/eman/.emacs.d/personal/personal-options.el" . 467)
+ ("/Users/eman/.emacs.d/personal/personal-packages.el" . 1465)
+ ("/usr/local/Cellar/emacs/24.3/share/emacs/24.3/lisp/custom.el.gz" . 42100)
+ ("/usr/local/Cellar/emacs/24.3/share/emacs/24.3/lisp/loaddefs.el" . 960430)
+ ("/usr/local/Cellar/emacs/24.3/share/emacs/24.3/lisp/novice.el.gz" . 6133))

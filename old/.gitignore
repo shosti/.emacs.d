@@ -4,8 +4,8 @@ auto-save-list
 recentf
 savehist
 saveplace
-eshell/history
-eshell/lastdir
+personal/eshell/history
+personal/eshell/lastdir
 personal/auto-snippets
 elpa
 el-get
@@ -19,7 +19,6 @@ swank
 /abbrev_defs
 /tramp
 /oauth2.plstore
+/personal/stale/dependencies
 /srecode-map.el
 /.smex-items
-/places
-/opt

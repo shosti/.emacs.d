@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: inc
+# key: i
+# --
+#include "$1${2:.h}"

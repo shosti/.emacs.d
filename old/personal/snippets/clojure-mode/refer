@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: refer
+# key: ref
+# --
+[$1 :refer [$2]]$0

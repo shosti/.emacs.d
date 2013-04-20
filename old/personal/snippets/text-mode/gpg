@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: gpg
+# key: gpg
+# --
+-*- epa-file-encrypt-to: ("emanuel.evans@gmail.com") -*-
