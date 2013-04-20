@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: class
+# key: class
+# --
+class `(s-upper-camel-case (p-current-file-sans-extension))` ${1:$(if (equal
+text "") "" "<")} $1
+$0
+end

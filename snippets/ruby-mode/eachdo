@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: eachdo
+# key: eachdo
+# --
+$1.each do |${1:$(singularize-string text)}|
+$0
+end
