@@ -4,7 +4,7 @@
 (p-require-package 'ruby-tools 'melpa)
 (p-require-package 'ruby-compilation 'melpa)
 (p-require-package 'rinari 'melpa)
-(p-require-package 'rvm)
+(p-require-package 'rbenv 'melpa)
 (p-require-package 'mmm-mode 'melpa)
 (p-require-package 'haml-mode 'melpa)
 (p-require-package 'yaml-mode 'melpa)
@@ -45,6 +45,11 @@ window."
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
+(setq rbenv-executable "/usr/local/bin/rbenv")
+(setq rbenv-show-active-ruby-in-modeline nil)
+(global-rbenv-mode)
+(rbenv-use-global)
+
 (defun p-set-up-ruby-mode ()
   (ruby-end-mode 1)
   (ruby-tools-mode 1)
@@ -70,14 +75,6 @@ window."
 (add-hook 'inf-ruby-mode-hook 'p-set-up-inf-ruby-mode)
 
 (global-rinari-mode 1)
-
-;;;;;;;;;
-;; RVM ;;
-;;;;;;;;;
-
-(setq ruby-compilation-executable (expand-file-name "~/.rvm/bin/ruby"))
-(setq ruby-compilation-executable-rake (expand-file-name "~/.rvm/bin/rake"))
-(rvm-use-default)
 
 ;;;;;;;;;
 ;; ERB ;;
