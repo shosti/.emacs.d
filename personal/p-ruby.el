@@ -39,16 +39,16 @@ window."
            (fname (--> (buffer-substring line-beginning line-end)
                     (s-split " " it t)
                     (cadr it))))
-      (find-file-other-window (concat default-directory fname))))
+      (find-file-other-window (concat default-directory fname)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
-  ;; Hooks and Config ;;
+;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-  (defun p-set-up-ruby-mode ()
-    (ruby-end-mode 1)
-    (ruby-tools-mode 1)
-    (electric-pair-mode 1)))
+(defun p-set-up-ruby-mode ()
+  (ruby-end-mode 1)
+  (ruby-tools-mode 1)
+  (electric-pair-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
