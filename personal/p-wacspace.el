@@ -78,6 +78,17 @@
    (:frame right)
    (:aux1 (:buffer "*guard*"))))
 
+(defwacspace (ruby-mode)
+  (:before (lambda ()
+             (run-ruby)))
+  (:default
+   (:winconf 2winv)
+   (:frame full)
+   (:aux1 (:buffer "*ruby*")))
+  (:1
+   (:winconf 2winh)
+   (:frame right)))
+
 (defwacspace (emacs-lisp-mode)
   (:default
    (:winconf 3winv)
