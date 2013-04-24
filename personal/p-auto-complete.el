@@ -9,6 +9,7 @@
 
 (setq ac-use-fuzzy t)
 (setq ac-use-menu-map t)
+(setq ac-ignore-case nil)
 (ac-flyspell-workaround)
 
 (provide 'p-auto-complete)
