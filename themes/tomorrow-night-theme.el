@@ -109,7 +109,7 @@
 
    ;; parenface
    `(esk-paren-face
-     ((t (:foreground ,selection))))
+     ((t (:foreground "#464B51"))))
 
    ;; magit
    `(magit-item-highlight ((t (:background ,current-line))))
