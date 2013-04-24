@@ -12,6 +12,8 @@
 ;;;;;;;;;;;;
 
 (setq redshank-install-lisp-support nil)
+(font-lock-add-keywords 'lisp-interaction-mode
+                        '(("(\\|)" . 'esk-paren-face)))
 
 ;;;;;;;;;;;
 ;; Hooks ;;
@@ -35,24 +37,11 @@
         clojure-mode-hook
         scheme-mode-hook))
 
-(defun p-paredit-in-minibuffer ()
+(defun p-set-up-eval-minibuffer ()
   (when (eq this-command 'eval-expression)
     (paredit-mode 1)))
 
-(add-hook 'minibuffer-setup-hook 'p-paredit-in-minibuffer)
-
-;; Add parenface to Clojure and lisp interaction mode
-(add-hook 'clojure-mode-hook
-          '(lambda ()
-             (font-lock-add-keywords
-              nil
-              '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'paren-face)))))
-
-(add-hook 'lisp-interaction-mode-hook
-          '(lambda ()
-             (font-lock-add-keywords
-              nil
-              '(("(\\|)" . 'paren-face)))))
+(add-hook 'minibuffer-setup-hook 'p-set-up-eval-minibuffer)
 
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
@@ -60,6 +49,7 @@
 
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c C-m") 'macrostep-expand)
+(define-key lisp-interaction-mode-map (kbd "C-c C-m") 'macrostep-expand)
 
 (provide 'p-lisp)
 
