@@ -15,6 +15,14 @@
 (font-lock-add-keywords 'lisp-interaction-mode
                         '(("(\\|)" . 'esk-paren-face)))
 
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
+
+(defun p-find-personal-file ()
+  (interactive)
+  (ido-find-file-in-dir (concat user-emacs-directory "personal/")))
+
 ;;;;;;;;;;;
 ;; Hooks ;;
 ;;;;;;;;;;;
@@ -47,6 +55,7 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
+(global-set-key (kbd "C-c p") 'p-find-personal-file)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c C-m") 'macrostep-expand)
 (define-key lisp-interaction-mode-map (kbd "C-c C-m") 'macrostep-expand)
