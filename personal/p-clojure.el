@@ -3,18 +3,45 @@
 (p-require-package 'clojure-mode)
 (p-require-package 'nrepl)
 (p-require-package 'ac-nrepl)
-(p-require-package 'lein 'melpa)
 
-(require 'clojure-mode)
+(require 'p-functions)
 
-(defun open-clojure-docs ()
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
+(eval-after-load 'auto-complete
+  '(progn
+     (add-to-list 'ac-modes 'nrepl-mode)))
+
+(eval-after-load 'nrepl
+  '(progn
+     (setq nrepl-hide-special-buffers t)
+     (font-lock-add-keywords
+      'nrepl-mode
+      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)))))
+
+(eval-after-load 'clojure-mode
+  '(progn
+     (font-lock-add-keywords
+      'clojure-mode
+      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)
+        ("\\brun[-*a-z]*" . 'font-lock-keyword-face)))
+     ;; Custom indentation of functions
+     (define-clojure-indent
+       (run* 'defun)
+       (run 'defun)
+       (fresh 1))))
+
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
+
+(defun p-open-clojure-docs ()
   (interactive)
   (browse-url "http://clojure.github.com"))
 
-(define-key clojure-mode-map "\C-c\C-dr" 'open-clojure-docs)
-
-(require 'p-functions)
-(defun drawbridge-connect (url user passwd)
+(defun p-drawbridge-connect (url user passwd)
   (interactive (list
                 (read-from-minibuffer
                  "URL: "
@@ -35,11 +62,39 @@
     (message "Connecting to drawbridge...")
     (run-lisp connection-string)))
 
-(defun set-up-clojure-mode ()
-  (setq resize-mini-windows nil))
+;;;;;;;;;;;
+;; Hooks ;;
+;;;;;;;;;;;
 
-(add-hook 'clojure-mode-hook
-          'set-up-clojure-mode)
+(defun p-set-up-nrepl ()
+  (ac-nrepl-setup)
+  (nrepl-turn-on-eldoc-mode))
+
+(defun p-set-up-nrepl-repl ()
+  (paredit-mode 1))
+
+(add-hook 'nrepl-interaction-mode-hook 'p-set-up-nrepl)
+(add-hook 'nrepl-mode-hook 'p-set-up-nrepl)
+(add-hook 'nrepl-mode-hook 'p-set-up-nrepl-repl)
+
+;;;;;;;;;;;;;;;;;
+;; Keybindings ;;
+;;;;;;;;;;;;;;;;;
+
+(eval-after-load 'nrepl
+  '(progn
+     (define-key nrepl-interaction-mode-map
+       (kbd "C-c C-c")
+       'nrepl-eval-buffer)))
+
+;;;;;;;;;;;;;;;;;
+;; Workarounds ;;
+;;;;;;;;;;;;;;;;;
+
+;; I hate auto-scrolling
+(eval-after-load 'nrepl
+  '(progn
+     (defun nrepl-show-maximum-output ())))
 
 (provide 'p-clojure)
 
