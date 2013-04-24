@@ -43,7 +43,7 @@
 
 (defwacspace (scala-mode)
   (:before (lambda ()
-             (ensime-sbt-switch)
+             (ensime-sbt)
              (ensime-inf-switch)))
   (:base-file ".ensime")
   (:default
