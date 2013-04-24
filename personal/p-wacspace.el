@@ -109,10 +109,18 @@
                   (p-find-first-matching-file "steps.el$"
                                               default-directory))))))
 
+(defwacspace (clojure-mode nrepl-interaction-mode)
+  (:default
+   (:winconf 2winv)
+   (:frame full)
+   (:aux1 (:buffer "*nrepl*")))
+  (:2
+   (:winconf 2winh)
+   (:frame right)))
+
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
-
 
 (define-key ctl-z-map (kbd "w") 'wacspace)
 (define-key ctl-z-map (kbd "C-w") 'wacspace)
