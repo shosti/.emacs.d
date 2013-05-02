@@ -3,6 +3,8 @@
 
 (p-require-package 'starter-kit-bindings)
 
+(require 'p-wacspace)
+
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; window management ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
@@ -47,8 +49,6 @@
 ;; ctl-z binding map ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-prefix-command 'ctl-z-map)
-(global-set-key (kbd "C-z") ctl-z-map)
-(define-key ctl-z-map (kbd "C-z") 'eshell)
+(define-key wacs-prefix-map (kbd "C-z") 'eshell)
 
 (provide 'p-bindings)

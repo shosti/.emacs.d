@@ -62,5 +62,6 @@
 (define-key paredit-mode-map (kbd "M-)") 'paredit-wrap-round-from-behind)
 (define-key paredit-mode-map (kbd "C-w") 'p-paredit-backward-kill-word)
 (define-key paredit-mode-map (kbd "C-c d") 'paredit-duplicate-closest-sexp)
+(define-key paredit-mode-map (kbd "<C-M-backspace>") 'backward-kill-sexp)
 
 (provide 'p-paredit)
