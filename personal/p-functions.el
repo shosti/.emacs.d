@@ -11,7 +11,7 @@
                    (string-match "\.el$" fname))
                  (directory-files dir)))
 
-(defun p-trim-until-regexp (s re)
+(defun p-keep-until-regexp (s re)
   (substring s 0 (string-match re s)))
 
 (defun p-any (pred xs)

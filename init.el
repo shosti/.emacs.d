@@ -17,12 +17,15 @@
 (require 'p-functions)
 
 ;; and then everything else
-(mapc (lambda (p) (require (intern p)))
+(mapc (lambda (p)
+        (message "Loading %s..." p)
+        (require (intern p)))
       (mapcar (lambda (fname)
-                (p-trim-until-regexp fname "\.el$"))
+                (p-keep-until-regexp fname "\.el$"))
               (p-list-elisp-files p-dir)))
 
 (load-theme 'tomorrow-night t)
 
 (server-start)
 (eshell)
+(message "Emacs ready!")

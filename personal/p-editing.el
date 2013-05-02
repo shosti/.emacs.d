@@ -45,7 +45,7 @@
   (join-line -1))
 
 (defun p-package-name ()
-  (p-trim-until-regexp
+  (p-keep-until-regexp
    (car (last (split-string (buffer-file-name) "/")))
    "\.el$"))
 
