@@ -10,6 +10,12 @@
 (p-require-package 'yaml-mode 'melpa)
 (p-require-package 'zossima 'melpa)
 
+(require 'p-wacspace)
+
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
 
@@ -19,32 +25,49 @@
 
 (defun p-rinari-guard ()
   (interactive)
-  (let* ((default-directory (rinari-root))
-         (guard-buffer
-          (make-comint-in-buffer "guard"
-                                 (concat "*guard*<"
-                                         default-directory
-                                         ">")
-                                 "bundle" nil "exec" "guard")))
+  (let ((guard-buffer
+         (wacs-make-comint "guard" "bundle" nil "exec" "guard")))
     (switch-to-buffer guard-buffer)
     (compilation-shell-minor-mode 1)))
 
-(defun eshell/visit-created ()
+(defun p-visit-pow-log ()
+  (interactive)
+  (find-file (expand-file-name (concat "~/Library/Logs/Pow/apps/"
+                                       (wacs-project-name)
+                                       ".log")))
+  (auto-revert-tail-mode)
+  (read-only-mode))
+
+(defun eshell/visit-rails-created ()
   "Visits the last file created by a rails generator in another
 window."
   (interactive)
-  (save-excursion
-    (let* ((line-beginning (search-backward "create "))
-           (line-end (line-end-position))
-           (fname (--> (buffer-substring line-beginning line-end)
-                    (s-split " " it t)
-                    (cadr it))))
-      (find-file-other-window (concat default-directory fname)))))
+  (let ((created-files
+         (save-excursion
+           (let ((end (point))
+                 (beginning (search-backward "rails g")))
+             (->> (buffer-substring-no-properties beginning end)
+               (s-split "\n")
+               (--map (s-trim it))
+               (--filter (string-match "^create" it))
+               (--map (cadr (s-split " " it t))))))))
+    (when (null created-files)
+      (error "No files created"))
+    (let ((file
+           (concat default-directory
+                   (if (= (length created-files) 1)
+                       (car created-files)
+                     (completing-read "File: "
+                                      created-files nil nil nil nil
+                                      (car created-files))))))
+      (p-switch-to-top-left-window)
+      (find-file file))))
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
+(setq rinari-major-modes nil)
 (setq rbenv-executable "/usr/local/bin/rbenv")
 (setq rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
@@ -56,13 +79,6 @@ window."
   (electric-pair-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
-
-(--each '(ruby-mode-hook
-          eshell-mode-hook
-          scss-mode-hook
-          html-erb-mode-hook
-          coffee-mode-hook)
-  (add-hook it 'rinari-launch))
 
 (defun p-set-up-inf-ruby-mode ()
   (ruby-tools-mode 1)

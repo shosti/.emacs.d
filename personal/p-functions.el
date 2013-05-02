@@ -45,6 +45,9 @@
     (file-name-nondirectory)
     (file-name-sans-extension)))
 
+(defun p-switch-to-top-left-window ()
+  (select-window (window-at 1 1)))
+
 (provide 'p-functions)
 
 ;;; p-functions.el ends here
