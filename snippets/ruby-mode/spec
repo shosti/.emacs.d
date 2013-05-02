@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: spec
+# key: spec
+# --
+require 'spec_helper'
+
+describe `(s-upper-camel-case (p-keep-until-regexp (file-name-base) "_spec"))` do
+$0
+end
