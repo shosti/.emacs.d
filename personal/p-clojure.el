@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'clojure-mode)
+(p-require-package 'clojure-test-mode)
+(p-require-package 'slamhound 'melpa)
 (p-require-package 'nrepl)
 (p-require-package 'ac-nrepl)
 
@@ -16,7 +18,7 @@
 
 (eval-after-load 'nrepl
   '(progn
-     (setq nrepl-hide-special-buffers t)
+     (setq nrepl-popup-stacktraces nil)
      (font-lock-add-keywords
       'nrepl-mode
       '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)))))
@@ -68,7 +70,8 @@
 
 (defun p-set-up-nrepl ()
   (ac-nrepl-setup)
-  (nrepl-turn-on-eldoc-mode))
+  (nrepl-turn-on-eldoc-mode)
+  (clojure-test-mode 1))
 
 (defun p-set-up-nrepl-repl ()
   (paredit-mode 1))
