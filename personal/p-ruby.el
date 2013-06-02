@@ -1,4 +1,6 @@
-;;; -*- lexical-binding: t -*-
+;;; p-ruby.el --- Personal ruby bindings
+;;; Commentary:
+;;; Code:
 (p-require-package 'starter-kit-ruby)
 (p-require-package 'ruby-end 'melpa)
 (p-require-package 'ruby-tools 'melpa)
@@ -18,6 +20,10 @@
 
 (add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
+(eval-after-load 'ruby-mode
+  '(progn
+     (setq ruby-deep-arglist nil
+           ruby-deep-indent-paren nil)))
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
@@ -68,10 +74,12 @@ window."
 ;;;;;;;;;;;;;;;;;;;;;;
 
 (setq rinari-major-modes nil)
-(setq rbenv-executable "/usr/local/bin/rbenv")
-(setq rbenv-show-active-ruby-in-modeline nil)
+(setq rbenv-executable "/usr/local/bin/rbenv"
+      rbenv-show-active-ruby-in-modeline nil)
 (global-rbenv-mode)
 (rbenv-use-global)
+
+(add-to-list 'ac-modes 'haml-mode)
 
 (defun p-set-up-ruby-mode ()
   (robe-mode 1)
