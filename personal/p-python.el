@@ -3,6 +3,7 @@
 (p-require-package 'jedi 'melpa)
 
 (defun set-up-python-mode ()
+  (electric-indent-mode 0)
   (local-set-key (kbd "RET") 'p-py-newline-and-indent))
 
 (add-hook 'python-mode-hook 'set-up-python-mode)
