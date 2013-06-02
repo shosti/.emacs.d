@@ -117,7 +117,9 @@
                  (js-mode rinari-minor-mode)
                  (coffee-mode rinari-minor-mode)
                  (scss-mode rinari-minor-mode)
-                 (css-mode rinari-minor-mode))
+                 (css-mode rinari-minor-mode)
+                 (feature-mode rinari-minor-mode)
+                 (yaml-mode rinari-minor-mode))
   (ruby-mode rinari-minor-mode))
 
 (defwacspace (scala-mode)
@@ -156,8 +158,7 @@
    (:frame full)
    (:aux1 (:buffer "*nrepl*")))
   (:2
-   (:winconf 2winh)
-   (:frame right)))
+   (:aux1 (:cmd clojure-jump-to-test))))
 
 (provide 'p-wacspace)
 
