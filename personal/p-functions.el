@@ -48,6 +48,12 @@
 (defun p-switch-to-top-left-window ()
   (select-window (window-at 1 1)))
 
+(defun eshell/find-file-top-left (fname)
+  (interactive)
+  (let ((file (concat default-directory fname)))
+    (p-switch-to-top-left-window)
+    (find-file file)))
+
 (provide 'p-functions)
 
 ;;; p-functions.el ends here
