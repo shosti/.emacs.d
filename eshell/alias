@@ -1,3 +1,7 @@
+alias rroutes bundle exec rake routes
+alias rrouts bundle exec rake routes
+alias rdbt bundle exec rake db:test:prepare
+alias rdbm bundle exec rake db:migrate
 alias ber bundle exec rake $*
 alias hp git push heroku master
 alias ho heroku open
@@ -46,3 +50,5 @@ alias buni bundle install
 alias cddo cd ~/Downloads/
 alias b bundle $*
 alias be bundle exec $*
+alias fft find-file-top-left $1
+alias h heroku $*

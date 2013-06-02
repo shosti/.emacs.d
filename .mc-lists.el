@@ -5,16 +5,39 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        beginning-of-visual-line
+        end-of-visual-line
+        haml-electric-backspace
+        indent-for-tab-command
+        kill-sexp
         orgtbl-self-insert-command
+        p-backward-kill-word
+        p-eol-and-ret
+        p-join-next-line
+        p-move-line-down
+        p-paredit-backward-kill-word
         paredit-doublequote
+        paredit-forward-barf-sexp
         paredit-forward-delete
+        paredit-forward-kill-word
         paredit-forward-slurp-sexp
+        paredit-open-round
+        paredit-open-square
+        paredit-raise-sexp
         personal-paredit-backward-kill-word
+        python-indent-dedent-line-backspace
+        ruby-backward-sexp
         ruby-end-space
+        ruby-forward-sexp
+        ruby-tools-to-single-quote-string
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        TeX-save-document
+        end-of-buffer
+        ensime-mouse-motion
+        helm-for-files
         isearch-abort
         isearch-forward-regexp
         yas-abort-snippet
