@@ -90,7 +90,7 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-c C-r") 'p-rename-current-buffer-file)
+(global-set-key (kbd "C-x C-r") 'p-rename-current-buffer-file)
 (global-set-key (kbd "C-x C-k") 'p-delete-current-buffer-file)
 
 (provide 'p-options)
