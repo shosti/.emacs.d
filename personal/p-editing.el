@@ -34,7 +34,7 @@
   (beginning-of-line)
   (newline arg)
   (indent-for-tab-command)
-  (previous-line arg)
+  (forward-line (- arg))
   (indent-for-tab-command))
 
 (defun p-eol-and-ret (arg)
@@ -56,11 +56,11 @@
 ;; more whattheemacsd goodness
 (defun p-fast-next-line ()
   (interactive)
-  (ignore-errors (next-line 5)))
+  (ignore-errors (forward-line 5)))
 
 (defun p-fast-previous-line ()
   (interactive)
-  (ignore-errors (previous-line 5)))
+  (ignore-errors (forward-line -5)))
 
 (defun p-fast-forward-char ()
   (interactive)
@@ -79,9 +79,9 @@
       (newline)
       (beginning-of-line)
       (yank))
-    (next-line)))
+    (forward-line)))
 
-(defun goto-line-with-feedback ()
+(defun p-goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input"
   (interactive)
   (unwind-protect
@@ -94,7 +94,7 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(global-set-key [remap goto-line] 'goto-line-with-feedback)
+(global-set-key [remap goto-line] 'p-goto-line-with-feedback)
 (global-set-key (kbd "<S-return>") 'p-eol-and-ret)
 (global-set-key (kbd "<C-return>") 'p-move-line-down)
 (global-set-key (kbd "C-w") 'p-backward-kill-word)
@@ -106,6 +106,7 @@
 (global-set-key (kbd "C-S-f") 'p-fast-forward-char)
 (global-set-key (kbd "C-S-b") 'p-fast-backward-char)
 (global-set-key (kbd "C-c d") 'p-duplicate-line)
+(global-set-key (kbd "C-x \\") 'align-regexp)
 
 (provide 'p-editing)
 
