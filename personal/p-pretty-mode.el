@@ -44,7 +44,6 @@
            ("fn" sml clojure)
            ("fun" tuareg)
            ("\\" haskell)
-           ("function" js)
            ("->" ruby))
        (?π ("pi" ,@all)
            ("M_PI" c c++)
