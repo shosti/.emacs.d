@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dbtest
+# key: rdbt
+# --
+rake 'db:test:prepare'

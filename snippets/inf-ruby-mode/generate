@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: generate
+# key: g
+# --
+generate '$0'

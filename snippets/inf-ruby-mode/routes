@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: routes
+# key: rr
+# --
+rake 'routes'

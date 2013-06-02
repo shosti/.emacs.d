@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: rake
+# key: r
+# --
+rake '$0'

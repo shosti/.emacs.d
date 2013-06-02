@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dbmigrate
+# key: rdbm
+# --
+rake 'db:migrate'
