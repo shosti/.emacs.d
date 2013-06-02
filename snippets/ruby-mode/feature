@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: feature
+# key: feature
+# --
+require 'spec_helper'
+
+feature "$1" do
+$0
+end
