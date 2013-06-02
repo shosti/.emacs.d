@@ -8,7 +8,7 @@
 (p-require-package 'mmm-mode 'melpa)
 (p-require-package 'haml-mode 'melpa)
 (p-require-package 'yaml-mode 'melpa)
-(p-require-package 'zossima 'melpa)
+(p-require-package 'robe 'melpa)
 
 (require 'p-wacspace)
 
@@ -74,6 +74,7 @@ window."
 (rbenv-use-global)
 
 (defun p-set-up-ruby-mode ()
+  (robe-mode 1)
   (ruby-end-mode 1)
   (ruby-tools-mode 1)
   (electric-pair-mode 1))
