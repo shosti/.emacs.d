@@ -1,13 +1,10 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Settings and keybindings for general editing
 
-(p-require-package 'flycheck)
-
 ;;;;;;;;;;;;;;
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-(global-flycheck-mode 1)
 (global-subword-mode 1)
 (global-auto-revert-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
