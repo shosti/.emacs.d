@@ -68,14 +68,17 @@
 ;; Hooks ;;
 ;;;;;;;;;;;
 
+(defun p-set-up-clojure-mode ()
+  (clojure-test-mode 1))
+
 (defun p-set-up-nrepl ()
   (ac-nrepl-setup)
-  (nrepl-turn-on-eldoc-mode)
-  (clojure-test-mode 1))
+  (nrepl-turn-on-eldoc-mode))
 
 (defun p-set-up-nrepl-repl ()
   (paredit-mode 1))
 
+(add-hook 'clojure-mode-hook 'p-set-up-clojure-mode)
 (add-hook 'nrepl-interaction-mode-hook 'p-set-up-nrepl)
 (add-hook 'nrepl-mode-hook 'p-set-up-nrepl)
 (add-hook 'nrepl-mode-hook 'p-set-up-nrepl-repl)
