@@ -2,6 +2,11 @@
 
 (p-require-package 'coffee-mode)
 
+(eval-after-load 'coffee-mode
+  '(progn
+     (setq coffee-tab-width 2)
+     (define-key coffee-mode-map (kbd "C-c C-k") 'coffee-compile-file)))
+
 (defun set-up-coffee-mode ()
   (run-hooks 'prog-mode-hook)
   (setq coffee-command "coffee"))
