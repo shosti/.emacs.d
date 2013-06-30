@@ -1,9 +1,20 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'starter-kit-js)
-(p-require-package 'js-comint)
+(p-require-package 'js2-mode)
+(p-require-package 'simple-httpd 'melpa)
+(p-require-package 'skewer-mode 'melpa)
 
-(setq inferior-js-program-command "/usr/local/bin/node")
+;;;;;;;;;;;;
+;; Config ;;
+;;;;;;;;;;;;
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(skewer-setup)
+
+;;;;;;;;;;;;;;;
+;; Functions ;;
+;;;;;;;;;;;;;;;
+
 
 (defun p-js-comint-filter (output)
   (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
@@ -18,3 +29,5 @@
 (add-hook 'inferior-js-mode-hook 'set-up-inferior-js-mode t)
 
 (provide 'p-js)
+
+;;; p-js.el ends here
