@@ -54,6 +54,12 @@
     (p-switch-to-top-left-window)
     (find-file file)))
 
+(defun p-run-applescript (sname)
+  (shell-command (concat "osascript "
+                         user-emacs-directory
+                         "opt/scripts/"
+                         sname ".scpt")))
+
 (provide 'p-functions)
 
 ;;; p-functions.el ends here

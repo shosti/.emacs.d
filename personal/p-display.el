@@ -37,7 +37,7 @@
   (interactive)
   (modify-frame-parameters (car (frame-list))
                            '((top . 22)
-                             (left . 582)
+                             (left . 592)
                              (height . 53)
                              (width . 82))))
 

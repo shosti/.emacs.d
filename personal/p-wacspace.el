@@ -1,9 +1,4 @@
-(let ((wacsdir (expand-file-name "~/src/wacspace")))
-  (if (file-exists-p wacsdir)
-      (progn
-        (add-to-list 'load-path wacsdir)
-        (require 'wacspace))
-    (p-require-package 'wacspace 'melpa)))
+(p-require-package 'wacspace 'melpa)
 
 (require 'p-display)
 (require 'findr)
@@ -39,6 +34,12 @@
                                 "features")
            "Carton")))
 
+(defun p-chrome-left ()
+  (p-run-applescript "chrome-left"))
+
+(defun p-term-right ()
+  (p-run-applescript "term_right"))
+
 ;;;;;;;;;;;;;;;
 ;; Wacspaces ;;
 ;;;;;;;;;;;;;;;
@@ -53,7 +54,7 @@
 ;; 6. Left-screen focus
 ;; 7. Left-screen repl
 
-(defwacspace (:default)
+(defwacspace :default
   (:default
    (:winconf 2winv)
    (:frame full)
@@ -64,10 +65,12 @@
   (:3)
   (:4
    (:frame right)
-   (:winconf 1win))
+   (:winconf 1win)
+   (:run p-chrome-left))
   (:5
    (:frame right)
-   (:winconf 2winh))
+   (:winconf 2winh)
+   (:run p-chrome-left))
   (:6
    (:frame left)
    (:winconf 1win))
@@ -75,7 +78,7 @@
    (:frame left)
    (:winconf 2winh)))
 
-(defwacspace (emacs-lisp-mode)
+(defwacspace emacs-lisp-mode
   (:default
    (:winconf 3winv)
    (:aux2 (:buffer "*scratch*")))
@@ -93,7 +96,10 @@
              (p-find-first-matching-file
               (concat (wacs-project-name)
                       ".feature")
-              (wacs-project-dir)))))))
+              (wacs-project-dir))))))
+  (:6
+   (:winconf 1win)
+   (:run p-term-right)))
 
 (defwacspace (ruby-mode rinari-minor-mode)
   (:before rinari-console)
@@ -112,6 +118,17 @@
   (:7
    (:aux1 (:buffer "*rails console*"))))
 
+(defwacspace ruby-mode
+  (:before run-ruby)
+  (:after-switch rbenv-use-corresponding)
+  (:default
+   (:aux1 (:buffer "*ruby*"))))
+
+(defwacspace python-mode
+  (:before (lambda () (run-python "python" t)))
+  (:default
+   (:aux1 (:buffer "*Python"))))
+
 (defwacsaliases ((html-erb-mode rinari-minor-mode)
                  (haml-mode rinari-minor-mode)
                  (js-mode rinari-minor-mode)
@@ -122,7 +139,7 @@
                  (yaml-mode rinari-minor-mode))
   (ruby-mode rinari-minor-mode))
 
-(defwacspace (scala-mode)
+(defwacspace scala-mode
   (:before (lambda ()
              (ensime-sbt)
              (ensime-inf-switch)))
