@@ -31,14 +31,25 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(defvar p-local-elisp-dev-dir (expand-file-name "~/src/elisp/"))
+
 (defun p-require-package (package &optional repo)
-  (let ((is-melpa (equal repo 'melpa)))
-    (when is-melpa
-      (add-to-list 'p-melpa-packages package))
-    (unless (package-installed-p package)
+  (if (eq repo 'local)
+      (let ((local-src-dir
+             (concat p-local-elisp-dev-dir
+                     (symbol-name package))))
+        (if (file-exists-p local-src-dir)
+            (progn
+              (add-to-list 'load-path local-src-dir)
+              (require package))
+          (p-require-package package 'melpa)))
+    (let ((is-melpa (equal repo 'melpa)))
       (when is-melpa
-        (package-refresh-contents))
-      (package-install package))))
+        (add-to-list 'p-melpa-packages package))
+      (unless (package-installed-p package)
+        (when is-melpa
+          (package-refresh-contents))
+        (package-install package)))))
 
 (p-require-package 'starter-kit)
 
