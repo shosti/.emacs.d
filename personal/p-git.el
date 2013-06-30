@@ -1,6 +1,9 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'magit 'melpa)
+(p-require-package 'git-commit-mode)
+(p-require-package 'gitconfig-mode)
+(p-require-package 'gitignore-mode)
 
 (eval-after-load 'magit
   '(progn
@@ -17,4 +20,6 @@
 
      (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
 
-(provide 'p-magit)
+(provide 'p-git)
+
+;;; p-git.el ends here
