@@ -23,6 +23,7 @@
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c g") 'webjump)
+(global-set-key (kbd "C-c w") 'browse-url)
 
 ;;;;;;;;;;;;;;
 ;; packages ;;
