@@ -1,4 +1,4 @@
-(p-require-package 'wacspace 'melpa)
+(p-require-package 'wacspace 'local)
 
 (require 'p-display)
 (require 'findr)
@@ -125,8 +125,10 @@
    (:aux1 (:buffer "*ruby*"))))
 
 (defwacspace python-mode
-  (:before (lambda () (run-python "python" t)))
+  (:before (lambda () (run-python python-shell-interpreter t)))
   (:default
+   (:aux1 (:buffer "*Python")))
+  (:5
    (:aux1 (:buffer "*Python"))))
 
 (defwacsaliases ((html-erb-mode rinari-minor-mode)
