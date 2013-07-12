@@ -127,8 +127,10 @@
 (defwacspace python-mode
   (:before (lambda () (run-python python-shell-interpreter t)))
   (:default
-   (:aux1 (:buffer "*Python")))
+   (:winconf 3winv)
+   (:aux2 (:buffer "*Python")))
   (:5
+   (:winconf 2winh)
    (:aux1 (:buffer "*Python"))))
 
 (defwacsaliases ((html-erb-mode rinari-minor-mode)
