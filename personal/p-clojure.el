@@ -12,6 +12,8 @@
 ;; Config ;;
 ;;;;;;;;;;;;
 
+(add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
+
 (eval-after-load 'auto-complete
   '(progn
      (add-to-list 'ac-modes 'nrepl-mode)))
