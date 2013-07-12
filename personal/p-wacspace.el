@@ -181,6 +181,16 @@
   (:2
    (:aux1 (:cmd clojure-jump-to-test))))
 
+(defwacspace erc-mode
+  (:project-name-fn (lambda () "erc"))
+  (:default
+   (:winconf 4win)
+   (:frame full)
+   (:main (:buffer "#emacs"))
+   (:aux1 (:buffer "#clojure"))
+   (:aux2 (:buffer "#rubyonrails"))
+   (:aux3 (:buffer "#ruby"))))
+
 (provide 'p-wacspace)
 
 ;;; p-wacspace.el ends here

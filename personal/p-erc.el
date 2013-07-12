@@ -4,14 +4,18 @@
 
 (require 'p-options)
 
+(defvar p-erc-channels '("#emacs"
+                         "#clojure"
+                         "#rubyonrails"
+                         "#ruby"))
+
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
 (eval-after-load 'erc
   '(progn
-
-     (setq erc-autojoin-channels-alist '(("freenode.net"
-                                          "#emacs" "#clojure"
-                                          "#haskell")
-                                         ("mitx-irc.i4x.org" "#6002")))
+     (setq erc-autojoin-channels-alist
+           (list
+            (cons "freenode.net"
+                  p-erc-channels)))
 
      (setq erc-track-enable-keybindings nil)
 
