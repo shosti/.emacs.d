@@ -1,10 +1,9 @@
 ;;; -*- lexical-binding: t -*-
 
-(defconst full-height 53)
-(defconst full-width 155)
+(require 'p-darwin)
 
-(add-to-list 'default-frame-alist '(font . "Consolas-14"))
-(add-to-list 'default-frame-alist '(height . 53))
+(add-to-list 'default-frame-alist '(font . "Inconsolata-14"))
+(add-to-list 'default-frame-alist '(height . 50))
 (add-to-list 'default-frame-alist '(width . 155))
 
 (setq-default cursor-type 'bar)
@@ -17,28 +16,35 @@
 (when (boundp 'mouse-wheel-scroll-amount)
   (setq mouse-wheel-scroll-amount '(0.01)))
 
+(defun p-full-screen-params ()
+  (if (= (length (p-screens)) 2)
+      '((top + -103)
+        (left + -1680)
+        (height . 67)
+        (width . 234))
+    '((fullscreen . fullboth))))
+
 (defun p-display-fill-screen ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
-                           '((top . 22)
-                             (left . 0)
-                             (height . 53)
-                             (width . 155))))
+                           (p-full-screen-params)))
 
 (defun p-display-left-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
-                           '((top . 22)
+                           '((fullscreen . nil)
+                             (top . 22)
                              (left . 0)
-                             (height . 53)
+                             (height . 49)
                              (width . 82))))
 
 (defun p-display-right-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
-                           '((top . 22)
-                             (left . 592)
-                             (height . 53)
+                           '((fullscreen . nil)
+                             (top . 22)
+                             (left . 666)
+                             (height . 49)
                              (width . 82))))
 
 (defun p-rotate-windows ()
