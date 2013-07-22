@@ -10,6 +10,10 @@ it to exec-path and the PATH variable"
                   exec-path))
     (setenv "PATH" (mapconcat 'identity exec-path ":"))))
 
-(p-path-from-file "~/.path")
+(defun p-update-path ()
+  (interactive)
+  (p-path-from-file "~/.path"))
+
+(p-update-path)
 
 (provide 'p-path)
