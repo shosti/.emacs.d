@@ -2,8 +2,12 @@
 
 (require 'p-darwin)
 
-(add-to-list 'default-frame-alist '(font . "Inconsolata-14"))
-(add-to-list 'default-frame-alist '(height . 50))
+(defconst full-height 53)
+(defconst thin-width 82)
+(defconst at-top 22)
+
+(add-to-list 'default-frame-alist '(font . "Consolas-14"))
+(add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
 
 (setq-default cursor-type 'bar)
@@ -20,8 +24,8 @@
   (if (= (length (p-screens)) 2)
       '((top + -103)
         (left + -1680)
-        (height . 67)
-        (width . 234))
+        (height . 73)
+        (width . 205))
     '((fullscreen . fullboth))))
 
 (defun p-display-fill-screen ()
@@ -32,20 +36,22 @@
 (defun p-display-left-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
-                           '((fullscreen . nil)
-                             (top . 22)
+                           `((fullscreen . nil)
+                             (top . ,at-top)
                              (left . 0)
-                             (height . 49)
-                             (width . 82))))
+                             (height . ,full-height)
+                             (width . ,thin-width))))
+
+(frame-parameter nil 'width)
 
 (defun p-display-right-half ()
   (interactive)
   (modify-frame-parameters (car (frame-list))
-                           '((fullscreen . nil)
-                             (top . 22)
-                             (left . 666)
-                             (height . 49)
-                             (width . 82))))
+                           `((fullscreen . nil)
+                             (top . ,at-top)
+                             (left . 587)
+                             (height . ,full-height)
+                             (width . ,thin-width))))
 
 (defun p-rotate-windows ()
   "Rotate your windows"

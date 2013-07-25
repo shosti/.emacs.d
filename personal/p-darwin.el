@@ -22,7 +22,7 @@
 
   (defun p-screens ()
     (with-temp-buffer
-      (shell-command (concat user-emacs-directory "opt/screens.sh")
+      (shell-command "system_profiler SPDisplaysDataType | grep Resolution"
                      (current-buffer))
       (->> (s-match-strings-all
             "Resolution: \\([0-9]+\\) x \\([0-9]+\\)"
@@ -32,3 +32,5 @@
                 (string-to-number (nth 2 it))))))))
 
 (provide 'p-darwin)
+
+;;; p-darwin.el ends here
