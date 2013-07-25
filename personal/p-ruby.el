@@ -30,11 +30,10 @@
 ;;;;;;;;;;;;;;;
 
 (defun p-rinari-guard ()
-  (interactive)
-  (let ((guard-buffer
-         (wacs-make-comint "guard" "bundle" nil "exec" "guard")))
-    (switch-to-buffer guard-buffer)
-    (compilation-shell-minor-mode 1)))
+  (p-compilation-buffer "guard" "bundle" nil "exec" "guard"))
+
+(defun p-foreman ()
+  (p-compilation-buffer "foreman" "foreman" "start"))
 
 (defun p-visit-pow-log ()
   (interactive)
@@ -44,14 +43,14 @@
   (auto-revert-tail-mode)
   (read-only-mode))
 
-(defun eshell/visit-rails-created ()
+(defun p-visit-rails-created ()
   "Visits the last file created by a rails generator in another
 window."
   (interactive)
   (let ((created-files
          (save-excursion
            (let ((end (point))
-                 (beginning (search-backward "rails g")))
+                 (beginning (search-backward "generate")))
              (->> (buffer-substring-no-properties beginning end)
                (s-split "\n")
                (--map (s-trim it))
@@ -68,6 +67,8 @@ window."
                                       (car created-files))))))
       (p-switch-to-top-left-window)
       (find-file file))))
+
+(defalias 'vrc 'p-visit-rails-created)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;

@@ -16,6 +16,13 @@
 ;; Helper Functions ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
+(defun p-compilation-buffer (name cmd &rest args)
+  (interactive)
+  (let ((buffer
+         (apply 'wacs-make-comint name cmd nil args)))
+    (switch-to-buffer buffer)
+    (compilation-shell-minor-mode 1)))
+
 (defun p-find-first-matching-file (name dir)
   (--if-let (-> name
               (findr dir)
@@ -106,7 +113,7 @@
   (:after-switch rbenv-use-corresponding)
   (:default
    (:winconf 3winv)
-   (:aux2 (:cmd p-rinari-guard)))
+   (:aux2 (:cmd p-foreman)))
   (:2
    (:winconf 2winv)
    (:aux1 (:cmd rinari-find-rspec)))
@@ -114,8 +121,10 @@
    (:winconf 2winv)
    (:aux1 (:buffer "*rails console*"))) ;TODO: project-specific
   (:5
+   (:winconf 2winh)
    (:aux1 (:buffer "*rails console*")))
   (:7
+   (:winconf 2winh)
    (:aux1 (:buffer "*rails console*"))))
 
 (defwacspace ruby-mode
