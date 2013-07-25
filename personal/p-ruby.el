@@ -50,7 +50,8 @@ window."
   (let ((created-files
          (save-excursion
            (let ((end (point))
-                 (beginning (search-backward "generate")))
+                 (beginning (search-backward-regexp
+                             "generate\\|zeus g\\|rails g")))
              (->> (buffer-substring-no-properties beginning end)
                (s-split "\n")
                (--map (s-trim it))
@@ -69,6 +70,7 @@ window."
       (find-file file))))
 
 (defalias 'vrc 'p-visit-rails-created)
+(defalias 'eshell/vrc 'p-visit-rails-created)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;

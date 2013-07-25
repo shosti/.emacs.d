@@ -16,6 +16,18 @@
 ;; Helper Functions ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
+(defun p-run-pry (&rest args)
+  (interactive)
+  (let ((buffer (apply 'wacs-make-comint "pry" "pry" nil args)))
+    (switch-to-buffer buffer)
+    (setq-local comint-process-echoes t)))
+
+(defun p-rails-console ()
+  (interactive)
+  (p-run-pry "-r" "./config/environment"
+             "-r" "rails/console/app"
+             "-r" "rails/console/helpers"))
+
 (defun p-compilation-buffer (name cmd &rest args)
   (interactive)
   (let ((buffer
@@ -109,7 +121,7 @@
    (:run p-term-right)))
 
 (defwacspace (ruby-mode rinari-minor-mode)
-  (:before rinari-console)
+  (:base-file "Gemfile")
   (:after-switch rbenv-use-corresponding)
   (:default
    (:winconf 3winv)
@@ -119,13 +131,13 @@
    (:aux1 (:cmd rinari-find-rspec)))
   (:3
    (:winconf 2winv)
-   (:aux1 (:buffer "*rails console*"))) ;TODO: project-specific
+   (:aux1 (:cmd p-rails-console)))
   (:5
    (:winconf 2winh)
-   (:aux1 (:buffer "*rails console*")))
+   (:aux1 (:cmd p-rails-console)))
   (:7
    (:winconf 2winh)
-   (:aux1 (:buffer "*rails console*"))))
+   (:aux1 (:cmd p-rails-console))))
 
 (defwacspace ruby-mode
   (:before run-ruby)
