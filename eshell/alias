@@ -1,3 +1,4 @@
+alias g gem $*
 alias rroutes bundle exec rake routes
 alias rrouts bundle exec rake routes
 alias rdbt bundle exec rake db:test:prepare
