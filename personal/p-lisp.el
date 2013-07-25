@@ -28,6 +28,7 @@
 ;;;;;;;;;;;
 
 (defun p-set-up-lisp-coding ()
+  (smartparens-mode 0)
   (show-paren-mode 0)
   (local-set-key (kbd "RET") 'paredit-newline)
   (highlight-parentheses-mode))

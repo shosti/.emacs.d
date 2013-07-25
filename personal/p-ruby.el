@@ -85,8 +85,7 @@ window."
 (defun p-set-up-ruby-mode ()
   (robe-mode 1)
   (ruby-end-mode 1)
-  (ruby-tools-mode 1)
-  (electric-pair-mode 1))
+  (ruby-tools-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 

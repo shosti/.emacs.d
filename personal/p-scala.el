@@ -14,8 +14,7 @@
       (defadvice ensime-sbt (after set-process-echoes activate)
         (setq comint-process-echoes t)))))
 
-(defun p-set-up-scala ()
-  (electric-pair-mode))
+(defun p-set-up-scala ())
 
 (eval-after-load 'scala-mode2
   '(progn
