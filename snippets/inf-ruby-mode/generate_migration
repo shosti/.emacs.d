@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: generate migration
+# key: gm
+# --
+generate 'migration $0'
