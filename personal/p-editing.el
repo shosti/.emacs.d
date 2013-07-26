@@ -45,6 +45,12 @@
   (interactive)
   (join-line -1))
 
+(defun p-delete-current-line ()
+  (interactive)
+  (beginning-of-line)
+  (kill-line 1)
+  (beginning-of-line-text))
+
 (defun p-package-name ()
   (p-keep-until-regexp
    (car (last (split-string (buffer-file-name) "/")))
@@ -129,6 +135,7 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-c d") 'p-duplicate-line)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-a") 'p-smarter-move-beginning-of-line)
+(global-set-key (kbd "C-S-k") 'p-delete-current-line)
 
 (provide 'p-editing)
 
