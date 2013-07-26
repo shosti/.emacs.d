@@ -1,3 +1,5 @@
+alias zr zeus rake $*
+alias z zeus $*
 alias g gem $*
 alias rroutes bundle exec rake routes
 alias rrouts bundle exec rake routes
@@ -53,3 +55,4 @@ alias b bundle $*
 alias be bundle exec $*
 alias fft find-file-top-left $1
 alias h heroku $*
+alias zdbm zeus rake db:migrate
