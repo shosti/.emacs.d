@@ -20,13 +20,19 @@
   (interactive)
   (let ((buffer (apply 'wacs-make-comint "pry" "pry" nil args)))
     (switch-to-buffer buffer)
-    (setq-local comint-process-echoes t)))
+    (setq-local comint-process-echoes t)
+    (setq inf-ruby-buffer buffer)))
 
 (defun p-rails-console ()
   (interactive)
-  (p-run-pry "-r" "./config/environment"
+  (p-run-pry "-r" (concat (wacs-project-dir) "config/environment")
              "-r" "rails/console/app"
              "-r" "rails/console/helpers"))
+
+(defun p-set-up-rails-env ()
+  (rbenv-use-corresponding)
+  (setq inf-ruby-buffer
+        (p-buffer-with-name (concat "*pry*<" (wacs-project-name) ">"))))
 
 (defun p-compilation-buffer (name cmd &rest args)
   (interactive)
@@ -121,8 +127,9 @@
    (:run p-term-right)))
 
 (defwacspace (ruby-mode rinari-minor-mode)
+  (:before p-rails-console)
   (:base-file "Gemfile")
-  (:after-switch rbenv-use-corresponding)
+  (:after-switch p-set-up-rails-env)
   (:default
    (:winconf 3winv)
    (:aux2 (:cmd p-foreman)))

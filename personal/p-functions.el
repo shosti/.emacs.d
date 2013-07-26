@@ -54,6 +54,10 @@
     (p-switch-to-top-left-window)
     (find-file file)))
 
+(defun p-buffer-with-name (buffer-string)
+  (first (--filter (string= buffer-string (buffer-name it))
+                   (buffer-list))))
+
 (defun p-run-applescript (sname)
   (shell-command (concat "osascript "
                          user-emacs-directory
