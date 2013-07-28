@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Miscellaneous options and settings
 
+(p-require-package 'backup-each-save 'melpa)
+
 (require 'p-path)
 
 ;;;;;;;;;;;;;;
@@ -16,6 +18,8 @@
 
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(add-hook 'after-save-hook 'backup-each-save)
+(setq backup-each-save-filter-function 'p-backup-each-save-filter)
 
 ;;;;;;;;;;
 ;; File ;;
@@ -48,6 +52,18 @@
   (if (boundp sym)
       (symbol-value sym)
     nil))
+
+(defun p-backup-each-save-filter (filename)
+  (let ((ignored-filenames
+         '("^/tmp" "semantic.cache$" "\\.emacs-places$"
+           "\\.recentf$" ".newsrc\\(\\.eld\\)?"))
+        (matched-ignored-filename nil))
+    (mapc
+     (lambda (x)
+       (when (string-match x filename)
+         (setq matched-ignored-filename t)))
+     ignored-filenames)
+    (not matched-ignored-filename)))
 
 ;; recompile modules directory
 (defun p-delete-current-buffer-file ()
