@@ -1,3 +1,4 @@
+alias gi gem install $*
 alias zr zeus rake $*
 alias z zeus $*
 alias g gem $*
