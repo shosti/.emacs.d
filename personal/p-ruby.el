@@ -51,7 +51,7 @@ window."
          (save-excursion
            (let ((end (point))
                  (beginning (search-backward-regexp
-                             "generate\\|zeus g\\|rails g")))
+                             "generate\\|zeus g\\|rails g\\|z g")))
              (->> (buffer-substring-no-properties beginning end)
                (s-split "\n")
                (--map (s-trim it))
