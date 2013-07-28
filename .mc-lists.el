@@ -30,6 +30,7 @@
         ruby-end-space
         ruby-forward-sexp
         ruby-tools-to-single-quote-string
+        sp--self-insert-command
         ))
 
 (setq mc/cmds-to-run-once
