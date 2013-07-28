@@ -28,8 +28,6 @@
 (setq recentf-max-saved-items 200)
 (setq delete-by-moving-to-trash t)
 (setq trash-directory (expand-file-name "~/.Trash"))
-
-(setq comint-scroll-to-bottom-on-output t)
 (setq-default major-mode 'text-mode)
 
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
@@ -65,7 +63,6 @@
      ignored-filenames)
     (not matched-ignored-filename)))
 
-;; recompile modules directory
 (defun p-delete-current-buffer-file ()
   "Removes file connected to current buffer and kills buffer."
   (interactive)
@@ -96,6 +93,7 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
+;; recompile modules directory
 (defun p-kill-emacs-hook ()
   (byte-recompile-directory p-dir 0)
   (byte-recompile-file (concat user-emacs-directory "init.el") nil 0))
