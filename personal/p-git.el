@@ -16,7 +16,8 @@
        "Restores the previous window configuration and kills the magit buffer"
        (interactive)
        (kill-buffer)
-       (jump-to-register :magit-fullscreen))
+       (jump-to-register :magit-fullscreen)
+       (git-gutter))
 
      (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
 
