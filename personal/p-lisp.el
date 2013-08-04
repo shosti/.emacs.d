@@ -56,7 +56,7 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-c p") 'p-find-personal-file)
+(global-set-key (kbd "C-c l") 'p-find-personal-file)
 (global-set-key (kbd "C-c t") 'toggle-debug-on-error)
 (define-key emacs-lisp-mode-map (kbd "C-c C-c") 'eval-buffer)
 (define-key emacs-lisp-mode-map (kbd "C-c C-m") 'macrostep-expand)

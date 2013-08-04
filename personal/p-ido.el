@@ -1,4 +1,7 @@
 ;;; -*- lexical-binding: t -*-
+(p-require-package 'flx-ido)
+
+(flx-ido-mode 1)
 
 (defun p-ido-setup-keybindings ()
   (define-key ido-file-completion-map
