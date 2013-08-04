@@ -22,7 +22,6 @@
 (global-set-key (kbd "C-x C-z") 'ns-do-hide-emacs)
 (global-set-key (kbd "C-x C-m") 'smex)
 (global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c g") 'webjump)
 (global-set-key (kbd "C-c w") 'browse-url)
 
 ;;;;;;;;;;;;;;
@@ -46,10 +45,6 @@
 
 (global-set-key (kbd "C-c k") 'compile)
 
-;;;;;;;;;;;;;;;;;;;;;;;
-;; ctl-z binding map ;;
-;;;;;;;;;;;;;;;;;;;;;;;
-
-(define-key wacs-prefix-map (kbd "C-z") 'eshell)
-
 (provide 'p-bindings)
+
+;;; p-bindings.el ends here

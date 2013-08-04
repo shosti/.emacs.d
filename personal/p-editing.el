@@ -136,6 +136,7 @@ point reaches the beginning or end of the buffer, stop there."
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-a") 'p-smarter-move-beginning-of-line)
 (global-set-key (kbd "C-S-k") 'p-delete-current-line)
+(global-set-key " " 'just-one-space)
 
 (provide 'p-editing)
 

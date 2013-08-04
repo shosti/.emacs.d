@@ -229,6 +229,15 @@
    (:aux2 (:buffer "sustaining@"))
    (:aux3 (:buffer "new_hire@"))))
 
+;;;;;;;;;;;;;;
+;; Bindings ;;
+;;;;;;;;;;;;;;
+
+(define-key wacs-prefix-map (kbd "C-z") '(lambda ()
+                                           (interactive)
+                                           (eshell)
+                                           (delete-other-windows)))
+
 (provide 'p-wacspace)
 
 ;;; p-wacspace.el ends here
