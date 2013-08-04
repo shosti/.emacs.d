@@ -219,6 +219,16 @@
    (:aux2 (:buffer "#rubyonrails"))
    (:aux3 (:buffer "#ruby"))))
 
+(defwacspace jabber-chat-mode
+  (:project-name-fn (lambda () "hipchat"))
+  (:default
+   (:winconf 4win)
+   (:frame full)
+   (:main (:buffer "dev@"))
+   (:aux1 (:buffer "product_team@"))
+   (:aux2 (:buffer "sustaining@"))
+   (:aux3 (:buffer "new_hire@"))))
+
 (provide 'p-wacspace)
 
 ;;; p-wacspace.el ends here
