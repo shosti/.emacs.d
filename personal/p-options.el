@@ -39,7 +39,7 @@
 (defvar p-passwords-loaded nil)
 
 (defun p-load-password-file ()
-  (let ((password-file (expand-file-name "~/.passwords.gpg")))
+  (let ((password-file (expand-file-name "~/.passwords.el.gpg")))
     (when (file-exists-p password-file)
       (load password-file)
       (setq p-passwords-loaded t))))
