@@ -18,8 +18,8 @@
 ;; Config ;;
 ;;;;;;;;;;;;
 
-(add-to-list 'auto-mode-alist '("Guardfile\\'" . ruby-mode))
-(add-to-list 'auto-mode-alist '("\\.watchr$" . ruby-mode))
+(--each '("Guardfile\\'" "\\.watchr$" "Procfile\\'")
+  (add-to-list 'auto-mode-alist (cons it 'ruby-mode)))
 (eval-after-load 'ruby-mode
   '(progn
      (setq ruby-deep-arglist nil
