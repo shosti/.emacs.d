@@ -10,12 +10,14 @@
         haml-electric-backspace
         indent-for-tab-command
         kill-sexp
+        kill-visual-line
         orgtbl-self-insert-command
         p-backward-kill-word
         p-eol-and-ret
         p-join-next-line
         p-move-line-down
         p-paredit-backward-kill-word
+        p-smarter-move-beginning-of-line
         paredit-doublequote
         paredit-forward-barf-sexp
         paredit-forward-delete
