@@ -2,6 +2,7 @@
 ;;; Miscellaneous options and settings
 
 (p-require-package 'backup-each-save 'melpa)
+(p-require-package 'rainbow-mode)
 
 (require 'p-path)
 
