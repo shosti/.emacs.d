@@ -5,6 +5,7 @@
 (p-require-package 'slamhound 'melpa)
 (p-require-package 'nrepl)
 (p-require-package 'ac-nrepl)
+(p-require-package 'clojure-cheatsheet 'melpa)
 
 (require 'p-functions)
 
