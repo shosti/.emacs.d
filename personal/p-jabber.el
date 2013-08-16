@@ -1,10 +1,11 @@
 (p-require-package 'jabber)
 
+(setq jabber-message-alert-same-buffer nil)
+
 (defvar p-hipchat-account-number "2002")
 (defvar p-hipchat-user-number "397595")
 (defvar p-hipchat-rooms
   '(("Dev Chatter" . "dev")
-    ("Dev New Hire" . "dev_new_hire")
     ("Dev Sustaining" . "dev_sustaining")
     ("Dev Work" . "product_team")))
 
@@ -21,8 +22,8 @@
 
 (defun p-hipchat-join ()
   (interactive)
-  (unless (ignore-errors (jabber-read-account))
-    (error "Not connected to hipchat."))
+  (p-hipchat-connect)
+  (sleep-for 2)
   (--each (-map 'cdr p-hipchat-rooms)
     (jabber-groupchat-join
      (jabber-read-account)
