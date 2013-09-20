@@ -20,8 +20,6 @@
 (setenv "EDITOR" "emacsclient")
 (setenv "PAGER" "cat")
 (setenv "NODE_PATH" "/usr/local/lib/node")
-(setenv "CLASSPATH"
-        "/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar")
 (setenv "PYTHONPATH"
         "/usr/local/lib/python2.7/site-packages")
 
