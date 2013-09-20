@@ -7,7 +7,8 @@
 (defvar p-hipchat-rooms
   '(("Dev Chatter" . "dev")
     ("Dev Sustaining" . "dev_sustaining")
-    ("Dev Work" . "product_team")))
+    ("Dev Work" . "product_team")
+    ("QA Room" . "qa_room")))
 
 (defun p-hipchat-connect ()
   (interactive)
@@ -22,6 +23,7 @@
 
 (defun p-hipchat-join ()
   (interactive)
+  (require 'jabber)
   (p-hipchat-connect)
   (sleep-for 2)
   (--each (-map 'cdr p-hipchat-rooms)
@@ -46,8 +48,6 @@
                   (buffer-list)))))))
 
 (global-set-key (kbd "C-c h") 'p-hipchat-switch-to-room)
-
-
 
 (provide 'p-jabber)
 
