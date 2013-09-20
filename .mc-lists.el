@@ -6,11 +6,19 @@
 (setq mc/cmds-to-run-for-all
       '(
         beginning-of-visual-line
+        c-electric-semi&comma
+        c-indent-line-or-region
         end-of-visual-line
         haml-electric-backspace
         indent-for-tab-command
         kill-sexp
         kill-visual-line
+        org-beginning-of-line
+        org-delete-char
+        org-end-of-line
+        org-force-self-insert
+        org-self-insert-command
+        org-yank
         orgtbl-self-insert-command
         p-backward-kill-word
         p-eol-and-ret
@@ -43,5 +51,6 @@
         helm-for-files
         isearch-abort
         isearch-forward-regexp
+        org-cycle
         yas-abort-snippet
         ))
