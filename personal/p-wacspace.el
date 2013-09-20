@@ -25,11 +25,16 @@
 
 (defun p-rails-console ()
   (interactive)
-  (p-run-pry "-r" (concat (wacs-project-dir) "config/environment")
-             "-r" "rails/console/app"
-             "-r" "rails/console/helpers"))
+  (let ((buffer (wacs-make-comint "pry" "bundle" nil
+                                  "exec" "pry"
+                                  "-r" (concat (wacs-project-dir) "config/environment")
+                                  "-r" "rails/console/app"
+                                  "-r" "rails/console/helpers")))
+    (switch-to-buffer buffer)
+    (setq-local comint-process-echoes t)
+    (setq inf-ruby-buffer buffer)))
 
-(defun p-set-up-rails-env ()
+(defun p-set-up-ruby-env ()
   (rbenv-use-corresponding)
   (setq inf-ruby-buffer
         (p-buffer-with-name (concat "*pry*<" (wacs-project-name) ">"))))
@@ -90,16 +95,17 @@
   (:3)
   (:4
    (:frame right)
-   (:winconf 1win)
-   (:run p-chrome-left))
+   (:winconf 1win))
   (:5
    (:frame right)
-   (:winconf 2winh)
-   (:run p-chrome-left))
+   (:winconf 2winh))
   (:6
+   (:frame right)
+   (:winconf 2winh))
+  (:7
    (:frame left)
    (:winconf 1win))
-  (:7
+  (:8
    (:frame left)
    (:winconf 2winh)))
 
@@ -122,34 +128,37 @@
               (concat (wacs-project-name)
                       ".feature")
               (wacs-project-dir))))))
-  (:6
+  (:7
    (:winconf 1win)
    (:run p-term-right)))
 
 (defwacspace (ruby-mode rinari-minor-mode)
   (:before p-rails-console)
   (:base-file "Gemfile")
-  (:after-switch p-set-up-rails-env)
+  (:after-switch p-set-up-ruby-env)
   (:default
    (:winconf 3winv)
-   (:aux2 (:cmd p-foreman)))
+   (:aux2 (:cmd p-rails-console)))
   (:2
    (:winconf 2winv)
-   (:aux1 (:cmd rinari-find-rspec)))
+   (:aux1 (:cmd projectile-toggle-between-implemenation-and-test)))
   (:3
    (:winconf 2winv)
    (:aux1 (:cmd p-rails-console)))
   (:5
    (:winconf 2winh)
    (:aux1 (:cmd p-rails-console)))
-  (:7
+  (:8
    (:winconf 2winh)
    (:aux1 (:cmd p-rails-console))))
 
 (defwacspace ruby-mode
   (:before run-ruby)
-  (:after-switch rbenv-use-corresponding)
   (:default
+   (:winconf 3winv)
+   (:aux2 (:buffer "*ruby*")))
+  (:5
+   (:winconf 2winh)
    (:aux1 (:buffer "*ruby*"))))
 
 (defwacspace python-mode
@@ -188,7 +197,7 @@
    (:aux1 (:buffer "*ensime-inferior-scala*")))
   (:5
    (:aux1 (:buffer "*ensime-inferior-scala*")))
-  (:7
+  (:8
    (:aux1 (:buffer "*ensime-inferior-scala*"))))
 
 (defwacspace (feature-mode
@@ -227,16 +236,13 @@
    (:main (:buffer "dev@"))
    (:aux1 (:buffer "product_team@"))
    (:aux2 (:buffer "sustaining@"))
-   (:aux3 (:buffer "new_hire@"))))
+   (:aux3 (:buffer "qa_room@"))))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
 ;;;;;;;;;;;;;;
 
-(define-key wacs-prefix-map (kbd "C-z") '(lambda ()
-                                           (interactive)
-                                           (eshell)
-                                           (delete-other-windows)))
+(define-key wacs-prefix-map (kbd "C-z") 'eshell)
 
 (provide 'p-wacspace)
 
