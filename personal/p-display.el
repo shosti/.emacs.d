@@ -10,7 +10,6 @@
 (add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
 
-(setq-default cursor-type 'bar)
 (tool-bar-mode 0)
 (setq-default frame-background-mode 'dark)
 (blink-cursor-mode 1)
@@ -22,8 +21,8 @@
 
 (defun p-full-screen-params ()
   (if (= (length (p-screens)) 2)
-      '((top + -103)
-        (left + -1680)
+      '((top + -193)
+        (left .  1280)
         (height . 73)
         (width . 205))
     '((fullscreen . fullboth))))
