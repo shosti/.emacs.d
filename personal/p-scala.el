@@ -2,7 +2,7 @@
 
 (p-require-package 'scala-mode2 'melpa)
 
-(defun load-ensime ()
+(defun p-load-ensime ()
   (let ((ensime-lib (concat user-emacs-directory "opt/ensime/elisp")))
     (when (file-exists-p ensime-lib)
       (add-to-list 'load-path ensime-lib)
@@ -18,7 +18,7 @@
 
 (eval-after-load 'scala-mode2
   '(progn
-     (load-ensime)
+     (p-load-ensime)
      (add-hook 'scala-mode-hook 'p-set-up-scala)
      (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
      (define-key scala-mode-map (kbd "C-c C-c") 'ensime-inf-eval-buffer)))
