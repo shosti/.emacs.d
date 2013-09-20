@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: letdo
+# key: letdo
+# --
+let(:$1) do
+  FactoryGirl.${2:build}(:${3:$1}$0)
+end

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mem
+# key: mem
+# --
+def $1
+  @$1 ||= $0
+end
