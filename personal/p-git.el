@@ -13,14 +13,31 @@
        ad-do-it
        (delete-other-windows))
 
-     (defun magit-quit-session ()
+     (defun p-magit-quit-session ()
        "Restores the previous window configuration and kills the magit buffer"
        (interactive)
        (kill-buffer)
        (jump-to-register :magit-fullscreen)
        (git-gutter))
 
-     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)))
+     (defun p-magit-toggle-whitespace ()
+       (interactive)
+       (if (member "-w" magit-diff-options)
+           (p-magit-dont-ignore-whitespace)
+         (p-magit-ignore-whitespace)))
+
+     (defun p-magit-ignore-whitespace ()
+       (interactive)
+       (add-to-list 'magit-diff-options "-w")
+       (magit-refresh))
+
+     (defun p-magit-dont-ignore-whitespace ()
+       (interactive)
+       (setq magit-diff-options (remove "-w" magit-diff-options))
+       (magit-refresh))
+
+     (define-key magit-status-mode-map (kbd "q") 'p-magit-quit-session)
+     (define-key magit-status-mode-map (kbd "W") 'p-magit-toggle-whitespace)))
 
 (global-git-gutter-mode 1)
 
