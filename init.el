@@ -10,6 +10,8 @@
 (setq custom-file (concat user-emacs-directory "custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
 
+(load-file custom-file)
+
 (message "Loading personal libraries...")
 
 ;; basic packages and functions come first...
