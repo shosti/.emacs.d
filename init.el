@@ -3,9 +3,12 @@
 (require 'cl-lib)
 
 (defvar p-dir (expand-file-name
-                      (concat user-emacs-directory "personal")))
+               (concat user-emacs-directory "personal")))
+(defvar p-opt-dir (expand-file-name
+                   (concat user-emacs-directory "opt")))
 
 (add-to-list 'load-path p-dir)
+(add-to-list 'load-path p-opt-dir)
 
 (setq custom-file (concat user-emacs-directory "custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
