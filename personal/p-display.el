@@ -21,8 +21,8 @@
 
 (defun p-full-screen-params ()
   (if (= (length (p-screens)) 2)
-      '((top + -193)
-        (left .  1280)
+      '((top + -194)
+        (left + -1680)
         (height . 73)
         (width . 205))
     '((fullscreen . fullboth))))
