@@ -1,7 +1,6 @@
 ;;; p-ruby.el --- Personal ruby bindings
 ;;; Commentary:
 ;;; Code:
-(p-require-package 'starter-kit-ruby)
 (p-require-package 'ruby-end 'melpa)
 (p-require-package 'ruby-tools 'melpa)
 (p-require-package 'ruby-compilation 'melpa)
@@ -18,8 +17,20 @@
 ;; Config ;;
 ;;;;;;;;;;;;
 
-(--each '("Guardfile\\'" "\\.watchr$" "Procfile\\'")
+(--each '("Guardfile\\'"
+          "\\.watchr$"
+          "Procfile\\'"
+          "\\.rake$"
+          "\\.thor$"
+          "\\.gemspec$"
+          "\\.ru$"
+          "Rakefile$"
+          "Thorfile$"
+          "Gemfile$"
+          "Capfile$"
+          "Vagrantfile$")
   (add-to-list 'auto-mode-alist (cons it 'ruby-mode)))
+
 (eval-after-load 'ruby-mode
   '(progn
      (setq ruby-deep-arglist nil
@@ -80,6 +91,7 @@ window."
 (setq rinari-major-modes nil)
 (setq rbenv-executable "/usr/local/bin/rbenv"
       rbenv-show-active-ruby-in-modeline nil)
+
 (global-rbenv-mode)
 (rbenv-use-global)
 
