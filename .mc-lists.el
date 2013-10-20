@@ -26,7 +26,9 @@
         p-move-line-down
         p-paredit-backward-kill-word
         p-smarter-move-beginning-of-line
+        paredit-backward
         paredit-doublequote
+        paredit-forward
         paredit-forward-barf-sexp
         paredit-forward-delete
         paredit-forward-kill-word

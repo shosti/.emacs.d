@@ -1,60 +1,61 @@
-alias turnip USING_CAPYBARA=true bundle exec rspec --drb -r turnip/rspec -r turnip/capybara spec/features/
-alias zdbm zeus rake db:migrate
-alias h heroku $*
-alias fft find-file-top-left $1
-alias be bundle exec $*
-alias b bundle $*
-alias cddo cd ~/Downloads/
-alias buni bundle install
-alias bune bundle exec $*
-alias cdapi cd ~/src/emanuelevans-api/
-alias gapp appcfg.py --oauth2 $*
-alias npmi npm install -g $*
-alias ebp escript buildpkg $*
-alias escript /usr/local/bin/emacs --script $*
-alias ll ls -al $*
-alias wiki dig +short txt $1.wp.dg.cx
-alias bed brew edit $1
-alias batt pmset -g batt | egrep ([0-9]+\%).* -o --colour=auto | cut -f1 -d';'
-alias o open .
-alias ffw find-file-other-window $1
-alias bh brew home $*
-alias bs brew search $*
-alias d dired $1
-alias w3m w3m-find-file $1
-alias emacs find-file
-alias bi brew install $*
-alias bu brew update
-alias bo brew outdated
-alias bup brew upgrade $*
-alias ff find-file $1
-alias ffo find-file-other-window $1
-alias binfo brew info $*
-alias brm brew remove $*
-alias trash mv $* ~/.Trash
-alias libtoolize glibtoolize $*
-alias cdd cd ~/Desktop
-alias cded cd ~/.emacs.d
-alias cde cd ~/.emacs.d
-alias gf git fetch $1
-alias gp git push $*
-alias cds cd ~/src
-alias gmerge git merge $*
-alias gfu git fetch upstream
-alias gc git clone $*
-alias cdw cd ~/src/emanuelevansdotcom
-alias cdse cd ~/src/ext
-alias gph git push heroku master
-alias rg rails generate $*
-alias carton sh ~/.carton/bin/carton $*
-alias ho heroku open
-alias hp git push heroku master
-alias ber bundle exec rake $*
-alias rdbm bundle exec rake db:migrate
-alias rdbt bundle exec rake db:test:prepare
-alias rrouts bundle exec rake routes
-alias rroutes bundle exec rake routes
-alias g gem $*
-alias z zeus $*
-alias zr zeus rake $*
+alias rdbr bundle exec rake db:rollback
 alias gi gem install $*
+alias zr zeus rake $*
+alias z zeus $*
+alias g gem $*
+alias rroutes bundle exec rake routes
+alias rrouts bundle exec rake routes
+alias rdbt bundle exec rake db:test:prepare
+alias rdbm bundle exec rake db:migrate
+alias ber bundle exec rake $*
+alias hp git push heroku master
+alias ho heroku open
+alias carton sh ~/.carton/bin/carton $*
+alias rg rails generate $*
+alias gph git push heroku master
+alias cdse cd ~/src/ext
+alias cdw cd ~/src/emanuelevansdotcom
+alias gc git clone $*
+alias gfu git fetch upstream
+alias gmerge git merge $*
+alias cds cd ~/src
+alias gp git push $*
+alias gf git fetch $1
+alias cde cd ~/.emacs.d
+alias cded cd ~/.emacs.d
+alias cdd cd ~/Desktop
+alias libtoolize glibtoolize $*
+alias trash mv $* ~/.Trash
+alias brm brew remove $*
+alias binfo brew info $*
+alias ffo find-file-other-window $1
+alias ff find-file $1
+alias bup brew upgrade $*
+alias bo brew outdated
+alias bu brew update
+alias bi brew install $*
+alias emacs find-file
+alias w3m w3m-find-file $1
+alias d dired $1
+alias bs brew search $*
+alias bh brew home $*
+alias ffw find-file-other-window $1
+alias o open .
+alias batt pmset -g batt | egrep ([0-9]+\%).* -o --colour=auto | cut -f1 -d';'
+alias bed brew edit $1
+alias wiki dig +short txt $1.wp.dg.cx
+alias ll ls -al $*
+alias escript /usr/local/bin/emacs --script $*
+alias ebp escript buildpkg $*
+alias npmi npm install -g $*
+alias gapp appcfg.py --oauth2 $*
+alias cdapi cd ~/src/emanuelevans-api/
+alias bune bundle exec $*
+alias buni bundle install
+alias cddo cd ~/Downloads/
+alias b bundle $*
+alias be bundle exec $*
+alias fft find-file-top-left $1
+alias h heroku $*
+alias zdbm zeus rake db:migrate
+alias turnip USING_CAPYBARA=true bundle exec rspec --drb -r turnip/rspec -r turnip/capybara spec/features/
