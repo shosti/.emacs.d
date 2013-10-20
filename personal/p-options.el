@@ -48,9 +48,8 @@
 (defun p-password (sym)
   (unless p-passwords-loaded
     (p-load-password-file))
-  (if (boundp sym)
-      (symbol-value sym)
-    nil))
+  (when (boundp sym)
+    (symbol-value sym)))
 
 (defun p-backup-each-save-filter (filename)
   (let ((ignored-filenames
