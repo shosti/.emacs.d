@@ -140,8 +140,9 @@
    (:winconf 3winv)
    (:aux2 (:cmd p-rails-console)))
   (:2
-   (:winconf 2winv)
-   (:aux1 (:cmd projectile-toggle-between-implemenation-and-test)))
+   (:winconf 3winv)
+   (:aux1 (:cmd projectile-toggle-between-implemenation-and-test))
+   (:aux2 (:cmd wacs-eshell)))
   (:3
    (:winconf 2winv)
    (:aux1 (:cmd p-rails-console)))
