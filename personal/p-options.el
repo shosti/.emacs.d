@@ -93,6 +93,21 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
+;; Ripped from Emacs Prelude
+(defun p-open-with (arg)
+  "Open visited file in default external program.
+
+With a prefix ARG always prompt for command to use."
+  (interactive "P")
+  (when buffer-file-name
+    (start-process "prelude-open-with-process"
+                   "*prelude-open-with-output*"
+                   (cond
+                    ((and (not arg) (eq system-type 'darwin)) "open")
+                    ((and (not arg) (member system-type '(gnu gnu/linux gnu/kfreebsd))) "xdg-open")
+                    (t (read-shell-command "Open current file with: ")))
+                   (shell-quote-argument buffer-file-name))))
+
 ;; recompile modules directory
 (defun p-kill-emacs-hook ()
   (byte-recompile-directory p-dir 0)
@@ -106,6 +121,7 @@
 
 (global-set-key (kbd "C-c R") 'p-rename-current-buffer-file)
 (global-set-key (kbd "C-x K") 'p-delete-current-buffer-file)
+(global-set-key (kbd "C-c o") 'p-open-with)
 
 (provide 'p-options)
 
