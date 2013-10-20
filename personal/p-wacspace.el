@@ -237,7 +237,12 @@
    (:main (:buffer "dev@"))
    (:aux1 (:buffer "product_team@"))
    (:aux2 (:buffer "sustaining@"))
-   (:aux3 (:buffer "qa_room@"))))
+   (:aux3 (:buffer "subway_testing@"))))
+
+(defwacspace pianobar-mode
+  (:project-name-fn (lambda () "pianobar"))
+  (:default
+   (:winconf 1win)))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
