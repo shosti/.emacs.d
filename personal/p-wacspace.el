@@ -244,6 +244,15 @@
   (:default
    (:winconf 1win)))
 
+(defwacspace scheme-mode
+  (:before (lambda ()
+             (run-scheme "scheme")
+             (info "sicp")))
+  (:default
+   (:aux1 (:buffer "*scheme*")))
+  (:2
+   (:aux1 (:buffer "*info*"))))
+
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
 ;;;;;;;;;;;;;;

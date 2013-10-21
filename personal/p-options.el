@@ -30,6 +30,8 @@
 (setq delete-by-moving-to-trash t)
 (setq trash-directory (expand-file-name "~/.Trash"))
 (setq-default major-mode 'text-mode)
+(add-to-list 'Info-directory-list
+             (expand-file-name (concat user-emacs-directory "info")))
 
 (setq tetris-score-file (concat user-emacs-directory "tetris-scores"))
 
