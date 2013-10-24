@@ -105,6 +105,11 @@ window."
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
+(defun p-set-up-haml-mode ()
+  (robe-mode 1))
+
+(add-hook 'haml-mode-hook 'p-set-up-haml-mode)
+
 (defun p-set-up-inf-ruby-mode ()
   (ruby-tools-mode 1)
   (setq comint-process-echoes t))
