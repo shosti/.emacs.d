@@ -98,6 +98,7 @@ window."
 (add-to-list 'ac-modes 'haml-mode)
 
 (defun p-set-up-ruby-mode ()
+  (electric-indent-mode 1)
   (robe-mode 1)
   (ruby-end-mode 1)
   (ruby-tools-mode 1))
