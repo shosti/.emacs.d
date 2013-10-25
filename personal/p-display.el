@@ -20,12 +20,7 @@
   (setq mouse-wheel-scroll-amount '(0.01)))
 
 (defun p-full-screen-params ()
-  (if (= (length (p-screens)) 2)
-      '((top + -192)
-        (left + -1680)
-        (height . 73)
-        (width . 205))
-    '((fullscreen . fullboth))))
+  '((fullscreen . fullboth)))
 
 (defun p-display-fill-screen ()
   (interactive)
