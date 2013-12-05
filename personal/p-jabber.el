@@ -46,7 +46,7 @@
                     (s-replace "_" " ")
                     (s-chop-suffix "@conf.hipchat.com"))
                   (buffer-name b)))))
-     (-filter (lambda (x) (car x))))))
+     (-filter 'car))))
 
 (defun p-hipchat-switch-to-room ()
   (interactive)
