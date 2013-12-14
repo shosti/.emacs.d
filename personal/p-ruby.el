@@ -152,6 +152,9 @@ window."
   '(progn
      (define-key haml-mode-map (kbd "RET") 'newline-and-indent)))
 
+(put 'ruby-mode 'forward-sexp-fn 'ruby-forward-sexp)
+(put 'ruby-mode 'backward-sexp-fn 'ruby-backward-sexp)
+
 ;;;;;;;;;;;;;;;;;
 ;; Workarounds ;;
 ;;;;;;;;;;;;;;;;;
