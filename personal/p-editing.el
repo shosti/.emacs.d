@@ -10,6 +10,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (delete-selection-mode 1)
 (setq-default require-final-newline t)
+(auto-fill-mode 0)
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
