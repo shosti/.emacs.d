@@ -47,7 +47,11 @@
      (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
      (define-key magit-status-mode-map (kbd "q") 'p-magit-quit-session)
-     (define-key magit-status-mode-map (kbd "W") 'p-magit-toggle-whitespace)))
+     (define-key magit-status-mode-map (kbd "W") 'p-magit-toggle-whitespace)
+     (--each (list magit-status-mode-map magit-log-mode-map)
+       (define-key it "j" 'magit-goto-next-section)
+       (define-key it "k" 'magit-goto-previous-section)
+       (define-key it "K" 'magit-discard-item))))
 
 (global-git-gutter-mode 1)
 
