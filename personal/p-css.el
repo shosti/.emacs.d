@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'less-css-mode)
 (p-require-package 'scss-mode)
 
 (setq scss-compile-at-save nil)
