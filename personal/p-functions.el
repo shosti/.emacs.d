@@ -4,6 +4,7 @@
 (p-require-package 'dash)
 (p-require-package 'dash-functional)
 (p-require-package 'f 'melpa)
+(p-require-package 'ht 'melpa)
 
 (require 's)
 (require 'dash)
