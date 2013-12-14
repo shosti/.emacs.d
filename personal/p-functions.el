@@ -8,8 +8,8 @@
 
 (defun p-list-elisp-files (dir)
   (cl-remove-if-not (lambda (fname)
-                   (string-match "\.el$" fname))
-                 (directory-files dir)))
+                      (string-match "\.el$" fname))
+                    (directory-files dir)))
 
 (defun p-keep-until-regexp (s re)
   (substring s 0 (string-match re s)))
