@@ -33,8 +33,8 @@
 
 (eval-after-load 'ruby-mode
   '(progn
-     (setq ruby-deep-arglist nil
-           ruby-deep-indent-paren nil
+     (setq ruby-deep-arglist t
+           ruby-deep-indent-paren t
            ruby-insert-encoding-magic-comment nil)))
 
 ;;;;;;;;;;;;;;;
