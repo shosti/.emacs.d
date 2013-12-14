@@ -7,6 +7,13 @@
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter 'melpa)
 
+(defun p-insert-git-cd-number ()
+  (-when-let (project-number
+              (car (s-match "CD-[0-9]+"
+                            (shell-command-to-string
+                             "git symbolic-ref --short HEAD"))))
+    (when (and (bolp) (eolp)) (insert project-number " "))))
+
 (eval-after-load 'magit
   '(progn
      (defadvice magit-status (around magit-fullscreen activate)
@@ -36,6 +43,8 @@
        (interactive)
        (setq magit-diff-options (remove "-w" magit-diff-options))
        (magit-refresh))
+
+     (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
      (define-key magit-status-mode-map (kbd "q") 'p-magit-quit-session)
      (define-key magit-status-mode-map (kbd "W") 'p-magit-toggle-whitespace)))
