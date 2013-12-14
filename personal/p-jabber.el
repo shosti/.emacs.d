@@ -6,7 +6,8 @@
 
 (p-load-file-if-exists (expand-file-name "~/.hipchat.el"))
 
-(setq jabber-message-alert-same-buffer nil)
+(setq jabber-message-alert-same-buffer nil
+      jabber-history-enabled t)
 
 (defun p-hipchat-connect ()
   (interactive)
