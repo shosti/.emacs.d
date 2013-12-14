@@ -5,13 +5,15 @@
 (p-require-package 'rainbow-mode)
 
 (require 'p-path)
+(require 'uniquify)
 
 ;;;;;;;;;;;;;;
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-(setq disabled-command-function nil)
-(setq dired-use-ls-dired nil)
+(setq disabled-command-function nil
+      dired-use-ls-dired nil
+      uniquify-buffer-name-style 'forward)
 
 ;;;;;;;;;;;;
 ;; Backup ;;
