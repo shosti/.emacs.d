@@ -8,7 +8,11 @@
       sp-base-key-bindings 'paredit)
 
 (defun p-smartparens-hook ()
-  (smartparens-mode 1))
+  (unless paredit-mode
+    (smartparens-mode 1)))
+
+(defadvice paredit-mode (after deactivate-smartparens activate)
+  (smartparens-mode 0))
 
 (add-hook 'prog-mode-hook 'p-smartparens-hook)
 
