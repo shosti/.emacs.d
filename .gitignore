@@ -1,5 +1,6 @@
 *~
 *.elc
+.cask
 auto-save-list
 recentf
 savehist
