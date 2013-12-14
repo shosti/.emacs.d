@@ -7,7 +7,10 @@
       sp-highlight-wrap-tag-overlay nil
       sp-base-key-bindings 'paredit)
 
-(smartparens-global-mode 1)
+(defun p-smartparens-hook ()
+  (smartparens-mode 1))
+
+(add-hook 'prog-mode-hook 'p-smartparens-hook)
 
 (provide 'p-smartparens)
 
