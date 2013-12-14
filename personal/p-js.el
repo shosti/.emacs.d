@@ -10,6 +10,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (skewer-setup)
+(setq-default js2-basic-offset 2)
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
