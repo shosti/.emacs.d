@@ -3,7 +3,6 @@
 (p-require-package 'magit 'melpa)
 (p-require-package 'git-rebase-mode 'melpa)
 (p-require-package 'git-commit-mode 'melpa)
-(p-require-package 'git-commit-mode)
 (p-require-package 'gitconfig-mode)
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter 'melpa)
