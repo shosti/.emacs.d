@@ -1,10 +1,16 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 's 'melpa)
-(p-require-package 'dash 'melpa)
+(p-require-package 's)
+(p-require-package 'dash)
+(p-require-package 'dash-functional)
+(p-require-package 'f 'melpa)
 
 (require 's)
 (require 'dash)
+(require 'dash-functional)
+(require 'f)
+
+(eval-after-load "dash" '(dash-enable-font-lock))
 
 (defun p-list-elisp-files (dir)
   (cl-remove-if-not (lambda (fname)
