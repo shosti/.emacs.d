@@ -20,16 +20,20 @@
        (p-password 'hipchat-password)
        server 5223 'ssl))))
 
+(defun p-hipchat-join-room (room)
+  (interactive "M")
+  (jabber-groupchat-join
+   (jabber-read-account)
+   (s-concat p-hipchat-account-number "_" room "@conf.hipchat.com")
+   "Emanuel Evans"))
+
 (defun p-hipchat-join ()
   (interactive)
   (require 'jabber)
   (p-hipchat-connect)
   (sleep-for 5)
   (--each p-hipchat-rooms
-    (jabber-groupchat-join
-     (jabber-read-account)
-     (s-concat p-hipchat-account-number "_" it "@conf.hipchat.com")
-     "Emanuel Evans")))
+    (p-hipchat-join-room it)))
 
 (defun p-hipchat-rooms ()
   (cons
