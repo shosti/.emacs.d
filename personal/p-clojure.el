@@ -3,7 +3,7 @@
 (p-require-package 'clojure-mode)
 (p-require-package 'clojure-test-mode)
 (p-require-package 'slamhound 'melpa)
-(p-require-package 'nrepl)
+(p-require-package 'cider)
 (p-require-package 'ac-nrepl)
 (p-require-package 'clojure-cheatsheet 'melpa)
 
