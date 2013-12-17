@@ -1,7 +1,6 @@
 ;;; p-ruby.el --- Personal ruby bindings
 ;;; Commentary:
 ;;; Code:
-(p-require-package 'ruby-end 'melpa)
 (p-require-package 'ruby-tools 'melpa)
 (p-require-package 'ruby-compilation 'melpa)
 (p-require-package 'rinari 'melpa)
@@ -100,7 +99,6 @@ window."
 (defun p-set-up-ruby-mode ()
   (electric-indent-mode 1)
   (robe-mode 1)
-  (ruby-end-mode 1)
   (ruby-tools-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
