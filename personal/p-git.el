@@ -7,6 +7,8 @@
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter 'melpa)
 
+(require 'p-evil)
+
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
               (car (s-match "CD-[0-9]+"
@@ -63,6 +65,9 @@
 (global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
 (global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
 (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+
+(add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
+(evil-add-hjkl-bindings git-rebase-mode-map)
 
 (provide 'p-git)
 
