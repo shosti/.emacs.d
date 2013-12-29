@@ -14,7 +14,8 @@
 (setq eshell-scroll-to-bottom-on-input t
       eshell-cmpl-cycle-completions t
       eshell-scroll-show-maximum-output nil
-      eshell-directory-name (concat user-emacs-directory "eshell/"))
+      eshell-directory-name (concat user-emacs-directory "eshell/")
+      eshell-buffer-shorthand t)
 
 (setenv "TERM" "dumb")
 (setenv "EDITOR" "emacsclient")
