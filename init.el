@@ -11,7 +11,6 @@
 
 (add-to-list 'load-path p-dir)
 (add-to-list 'load-path p-opt-dir)
-(add-to-list 'load-path p-private-dir)
 
 (setq custom-file (concat p-private-dir "/custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
