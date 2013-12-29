@@ -2,6 +2,8 @@
 
 (p-require-package 'multiple-cursors)
 
+(setq mc/list-file (concat p-private-dir "/.mc-lists.el"))
+
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 
