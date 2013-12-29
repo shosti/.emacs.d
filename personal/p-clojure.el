@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'clojure-mode)
-(p-require-package 'clojure-test-mode)
+(p-require-package 'clojure-test-mode 'melpa)
 (p-require-package 'slamhound 'melpa)
 (p-require-package 'cider)
 (p-require-package 'ac-nrepl)
@@ -19,9 +19,9 @@
   '(progn
      (add-to-list 'ac-modes 'nrepl-mode)))
 
-(eval-after-load 'nrepl
+(eval-after-load 'cider
   '(progn
-     (setq nrepl-popup-stacktraces nil)
+     (setq cider-popup-stacktraces nil)
      (font-lock-add-keywords
       'nrepl-mode
       '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)))))
