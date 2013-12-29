@@ -48,6 +48,7 @@
   (define-key p-leader-map "P" 'p-send-to-pianobar)
   (define-key p-leader-map "u" 'undo-tree-visualize)
   (define-key p-leader-map "k" 'ido-kill-buffer)
+  (define-key p-leader-map "K" 'p-delete-current-buffer-file)
   (define-key p-leader-map "j" 'p-hipchat-switch-to-room))
 
 (p-set-up-evil-leader)
