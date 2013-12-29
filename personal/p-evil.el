@@ -74,6 +74,11 @@
 (key-chord-define global-map "jk" (kbd "C-g"))
 (key-chord-define global-map ",." 'p-leader-map)
 (key-chord-define global-map "xc" 'smex)
+(key-chord-define global-map "XC"
+                  '(lambda ()
+                     (interactive)
+                     (let ((current-prefix-arg '(4)))
+                       (smex))))
 
 (eval-after-load 'gnus
   '(progn
