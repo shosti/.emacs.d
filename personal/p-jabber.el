@@ -3,8 +3,9 @@
 (defvar p-hipchat-account-number)
 (defvar p-hipchat-user-number)
 (defvar p-hipchat-rooms)
+(defvar p-hipchat-nickname)
 
-(p-load-file-if-exists (expand-file-name "~/.hipchat.el"))
+(p-load-file-if-exists (concat p-private-dir "/hipchat.el"))
 
 (setq jabber-message-alert-same-buffer nil
       jabber-history-enabled t)
@@ -25,7 +26,7 @@
   (jabber-groupchat-join
    (jabber-read-account)
    (s-concat p-hipchat-account-number "_" room "@conf.hipchat.com")
-   "Emanuel Evans"))
+   p-hipchat-nickname))
 
 (defun p-hipchat-join ()
   (interactive)
