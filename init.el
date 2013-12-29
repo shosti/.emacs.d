@@ -6,9 +6,12 @@
                (concat user-emacs-directory "personal")))
 (defvar p-opt-dir (expand-file-name
                    (concat user-emacs-directory "opt")))
+(defvar p-private-dir (expand-file-name
+                   (concat user-emacs-directory "private")))
 
 (add-to-list 'load-path p-dir)
 (add-to-list 'load-path p-opt-dir)
+(add-to-list 'load-path p-private-dir)
 
 (setq custom-file (concat user-emacs-directory "custom.el")
       custom-theme-directory (concat user-emacs-directory "themes/"))
