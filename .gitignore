@@ -7,8 +7,6 @@ auto-save-list
 ede-projects.el
 el-get
 elpa
-eshell/history
-eshell/lastdir
 personal/auto-snippets
 private
 recentf
