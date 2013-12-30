@@ -69,6 +69,9 @@
   (when (file-exists-p fname)
     (load-file fname)))
 
+(defun p-load-private (fname)
+  (p-load-file-if-exists (concat p-private-dir fname)))
+
 (defun p-run-applescript (sname)
   (shell-command (concat "osascript "
                          user-emacs-directory

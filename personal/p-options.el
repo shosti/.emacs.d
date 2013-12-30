@@ -44,7 +44,7 @@
 (defvar p-passwords-loaded nil)
 
 (defun p-load-password-file ()
-  (let ((password-file (concat p-private-dir "/passwords.el.gpg")))
+  (let ((password-file (concat p-private-dir "passwords.el.gpg")))
     (when (file-exists-p password-file)
       (load password-file)
       (setq p-passwords-loaded t))))

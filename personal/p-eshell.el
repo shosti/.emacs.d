@@ -14,7 +14,7 @@
 (setq eshell-scroll-to-bottom-on-input t
       eshell-cmpl-cycle-completions t
       eshell-scroll-show-maximum-output nil
-      eshell-directory-name (concat p-private-dir "/eshell/")
+      eshell-directory-name (concat p-private-dir "eshell/")
       eshell-buffer-shorthand t)
 
 (setenv "TERM" "dumb")

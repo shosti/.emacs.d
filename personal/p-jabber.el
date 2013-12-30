@@ -5,7 +5,7 @@
 (defvar p-hipchat-rooms)
 (defvar p-hipchat-nickname)
 
-(p-load-file-if-exists (concat p-private-dir "/hipchat.el"))
+(p-load-private "hipchat.el")
 
 (setq jabber-message-alert-same-buffer nil
       jabber-history-enabled t)
