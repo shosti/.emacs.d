@@ -6,8 +6,10 @@
 (p-require-package 'gitconfig-mode)
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter 'melpa)
+(p-require-package 'git-gutter-fringe 'melpa)
 
 (require 'p-evil)
+(require 'git-gutter-fringe)
 
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
