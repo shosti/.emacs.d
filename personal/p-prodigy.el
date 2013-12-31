@@ -2,11 +2,7 @@
 
 (require 'prodigy)
 
-(prodigy-define-service
-  :name "redis"
-  :command "redis-server"
-  :cwd "~/src/coupa/coupa_development"
-  :args '("config/redis.conf.sample"))
+(p-load-private "prodigy.el")
 
 (provide 'p-prodigy)
 
