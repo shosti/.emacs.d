@@ -3,11 +3,11 @@
 (p-require-package 'evil 'melpa)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
-(p-require-package 'surround)
-(p-require-package 'goto-chg 'melpa)
+(p-require-package 'surround 'melpa)
+(p-require-package 'goto-chg)
 
 (require 'evil)
-;(require 'surround)
+(require 'surround)
 
 (setq evil-default-cursor t)
 
@@ -103,18 +103,10 @@
       (evil-emacs-state 1)
     (evil-normal-state 1)))
 
-(defmacro p-add-hjkl-bindings (mode)
-  `(evil-add-hjkl-bindings ,mode
-     "h" (lookup-key evil-motion-state-map "h")
-     "h" (lookup-key evil-motion-state-map "h")
-     "h" (lookup-key evil-motion-state-map "h")
-     "/" ()))
-
 (evil-add-hjkl-bindings magit-blame-map)
 
-
 (evil-mode 1)
-;(global-surround-mode 1)
+(global-surround-mode 1)
 
 (provide 'p-evil)
 
