@@ -46,6 +46,7 @@
   (define-key p-leader-map "Z" 'shell)
   (define-key p-leader-map "p" 'projectile-prefix-map)
   (define-key p-leader-map "P" 'p-send-to-pianobar)
+  (define-key p-leader-map "r" 'p-rename-current-buffer-file)
   (define-key p-leader-map "u" 'undo-tree-visualize)
   (define-key p-leader-map "k" 'ido-kill-buffer)
   (define-key p-leader-map "K" 'p-delete-current-buffer-file)
