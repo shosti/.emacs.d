@@ -63,6 +63,8 @@
 (define-key evil-normal-state-map "gn" 'next-error)
 (define-key evil-normal-state-map "gN" 'previous-error)
 (define-key evil-normal-state-map "Y" "y$")
+(define-key evil-ex-completion-map (kbd "M-p") (kbd "<up>"))
+(define-key evil-ex-completion-map (kbd "M-n") (kbd "<down>"))
 (define-key evil-insert-state-map (kbd "C-k") nil)
 (evil-define-key 'motion help-mode-map (kbd "<tab>") (kbd "\\ <tab>"))
 
