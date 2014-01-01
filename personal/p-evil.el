@@ -78,6 +78,8 @@
 
 (evil-add-hjkl-bindings magit-blame-map)
 
+(add-to-list 'evil-motion-state-modes 'package-menu-mode)
+
 (evil-mode 1)
 (global-surround-mode 1)
 
