@@ -14,7 +14,8 @@
  "n" 'esk-cleanup-buffer
  "l" 'p-find-personal-file
  "r" 'p-rename-current-buffer-file
- "K" 'p-delete-current-buffer-file)
+ "K" 'p-delete-current-buffer-file
+ "t" 'toggle-debug-on-error)
 
 (key-chord-define global-map ",." 'p-leader-map)
 
