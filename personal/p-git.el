@@ -30,8 +30,7 @@
        "Restores the previous window configuration and kills the magit buffer"
        (interactive)
        (kill-buffer)
-       (jump-to-register :magit-fullscreen)
-       (git-gutter))
+       (jump-to-register :magit-fullscreen))
 
      (defun p-magit-toggle-whitespace ()
        (interactive)
@@ -60,7 +59,6 @@
 
 (global-git-gutter-mode 1)
 
-(setq git-gutter:update-hooks '(after-save-hook after-revert-hook))
 (setq git-gutter:disabled-modes '(ediff-mode))
 
 (global-set-key (kbd "C-c g") 'git-gutter:toggle)
