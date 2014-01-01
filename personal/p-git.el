@@ -73,7 +73,8 @@
  "G" 'git-gutter)
 
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
-(evil-add-hjkl-bindings git-rebase-mode-map)
+(evil-add-hjkl-bindings git-rebase-mode-map 'emacs
+  "K" 'git-rebase-kill-line)
 
 (provide 'p-git)
 
