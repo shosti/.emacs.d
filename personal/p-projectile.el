@@ -1,5 +1,7 @@
 (p-require-package 'projectile)
 
+(require 'p-leader)
+
 (projectile-global-mode)
 
 ;; Hack because it isn't exposed by projectile
@@ -23,6 +25,8 @@
 (define-key projectile-prefix-map (kbd "p") 'projectile-test-project)
 (define-key projectile-prefix-map (kbd "z") 'projectile-cache-current-file)
 (define-key projectile-prefix-map (kbd "s") 'projectile-switch-project)
+
+(p-set-leader-key "p" 'projectile-prefix-map)
 
 (provide 'p-projectile)
 

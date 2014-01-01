@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'flx-ido)
 
+(require 'p-leader)
+
 (flx-ido-mode 1)
 
 (defun p-ido-setup-keybindings ()
@@ -17,6 +19,11 @@
 
 (add-hook 'ido-setup-hook
           'p-ido-setup-keybindings)
+
+(p-set-leader-key
+ "k" 'ido-kill-buffer
+ "f" 'ido-find-file
+ "B" 'ido-switch-buffer)
 
 (provide 'p-ido)
 

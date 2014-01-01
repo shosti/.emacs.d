@@ -1,9 +1,12 @@
 (p-require-package 'ag 'melpa)
 
+(require 'p-leader)
+
 (setq ag-highlight-search t)
 
-(global-set-key (kbd "C-c a") 'ag-project)
-(global-set-key (kbd "C-c A") 'ag-project-regexp)
+(p-set-leader-key
+ "a" 'ag-project
+ "A" 'ag-project-regexp)
 
 (provide 'p-ag)
 

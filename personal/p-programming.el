@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'undo-tree)
-
 (global-undo-tree-mode 1)
 (global-visual-line-mode 1)
 

@@ -1,5 +1,7 @@
 (autoload 'pianobar "pianobar" nil t)
 
+(require 'p-leader)
+
 (eval-after-load 'pianobar
   '(progn
      (setq pianobar-username "emanuel.evans@gmail.com"
@@ -11,7 +13,7 @@
        (interactive)
        (pianobar-send-command (read-char)))
 
-     (global-set-key (kbd "C-c b") 'p-send-to-pianobar)))
+     (p-set-leader-key "P" 'p-send-to-pianobar)))
 
 (provide 'p-pianobar)
 

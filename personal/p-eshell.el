@@ -6,6 +6,7 @@
 (require 'eshell)
 (require 'dirtrack)
 (require 'p-path)
+(require 'p-leader)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -40,6 +41,10 @@
   (dirtrack-mode 1))
 
 (add-hook 'eshell-mode-hook 'p-set-up-eshell)
+
+(p-set-leader-key
+ "z" 'eshell
+ "Z" 'shell)
 
 (provide 'p-eshell)
 

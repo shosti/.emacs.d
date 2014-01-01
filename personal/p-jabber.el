@@ -5,6 +5,8 @@
 (defvar p-hipchat-rooms)
 (defvar p-hipchat-nickname)
 
+(require 'p-leader)
+
 (p-load-private "hipchat.el")
 
 (setq jabber-message-alert-same-buffer nil
@@ -63,6 +65,8 @@
     (switch-to-buffer (cdr (assoc room chatrooms)))))
 
 (global-set-key (kbd "C-c h") 'p-hipchat-switch-to-room)
+
+(p-set-leader-key "j" 'p-hipchat-switch-to-room)
 
 (provide 'p-jabber)
 

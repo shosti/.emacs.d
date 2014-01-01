@@ -9,6 +9,7 @@
 (p-require-package 'git-gutter-fringe 'melpa)
 
 (require 'p-evil)
+(require 'p-leader)
 (require 'git-gutter-fringe)
 
 (defun p-insert-git-cd-number ()
@@ -67,6 +68,11 @@
 (global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
 (global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
 (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
+
+(p-set-leader-key
+ "m" 'magit-blame-mode
+ "g" 'magit-status
+ "G" 'git-gutter)
 
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
 (evil-add-hjkl-bindings git-rebase-mode-map)

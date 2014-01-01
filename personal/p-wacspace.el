@@ -2,6 +2,7 @@
 
 (require 'p-display)
 (require 'findr)
+(require 'p-leader)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -257,7 +258,7 @@
 ;; Bindings ;;
 ;;;;;;;;;;;;;;
 
-(define-key wacs-prefix-map (kbd "C-z") 'eshell)
+(p-set-leader-key "w" 'wacs-prefix-map)
 
 (provide 'p-wacspace)
 
