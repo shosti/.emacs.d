@@ -10,7 +10,7 @@
 (p-set-leader-key
  "ee" 'p-evil-eval-last-sexp
  "eb" 'eval-buffer
- "E" (kbd "\\ C-M-x")
+ "E" (kbd "| C-M-x")
  "n" 'esk-cleanup-buffer
  "l" 'p-find-personal-file
  "r" 'p-rename-current-buffer-file
