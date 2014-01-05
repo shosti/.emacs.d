@@ -2,12 +2,14 @@
 
 (require 'p-options)
 
-(setq user-mail-address "emanuel.evans@gmail.com")
-(setq user-full-name "Emanuel Evans")
+;;;;;;;;;;;;;;
+;; Settings ;;
+;;;;;;;;;;;;;;
 
-(setq gnus-select-method '(nntp "news.gmane.org"))
+(eval-after-load 'gnus
+  '(progn
+     (p-load-private "gnus-settings.el")))
 
-(setq gnus-startup-file (concat user-emacs-directory ".newsrc"))
 
 (provide 'p-gnus)
 
