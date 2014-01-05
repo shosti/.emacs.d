@@ -2,6 +2,6 @@
 # name: eachdo
 # key: eachdo
 # --
-$1.each do |${1:$(singularize-string text)}|
+$1.each do |${1:$(singularize-string yas-text)}|
 $0
 end
