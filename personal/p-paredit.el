@@ -35,8 +35,8 @@
 ;; whattheemacsd stuff
 (defun paredit--is-at-start-of-sexp ()
   (and (looking-at "(\\|\\[")
-       (not (nth 3 (syntax-ppss))) ;; inside string
-       (not (nth 4 (syntax-ppss))))) ;; inside comment
+     (not (nth 3 (syntax-ppss))) ;; inside string
+     (not (nth 4 (syntax-ppss))))) ;; inside comment
 
 (defun paredit-duplicate-closest-sexp ()
   (interactive)
@@ -46,8 +46,8 @@
   (set-mark-command nil)
   ;; while we find sexps we move forward on the line
   (while (and (bounds-of-thing-at-point 'sexp)
-              (<= (point) (car (bounds-of-thing-at-point 'sexp)))
-              (not (= (point) (line-end-position))))
+            (<= (point) (car (bounds-of-thing-at-point 'sexp)))
+            (not (= (point) (line-end-position))))
     (forward-sexp)
     (while (looking-at " ")
       (forward-char)))
@@ -57,11 +57,13 @@
   (yank)
   (exchange-point-and-mark))
 
-;; Keybindings
+;;;;;;;;;;;;;;
+;; Bindings ;;
+;;;;;;;;;;;;;;
 
 (define-key paredit-mode-map (kbd "M-)") 'paredit-wrap-round-from-behind)
 (define-key paredit-mode-map (kbd "C-w") 'p-paredit-backward-kill-word)
-(define-key paredit-mode-map (kbd "C-c d") 'paredit-duplicate-closest-sexp)
-(define-key paredit-mode-map (kbd "<C-M-backspace>") 'backward-kill-sexp)
 
 (provide 'p-paredit)
+
+;;; p-paredit.el ends here
