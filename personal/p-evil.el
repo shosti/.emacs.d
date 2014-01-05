@@ -30,7 +30,7 @@
 (key-chord-define evil-normal-state-map ",." 'p-leader-map)
 (define-key evil-normal-state-map " " 'ace-jump-mode)
 
-(--each '(jabber-chat-mode git-commit-mode)
+(--each '(git-commit-mode)
   (add-to-list 'evil-insert-state-modes it))
 (define-key evil-normal-state-map "gx" 'imenu)
 (define-key evil-normal-state-map "gd" (kbd "| M-."))
@@ -49,9 +49,6 @@
 (define-key evil-motion-state-map (kbd "SPC") nil)
 (define-key evil-motion-state-map (kbd "<tab>") nil)
 (define-key evil-motion-state-map (kbd "TAB") nil)
-
-(evil-define-key 'normal jabber-roster-mode-map (kbd "RET") 'jabber-roster-ret-action-at-point)
-(evil-define-key 'normal jabber-roster-mode-map (kbd "q") (kbd "| q"))
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-visual-state-map "jk" 'evil-exit-visual-state)

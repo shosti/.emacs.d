@@ -6,6 +6,7 @@
 (defvar p-hipchat-nickname)
 
 (require 'p-leader)
+(require 'p-evil)
 
 (p-load-private "hipchat-settings.el")
 
@@ -64,8 +65,12 @@
           (completing-read "Room: " room-names nil nil nil nil (car room-names))))
     (switch-to-buffer (cdr (assoc room chatrooms)))))
 
-(global-set-key (kbd "C-c h") 'p-hipchat-switch-to-room)
+;;;;;;;;;;;;;;
+;; Bindings ;;
+;;;;;;;;;;;;;;
 
+(add-to-list 'evil-insert-state-modes 'jabber-chat-mode)
+(add-to-list 'evil-motion-state-modes 'jabber-roster-mode)
 (p-set-leader-key "j" 'p-hipchat-switch-to-room)
 
 (provide 'p-jabber)
