@@ -63,17 +63,6 @@
                      (let ((current-prefix-arg '(4)))
                        (smex))))
 
-(eval-after-load 'gnus
-  '(progn
-     (--each (list gnus-summary-mode-map gnus-article-mode-map)
-       (define-key it "j" 'gnus-summary-next-unread-article)
-       (define-key it "k" 'gnus-summary-prev-unread-article))))
-
-(eval-after-load 'gnus-group
-  '(progn
-     (define-key gnus-group-mode-map "j" 'gnus-group-next-unread-group)
-     (define-key gnus-group-mode-map "k" 'gnus-group-prev-unread-group)))
-
 (defadvice paredit-mode (after turn-on-evil-paredit activate)
   (require 'evil-paredit)
   (evil-paredit-mode 1))
