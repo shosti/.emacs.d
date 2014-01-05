@@ -7,7 +7,7 @@
 
 (require 'p-leader)
 
-(p-load-private "hipchat.el")
+(p-load-private "hipchat-settings.el")
 
 (setq jabber-message-alert-same-buffer nil
       jabber-history-enabled t)
