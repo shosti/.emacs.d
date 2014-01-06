@@ -8,6 +8,8 @@
 (pretty-activate-groups '(:greek))
 (pretty-add-keywords 'ruby-mode '(("->" . ?\u03BB)))
 
-(global-pretty-mode 1)
+(add-hook 'prog-mode-hook 'turn-on-pretty-if-desired)
 
 (provide 'p-pretty-mode)
+
+;;; p-pretty-mode.el ends here
