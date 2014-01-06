@@ -11,6 +11,7 @@
 (require 'p-evil)
 (require 'p-leader)
 (require 'git-gutter-fringe)
+(require 'magit)
 
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
@@ -19,43 +20,34 @@
                              "git symbolic-ref --short HEAD"))))
     (when (and (bolp) (eolp)) (insert project-number " "))))
 
-(eval-after-load 'magit
-  '(progn
-     (defadvice magit-status (around magit-fullscreen activate)
-       (window-configuration-to-register :magit-fullscreen)
-       ad-do-it
-       (delete-other-windows))
+(defadvice magit-status (around magit-fullscreen activate)
+  (window-configuration-to-register :magit-fullscreen)
+  ad-do-it
+  (delete-other-windows))
 
-     (defun p-magit-quit-session ()
-       "Restores the previous window configuration and kills the magit buffer"
-       (interactive)
-       (kill-buffer)
-       (jump-to-register :magit-fullscreen))
+(defun p-magit-quit-session ()
+  "Restores the previous window configuration and kills the magit buffer"
+  (interactive)
+  (kill-buffer)
+  (jump-to-register :magit-fullscreen))
 
-     (defun p-magit-toggle-whitespace ()
-       (interactive)
-       (if (member "-w" magit-diff-options)
-           (p-magit-dont-ignore-whitespace)
-         (p-magit-ignore-whitespace)))
+(defun p-magit-toggle-whitespace ()
+  (interactive)
+  (if (member "-w" magit-diff-options)
+      (p-magit-dont-ignore-whitespace)
+    (p-magit-ignore-whitespace)))
 
-     (defun p-magit-ignore-whitespace ()
-       (interactive)
-       (add-to-list 'magit-diff-options "-w")
-       (magit-refresh))
+(defun p-magit-ignore-whitespace ()
+  (interactive)
+  (add-to-list 'magit-diff-options "-w")
+  (magit-refresh))
 
-     (defun p-magit-dont-ignore-whitespace ()
-       (interactive)
-       (setq magit-diff-options (remove "-w" magit-diff-options))
-       (magit-refresh))
+(defun p-magit-dont-ignore-whitespace ()
+  (interactive)
+  (setq magit-diff-options (remove "-w" magit-diff-options))
+  (magit-refresh))
 
-     (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
-
-     (define-key magit-status-mode-map (kbd "q") 'p-magit-quit-session)
-     (define-key magit-status-mode-map (kbd "W") 'p-magit-toggle-whitespace)
-     (--each (list magit-status-mode-map magit-log-mode-map)
-       (define-key it "j" 'magit-goto-next-section)
-       (define-key it "k" 'magit-goto-previous-section)
-       (define-key it "K" 'magit-discard-item))))
+(add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
 (global-git-gutter-mode 1)
 
@@ -76,9 +68,39 @@
 (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
 
 (p-set-leader-key
- "m" 'magit-blame-mode
- "g" 'magit-status
- "G" 'git-gutter)
+  "m" 'magit-blame-mode
+  "g" 'magit-status
+  "G" 'git-gutter)
+
+(evil-add-hjkl-bindings magit-status-mode-map 'emacs
+  "K" 'magit-discard-item
+  "V" 'magit-revert-item
+  "v" 'set-mark-command
+  "l" 'magit-key-mode-popup-logging
+  "h" 'magit-key-mode-popup-diff-options
+  "q" 'p-magit-quit-session
+  "W" 'p-magit-toggle-whitespace
+  (kbd "C-n") 'magit-goto-next-section
+  (kbd "C-p") 'magit-goto-previous-section)
+
+(evil-add-hjkl-bindings magit-log-mode-map 'emacs
+  "V" 'magit-revert-item
+  "l" 'magit-key-mode-popup-logging
+  "h" 'magit-log-toggle-margin
+  "/" 'evil-search-forward
+  "?" 'evil-search-backward
+  "n" 'evil-search-next
+  "N" 'evil-search-previous
+  (kbd "C-n") 'magit-goto-next-section
+  (kbd "C-p") 'magit-goto-previous-section)
+
+(evil-add-hjkl-bindings magit-commit-mode-map 'emacs
+  "V" 'magit-revert-item
+  "v" 'set-mark-command
+  "l" 'magit-key-mode-popup-logging
+  "h" 'magit-key-mode-popup-diff-options
+  (kbd "C-n") 'magit-goto-next-section
+  (kbd "C-p") 'magit-goto-previous-section)
 
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
 (add-to-list 'evil-insert-state-modes 'git-commit-mode)
