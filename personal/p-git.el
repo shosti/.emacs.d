@@ -11,7 +11,6 @@
 (require 'p-evil)
 (require 'p-leader)
 (require 'git-gutter-fringe)
-(require 'magit)
 
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
