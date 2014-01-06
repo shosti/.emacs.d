@@ -3,6 +3,7 @@
 (p-require-package 'paredit)
 
 (require 'p-editing)
+(require 'p-evil)
 (require 'paredit)
 
 ;; Config
@@ -56,6 +57,10 @@
   (paredit-newline)
   (yank)
   (exchange-point-and-mark))
+
+(defadvice paredit-mode (after turn-on-evil-paredit activate)
+  (require 'evil-paredit)
+  (evil-paredit-mode 1))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;

@@ -61,7 +61,15 @@
 
 (setq git-gutter:disabled-modes '(ediff-mode))
 
-(global-set-key (kbd "C-c g") 'git-gutter:toggle)
+;;;;;;;;;;;;;;
+;; Bindings ;;
+;;;;;;;;;;;;;;
+
+(defadvice magit-blame-mode (after switch-to-emacs-mode activate)
+  (if magit-blame-mode
+      (evil-emacs-state 1)
+    (evil-normal-state 1)))
+
 (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
 (global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
 (global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
@@ -73,6 +81,8 @@
  "G" 'git-gutter)
 
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
+(add-to-list 'evil-insert-state-modes 'git-commit-mode)
+(evil-add-hjkl-bindings magit-blame-map)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
   "K" 'git-rebase-kill-line)
 

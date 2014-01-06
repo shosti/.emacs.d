@@ -27,11 +27,7 @@
      (forward-char)
      (execute-kbd-macro (kbd "C-x C-e")))))
 
-(key-chord-define evil-normal-state-map ",." 'p-leader-map)
 (define-key evil-normal-state-map " " 'ace-jump-mode)
-
-(--each '(git-commit-mode)
-  (add-to-list 'evil-insert-state-modes it))
 (define-key evil-normal-state-map "gx" 'imenu)
 (define-key evil-normal-state-map "gd" (kbd "| M-."))
 (define-key evil-normal-state-map "gD" (kbd "| M-,"))
@@ -53,23 +49,6 @@
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-visual-state-map "jk" 'evil-exit-visual-state)
 (key-chord-define global-map "jk" (kbd "C-g"))
-(key-chord-define global-map "xc" 'smex)
-(key-chord-define global-map "XC"
-                  '(lambda ()
-                     (interactive)
-                     (let ((current-prefix-arg '(4)))
-                       (smex))))
-
-(defadvice paredit-mode (after turn-on-evil-paredit activate)
-  (require 'evil-paredit)
-  (evil-paredit-mode 1))
-
-(defadvice magit-blame-mode (after switch-to-emacs-mode activate)
-  (if magit-blame-mode
-      (evil-emacs-state 1)
-    (evil-normal-state 1)))
-
-(evil-add-hjkl-bindings magit-blame-map)
 
 (add-to-list 'evil-motion-state-modes 'package-menu-mode)
 
