@@ -14,6 +14,10 @@
         helm-source-locate))
 
 (p-set-leader-key "b" 'helm-for-files)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+
+(eval-after-load 'helm
+  '(define-key helm-map (kbd "C-w") nil))
 
 (provide 'p-helm)
 

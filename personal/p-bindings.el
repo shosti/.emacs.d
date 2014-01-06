@@ -3,10 +3,10 @@
 
 (p-require-package 'starter-kit-bindings)
 
-(require 'p-wacspace)
+(require 'p-leader)
 
 ;;;;;;;;;;;;;;;;;;;;;;;
-;; window management ;;
+;; Window Management ;;
 ;;;;;;;;;;;;;;;;;;;;;;;
 
 (global-set-key (kbd "M-3") 'split-window-horizontally)
@@ -16,35 +16,16 @@
 (global-set-key (kbd "M-o") 'other-window)
 
 ;;;;;;;;;;
-;; misc ;;
+;; Misc ;;
 ;;;;;;;;;;
 
 (global-set-key (kbd "C-x C-z") 'ns-do-hide-emacs)
-(global-set-key (kbd "C-x C-m") 'smex)
-(global-set-key (kbd "C-x g") 'magit-status)
-(global-set-key (kbd "C-c w") 'browse-url)
-
-;;;;;;;;;;;;;;
-;; packages ;;
-;;;;;;;;;;;;;;
-
-(global-set-key (kbd "C-<f6>") 'package-list-packages)
-
-;;;;;;;;;;;;;;
-;; helm/ido ;;
-;;;;;;;;;;;;;;
-
-(global-set-key (kbd "C-x C-b") 'helm-for-files)
-(global-set-key (kbd "C-x C-n") 'helm-for-files)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(eval-after-load 'helm
-  '(define-key helm-map (kbd "C-w") nil))
 
 ;;;;;;;;;;;;;
-;; compile ;;
+;; Compile ;;
 ;;;;;;;;;;;;;
 
-(global-set-key (kbd "C-c k") 'compile)
+(p-set-leader-key "c" 'compile)
 
 (provide 'p-bindings)
 
