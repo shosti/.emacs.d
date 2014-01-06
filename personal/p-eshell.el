@@ -8,6 +8,8 @@
 (require 'p-path)
 (require 'p-leader)
 
+(p-load-private "eshell-settings.el")
+
 ;;;;;;;;;;;;
 ;; Config ;;
 ;;;;;;;;;;;;
@@ -24,7 +26,7 @@
 (setenv "NODE_PATH" "/usr/local/lib/node")
 (setenv "PYTHONPATH"
         "/usr/local/lib/python2.7/site-packages")
-(setenv "HOMEBREW_GITHUB_API_TOKEN" (p-password 'github-api-token))
+(setenv "HOMEBREW_GITHUB_API_TOKEN" github-api-token)
 (setenv "HOMEBREW_KEEP_INFO" "1")
 
 (setq eshell-visual-commands
