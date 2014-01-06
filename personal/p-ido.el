@@ -21,9 +21,9 @@
           'p-ido-setup-keybindings)
 
 (p-set-leader-key
- "k" 'ido-kill-buffer
- "f" 'ido-find-file
- "B" 'ido-switch-buffer)
+  "k" 'ido-kill-buffer
+  "f" 'ido-find-file
+  "B" 'ido-switch-buffer)
 
 (provide 'p-ido)
 

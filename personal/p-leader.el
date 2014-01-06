@@ -4,18 +4,19 @@
 (define-prefix-command 'p-leader-map)
 
 (defun p-set-leader-key (&rest bindings)
+  (declare (indent defun))
   (--each (-partition 2 bindings)
     (define-key p-leader-map (car it) (cadr it))))
 
 (p-set-leader-key
- "ee" 'p-evil-eval-last-sexp
- "eb" 'eval-buffer
- "E" (kbd "| C-M-x")
- "n" 'esk-cleanup-buffer
- "l" 'p-find-personal-file
- "r" 'p-rename-current-buffer-file
- "K" 'p-delete-current-buffer-file
- "t" 'toggle-debug-on-error)
+  "ee" 'p-evil-eval-last-sexp
+  "eb" 'eval-buffer
+  "E" (kbd "| C-M-x")
+  "n" 'esk-cleanup-buffer
+  "l" 'p-find-personal-file
+  "r" 'p-rename-current-buffer-file
+  "K" 'p-delete-current-buffer-file
+  "t" 'toggle-debug-on-error)
 
 (key-chord-define global-map ",." 'p-leader-map)
 

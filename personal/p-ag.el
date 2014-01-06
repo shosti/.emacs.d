@@ -5,8 +5,8 @@
 (setq ag-highlight-search t)
 
 (p-set-leader-key
- "a" 'ag-project
- "A" 'ag-project-regexp)
+  "a" 'ag-project
+  "A" 'ag-project-regexp)
 
 (provide 'p-ag)
 
