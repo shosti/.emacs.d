@@ -1,12 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'starter-kit-eshell)
 (p-require-package 'dirtrack)
 
 (require 'eshell)
 (require 'dirtrack)
 (require 'p-path)
 (require 'p-leader)
+(require 'p-starter-kit-eshell)
 
 (p-load-private "eshell-settings.el")
 

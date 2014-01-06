@@ -1,8 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Miscellaneous keybindings
 
-(p-require-package 'starter-kit-bindings)
-
 (require 'p-leader)
 
 ;;;;;;;;;;;;;;;;;;;;;;;

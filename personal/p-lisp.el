@@ -1,11 +1,12 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'starter-kit-lisp)
 (p-require-package 'paredit)
 (p-require-package 'clojure-mode)
 (p-require-package 'highlight-parentheses)
 (p-require-package 'macrostep)
 (p-require-package 'redshank 'melpa)
+
+(require 'p-starter-kit-lisp)
 
 ;;;;;;;;;;;;
 ;; Config ;;
