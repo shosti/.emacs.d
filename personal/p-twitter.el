@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'twittering-mode 'melpa)
 
 (setq twittering-use-master-password t

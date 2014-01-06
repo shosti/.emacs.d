@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'p-key-chord)
 
 (p-require-package 'evil 'melpa)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'p-evil)
 
 (p-require-package 'makey 'melpa)

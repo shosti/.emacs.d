@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'p-evil)
 
 (evil-define-motion p-forward-sexp (count)

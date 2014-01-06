@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'projectile)
 
 (require 'p-leader)

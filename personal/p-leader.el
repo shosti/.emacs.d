@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'p-key-chord)
 (require 'p-evil)
 

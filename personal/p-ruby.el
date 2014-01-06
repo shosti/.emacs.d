@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 ;;; p-ruby.el --- Personal ruby bindings
 ;;; Commentary:
 ;;; Code:

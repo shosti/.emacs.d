@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'feature-mode)
 
 (eval-after-load 'feature-mode

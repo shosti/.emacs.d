@@ -1,6 +1,6 @@
-(p-require-package 'undo-tree)
+;;; -*- lexical-binding: t -*-
 
-(require 'p-leader)
+(p-require-package 'undo-tree)
 
 (provide 'p-undo-tree)
 

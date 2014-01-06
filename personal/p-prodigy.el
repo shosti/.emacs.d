@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'prodigy 'melpa)
 
 (require 'prodigy)

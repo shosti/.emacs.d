@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'evil-nerd-commenter)
 
 (require 'evil-nerd-commenter)

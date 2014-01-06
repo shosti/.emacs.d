@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (autoload 'pianobar "pianobar" nil t)
 
 (require 'p-leader)

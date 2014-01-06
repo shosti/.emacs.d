@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (require 'p-evil)
 (require 'p-discover)
 (require 'dired)

@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (p-require-package 'jabber)
 
 (defvar p-hipchat-account-number)

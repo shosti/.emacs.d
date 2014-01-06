@@ -1,3 +1,5 @@
+;;; -*- lexical-binding: t -*-
+
 (eval-after-load 'html-mode
   '(progn
      (define-key html-mode-map (kbd "RET") 'newline-and-indent)))
