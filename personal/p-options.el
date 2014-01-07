@@ -11,18 +11,29 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 (setq disabled-command-function nil
       dired-use-ls-dired nil
-      uniquify-buffer-name-style 'forward)
+      uniquify-buffer-name-style 'forward
+      visible-bell t
+      inhibit-startup-message t
+      save-place-file "~/.emacs.d/places"
+      diff-switches "-u"
+      ediff-window-setup-function 'ediff-setup-windows-plain)
+
+(setq-default imenu-auto-rescan t)
+
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
 ;;;;;;;;;;;;
 ;; Backup ;;
 ;;;;;;;;;;;;
 
-(setq make-backup-files nil)
-(setq auto-save-default nil)
+(setq make-backup-files nil
+      auto-save-default nil
+      backup-each-save-filter-function 'p-backup-each-save-filter)
 (add-hook 'after-save-hook 'backup-each-save)
-(setq backup-each-save-filter-function 'p-backup-each-save-filter)
 
 ;;;;;;;;;;
 ;; File ;;

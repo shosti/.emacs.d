@@ -9,7 +9,8 @@
 (global-auto-revert-mode 1)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (delete-selection-mode 1)
-(setq-default require-final-newline t)
+(setq-default require-final-newline t
+              indent-tabs-mode nil)
 (auto-fill-mode 0)
 
 ;;;;;;;;;;;;;;;
