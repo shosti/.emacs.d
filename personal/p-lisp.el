@@ -22,7 +22,8 @@
 
 (defun p-find-personal-file ()
   (interactive)
-  (ido-find-file-in-dir (concat user-emacs-directory "personal/")))
+  (let ((ido-use-filename-at-point nil))
+    (ido-find-file-in-dir (concat user-emacs-directory "personal/"))))
 
 ;;;;;;;;;;;
 ;; Hooks ;;
