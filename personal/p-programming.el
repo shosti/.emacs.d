@@ -1,13 +1,33 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'idle-highlight-mode)
+
+(require 'saveplace)
+
 (global-undo-tree-mode 1)
 (global-visual-line-mode 1)
 
-(defun set-up-auto-indent ()
-  (local-set-key (kbd "RET") 'newline-and-indent))
+;; Mostly stolen from ESK
+(setq whitespace-style '(face trailing lines-tail tabs)
+      whitespace-line-column 80)
+
+(defun p-add-watchwords ()
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIXME\\|TODO\\|FIX\\|HACK\\|REFACTOR\\|NOCOMMIT\\)"
+          1 font-lock-warning-face t))))
+
+(defun p-prog-mode-hook ()
+  (run-hooks 'prog-mode-hook))
 
 (defun p-set-up-prog-mode ()
-  (linum-mode 1))
+  (column-number-mode 1)
+  (linum-mode 1)
+  (setq save-place 1)
+  (when (> (display-color-cells) 8)
+    (hl-line-mode 1))
+  (whitespace-mode 1)
+  (idle-highlight-mode t)
+  (p-add-watchwords))
 
 (add-hook 'prog-mode-hook 'p-set-up-prog-mode)
 

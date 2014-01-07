@@ -44,7 +44,7 @@
   (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
     (when (fboundp mode) (funcall mode -1)))
 
-  (mapc 'require '(uniquify p-starter-kit-defuns p-starter-kit-misc))
+  (mapc 'require '(uniquify p-starter-kit-defuns))
 
   ;; You can keep system- or user-specific customizations here
   (setq esk-system-config (concat user-emacs-directory system-name ".el")
