@@ -12,6 +12,7 @@
 (require 'surround)
 
 (setq evil-default-cursor t)
+(setq-default evil-symbol-word-search t)
 
 (defmacro with-emacs-state (&rest cmds)
   `(progn
