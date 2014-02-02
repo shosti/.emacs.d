@@ -262,6 +262,10 @@
   (:2
    (:aux1 (:buffer "*info*"))))
 
+(defwacspace restclient-mode
+  (:default
+   (:aux1 (:buffer "*HTTP Response*"))))
+
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
 ;;;;;;;;;;;;;;
