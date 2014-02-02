@@ -13,6 +13,7 @@
 (p-require-package 'robe 'melpa)
 
 (require 'p-wacspace)
+(require 'p-evil)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -101,6 +102,7 @@ window."
 (defun p-set-up-ruby-mode ()
   (electric-indent-mode 1)
   (robe-mode 1)
+  (setq evil-shift-width 2)
   (ruby-tools-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
