@@ -64,6 +64,11 @@
                          "opt/scripts/"
                          sname ".scpt")))
 
+(defun p-await (condition)
+  "Await an asyncronous CONDITION."
+  (while (not (funcall condition))
+    (sleep-for 0 100)))
+
 (provide 'p-functions)
 
 ;;; p-functions.el ends here
