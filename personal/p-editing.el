@@ -19,6 +19,38 @@
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
 
+
+(defun p-untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun p-indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun p-cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer."
+  (interactive)
+  (p-indent-buffer)
+  (p-untabify-buffer)
+  (delete-trailing-whitespace))
+
+(defun p-lorem ()
+  "Insert a lorem ipsum."
+  (interactive)
+  (insert "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
+          "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim"
+          "ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut "
+          "aliquip ex ea commodo consequat. Duis aute irure dolor in "
+          "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla "
+          "pariatur. Excepteur sint occaecat cupidatat non proident, sunt in "
+          "culpa qui officia deserunt mollit anim id est laborum."))
+
+(defun p-insert-date ()
+  "Insert a time-stamp according to locale's date and time format."
+  (interactive)
+  (insert (format-time-string "%c" (current-time))))
+
 (defun p-backward-kill-word (arg)
   "If the region is active, kills region.  Otherwise, backwards kills word."
   (interactive "p")
