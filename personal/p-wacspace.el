@@ -136,7 +136,9 @@
    (:run p-term-right)))
 
 (defwacspace (ruby-mode rinari-minor-mode)
-  (:before p-rails-console)
+  (:before (lambda ()
+             (rbenv-use-corresponding)
+             (p-rails-console)))
   (:base-file "Gemfile")
   (:after-switch p-set-up-ruby-env)
   (:default
