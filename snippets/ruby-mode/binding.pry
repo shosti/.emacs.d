@@ -2,4 +2,4 @@
 # name: binding.pry
 # key: b
 # --
-binding.pry$0
+binding.remote_pry$0
