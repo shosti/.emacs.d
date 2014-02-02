@@ -108,7 +108,7 @@
    `(flyspell-incorrect-face ((t (:foreground ,red :underline t))))
 
    ;; parenface
-   `(esk-paren-face
+   `(p-paren-face
      ((t (:foreground "#464B51"))))
 
    ;; magit
