@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: sqllog
+# key: sqllog
+# --
+ActiveRecord::Base.logger = Logger.new(STDOUT)
