@@ -214,11 +214,17 @@
                   (p-find-first-matching-file "steps.el$"
                                               default-directory))))))
 
-(defwacspace (clojure-mode nrepl-interaction-mode)
+(defwacspace clojure-mode
+  (:before (lambda ()
+             (unless (cider-connected-p)
+               (cider-jack-in)
+               (p-await 'cider-connected-p))))
   (:default
    (:winconf 2winv)
    (:frame full)
-   (:aux1 (:buffer "*nrepl*")))
+   (:aux1 (:cmd (lambda ()
+                  (switch-to-buffer
+                   (cider-find-or-create-repl-buffer))))))
   (:2
    (:aux1 (:cmd clojure-jump-to-test))))
 
