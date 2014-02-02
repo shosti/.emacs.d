@@ -30,6 +30,11 @@
      (forward-char)
      (execute-kbd-macro (kbd "C-x C-e")))))
 
+;; HACK for binding TAB and C-i separately
+(keyboard-translate ?\C-i ?\H-i)
+(define-key evil-motion-state-map (kbd "TAB") nil)
+(define-key evil-motion-state-map (kbd "H-i") 'evil-jump-forward)
+
 (define-key evil-normal-state-map " " 'ace-jump-mode)
 (define-key evil-normal-state-map "gx" 'imenu)
 (define-key evil-normal-state-map "gd" (kbd "| M-."))
@@ -46,8 +51,6 @@
 (define-key evil-motion-state-map (kbd "<return>") nil)
 (define-key evil-motion-state-map (kbd "RET") nil)
 (define-key evil-motion-state-map (kbd "SPC") nil)
-(define-key evil-motion-state-map (kbd "<tab>") nil)
-(define-key evil-motion-state-map (kbd "TAB") nil)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-visual-state-map "jk" 'evil-exit-visual-state)
