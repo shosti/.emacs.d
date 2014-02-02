@@ -6,7 +6,35 @@
 (defconst thin-width 82)
 (defconst at-top 22)
 
-(add-to-list 'default-frame-alist '(font . "Consolas-14"))
+(defun p-set-up-fonts ()
+  ;; Consolas as default
+  (add-to-list 'default-frame-alist '(font . "Consolas-14"))
+  ;; Use Cambria Math as a fallback for math symbols
+  (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
+  ;; Consolas has good Greek support and most of the equality operators,
+  ;; plus a few other symbols
+  (--each (list 'greek
+                ;; equality
+                (cons (decode-char 'ucs #x2260)
+                      (decode-char 'ucs #x2265))
+                ;; subscript
+                (cons (decode-char 'ucs #x2080)
+                      (decode-char 'ucs #x2084))
+                ;; sum/product
+                (cons (decode-char 'ucs #x220f)
+                      (decode-char 'ucs #x221a))
+                (decode-char 'ucs #x2026))
+    (set-fontset-font t it "Consolas-14"))
+
+  ;; A smattering of other sybols require Symbola
+  (--each '(#x2025 #x2a75 #x2a76 #x29f5 #x29fa #x29fb #x2987 #x2988 #x2af4 #x2218)
+    (set-fontset-font t (decode-char 'ucs it) "Symbola-14"))
+
+  ;; triangles
+  (set-fontset-font t (cons (decode-char 'ucs #x25b2)
+                            (decode-char 'ucs #x25c5)) "Symbola-14"))
+
+(p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
 
