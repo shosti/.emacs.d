@@ -3,10 +3,12 @@
 (p-require-package 'dirtrack)
 
 (require 'eshell)
+(require 'em-prompt)
+(require 'em-term)
+(require 'em-cmpl)
 (require 'dirtrack)
 (require 'p-path)
 (require 'p-leader)
-(require 'p-starter-kit-eshell)
 
 (p-load-private "eshell-settings.el")
 
@@ -18,7 +20,9 @@
       eshell-cmpl-cycle-completions t
       eshell-scroll-show-maximum-output nil
       eshell-directory-name (concat p-private-dir "eshell/")
-      eshell-buffer-shorthand t)
+      eshell-buffer-shorthand t
+      eshell-save-history-on-exit t
+      eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
 
 (setenv "TERM" "dumb")
 (setenv "EDITOR" "emacsclient")
@@ -30,7 +34,11 @@
 (setenv "HOMEBREW_KEEP_INFO" "1")
 
 (setq eshell-visual-commands
-      (append eshell-visual-commands '("mu" "sl")))
+      (append eshell-visual-commands '("ssh" "tail" "mu" "sl")))
+
+(defun eshell/cdg ()
+  "Change directory to the project's root."
+  (eshell/cd (locate-dominating-file default-directory ".git")))
 
 ;;;;;;;;;;;
 ;; Hooks ;;
