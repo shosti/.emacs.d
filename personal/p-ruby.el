@@ -105,6 +105,15 @@ window."
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
+(defun p-run-remote-pry (&rest args)
+  (interactive)
+  (let ((buffer (apply 'wacs-make-comint "pry-remote" "pry-remote" nil args)))
+    (switch-to-buffer buffer)
+    (setq-local comint-process-echoes t)))
+
+;; TODO: debug for different modes
+(p-set-leader-key "d" 'p-run-remote-pry)
+
 (defun p-set-up-haml-mode ()
   (robe-mode 1))
 
