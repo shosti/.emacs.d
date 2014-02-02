@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Settings and keybindings for general editing
 
+(require 'p-leader)
+
 ;;;;;;;;;;;;;;
 ;; Settings ;;
 ;;;;;;;;;;;;;;
@@ -100,21 +102,14 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(global-set-key [remap goto-line] 'p-goto-line-with-feedback)
 (global-set-key (kbd "<S-return>") 'p-eol-and-ret)
 (global-set-key (kbd "<C-return>") 'p-move-line-down)
 (global-set-key (kbd "C-w") 'p-backward-kill-word)
-(global-set-key (kbd "M-j") 'p-join-next-line)
-(global-set-key (kbd "C-M-j") 'join-line)
-(global-set-key (kbd "C-M-h") 'mark-defun) ; undo starter-kit binding
-(global-set-key (kbd "C-S-n") 'p-fast-next-line)
-(global-set-key (kbd "C-S-p") 'p-fast-previous-line)
-(global-set-key (kbd "C-S-f") 'p-fast-forward-char)
-(global-set-key (kbd "C-S-b") 'p-fast-backward-char)
 (global-set-key (kbd "C-c d") 'p-duplicate-line)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-S-k") 'p-delete-current-line)
 (global-set-key " " 'just-one-space)
+(p-set-leader-key "n" 'p-cleanup-buffer)
 
 (provide 'p-editing)
 
