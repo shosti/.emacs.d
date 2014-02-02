@@ -79,6 +79,7 @@
   "h" 'magit-key-mode-popup-diff-options
   "q" 'p-magit-quit-session
   "W" 'p-magit-toggle-whitespace
+  ":" 'magit-git-command
   (kbd "C-n") 'magit-goto-next-section
   (kbd "C-p") 'magit-goto-previous-section)
 
@@ -100,6 +101,9 @@
   "h" 'magit-key-mode-popup-diff-options
   (kbd "C-n") 'magit-goto-next-section
   (kbd "C-p") 'magit-goto-previous-section)
+
+(evil-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
+  "K" 'magit-discard-item)
 
 (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
 (add-to-list 'evil-insert-state-modes 'git-commit-mode)
