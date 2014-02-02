@@ -1,11 +1,26 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'flx-ido)
+(p-require-package 'smex)
+(p-require-package 'ido-ubiquitous)
 
 (require 'p-leader)
+(require 'smex)
 
 (ido-mode t)
 (ido-ubiquitous t)
 (flx-ido-mode 1)
+
+;;;;;;;;;;
+;; smex ;;
+;;;;;;;;;;
+
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+
+;;;;;;;;;
+;; ido ;;
+;;;;;;;;;
 
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
