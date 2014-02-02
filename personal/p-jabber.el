@@ -37,7 +37,9 @@
   (interactive)
   (require 'jabber)
   (p-hipchat-connect)
-  (sleep-for 5)
+  (p-await (lambda ()
+             (eq (plist-get (car jabber-connections) :state)
+                 :session-established)))
   (--each p-hipchat-rooms
     (p-hipchat-join-room it)))
 
@@ -49,10 +51,9 @@
       (lambda (b)
         (-if-let
             (chat-name
-             (nth 2
-                  (s-match
-                   "\\*-jabber-\\(groupchat-[0-9]+_\\|chat-\\)\\([^*]+\\)-\\*"
-                   (buffer-name b))))
+             (nth 2 (s-match
+                     "\\*-jabber-\\(groupchat-[0-9]+_\\|chat-\\)\\([^*]+\\)-\\*"
+                     (buffer-name b))))
             (cons (->> chat-name
                     (s-replace "_" " ")
                     (s-chop-suffix "@conf.hipchat.com"))
@@ -64,7 +65,8 @@
   (let* ((chatrooms (p-hipchat-rooms))
          (room-names (-map 'car chatrooms))
          (room
-          (completing-read "Room: " room-names nil nil nil nil (car room-names))))
+          (completing-read "Room: " room-names nil nil nil nil
+                           (car room-names))))
     (switch-to-buffer (cdr (assoc room chatrooms)))))
 
 ;;;;;;;;;;;;;;
