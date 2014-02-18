@@ -24,6 +24,7 @@
 (require 'p-packages)
 (require 'p-functions)
 
+(setq t-start (current-time))
 ;; and then everything else
 (mapc (lambda (p)
         (message "Loading %s..." p)
@@ -39,3 +40,4 @@
 (server-start)
 (eshell)
 (message "Emacs ready!")
+(message "Total elapsed: %s" (float-time (time-subtract (current-time) t-start)))
