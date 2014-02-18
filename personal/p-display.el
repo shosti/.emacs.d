@@ -27,7 +27,19 @@
     (set-fontset-font t it "Consolas-14"))
 
   ;; A smattering of other sybols require Symbola
-  (--each '(#x2025 #x2a75 #x2a76 #x29f5 #x29fa #x29fb #x2987 #x2988 #x2af4 #x2218)
+  (--each '(#x2025
+            #x2218
+            #x2713
+            #x2714
+            #x2718
+            #x2987
+            #x2988
+            #x29f5
+            #x29fa
+            #x29fb
+            #x2a75
+            #x2a76
+            #x2af4)
     (set-fontset-font t (decode-char 'ucs it) "Symbola-14"))
 
   ;; triangles
