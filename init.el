@@ -34,6 +34,8 @@
 
 (load-theme 'tomorrow-night t)
 
+(load-file (concat p-private-dir "private.el"))
+
 (server-start)
 (eshell)
 (message "Emacs ready!")
