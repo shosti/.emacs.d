@@ -31,7 +31,6 @@
 (setenv "PYTHONPATH"
         "/usr/local/lib/python2.7/site-packages")
 (setenv "HOMEBREW_GITHUB_API_TOKEN" github-api-token)
-(setenv "HOMEBREW_KEEP_INFO" "1")
 
 (setq eshell-visual-commands
       (append eshell-visual-commands '("ssh" "tail" "mu" "sl")))
