@@ -1,15 +1,15 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'js2-mode)
-(p-require-package 'simple-httpd 'melpa)
-(p-require-package 'skewer-mode 'melpa)
+;(p-require-package 'simple-httpd 'melpa)
+;(p-require-package 'skewer-mode 'melpa)
 
 ;;;;;;;;;;;;
 ;; Config ;;
 ;;;;;;;;;;;;
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(skewer-setup)
+;(skewer-setup)
 (setq-default js2-basic-offset 2)
 
 ;;;;;;;;;;;;;;;
@@ -27,7 +27,7 @@
   (add-to-list 'comint-preoutput-filter-functions
                'p-js-comint-filter))
 
-(add-hook 'inferior-js-mode-hook 'set-up-inferior-js-mode t)
+;(add-hook 'inferior-js-mode-hook 'set-up-inferior-js-mode t)
 
 (provide 'p-js)
 
