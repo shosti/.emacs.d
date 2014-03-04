@@ -44,7 +44,11 @@
 
   ;; triangles
   (set-fontset-font t (cons (decode-char 'ucs #x25b2)
-                            (decode-char 'ucs #x25c5)) "Symbola-14"))
+                            (decode-char 'ucs #x25c5)) "Symbola-14")
+
+  ;; misc symbols
+  (set-fontset-font t (cons (decode-char 'ucs #x1f300)
+                            (decode-char 'ucs #x1f5ff)) "Symbola-14"))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
