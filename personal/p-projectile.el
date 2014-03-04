@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'projectile)
+(p-require-package 'projectile 'melpa)
 
 (require 'p-leader)
 
