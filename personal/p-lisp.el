@@ -77,7 +77,7 @@
   "Face used to dim parentheses."
   :group 'starter-kit-faces)
 
-(cl-dolist (mode '(scheme emacs-lisp lisp clojure))
+(cl-dolist (mode '(scheme emacs-lisp lisp))
   (font-lock-add-keywords (intern (concat (symbol-name mode) "-mode"))
                           '(("(\\|)" . 'p-paren-face))))
 

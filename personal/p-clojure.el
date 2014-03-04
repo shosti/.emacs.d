@@ -8,6 +8,7 @@
 (p-require-package 'clojure-cheatsheet 'melpa)
 
 (require 'p-functions)
+(require 'p-lisp)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -24,13 +25,13 @@
      (setq cider-popup-stacktraces nil)
      (font-lock-add-keywords
       'nrepl-mode
-      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)))))
+      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)))))
 
 (eval-after-load 'clojure-mode
   '(progn
      (font-lock-add-keywords
       'clojure-mode
-      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'esk-paren-face)
+      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)
         ("\\brun[-*a-z]*" . 'font-lock-keyword-face)))
      ;; Custom indentation of functions
      (define-clojure-indent
