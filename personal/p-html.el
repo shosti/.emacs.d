@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'slim-mode)
+
 (eval-after-load 'html-mode
   '(progn
      (define-key html-mode-map (kbd "RET") 'newline-and-indent)))
