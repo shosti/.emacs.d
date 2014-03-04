@@ -19,6 +19,10 @@
          (or (get major-mode 'backward-sexp-fn) 'backward-sexp)))
     (funcall backward-sexp-fn count)))
 
+(evil-define-text-object p-evil-whole-buffer (count &optional beg end type)
+  "Select whole buffer."
+  (list (buffer-end -1) (buffer-end 1)))
+
 (define-key evil-normal-state-map (kbd "M-l") 'p-forward-sexp)
 (define-key evil-normal-state-map (kbd "M-h") 'p-backward-sexp)
 
@@ -30,6 +34,9 @@
      (save-excursion
        (execute-kbd-macro "DP"))))
 
-(provide 'p-evil-sexp)
+(define-key evil-outer-text-objects-map "h" 'p-evil-whole-buffer)
+(define-key evil-inner-text-objects-map "h" 'p-evil-whole-buffer)
 
-;;; p-evil-sexp.el ends here
+(provide 'p-evil-motions)
+
+;;; p-evil-motions.el ends here
