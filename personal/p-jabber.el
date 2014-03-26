@@ -6,6 +6,8 @@
 (defvar p-hipchat-user-number)
 (defvar p-hipchat-rooms)
 (defvar p-hipchat-nickname)
+(defvar p-hipchat-emoticons-dir
+  (expand-file-name (concat user-emacs-directory "hipchat/")))
 
 (require 'p-leader)
 (require 'p-evil)
@@ -13,7 +15,17 @@
 (p-load-private "hipchat-settings.el")
 
 (setq jabber-message-alert-same-buffer nil
-      jabber-history-enabled t)
+      jabber-history-enabled t
+      smiley-data-directory p-hipchat-emoticons-dir
+      gnus-smiley-file-types '("pbm" "xpm" "gif" "png" "jpeg"))
+
+(defun p-hipchat-load-smileys ()
+  (setq smiley-regexp-alist
+        (->> (directory-files p-hipchat-emoticons-dir)
+          (--keep (car (s-match "(\\w+)" it)))
+          (--map (list (concat "\\(" it "\\)") 1 it)))))
+
+(eval-after-load 'jabber 'p-hipchat-load-smileys)
 
 (defun p-hipchat-connect ()
   (interactive)
@@ -68,6 +80,12 @@
           (completing-read "Room: " room-names nil nil nil nil
                            (car room-names))))
     (switch-to-buffer (cdr (assoc room chatrooms)))))
+
+(defun p-set-up-jabber-chat-mode ()
+  (require 'autosmiley)
+  (autosmiley-mode 1))
+
+(add-hook 'jabber-chat-mode-hook 'p-set-up-jabber-chat-mode)
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
