@@ -248,7 +248,7 @@
    (:main (:buffer "dev@"))
    (:aux1 (:buffer "product_team@"))
    (:aux2 (:buffer "sustaining@"))
-   (:aux3 (:buffer "subway_testing@"))))
+   (:aux3 (:buffer "notifications@"))))
 
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
