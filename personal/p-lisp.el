@@ -15,6 +15,7 @@
 (setq redshank-install-lisp-support nil)
 (font-lock-add-keywords 'lisp-interaction-mode
                         '(("(\\|)" . 'p-paren-face)))
+(add-to-list 'auto-mode-alist '("Cask$" . emacs-lisp-mode))
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
