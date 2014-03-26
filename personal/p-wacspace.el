@@ -121,7 +121,7 @@
    (:aux1 (:cmd
            (lambda ()
              (p-find-first-matching-file
-              "unit-tests.el"
+              (concat (wacs-project-name) "-test.el")
               (wacs-project-dir))))))
   (:3
    (:winconf 2winv)
