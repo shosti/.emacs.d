@@ -73,9 +73,15 @@
 ;; Bindings ;;
 ;;;;;;;;;;;;;;
 
-(add-to-list 'evil-insert-state-modes 'jabber-chat-mode)
 (add-to-list 'evil-motion-state-modes 'jabber-roster-mode)
 (p-set-leader-key "j" 'p-hipchat-switch-to-room)
+
+(eval-after-load 'jabber
+  '(progn
+     (-each (-map 'number-to-string '(1 2 3 4 5 6 7 8 9))
+            '(lambda (num)
+               (evil-define-key 'normal jabber-chat-mode-map num
+                 '(lambda () (interactive) (error "No fat-fingering!")))))))
 
 (provide 'p-jabber)
 
