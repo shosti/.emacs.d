@@ -39,6 +39,11 @@
   "Change directory to the project's root."
   (eshell/cd (locate-dominating-file default-directory ".git")))
 
+(defun eshell/clear ()
+  "Clear the current eshell buffer."
+  (let ((inhibit-read-only t))
+    (erase-buffer)))
+
 ;;;;;;;;;;;
 ;; Hooks ;;
 ;;;;;;;;;;;
