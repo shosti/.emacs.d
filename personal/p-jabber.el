@@ -25,7 +25,7 @@
           (--keep (car (s-match "(\\w+)" it)))
           (--map (list (concat "\\(" it "\\)") 1 it)))))
 
-(eval-after-load 'jabber 'p-hipchat-load-smileys)
+(eval-after-load 'jabber '(p-hipchat-load-smileys))
 
 (defun p-hipchat-connect ()
   (interactive)
