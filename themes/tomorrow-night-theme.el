@@ -74,11 +74,14 @@
    ;; hl-line-mode
    `(hl-line ((t (:background ,current-line))))
 
+   ;; links
+   `(link ((t (:foreground ,aqua :underline t))))
+
    ;; org-mode
    `(org-date ((t (:foreground ,purple))))
    `(org-done ((t (:foreground ,green))))
    `(org-hide ((t (:foreground ,background))))
-   `(org-link ((t (:foreground ,blue))))
+   `(org-link ((t (:foreground ,aqua :underline t))))
    `(org-todo ((t (:foreground ,red))))
 
    ;; show-paren-mode
@@ -113,6 +116,22 @@
 
    ;; magit
    `(magit-item-highlight ((t (:background ,current-line))))
+
+   ;; jabber
+   `(jabber-activity-face ((t (:foreground ,red))))
+   `(jabber-activity-personal-face ((t (:foreground ,blue))))
+   `(jabber-rare-time-face ((t (:foreground ,green))))
+   `(jabber-chat-prompt-local ((t (:foreground ,blue :weight bold))))
+   `(jabber-chat-prompt-foreign ((t (:foreground ,red :weight bold))))
+   `(jabber-chat-prompt-system ((t :foreground ,green :weight bold)))
+   `(jabber-chat-error ((t (:foreground ,red :weight bold))))
+   `(jabber-roster-user-online ((t (:foreground ,blue :weight bold :slant normal))))
+   `(jabber-roster-user-xa ((t (:foreground ,purple :weight normal :slant italic))))
+   `(jabber-roster-user-dnd ((t (:foreground ,red :weight normal :slant italic))))
+   `(jabber-roster-user-away ((t (:foreground ,green :weight normal :slant italic))))
+   `(jabber-roster-user-chatty ((t (:foreground ,orange :weight bold :slant normal))))
+   `(jabber-roster-user-error ((t (:foreground ,red :weight light :slant italic))))
+   `(jabber-roster-user-offline ((t (:foreground ,aqua :weight light :slant italic))))
 
    ;; misc
    `(isearch ((t (:background ,yellow :foreground ,red))))
