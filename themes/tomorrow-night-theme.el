@@ -77,6 +77,9 @@
    ;; links
    `(link ((t (:foreground ,aqua :underline t))))
 
+   ;; eshell
+   `(eshell-prompt ((t (:foreground ,blue))))
+
    ;; org-mode
    `(org-date ((t (:foreground ,purple))))
    `(org-done ((t (:foreground ,green))))
@@ -131,7 +134,7 @@
    `(jabber-roster-user-away ((t (:foreground ,green :weight normal :slant italic))))
    `(jabber-roster-user-chatty ((t (:foreground ,orange :weight bold :slant normal))))
    `(jabber-roster-user-error ((t (:foreground ,red :weight light :slant italic))))
-   `(jabber-roster-user-offline ((t (:foreground ,aqua :weight light :slant italic))))
+   `(jabber-roster-user-offline ((t (:foreground ,comment :weight light :slant italic))))
 
    ;; misc
    `(isearch ((t (:background ,yellow :foreground ,red))))
