@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: submit
-# key: sub
-# --
-submit emanuel.evans@gmail.com `(p-password 'coursera-scala-pass)`

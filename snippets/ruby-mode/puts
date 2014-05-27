@@ -1,5 +1,0 @@
-# -*- mode: snippet; require-final-newline: nil -*-
-# name: puts
-# key: puts
-# --
-puts "${1:$(upcase yas-text)}: #{$1}"
