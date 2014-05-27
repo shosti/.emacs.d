@@ -8,4 +8,6 @@
 
 (add-hook 'org-mode-hook 'p-set-up-org-mode)
 
+(add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+
 (provide 'p-org)
