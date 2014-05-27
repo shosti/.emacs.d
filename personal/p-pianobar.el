@@ -7,7 +7,7 @@
 (eval-after-load 'pianobar
   '(progn
      (setq pianobar-username "emanuel.evans@gmail.com"
-           pianobar-password (p-password 'pandora-password))
+           pianobar-password (p-password "Personal/pandora"))
 
      (defun pianobar-make-modeline () nil)
 

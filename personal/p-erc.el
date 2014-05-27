@@ -23,7 +23,7 @@
      (setq erc-nick "shosti")
 
      ;; auto identify
-     (when (p-password 'erc-pass)
+     (when (p-password "Personal/erc")
        (require 'erc-services)
        (erc-services-mode 1)
        (setq erc-prompt-for-nickserv-password nil)

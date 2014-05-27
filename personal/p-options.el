@@ -52,19 +52,9 @@
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
 
-(defvar p-passwords-loaded nil)
-
-(defun p-load-password-file ()
-  (let ((password-file (concat p-private-dir "passwords.el.gpg")))
-    (when (file-exists-p password-file)
-      (load password-file)
-      (setq p-passwords-loaded t))))
-
-(defun p-password (sym)
-  (unless p-passwords-loaded
-    (p-load-password-file))
-  (when (boundp sym)
-    (symbol-value sym)))
+(defun p-password (pass)
+  (s-trim (shell-command-to-string
+           (concat "pass show " pass))))
 
 (defun p-backup-each-save-filter (filename)
   (let ((ignored-filenames
