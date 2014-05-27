@@ -83,6 +83,7 @@
 
 (defun p-set-up-jabber-chat-mode ()
   (require 'autosmiley)
+  (electric-indent-mode 0)
   (autosmiley-mode 1))
 
 (add-hook 'jabber-chat-mode-hook 'p-set-up-jabber-chat-mode)
