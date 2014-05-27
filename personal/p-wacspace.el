@@ -11,9 +11,7 @@
 ;;;;;;;;;;;;
 
 (wacs-set-up-keys)
-(wacs-set-frame-fn full p-display-fill-screen)
-(wacs-set-frame-fn right p-display-right-half)
-(wacs-set-frame-fn left p-display-left-half)
+(setq wacs-save-frame nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Helper Functions ;;
