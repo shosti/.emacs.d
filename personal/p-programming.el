@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'idle-highlight-mode)
+(p-require-package 'nlinum)
 
 (require 'saveplace)
 
@@ -21,7 +22,7 @@
 
 (defun p-set-up-prog-mode ()
   (column-number-mode 1)
-  (linum-mode 1)
+  (nlinum-mode 1)
   (setq save-place 1)
   (when (> (display-color-cells) 8)
     (hl-line-mode 1))
