@@ -12,7 +12,8 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (delete-selection-mode 1)
 (setq-default require-final-newline t
-              indent-tabs-mode nil)
+              indent-tabs-mode nil
+              tab-width 2)
 (auto-fill-mode 0)
 
 ;;;;;;;;;;;;;;;
@@ -120,15 +121,6 @@
       (beginning-of-line)
       (yank))
     (forward-line)))
-
-(defun p-goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
-  (interactive)
-  (unwind-protect
-      (progn
-        (linum-mode 1)
-        (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
 
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
