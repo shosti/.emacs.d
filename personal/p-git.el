@@ -49,6 +49,9 @@
 (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
 (global-git-gutter-mode 1)
+(eval-after-load 'magit
+  '(progn
+     (magit-auto-revert-mode 0))) ;; just use global auto-revert-mode instead
 
 (setq git-gutter:disabled-modes '(ediff-mode))
 
@@ -110,6 +113,12 @@
 (evil-add-hjkl-bindings magit-blame-map)
 (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
   "K" 'git-rebase-kill-line)
+
+;;;;;;;;;;;
+;; Hooks ;;
+;;;;;;;;;;;
+
+(add-hook 'git-commit-mode-hook 'auto-fill-mode)
 
 (provide 'p-git)
 
