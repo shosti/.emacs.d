@@ -11,7 +11,9 @@
 (require 'evil)
 (require 'surround)
 
-(setq evil-default-cursor t)
+(setq evil-default-cursor t
+      evil-lookup-func 'dash-at-point)
+
 (setq-default evil-symbol-word-search t
               evil-shift-width 2)
 
