@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: let!
+# key: let!
+# --
+let!(:$1) { FactoryGirl.${2:create}(:$1$0) }
