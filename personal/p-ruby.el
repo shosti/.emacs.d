@@ -65,7 +65,7 @@ window."
          (save-excursion
            (let ((end (point))
                  (beginning (search-backward-regexp
-                             "generate\\|zeus g\\|rails g\\|z g")))
+                             "generate\\|zeus g\\|rails g\\|z g\\|zgm")))
              (->> (buffer-substring-no-properties beginning end)
                (s-split "\n")
                (--map (s-trim it))
@@ -102,6 +102,7 @@ window."
 (defun p-set-up-ruby-mode ()
   (electric-indent-mode 1)
   (robe-mode 1)
+  (eldoc-mode 0)
   (ruby-tools-mode 1)
   (setq-local tab-width 2))
 
@@ -117,7 +118,8 @@ window."
 (p-set-leader-key "d" 'p-run-remote-pry)
 
 (defun p-set-up-haml-mode ()
-  (robe-mode 1))
+  (robe-mode 1)
+  (eldoc-mode 0))
 
 (add-hook 'haml-mode-hook 'p-set-up-haml-mode)
 
