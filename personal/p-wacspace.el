@@ -238,16 +238,6 @@
    (:aux2 (:buffer "#rubyonrails"))
    (:aux3 (:buffer "#ruby"))))
 
-(defwacspace jabber-chat-mode
-  (:project-name-fn (lambda () "hipchat"))
-  (:default
-   (:winconf 4win)
-   (:frame full)
-   (:main (:buffer "dev@"))
-   (:aux1 (:buffer "product_team@"))
-   (:aux2 (:buffer "sustaining@"))
-   (:aux3 (:buffer "notifications@"))))
-
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
   (:default
@@ -265,6 +255,8 @@
 (defwacspace restclient-mode
   (:default
    (:aux1 (:buffer "*HTTP Response*"))))
+
+(p-load-private "wacspace-settings.el")
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
