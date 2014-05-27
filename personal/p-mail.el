@@ -15,6 +15,12 @@
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-kill-buffer-on-exit t)
 
+(defun p-mail-set-up? ()
+  (and (executable-find "mu")
+     (executable-find "msmtp")
+     (executable-find "offlineimap")
+     (ignore-errors (require 'mu4e-autoload))))
+
 ;; Stolen from the mu4e manual
 (defun p-mu4e-set-account ()
   "Set the account for composing a message."
@@ -34,7 +40,7 @@
               account-vars)
       (error "No email account found"))))
 
-(if (ignore-errors (require 'mu4e-autoload))
+(if (p-mail-set-up?)
     (eval-after-load 'mu4e
       '(progn
          (setq mu4e-sent-messages-behavior 'delete
