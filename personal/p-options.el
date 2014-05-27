@@ -26,6 +26,9 @@
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
+(add-to-list 'warning-suppress-types
+             '(undo discard-info))
+
 ;;;;;;;;;;;;
 ;; Backup ;;
 ;;;;;;;;;;;;
@@ -39,9 +42,11 @@
 ;; File ;;
 ;;;;;;;;;;
 
-(setq recentf-max-saved-items 200)
-(setq delete-by-moving-to-trash t)
-(setq trash-directory (expand-file-name "~/.Trash"))
+(setq large-file-warning-threshold 100000000
+      recentf-max-saved-items 200
+      delete-by-moving-to-trash t
+      trash-directory (expand-file-name "~/.Trash"))
+
 (setq-default major-mode 'text-mode)
 (add-to-list 'Info-directory-list
              (expand-file-name (concat user-emacs-directory "info")))
