@@ -7,6 +7,7 @@
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter 'melpa)
 (p-require-package 'git-gutter-fringe 'melpa)
+(p-require-package 'git-timemachine 'melpa)
 
 (require 'p-evil)
 (require 'p-leader)
