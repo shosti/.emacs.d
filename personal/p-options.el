@@ -13,6 +13,15 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+;; Hack to disable popup dialogs
+
+(setq use-dialog-box nil)
+
+(defadvice y-or-n-p (around prevent-dialog-yorn activate)
+  "Prevent y-or-n-p from activating a dialog"
+  (let ((use-dialog-box nil))
+    ad-do-it))
+
 (setq disabled-command-function nil
       dired-use-ls-dired nil
       uniquify-buffer-name-style 'forward
