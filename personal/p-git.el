@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'magit 'melpa)
+(p-require-package 'magit)
 (p-require-package 'git-rebase-mode 'melpa)
 (p-require-package 'git-commit-mode 'melpa)
 (p-require-package 'gitconfig-mode)
