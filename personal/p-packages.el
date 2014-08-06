@@ -12,16 +12,6 @@
 
 (package-initialize)
 
-;; install melpa package
-(unless (package-installed-p 'melpa)
-  (progn
-    (switch-to-buffer
-     (url-retrieve-synchronously
-      "https://raw.github.com/milkypostman/melpa/master/melpa.el"))
-    (package-install-from-buffer  (package-buffer-info) 'single)))
-
-(require 'melpa)
-
 ;; Don't get stable packages from melpa
 (setq package-filter-function
       (lambda (package version archive)
