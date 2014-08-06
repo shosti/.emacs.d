@@ -1,13 +1,13 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'magit)
-(p-require-package 'git-rebase-mode 'melpa)
-(p-require-package 'git-commit-mode 'melpa)
+(p-require-package 'git-rebase-mode)
+(p-require-package 'git-commit-mode)
 (p-require-package 'gitconfig-mode)
 (p-require-package 'gitignore-mode)
-(p-require-package 'git-gutter 'melpa)
-(p-require-package 'git-gutter-fringe 'melpa)
-(p-require-package 'git-timemachine 'melpa)
+(p-require-package 'git-gutter)
+(p-require-package 'git-gutter-fringe)
+(p-require-package 'git-timemachine)
 
 (require 'p-evil)
 (require 'p-leader)

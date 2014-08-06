@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'helm 'melpa)
+(p-require-package 'helm)
 (p-require-package 'helm-ls-git 'melpa)
 
 (require 'p-leader)

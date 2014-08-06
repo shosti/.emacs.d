@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'pretty-mode 'melpa)
+(p-require-package 'pretty-mode)
 
 (require 'pretty-mode)
 

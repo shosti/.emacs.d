@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'edit-server 'melpa)
+(p-require-package 'edit-server)
 
 (require 'edit-server)
 (setq edit-server-new-frame nil)

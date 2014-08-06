@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'coffee-mode 'melpa)
+(p-require-package 'coffee-mode)
 
 (eval-after-load 'coffee-mode
   '(progn

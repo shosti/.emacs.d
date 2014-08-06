@@ -2,8 +2,8 @@
 
 (require 'p-evil)
 
-(p-require-package 'makey 'melpa)
-(p-require-package 'discover 'melpa)
+(p-require-package 'makey)
+(p-require-package 'discover)
 
 (global-discover-mode 1)
 

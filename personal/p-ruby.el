@@ -3,12 +3,12 @@
 ;;; p-ruby.el --- Personal ruby bindings
 ;;; Commentary:
 ;;; Code:
-(p-require-package 'ruby-tools 'melpa)
-(p-require-package 'ruby-compilation 'melpa)
-(p-require-package 'rinari 'melpa)
-(p-require-package 'rbenv 'melpa)
-(p-require-package 'mmm-mode 'melpa)
-(p-require-package 'haml-mode 'melpa)
+(p-require-package 'ruby-tools)
+(p-require-package 'ruby-compilation)
+(p-require-package 'rinari)
+(p-require-package 'rbenv)
+(p-require-package 'mmm-mode)
+(p-require-package 'haml-mode)
 (p-require-package 'yaml-mode 'melpa)
 (p-require-package 'robe 'melpa)
 

@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'ag 'melpa)
+(p-require-package 'ag)
 
 (require 'p-leader)
 

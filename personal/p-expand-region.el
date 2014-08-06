@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'expand-region 'melpa)
+(p-require-package 'expand-region)
 
 (require 'expand-region)
 

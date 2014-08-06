@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'projectile 'melpa)
+(p-require-package 'projectile)
 
 (require 'p-key-chord)
 
