@@ -9,6 +9,7 @@
           eldoc
           paredit
           undo-tree
+          company
           git-gutter
           redshank
           projectile
