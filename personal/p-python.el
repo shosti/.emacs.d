@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'jedi 'melpa)
+;(p-require-package 'jedjdi 'melpa)
 
 (defun p-set-up-python-mode ()
   (electric-indent-mode 0)

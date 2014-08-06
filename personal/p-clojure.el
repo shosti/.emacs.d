@@ -4,7 +4,6 @@
 (p-require-package 'clojure-test-mode 'melpa)
 (p-require-package 'slamhound 'melpa)
 (p-require-package 'cider)
-(p-require-package 'ac-nrepl)
 (p-require-package 'clojure-cheatsheet 'melpa)
 
 (require 'p-functions)
@@ -15,10 +14,6 @@
 ;;;;;;;;;;;;
 
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
-
-(eval-after-load 'auto-complete
-  '(progn
-     (add-to-list 'ac-modes 'nrepl-mode)))
 
 (eval-after-load 'cider
   '(progn
@@ -76,7 +71,6 @@
   (clojure-test-mode 1))
 
 (defun p-set-up-nrepl ()
-  (ac-nrepl-setup)
   (nrepl-turn-on-eldoc-mode))
 
 (defun p-set-up-nrepl-repl ()

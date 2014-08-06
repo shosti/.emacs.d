@@ -97,8 +97,6 @@ window."
 (global-rbenv-mode)
 (rbenv-use-global)
 
-(add-to-list 'ac-modes 'haml-mode)
-
 (defun p-set-up-ruby-mode ()
   (setq-local tab-width 2)
   (ruby-end-mode 1)

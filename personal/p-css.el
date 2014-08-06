@@ -7,7 +7,6 @@
 
 (eval-after-load 'scss-mode
   '(progn
-     (define-key scss-mode-map (kbd "RET") 'newline-and-indent)
-     (add-to-list 'ac-modes 'scss-mode)))
+     (define-key scss-mode-map (kbd "RET") 'newline-and-indent)))
 
 (provide 'p-css)

@@ -9,7 +9,6 @@
           eldoc
           paredit
           undo-tree
-          auto-complete
           git-gutter
           redshank
           projectile

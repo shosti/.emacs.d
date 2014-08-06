@@ -8,7 +8,6 @@
       (add-to-list 'load-path ensime-lib)
       (require 'ensime)
       (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-      (setq ensime-ac-override-settings t)
 
       ;; Hack to fix ensime comint prompt
       (defadvice ensime-sbt (after set-process-echoes activate)
