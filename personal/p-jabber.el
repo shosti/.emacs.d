@@ -17,7 +17,8 @@
 (setq jabber-message-alert-same-buffer nil
       jabber-history-enabled t
       smiley-data-directory p-hipchat-emoticons-dir
-      gnus-smiley-file-types '("pbm" "xpm" "gif" "png" "jpeg"))
+      gnus-smiley-file-types '("pbm" "xpm" "gif" "png" "jpeg")
+      jabber-alert-presence-hooks nil)
 
 (defun p-hipchat-load-smileys ()
   (setq smiley-regexp-alist
