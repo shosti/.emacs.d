@@ -100,11 +100,13 @@ window."
 (add-to-list 'ac-modes 'haml-mode)
 
 (defun p-set-up-ruby-mode ()
-  (electric-indent-mode 1)
+  (setq-local tab-width 2)
+  (ruby-end-mode 1)
   (robe-mode 1)
   (eldoc-mode 0)
   (ruby-tools-mode 1)
-  (setq-local tab-width 2))
+  (electric-indent-mode 1)
+  (electric-pair-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
