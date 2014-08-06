@@ -17,21 +17,14 @@
 (setq-default evil-symbol-word-search t
               evil-shift-width 2)
 
-(defmacro with-emacs-state (&rest cmds)
-  `(progn
-     (evil-emacs-state)
-     ,@cmds
-     (evil-normal-state)))
-
 (defun p-set-up-eval-prefix ()
   (define-prefix-command 'p-evil-eval-prefix))
 
 (defun p-evil-eval-last-sexp ()
   (interactive)
   (save-excursion
-    (with-emacs-state
-     (forward-char)
-     (execute-kbd-macro (kbd "C-x C-e")))))
+    (forward-char)
+    (execute-kbd-macro (kbd "C-x C-e"))))
 
 (defun p-hippie-expand-previous (arg)
   (interactive)
