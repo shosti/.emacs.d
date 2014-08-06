@@ -2,11 +2,11 @@
 
 (require 'p-key-chord)
 
-(p-require-package 'evil 'melpa)
+(p-require-package 'goto-last-change 'melpa)
+(p-require-package 'evil)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
 (p-require-package 'surround 'melpa)
-(p-require-package 'goto-chg)
 
 (require 'evil)
 (require 'surround)
