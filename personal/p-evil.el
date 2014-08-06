@@ -33,6 +33,20 @@
      (forward-char)
      (execute-kbd-macro (kbd "C-x C-e")))))
 
+(defun p-hippie-expand-previous (arg)
+  (interactive)
+  (when he-tried-table
+    (let ((l (length (car he-tried-table))))
+      (when (string= (buffer-substring (- (point) l) (point))
+                     (car he-tried-table))
+        (delete-region (- (point) l) (point))
+        (when (cadr he-tried-table)
+          (insert (cadr he-tried-table)))
+        (setq he-tried-table (cdr he-tried-table))))))
+
+(setq evil-complete-next-func 'hippie-expand)
+(setq evil-complete-previous-func 'p-hippie-expand-previous)
+
 ;; HACK for binding TAB and C-i separately
 (keyboard-translate ?\C-i ?\H-i)
 (define-key evil-motion-state-map (kbd "TAB") nil)
