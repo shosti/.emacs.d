@@ -9,6 +9,9 @@
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 
+(setq company-global-modes
+      '(not eshell-mode))
+
 (provide 'p-company)
 
 ;;; p-company.el ends here
