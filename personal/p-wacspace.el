@@ -216,6 +216,7 @@
 
 (defwacspace clojure-mode
   (:before (lambda ()
+             (require 'cider)
              (unless (cider-connected-p)
                (cider-jack-in)
                (p-await 'cider-connected-p))))

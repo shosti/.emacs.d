@@ -4,9 +4,12 @@
 (p-require-package 'slamhound)
 (p-require-package 'cider)
 (p-require-package 'clojure-cheatsheet)
+(p-require-package 'request 'melpa)
+(p-require-package '4clojure 'melpa)
 
 (require 'p-functions)
 (require 'p-lisp)
+(require 'p-evil)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -32,6 +35,11 @@
        (run* 'defun)
        (run 'defun)
        (fresh 1))))
+
+(setq evil-motion-state-modes
+      (append '(cider-docview-mode
+                cider-popup-buffer-mode)
+              evil-motion-state-modes))
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
@@ -90,10 +98,9 @@
 ;; Workarounds ;;
 ;;;;;;;;;;;;;;;;;
 
-;; I hate auto-scrolling
-(eval-after-load 'nrepl
-  '(progn
-     (defun nrepl-show-maximum-output ())))
+;; Get rid of horrible scrolling to the bottom
+(eval-after-load 'cider-repl
+  '(defun cider-repl--show-maximum-output ()))
 
 (provide 'p-clojure)
 
