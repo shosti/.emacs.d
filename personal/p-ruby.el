@@ -104,7 +104,10 @@ window."
   (eldoc-mode 0)
   (ruby-tools-mode 1)
   (electric-indent-mode 1)
-  (electric-pair-mode 1))
+  (electric-pair-mode 1)
+  (setq-local completion-at-point-functions
+              (delq 'robe-complete-at-point
+                    completion-at-point-functions)))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
