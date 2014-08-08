@@ -6,10 +6,10 @@
 (p-require-package 'evil)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
-(p-require-package 'surround 'melpa)
+(p-require-package 'evil-surround 'melpa)
 
 (require 'evil)
-(require 'surround)
+(require 'evil-surround)
 
 (setq evil-default-cursor t
       evil-lookup-func 'dash-at-point)
@@ -70,7 +70,7 @@
   (add-to-list 'evil-motion-state-modes it))
 
 (evil-mode 1)
-(global-surround-mode 1)
+(global-evil-surround-mode 1)
 
 (provide 'p-evil)
 
