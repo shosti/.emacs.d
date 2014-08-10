@@ -1,17 +1,14 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'helm)
-(p-require-package 'helm-ls-git 'melpa)
 
 (require 'p-leader)
 
 (eval-after-load 'helm
   '(progn
-     (require 'helm-ls-git)
      (define-key helm-map (kbd "C-w") nil)
      (setq helm-for-files-preferred-list
            '(helm-source-buffers-list
-             helm-source-ls-git
              helm-source-recentf
              helm-source-bookmarks
              helm-source-file-cache
