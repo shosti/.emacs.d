@@ -8,7 +8,8 @@
 (setq package-archives
       (append package-archives
               '(("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")
-                ("melpa" . "http://melpa.milkbox.net/packages/"))))
+                ("melpa" . "http://melpa.milkbox.net/packages/")
+                ("org" . "http://orgmode.org/elpa/"))))
 
 (package-initialize)
 
