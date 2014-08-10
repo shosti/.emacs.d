@@ -14,11 +14,10 @@
       (newline)
     (newline-and-indent)))
 
-(eval-after-load 'python-mode
-  '(progn
-     (setq jedi:setup-keys t)
-     (add-hook 'python-mode-hook 'jedi:setup)
-     (add-hook 'python-mode-hook 'p-set-up-python-mode)
-     (define-key python-mode-map (kbd "RET") 'p-py-newline-and-indent)))
+(p-configure-feature python-mode
+  (setq jedi:setup-keys t)
+  (add-hook 'python-mode-hook 'jedi:setup)
+  (add-hook 'python-mode-hook 'p-set-up-python-mode)
+  (define-key python-mode-map (kbd "RET") 'p-py-newline-and-indent))
 
 (provide 'p-python)

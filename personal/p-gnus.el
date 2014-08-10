@@ -7,9 +7,8 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-(eval-after-load 'gnus
-  '(progn
-     (p-load-private "gnus-settings.el")))
+(p-configure-feature gnus
+  (p-load-private "gnus-settings.el"))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
@@ -24,11 +23,10 @@
 (evil-add-hjkl-bindings gnus-group-mode-map 'emacs
   "Gj" 'gnus-group-jump-to-group)
 
-(eval-after-load 'gnus-srver
-  '(progn
-     (define-key gnus-server-mode-map (kbd "M-o") nil)
-     (define-key gnus-server-mode-map
-       (kbd "C-x o") 'gnus-server-open-all-servers)))
+(p-configure-feature gnus-srver
+  (define-key gnus-server-mode-map (kbd "M-o") nil)
+  (define-key gnus-server-mode-map
+    (kbd "C-x o") 'gnus-server-open-all-servers))
 
 (provide 'p-gnus)
 

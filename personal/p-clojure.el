@@ -17,24 +17,22 @@
 
 (add-to-list 'auto-mode-alist '("\.cljs$" . clojure-mode))
 
-(eval-after-load 'cider
-  '(progn
-     (setq cider-popup-stacktraces nil)
-     (font-lock-add-keywords
-      'nrepl-mode
-      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)))))
+(p-configure-feature cider
+  (setq cider-popup-stacktraces nil)
+  (font-lock-add-keywords
+   'nrepl-mode
+   '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face))))
 
-(eval-after-load 'clojure-mode
-  '(progn
-     (font-lock-add-keywords
-      'clojure-mode
-      '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)
-        ("\\brun[-*a-z]*" . 'font-lock-keyword-face)))
-     ;; Custom indentation of functions
-     (define-clojure-indent
-       (run* 'defun)
-       (run 'defun)
-       (fresh 1))))
+(p-configure-feature clojure-mode
+  (font-lock-add-keywords
+   'clojure-mode
+   '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)
+     ("\\brun[-*a-z]*" . 'font-lock-keyword-face)))
+  ;; Custom indentation of functions
+  (define-clojure-indent
+    (run* 'defun)
+    (run 'defun)
+    (fresh 1)))
 
 (setq evil-motion-state-modes
       (append '(cider-docview-mode
@@ -88,19 +86,18 @@
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(eval-after-load 'nrepl
-  '(progn
-     (define-key nrepl-interaction-mode-map
-       (kbd "C-c C-c")
-       'nrepl-eval-buffer)))
+(p-configure-feature nrepl
+  (define-key nrepl-interaction-mode-map
+    (kbd "C-c C-c")
+    'nrepl-eval-buffer))
 
 ;;;;;;;;;;;;;;;;;
 ;; Workarounds ;;
 ;;;;;;;;;;;;;;;;;
 
 ;; Get rid of horrible scrolling to the bottom
-(eval-after-load 'cider-repl
-  '(defun cider-repl--show-maximum-output ()))
+(p-configure-feature cider-repl
+  (defun cider-repl--show-maximum-output ()))
 
 (provide 'p-clojure)
 

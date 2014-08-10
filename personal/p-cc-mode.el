@@ -10,13 +10,12 @@
   (c-toggle-auto-hungry-state 1)
   (c-toggle-auto-newline 0))
 
-(eval-after-load 'cc-mode
-  '(progn
-     (require 'google-c-style)
-     (require 'c-eldoc)
-     (setq indent-tabs-mode nil
-           c-basic-offset 4)
-     (add-hook 'c-mode-common-hook 'set-up-cc-mode)))
+(p-configure-feature cc-mode
+  (require 'google-c-style)
+  (require 'c-eldoc)
+  (setq indent-tabs-mode nil
+        c-basic-offset 4)
+  (add-hook 'c-mode-common-hook 'set-up-cc-mode))
 
 (provide 'p-cc-mode)
 

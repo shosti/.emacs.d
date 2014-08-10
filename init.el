@@ -22,6 +22,7 @@
 
 ;; basic packages and functions come first...
 (require 'p-packages)
+(require 'p-macros)
 (require 'p-functions)
 
 (setq t-start (current-time))

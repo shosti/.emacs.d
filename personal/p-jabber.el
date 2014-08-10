@@ -26,7 +26,13 @@
           (--keep (car (s-match "(\\w+)" it)))
           (--map (list (concat "\\(" it "\\)") 1 it)))))
 
-(eval-after-load 'jabber '(p-hipchat-load-smileys))
+(p-configure-feature jabber
+  (p-hipchat-load-smileys)
+  ;; With great power comes great responsibility
+  (-each (-map 'number-to-string '(1 2 3 4 5 6 7 8 9))
+    '(lambda (num)
+       (evil-define-key 'normal jabber-chat-mode-map num
+         '(lambda () (interactive) (error "No fat-fingering!"))))))
 
 (defun p-hipchat-connect ()
   (interactive)
@@ -95,13 +101,6 @@
 
 (add-to-list 'evil-motion-state-modes 'jabber-roster-mode)
 (p-set-leader-key "j" 'p-hipchat-switch-to-room)
-
-(eval-after-load 'jabber
-  '(progn
-     (-each (-map 'number-to-string '(1 2 3 4 5 6 7 8 9))
-            '(lambda (num)
-               (evil-define-key 'normal jabber-chat-mode-map num
-                 '(lambda () (interactive) (error "No fat-fingering!")))))))
 
 (provide 'p-jabber)
 

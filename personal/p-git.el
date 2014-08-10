@@ -50,9 +50,8 @@
 (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
 (global-git-gutter-mode 1)
-(eval-after-load 'magit
-  '(progn
-     (magit-auto-revert-mode 0))) ;; just use global auto-revert-mode instead
+(p-configure-feature magit
+  (magit-auto-revert-mode 0)) ;; just use global auto-revert-mode instead
 
 (setq git-gutter:disabled-modes '(ediff-mode))
 

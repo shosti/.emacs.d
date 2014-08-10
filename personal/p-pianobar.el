@@ -4,18 +4,17 @@
 
 (require 'p-leader)
 
-(eval-after-load 'pianobar
-  '(progn
-     (setq pianobar-username "emanuel.evans@gmail.com"
-           pianobar-password (p-password "Personal/pandora"))
+(p-configure-feature pianobar
+  (setq pianobar-username "emanuel.evans@gmail.com"
+        pianobar-password (p-password "Personal/pandora"))
 
-     (defun pianobar-make-modeline () nil)
+  (defun pianobar-make-modeline () nil)
 
-     (defun p-send-to-pianobar ()
-       (interactive)
-       (pianobar-send-command (read-char)))
+  (defun p-send-to-pianobar ()
+    (interactive)
+    (pianobar-send-command (read-char)))
 
-     (p-set-leader-key "P" 'p-send-to-pianobar)))
+  (p-set-leader-key "P" 'p-send-to-pianobar))
 
 (provide 'p-pianobar)
 

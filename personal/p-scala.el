@@ -15,12 +15,11 @@
 
 (defun p-set-up-scala ())
 
-(eval-after-load 'scala-mode2
-  '(progn
-     (p-load-ensime)
-     (add-hook 'scala-mode-hook 'p-set-up-scala)
-     (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
-     (define-key scala-mode-map (kbd "C-c C-c") 'ensime-inf-eval-buffer)))
+(p-configure-feature scala-mode2
+  (p-load-ensime)
+  (add-hook 'scala-mode-hook 'p-set-up-scala)
+  (define-key scala-mode-map (kbd "RET") 'newline-and-indent)
+  (define-key scala-mode-map (kbd "C-c C-c") 'ensime-inf-eval-buffer))
 
 (provide 'p-scala)
 
