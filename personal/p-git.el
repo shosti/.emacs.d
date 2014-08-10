@@ -11,7 +11,6 @@
 
 (require 'p-evil)
 (require 'p-leader)
-(require 'git-gutter-fringe)
 
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
@@ -49,11 +48,58 @@
 
 (add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
 
-(global-git-gutter-mode 1)
 (p-configure-feature magit
-  (magit-auto-revert-mode 0)) ;; just use global auto-revert-mode instead
+  (magit-auto-revert-mode 0) ; just use global auto-revert-mode instead
 
-(setq git-gutter:disabled-modes '(ediff-mode))
+  (evil-add-hjkl-bindings magit-status-mode-map 'emacs
+    "K" 'magit-discard-item
+    "V" 'magit-revert-item
+    "v" 'set-mark-command
+    "l" 'magit-key-mode-popup-logging
+    "h" 'magit-key-mode-popup-diff-options
+    "q" 'p-magit-quit-session
+    "W" 'p-magit-toggle-whitespace
+    ":" 'magit-git-command
+    (kbd "C-n") 'magit-goto-next-section
+    (kbd "C-p") 'magit-goto-previous-section)
+
+  (evil-add-hjkl-bindings magit-log-mode-map 'emacs
+    "V" 'magit-revert-item
+    "l" 'magit-key-mode-popup-logging
+    "h" 'magit-log-toggle-margin
+    "/" 'evil-search-forward
+    "?" 'evil-search-backward
+    "n" 'evil-search-next
+    "N" 'evil-search-previous
+    (kbd "C-n") 'magit-goto-next-section
+    (kbd "C-p") 'magit-goto-previous-section)
+
+  (evil-add-hjkl-bindings magit-commit-mode-map 'emacs
+    "V" 'magit-revert-item
+    "v" 'set-mark-command
+    "l" 'magit-key-mode-popup-logging
+    "h" 'magit-key-mode-popup-diff-options
+    (kbd "C-n") 'magit-goto-next-section
+    (kbd "C-p") 'magit-goto-previous-section)
+
+  (evil-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
+    "K" 'magit-discard-item)
+
+  (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
+  (add-to-list 'evil-insert-state-modes 'git-commit-mode)
+  (evil-add-hjkl-bindings magit-blame-map)
+  (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
+    "K" 'git-rebase-kill-line))
+
+(p-configure-feature git-gutter
+  (require 'git-gutter-fringe)
+  (setq git-gutter:disabled-modes '(ediff-mode))
+  (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
+  (global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
+  (global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
+  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk))
+
+(add-hook 'prog-mode-hook 'git-gutter-mode)
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
@@ -64,55 +110,9 @@
       (evil-emacs-state 1)
     (evil-normal-state 1)))
 
-(global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
-(global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
-(global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
-(global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk)
-
 (p-set-leader-key
   "m" 'magit-blame-mode
-  "g" 'magit-status
-  "G" 'git-gutter)
-
-(evil-add-hjkl-bindings magit-status-mode-map 'emacs
-  "K" 'magit-discard-item
-  "V" 'magit-revert-item
-  "v" 'set-mark-command
-  "l" 'magit-key-mode-popup-logging
-  "h" 'magit-key-mode-popup-diff-options
-  "q" 'p-magit-quit-session
-  "W" 'p-magit-toggle-whitespace
-  ":" 'magit-git-command
-  (kbd "C-n") 'magit-goto-next-section
-  (kbd "C-p") 'magit-goto-previous-section)
-
-(evil-add-hjkl-bindings magit-log-mode-map 'emacs
-  "V" 'magit-revert-item
-  "l" 'magit-key-mode-popup-logging
-  "h" 'magit-log-toggle-margin
-  "/" 'evil-search-forward
-  "?" 'evil-search-backward
-  "n" 'evil-search-next
-  "N" 'evil-search-previous
-  (kbd "C-n") 'magit-goto-next-section
-  (kbd "C-p") 'magit-goto-previous-section)
-
-(evil-add-hjkl-bindings magit-commit-mode-map 'emacs
-  "V" 'magit-revert-item
-  "v" 'set-mark-command
-  "l" 'magit-key-mode-popup-logging
-  "h" 'magit-key-mode-popup-diff-options
-  (kbd "C-n") 'magit-goto-next-section
-  (kbd "C-p") 'magit-goto-previous-section)
-
-(evil-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
-  "K" 'magit-discard-item)
-
-(add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
-(add-to-list 'evil-insert-state-modes 'git-commit-mode)
-(evil-add-hjkl-bindings magit-blame-map)
-(evil-add-hjkl-bindings git-rebase-mode-map 'emacs
-  "K" 'git-rebase-kill-line)
+  "g" 'magit-status)
 
 ;;;;;;;;;;;
 ;; Hooks ;;
