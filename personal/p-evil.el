@@ -2,12 +2,14 @@
 
 (require 'p-key-chord)
 
+(p-require-package 'undo-tree)
 (p-require-package 'goto-last-change 'melpa)
 (p-require-package 'evil)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
 (p-require-package 'evil-surround 'melpa)
 
+(require 'undo-tree)
 (require 'evil)
 (require 'evil-surround)
 
