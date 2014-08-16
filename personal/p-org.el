@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(setq org-startup-indented t)
+(require 'p-evil)
 
 (defun p-eval-text-block ()
   "Quick hack to evaluate and insert values of Elisp code blocks.
@@ -23,6 +23,16 @@ shouldn't be printed) and then the example values."
       (goto-char start)
       (align-regexp start end "\\(\\s-*\\); =>"))))
 
+(defun p-org-meta-return (&optional arg)
+  "Hack to make M-RET work right with Evil (and in general)."
+  (interactive)
+  (end-of-line)
+  (org-meta-return arg))
+
+(p-configure-feature org
+  (setq org-startup-indented t)
+  (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
+
 (defun p-set-up-org-mode ()
   (auto-fill-mode 1)
   (flyspell-mode 1))
@@ -32,3 +42,5 @@ shouldn't be printed) and then the example values."
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
 (provide 'p-org)
+
+;;; p-org.el ends here
