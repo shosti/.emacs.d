@@ -96,6 +96,11 @@ window."
 (global-rbenv-mode)
 (rbenv-use-global)
 
+(defun p-turn-off-robe-complete ()
+  (setq-local completion-at-point-functions
+              (delq 'robe-complete-at-point
+                    completion-at-point-functions)))
+
 (defun p-set-up-ruby-mode ()
   (setq-local tab-width 2)
   (ruby-end-mode 1)
@@ -104,9 +109,7 @@ window."
   (ruby-tools-mode 1)
   (electric-indent-mode 1)
   (electric-pair-mode 1)
-  (setq-local completion-at-point-functions
-              (delq 'robe-complete-at-point
-                    completion-at-point-functions)))
+  (p-turn-off-robe-complete))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
@@ -121,7 +124,8 @@ window."
 
 (defun p-set-up-haml-mode ()
   (robe-mode 1)
-  (eldoc-mode 0))
+  (eldoc-mode 0)
+  (p-turn-off-robe-complete))
 
 (add-hook 'haml-mode-hook 'p-set-up-haml-mode)
 
