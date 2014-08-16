@@ -13,7 +13,6 @@
           git-gutter
           redshank
           projectile
-          smartparens
           ruby-tools
           ruby-end
           robe)

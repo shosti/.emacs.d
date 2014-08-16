@@ -41,7 +41,6 @@
 (defun p-set-up-lisp-coding ()
   (setq-local tab-width 8)
   (paredit-mode 1)
-  (smartparens-mode 0)
   (local-set-key (kbd "RET") 'paredit-newline)
   (highlight-parentheses-mode))
 

@@ -2,8 +2,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
 
-(defun p-set-up-web-mode ()
-  (smartparens-mode 0))
+(defun p-set-up-web-mode ())
 
 (add-hook 'web-mode-hook 'p-set-up-web-mode)
 
