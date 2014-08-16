@@ -6,7 +6,7 @@
 (p-require-package 'ruby-tools)
 (p-require-package 'ruby-compilation)
 (p-require-package 'rinari)
-(p-require-package 'rbenv)
+(p-require-package 'rbenv 'melpa)
 (p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
 (p-require-package 'yaml-mode 'melpa)
