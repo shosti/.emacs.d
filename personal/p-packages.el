@@ -50,6 +50,4 @@
           (package-refresh-contents))
         (package-install package)))))
 
-(require 'p-starter-kit)
-
 (provide 'p-packages)

@@ -134,14 +134,6 @@ With a prefix ARG always prompt for command to use."
 
 (add-hook 'kill-emacs-hook 'p-kill-emacs-hook)
 
-;;;;;;;;;;;;;;;;;
-;; Keybindings ;;
-;;;;;;;;;;;;;;;;;
-
-(global-set-key (kbd "C-c R") 'p-rename-current-buffer-file)
-(global-set-key (kbd "C-x K") 'p-delete-current-buffer-file)
-(global-set-key (kbd "C-c o") 'p-open-with)
-
 (provide 'p-options)
 
 ;;; p-options.el ends here

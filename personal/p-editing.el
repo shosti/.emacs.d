@@ -111,17 +111,6 @@
   (interactive)
   (ignore-errors (backward-char 5)))
 
-(defun p-duplicate-line (&optional n)
-  (interactive "p")
-  (cl-dotimes (_ n)
-    (save-excursion
-      (copy-region-as-kill (line-beginning-position) (line-end-position))
-      (end-of-line)
-      (newline)
-      (beginning-of-line)
-      (yank))
-    (forward-line)))
-
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
@@ -129,7 +118,6 @@
 (global-set-key (kbd "<S-return>") 'p-eol-and-ret)
 (global-set-key (kbd "<C-return>") 'p-move-line-down)
 (global-set-key (kbd "C-w") 'p-backward-kill-word)
-(global-set-key (kbd "C-c d") 'p-duplicate-line)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-S-k") 'p-delete-current-line)
 (global-set-key " " 'just-one-space)
