@@ -12,9 +12,9 @@
     "mdtext"
     "text"))
 
-(cl-dolist (ext markdown-extensions)
+(--each markdown-extensions
   (add-to-list 'auto-mode-alist
-               (cons (concat "\\." ext "$")
+               (cons (concat "\\." it "$")
                      'markdown-mode)))
 
 (provide 'p-markdown)

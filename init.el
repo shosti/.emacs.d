@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'cl-lib)
+(defvar t-start (current-time))
 
 (defvar p-dir (expand-file-name
                (concat user-emacs-directory "personal/")))
@@ -25,10 +25,8 @@
 (require 'p-macros)
 (require 'p-functions)
 
-(setq t-start (current-time))
 ;; and then everything else
 (mapc (lambda (p)
-        (message "Loading %s..." p)
         (require (intern p)))
       (mapcar (lambda (fname)
                 (p-keep-until-regexp fname "\.el$"))

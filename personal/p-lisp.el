@@ -6,8 +6,6 @@
 (p-require-package 'macrostep)
 (p-require-package 'redshank 'melpa)
 
-(require 'p-starter-kit-lisp)
-
 ;;;;;;;;;;;;
 ;; Config ;;
 ;;;;;;;;;;;;
@@ -78,8 +76,8 @@
   "Face used to dim parentheses."
   :group 'starter-kit-faces)
 
-(cl-dolist (mode '(scheme emacs-lisp lisp))
-  (font-lock-add-keywords (intern (concat (symbol-name mode) "-mode"))
+(--each '(scheme emacs-lisp lisp)
+  (font-lock-add-keywords (intern (concat (symbol-name it) "-mode"))
                           '(("(\\|)" . 'p-paren-face))))
 
 ;;;;;;;;;;;;;;;;;
