@@ -25,10 +25,6 @@
 (eval-after-load 'yasnippet
   '(diminish 'yas-minor-mode))
 
-(eval-after-load 'rinari
-  '(progn
-     (diminish 'rinari-minor-mode)))
-
 (provide 'p-modeline)
 
 ;;; p-modeline.el ends here

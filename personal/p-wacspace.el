@@ -133,7 +133,7 @@
    (:winconf 1win)
    (:run p-term-right)))
 
-(defwacspace (ruby-mode rinari-minor-mode)
+(defwacspace (ruby-mode projectile-rails-mode)
   (:before (lambda ()
              (rbenv-use-corresponding)
              (p-rails-console)))
@@ -174,15 +174,15 @@
    (:winconf 2winh)
    (:aux1 (:buffer "*Python"))))
 
-(defwacsaliases ((html-erb-mode rinari-minor-mode)
-                 (haml-mode rinari-minor-mode)
-                 (js-mode rinari-minor-mode)
-                 (coffee-mode rinari-minor-mode)
-                 (scss-mode rinari-minor-mode)
-                 (css-mode rinari-minor-mode)
-                 (feature-mode rinari-minor-mode)
-                 (yaml-mode rinari-minor-mode))
-  (ruby-mode rinari-minor-mode))
+(defwacsaliases ((html-erb-mode projectile-rails-mode)
+                 (haml-mode projectile-rails-mode)
+                 (js-mode projectile-rails-mode)
+                 (coffee-mode projectile-rails-mode)
+                 (scss-mode projectile-rails-mode)
+                 (css-mode projectile-rails-mode)
+                 (feature-mode projectile-rails-mode)
+                 (yaml-mode projectile-rails-mode))
+  (ruby-mode projectile-rails-mode))
 
 (defwacspace scala-mode
   (:before (lambda ()

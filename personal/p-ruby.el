@@ -5,7 +5,7 @@
 ;;; Code:
 (p-require-package 'ruby-tools)
 (p-require-package 'ruby-compilation)
-(p-require-package 'rinari)
+(p-require-package 'projectile-rails 'melpa)
 (p-require-package 'rbenv 'melpa)
 (p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
@@ -14,6 +14,7 @@
 
 (require 'p-wacspace)
 (require 'p-evil)
+(require 'p-projectile)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -41,9 +42,6 @@
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
-
-(defun p-rinari-guard ()
-  (p-compilation-buffer "guard" "bundle" nil "exec" "guard"))
 
 (defun p-foreman ()
   (p-compilation-buffer "foreman" "foreman" "start"))
@@ -89,7 +87,6 @@ window."
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-(setq rinari-major-modes nil)
 (setq rbenv-executable "/usr/local/bin/rbenv"
       rbenv-show-active-ruby-in-modeline nil)
 
@@ -139,7 +136,7 @@ window."
 
 (add-hook 'inf-ruby-mode-hook 'p-set-up-inf-ruby-mode)
 
-(global-rinari-mode 1)
+(add-hook 'projectile-mode-hook 'projectile-rails-on)
 
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
