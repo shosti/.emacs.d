@@ -29,10 +29,10 @@
 (evil-define-key 'normal evil-paredit-mode-map "D" 'paredit-kill)
 (evil-define-key 'normal evil-paredit-mode-map "C" "Di")
 (evil-define-key 'normal evil-paredit-mode-map "Y"
-  '(lambda ()
-     (interactive)
-     (save-excursion
-       (execute-kbd-macro "DP"))))
+  #'(lambda ()
+      (interactive)
+      (save-excursion
+        (execute-kbd-macro "DP"))))
 
 (define-key evil-outer-text-objects-map "h" 'p-evil-whole-buffer)
 (define-key evil-inner-text-objects-map "h" 'p-evil-whole-buffer)

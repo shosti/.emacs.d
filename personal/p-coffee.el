@@ -14,8 +14,8 @@
           'set-up-coffee-mode)
 
 (add-hook 'comint-mode-hook
-          '(lambda ()
-             (if (equal (buffer-name) "*CoffeeREPL*")
-                 (setq comint-process-echoes t))))
+          #'(lambda ()
+              (if (equal (buffer-name) "*CoffeeREPL*")
+                  (setq comint-process-echoes t))))
 
 (provide 'p-coffee)
