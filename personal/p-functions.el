@@ -70,6 +70,12 @@
   (while (not (funcall condition))
     (sleep-for 0 100)))
 
+(defun p-line-start (line)
+  "Return the start position of line LINE."
+  (save-excursion
+    (goto-line line)
+    (line-beginning-position)))
+
 (provide 'p-functions)
 
 ;;; p-functions.el ends here

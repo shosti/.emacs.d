@@ -2,26 +2,45 @@
 
 (require 'p-evil)
 
-(defun p-eval-text-block ()
-  "Quick hack to evaluate and insert values of Elisp code blocks.
+(defun p-pretty-eval-org-src-block ()
+  "Evaluate and insert values of Elisp code blocks.
 
-This function assumes that for the code block under the block is
-split into two sections, first the definitions (whose values
-shouldn't be printed) and then the example values."
+This function assumes that the code block is split into two
+sections: the definitions (whose values shouldn't be printed);
+and the example values (which will be printed). The cursor should
+point to the divide between the definitions and examples."
   (interactive)
   (save-excursion
-    (let ((start (region-beginning))
-          (end (region-end)))
+    (let ((examples-start (point))
+          (start (progn
+                   (re-search-backward "BEGIN_SRC")
+                   (forward-line)
+                   (beginning-of-line)
+                   (point)))
+          ;; end position could change, so we have to compare by line
+          ;; number.
+          (end-line (progn
+                      (re-search-forward "END_SRC")
+                      (line-number-at-pos))))
+      (replace-regexp " *; =>.*$" "" nil start (p-line-start end-line))
       (goto-char start)
-      (let ((definitions-end
-              (save-excursion (re-search-forward "^$"))))
-        (while (< (point) end)
-          (forward-sexp)
-          (let ((val (eval (preceding-sexp))))
-            (when (> (point) definitions-end)
-              (insert (format " ; => %S" val))))))
+      (while (progn
+               (forward-sexp)
+               (< (line-number-at-pos) end-line))
+        (condition-case err
+            (let ((expr (preceding-sexp)))
+              ;; defvars should be redefined, so they have to be
+              ;; unbound
+              (when (and (consp expr) (eq (car expr) 'defvar))
+                (makunbound (cadr expr)))
+              (let ((val (eval (preceding-sexp))))
+                (when (> (point) examples-start)
+                  (insert (format " ; => %s" val)))))
+          (error (insert (format " ; => ERROR %s" err)))))
       (goto-char start)
-      (align-regexp start end "\\(\\s-*\\); =>"))))
+      (align-regexp start (p-line-start end-line) "\\(\\s-*\\); =>"))))
+
+(defalias 'peb 'p-pretty-eval-org-src-block)
 
 (defun p-org-meta-return (&optional arg)
   "Hack to make M-RET work right with Evil (and in general)."
