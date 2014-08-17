@@ -49,7 +49,14 @@ point to the divide between the definitions and examples."
   (org-meta-return arg))
 
 (p-configure-feature org
-  (setq org-startup-indented t)
+  (setq org-startup-indented t
+        org-src-fontify-natively t)
+
+  (add-to-list 'org-structure-template-alist
+               '("se"
+                 "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
+                 "<src lang=\"emacs-lisp\">\n\n</src>"))
+
   (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
 
 (defun p-set-up-org-mode ()
