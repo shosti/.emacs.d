@@ -1,3 +1,4 @@
+(p-require-package 'deferred 'melpa)
 (p-require-package 'creole 'melpa)
 (p-require-package 'org-trello)
 
