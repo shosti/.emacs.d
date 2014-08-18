@@ -30,9 +30,9 @@
   (p-hipchat-load-smileys)
   ;; With great power comes great responsibility
   (-each (-map 'number-to-string '(1 2 3 4 5 6 7 8 9))
-    #'(lambda (num)
-        (evil-define-key 'normal jabber-chat-mode-map num
-          #'(lambda () (interactive) (error "No fat-fingering!"))))))
+    '(lambda (num)
+       (evil-define-key 'normal jabber-chat-mode-map num
+         '(lambda () (interactive) (error "No fat-fingering!"))))))
 
 (defun p-hipchat-connect ()
   (interactive)
