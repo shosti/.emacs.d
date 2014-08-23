@@ -3,6 +3,7 @@
 (require 'p-evil)
 (require 'p-discover)
 (require 'dired)
+(require 'dired-x)
 
 (p-configure-feature dired-x
   (evil-define-key 'normal dired-mode-map (kbd "?")
