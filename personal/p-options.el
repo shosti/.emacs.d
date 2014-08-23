@@ -112,6 +112,16 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
+;; Nice hack from Stack Overflow
+(defun p-maybe-make-directory ()
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p buffer-file-name)
+    (let ((dir (file-name-directory buffer-file-name)))
+      (unless (file-exists-p dir)
+        (make-directory dir t)))))
+
+(add-hook 'find-file-hook 'p-maybe-make-directory)
+
 ;; Ripped from Emacs Prelude
 (defun p-open-with (arg)
   "Open visited file in default external program.
