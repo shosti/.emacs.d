@@ -56,7 +56,7 @@
       delete-by-moving-to-trash t
       trash-directory (expand-file-name "~/.Trash"))
 
-(setq-default major-mode 'text-mode)
+(setq-default major-mode 'org-mode)
 (add-to-list 'Info-directory-list
              (expand-file-name (concat user-emacs-directory "info")))
 
