@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: addindex
+# key: addi
+# --
+add_index :$1, :$2 unless index_exists? :$1, :$2
