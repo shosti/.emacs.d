@@ -56,7 +56,11 @@
 (key-chord-define evil-visual-state-map "jk" 'evil-exit-visual-state)
 (key-chord-define global-map "jk" (kbd "C-g"))
 
-(--each '(package-menu-mode process-menu-mode grep-mode Man-mode)
+(--each '(package-menu-mode
+          process-menu-mode
+          grep-mode
+          Man-mode
+          magit-process-mode)
   (add-to-list 'evil-motion-state-modes it))
 
 (evil-mode 1)
