@@ -2,6 +2,7 @@
 
 (require 'p-options)
 (require 'p-evil)
+(require 'p-leader)
 
 ;;;;;;;;;;;;;;
 ;; Settings ;;
@@ -27,6 +28,9 @@
   (define-key gnus-server-mode-map (kbd "M-o") nil)
   (define-key gnus-server-mode-map
     (kbd "C-x o") 'gnus-server-open-all-servers))
+
+(p-set-leader-key
+  "G" 'gnus)
 
 (provide 'p-gnus)
 
