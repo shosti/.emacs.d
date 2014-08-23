@@ -32,15 +32,13 @@
       ido-max-prospects 10)
 
 (defun p-ido-setup-keybindings ()
-  (define-key ido-file-completion-map
-    (kbd "~")
+  (define-key ido-file-completion-map (kbd "~")
     (lambda ()
       (interactive)
       (if (looking-back "/")
           (insert "~/")
         (call-interactively 'self-insert-command))))
-  (define-key ido-file-completion-map
-    (kbd "C-w")
+  (define-key ido-file-completion-map (kbd "C-w")
     'ido-delete-backward-word-updir))
 
 (add-hook 'ido-setup-hook

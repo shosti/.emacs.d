@@ -10,6 +10,7 @@
 (require 'p-path)
 (require 'p-leader)
 
+(defvar github-api-token)
 (p-load-private "eshell-settings.el")
 
 ;;;;;;;;;;;;
