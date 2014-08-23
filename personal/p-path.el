@@ -6,7 +6,9 @@ it to exec-path and the PATH variable"
   (with-temp-buffer
     (insert-file-contents fpath)
     (setq exec-path
-          (append (mapcar 's-trim (split-string (buffer-string) ":" t))
+          (append (-map (lambda (s)
+                          (s-trim (s-replace "$HOME" (expand-file-name "~") s)))
+                        (split-string (buffer-string) ":" t))
                   exec-path))
     (setenv "PATH" (mapconcat 'identity exec-path ":"))))
 
