@@ -24,6 +24,11 @@
   (let ((ido-use-filename-at-point nil))
     (ido-find-file-in-dir (concat user-emacs-directory "personal/"))))
 
+(defun p-find-private-file ()
+  (interactive)
+  (let ((ido-use-filename-at-point nil))
+    (ido-find-file-in-dir (concat user-emacs-directory "private/"))))
+
 ;;;;;;;;;;;
 ;; Hooks ;;
 ;;;;;;;;;;;

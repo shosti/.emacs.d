@@ -16,6 +16,7 @@
   "E" (kbd "| C-M-x")
   "n" 'esk-cleanup-buffer
   "l" 'p-find-personal-file
+  "L" 'p-find-private-file
   "r" 'p-rename-current-buffer-file
   "K" 'p-delete-current-buffer-file
   "t" 'toggle-debug-on-error
