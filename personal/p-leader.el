@@ -11,8 +11,8 @@
     (define-key p-leader-map (car it) (cadr it))))
 
 (p-set-leader-key
-  "ee" 'p-evil-eval-last-sexp
-  "eb" 'eval-buffer
+  "ee" (kbd "C-x C-e")
+  "eh" 'eval-buffer
   "E" (kbd "| C-M-x")
   "n" 'esk-cleanup-buffer
   "l" 'p-find-personal-file

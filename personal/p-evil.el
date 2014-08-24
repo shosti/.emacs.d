@@ -22,12 +22,6 @@
 (defun p-set-up-eval-prefix ()
   (define-prefix-command 'p-evil-eval-prefix))
 
-(defun p-evil-eval-last-sexp ()
-  (interactive)
-  (save-excursion
-    (forward-char)
-    (execute-kbd-macro (kbd "C-x C-e"))))
-
 (setq evil-complete-next-func #'(lambda (&rest _) (company-complete)))
 
 ;; HACK for binding TAB and C-i separately
