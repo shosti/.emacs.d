@@ -22,7 +22,26 @@
 (defun p-set-up-eval-prefix ()
   (define-prefix-command 'p-evil-eval-prefix))
 
-(setq evil-complete-next-func #'(lambda (&rest _) (company-complete)))
+(defun p-evil-complete (arg)
+  "Expand wih company mode if available, otherwise hippie-expand."
+  (interactive)
+  (if company-mode
+      (company-complete)
+    (hippie-expand arg)))
+
+(defun p-hippie-expand-previous (arg)
+  (interactive)
+  (when he-tried-table
+    (let ((l (length (car he-tried-table))))
+      (when (string= (buffer-substring (- (point) l) (point))
+                     (car he-tried-table))
+        (delete-region (- (point) l) (point))
+        (when (cadr he-tried-table)
+          (insert (cadr he-tried-table)))
+        (setq he-tried-table (cdr he-tried-table))))))
+
+(setq evil-complete-next-func 'p-evil-complete)
+(setq evil-complete-previous-func 'p-hippie-expand-previous)
 
 ;; HACK for binding TAB and C-i separately
 (keyboard-translate ?\C-i ?\H-i)
