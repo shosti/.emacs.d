@@ -14,7 +14,7 @@
   "ee" (kbd "C-x C-e")
   "eh" 'eval-buffer
   "E" (kbd "| C-M-x")
-  "n" 'esk-cleanup-buffer
+  "n" 'p-cleanup-buffer
   "l" 'p-find-personal-file
   "L" 'p-find-private-file
   "r" 'p-rename-current-buffer-file
