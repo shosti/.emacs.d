@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (require 'p-evil)
+(require 'p-leader)
 
 (defun p-pretty-eval-org-src-block ()
   "Evaluate and insert values of Elisp code blocks.
@@ -50,7 +51,8 @@ point to the divide between the definitions and examples."
 
 (p-configure-feature org
   (setq org-startup-indented t
-        org-src-fontify-natively t)
+        org-src-fontify-natively t
+        org-agenda-files (concat org-directory "/agenda.org"))
 
   (add-to-list 'org-structure-template-alist
                '("se"
@@ -66,6 +68,11 @@ point to the divide between the definitions and examples."
 (add-hook 'org-mode-hook 'p-set-up-org-mode)
 
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
+
+(p-set-leader-key
+  "o" (make-sparse-keymap)
+  "ol" 'org-store-link
+  "oa" 'org-agenda)
 
 (provide 'p-org)
 

@@ -20,7 +20,7 @@
   "r" 'p-rename-current-buffer-file
   "K" 'p-delete-current-buffer-file
   "t" 'toggle-debug-on-error
-  "o" 'p-open-with)
+  "O" 'p-open-with)
 
 (key-chord-define global-map ",." 'p-leader-map)
 
