@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: print_profile
+# key: pprof
+# --
+p = RubyStack::CallStackPrinter.new(r); p.print(File.new(File.expand_path('~/Desktop/$1.html')));
