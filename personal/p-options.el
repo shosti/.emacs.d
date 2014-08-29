@@ -6,6 +6,7 @@
 
 (require 'p-path)
 (require 'uniquify)
+(require 'p-leader)
 
 ;;;;;;;;;;;;;;
 ;; Settings ;;
@@ -136,6 +137,13 @@ With a prefix ARG always prompt for command to use."
                     ((and (not arg) (member system-type '(gnu gnu/linux gnu/kfreebsd))) "xdg-open")
                     (t (read-shell-command "Open current file with: ")))
                    (shell-quote-argument buffer-file-name))))
+
+(defun p-tmp-buffer (&rest _)
+  (interactive)
+  (switch-to-buffer-other-window "*tmp*"))
+
+(p-set-leader-key
+  "T" 'p-tmp-buffer)
 
 ;; recompile modules directory
 (defun p-kill-emacs-hook ()
