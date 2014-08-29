@@ -79,7 +79,8 @@
         mu4e-attachment-dir (expand-file-name "~/Downloads")
         mu4e-view-show-images t
         mu4e-html2text-command "pandoc -f html -t plain"
-        smtpmail-queue-dir (expand-file-name "~/Maildir/queue/cur"))
+        mu4e-view-html-plaintext-ratio-heuristic 1000 ; Don't want html mail EVER
+        mu4e-confirm-quit nil)
 
   ;; Full-screen hackery, similar to magit
   (defadvice mu4e (around mu4e-fullscreen activate)

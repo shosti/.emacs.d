@@ -9,7 +9,8 @@
 ;;;;;;;;;;;;;;
 
 (p-configure-feature gnus
-  (p-load-private "gnus-settings.el"))
+  (p-load-private "gnus-settings.el")
+  (setq gnus-expert-user t))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
