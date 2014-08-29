@@ -51,7 +51,7 @@
   (--if-let (-> name
               (findr dir)
               (car))
-    (find-file it)
+      (find-file it)
     (wacs-eshell)))
 
 (defun p-scala-test-file ()
@@ -89,7 +89,7 @@
   (:default
    (:winconf 2winv)
    (:frame full)
-   (:aux1 (:cmd wacs-eshell)))
+   (:aux1 wacs-eshell))
   (:1
    (:winconf 1win))
   (:2)
@@ -113,7 +113,7 @@
 (defwacspace emacs-lisp-mode
   (:default
    (:winconf 3winv)
-   (:aux2 (:buffer "*scratch*")))
+   (:aux2 "*scratch*"))
   (:2
    (:winconf 2winv)
    (:aux1 (:cmd
@@ -141,38 +141,38 @@
   (:after-switch p-set-up-ruby-env)
   (:default
    (:winconf 3winv)
-   (:aux2 (:cmd p-rails-console)))
+   (:aux2 p-rails-console))
   (:2
    (:winconf 3winv)
-   (:aux1 (:cmd projectile-toggle-between-implementation-and-test))
-   (:aux2 (:cmd wacs-eshell)))
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 wacs-eshell))
   (:3
    (:winconf 2winv)
-   (:aux1 (:cmd p-rails-console)))
+   (:aux1 p-rails-console))
   (:5
    (:winconf 2winh)
-   (:aux1 (:cmd p-rails-console)))
+   (:aux1 p-rails-console))
   (:8
    (:winconf 2winh)
-   (:aux1 (:cmd p-rails-console))))
+   (:aux1 p-rails-console)))
 
 (defwacspace ruby-mode
   (:before run-ruby)
   (:default
    (:winconf 3winv)
-   (:aux2 (:buffer "*ruby*")))
+   (:aux2 "*ruby*"))
   (:5
    (:winconf 2winh)
-   (:aux1 (:buffer "*ruby*"))))
+   (:aux1 "*ruby*")))
 
 (defwacspace python-mode
   (:before (lambda () (run-python python-shell-interpreter t)))
   (:default
    (:winconf 3winv)
-   (:aux2 (:buffer "*Python")))
+   (:aux2 "*Python"))
   (:5
    (:winconf 2winh)
-   (:aux1 (:buffer "*Python"))))
+   (:aux1 "*Python")))
 
 (defwacsaliases ((html-erb-mode projectile-rails-mode)
                  (haml-mode projectile-rails-mode)
@@ -191,18 +191,18 @@
   (:base-file ".ensime")
   (:default
    (:winconf 3winv)
-   (:aux1 (:cmd p-scala-test-file))
-   (:aux2 (:buffer "*ensime-sbt*")))
+   (:aux1 p-scala-test-file)
+   (:aux2 "*ensime-sbt*"))
   (:2
    (:winconf 2winv)
-   (:aux1 (:cmd p-scala-test-file)))
+   (:aux1 p-scala-test-file))
   (:3
    (:winconf 2winv)
-   (:aux1 (:buffer "*ensime-inferior-scala*")))
+   (:aux1 "*ensime-inferior-scala*"))
   (:5
-   (:aux1 (:buffer "*ensime-inferior-scala*")))
+   (:aux1 "*ensime-inferior-scala*"))
   (:8
-   (:aux1 (:buffer "*ensime-inferior-scala*"))))
+   (:aux1 "*ensime-inferior-scala*")))
 
 (defwacspace (feature-mode
               (lambda ()
@@ -210,9 +210,9 @@
   (:default
    (:winconf 2winv)
    (:frame full)
-   (:aux1 (:cmd (lambda ()
-                  (p-find-first-matching-file "steps.el$"
-                                              default-directory))))))
+   (:aux1 (lambda (
+              (p-find-first-matching-file "steps.el$"
+                                          default-directory))))))
 
 (defwacspace clojure-mode
   (:before (lambda ()
@@ -227,17 +227,17 @@
                   (switch-to-buffer
                    (cider-find-or-create-repl-buffer))))))
   (:2
-   (:aux1 (:cmd clojure-jump-to-test))))
+   (:aux1 clojure-jump-to-test)))
 
 (defwacspace erc-mode
   (:project-name-fn (lambda () "erc"))
   (:default
    (:winconf 4win)
    (:frame full)
-   (:main (:buffer "#emacs"))
-   (:aux1 (:buffer "#clojure"))
-   (:aux2 (:buffer "#rubyonrails"))
-   (:aux3 (:buffer "#ruby"))))
+   (:main "#emacs")
+   (:aux1 "#clojure")
+   (:aux2 "#rubyonrails")
+   (:aux3 "#ruby")))
 
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
@@ -249,13 +249,13 @@
              (run-scheme "scheme")
              (info "sicp")))
   (:default
-   (:aux1 (:buffer "*scheme*")))
+   (:aux1 "*scheme*"))
   (:2
-   (:aux1 (:buffer "*info*"))))
+   (:aux1 "*info*")))
 
 (defwacspace restclient-mode
   (:default
-   (:aux1 (:buffer "*HTTP Response*"))))
+   (:aux1 "*HTTP Response*")))
 
 (p-load-private "wacspace-settings.el")
 
