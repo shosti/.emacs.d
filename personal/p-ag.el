@@ -4,7 +4,8 @@
 
 (require 'p-leader)
 
-(setq ag-highlight-search t)
+(p-configure-feature ag
+  (setq ag-highlight-search t))
 
 (p-set-leader-key
   "a" 'ag-project

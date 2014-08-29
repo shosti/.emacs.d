@@ -7,6 +7,7 @@
   (let ((fn-name (intern (concat "p-config-" (symbol-name feature)))))
     `(progn
        (defun ,fn-name ()
+         (require ',feature) ;; make linter happier
          ,@body)
        (eval-after-load ',feature '(,fn-name)))))
 
