@@ -69,10 +69,16 @@ point to the divide between the definitions and examples."
 
 (add-to-list 'auto-mode-alist '("\\.txt$" . org-mode))
 
+(defun p-find-org-file ()
+  (interactive)
+  (let ((ido-use-filename-at-point nil))
+    (ido-find-file-in-dir org-directory)))
+
 (p-set-leader-key
   "o" (make-sparse-keymap)
   "ol" 'org-store-link
-  "oa" 'org-agenda)
+  "oa" 'org-agenda
+  "of" 'p-find-org-file)
 
 (provide 'p-org)
 
