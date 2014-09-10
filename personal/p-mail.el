@@ -78,7 +78,7 @@
         mu4e-headers-skip-duplicates t
         mu4e-attachment-dir (expand-file-name "~/Downloads")
         mu4e-view-show-images t
-        mu4e-html2text-command "pandoc -f html -t plain"
+        mu4e-html2text-command "iconv -t utf-8 | pandoc -f html -t plain"
         mu4e-view-html-plaintext-ratio-heuristic 1000 ; Don't want html mail EVER
         mu4e-confirm-quit nil)
 
