@@ -45,6 +45,16 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+(defun p-eshell-output-to-buffer ()
+  "Dump the output of the last command to a temporary buffer."
+  (interactive)
+  (let ((text (buffer-substring-no-properties
+               (eshell-beginning-of-output)
+               (eshell-end-of-output))))
+    (switch-to-buffer-other-window "*<eshell-out>*")
+    (goto-char (point-max))
+    (insert text)))
+
 ;;;;;;;;;;;
 ;; Hooks ;;
 ;;;;;;;;;;;
@@ -53,7 +63,9 @@
   (setq eshell-path-env (getenv "PATH"))
   ;;hack--not sure why it doesn't actually work
   (visual-line-mode 0)
-  (dirtrack-mode 1))
+  (dirtrack-mode 1)
+  ;; keybindings with eshell are weird
+  (local-set-key (kbd "C-c C-o") 'p-eshell-output-to-buffer))
 
 (add-hook 'eshell-mode-hook 'p-set-up-eshell)
 
