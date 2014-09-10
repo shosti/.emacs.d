@@ -9,5 +9,9 @@
 (define-key comint-mode-map (kbd "C-a") 'comint-bol)
 (define-key comint-mode-map (kbd "<M-return>") nil)
 (define-key comint-mode-map (kbd "<S-return>") 'comint-accumulate)
+(define-key comint-mode-map (kbd "M-p")
+  'comint-previous-matching-input-from-input)
+(define-key comint-mode-map (kbd "M-n")
+  'comint-next-matching-input-from-input)
 
 (provide 'p-comint)
