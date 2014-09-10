@@ -61,6 +61,10 @@ point to the divide between the definitions and examples."
 
   (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
 
+(p-configure-feature org-agenda
+  (evil-add-hjkl-bindings org-agenda-mode-map 'emacs
+    "J" 'org-agenda-goto-date))
+
 (defun p-set-up-org-mode ()
   (auto-fill-mode 1)
   (flyspell-mode 1))
