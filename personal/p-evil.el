@@ -4,7 +4,7 @@
 
 (p-require-package 'undo-tree)
 (p-require-package 'goto-last-change 'melpa)
-(p-require-package 'evil)
+(p-require-package 'evil 'melpa)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
 (p-require-package 'evil-surround 'melpa)
