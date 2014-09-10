@@ -54,8 +54,8 @@
     (re-search-backward mu4e-view-url-regexp)))
 
 (defun p-set-up-mu4e-compose-mode ()
-  (turn-on-orgstruct++)
-  (setq-local fill-column 80))
+  (setq-local fill-column 80)
+  (auto-fill-mode 1))
 
 (add-hook 'mu4e-compose-mode-hook 'p-set-up-mu4e-compose-mode)
 
