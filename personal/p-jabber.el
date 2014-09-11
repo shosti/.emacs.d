@@ -8,9 +8,11 @@
 (defvar p-hipchat-nickname)
 (defvar p-hipchat-emoticons-dir
   (expand-file-name (concat user-emacs-directory "hipchat/")))
+(defvar p-hipchat-emoticons)
 
 (require 'p-leader)
 (require 'p-evil)
+(require 'p-company)
 
 (p-load-private "hipchat-settings.el")
 
@@ -24,10 +26,13 @@
   (setq smiley-regexp-alist
         (->> (directory-files p-hipchat-emoticons-dir)
           (--keep (car (s-match "(\\w+)" it)))
-          (--map (list (concat "\\(" it "\\)") 1 it)))))
+          (--map (list (concat "\\(" it "\\)") 1 it))))
+  (setq p-hipchat-emoticons
+        (-map #'caddr smiley-regexp-alist)))
 
 (p-configure-feature jabber
   (p-hipchat-load-smileys)
+  (add-to-list 'company-backends 'p-company-emoticon)
   ;; With great power comes great responsibility
   (-each (-map 'number-to-string '(1 2 3 4 5 6 7 8 9))
     '(lambda (num)
@@ -91,9 +96,22 @@
 (defun p-set-up-jabber-chat-mode ()
   (require 'autosmiley)
   (electric-indent-mode 0)
+  (electric-pair-mode 0)
   (autosmiley-mode 1))
 
 (add-hook 'jabber-chat-mode-hook 'p-set-up-jabber-chat-mode)
+
+;; Company backend
+
+(defun p-company-emoticon (command &optional arg &rest ignored)
+  (interactive (list 'interactive))
+
+  (cl-case command
+    (interactive (company-begin-backend 'p-company-emoticon))
+    (prefix (and (eq major-mode 'jabber-chat-mode)
+                 (company-grab "([a-z]+")))
+    (candidates (--filter (string-prefix-p arg it)
+                          p-hipchat-emoticons))))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
