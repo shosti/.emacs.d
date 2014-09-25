@@ -15,40 +15,36 @@
   ;; plus a few other symbols
   (--each (list 'greek
                 ;; equality
-                (cons (decode-char 'ucs #x2260)
-                      (decode-char 'ucs #x2265))
+                (cons (decode-char 'ucs #x2260)                        ; ≠
+                      (decode-char 'ucs #x2265))                       ; ≥
                 ;; subscript
-                (cons (decode-char 'ucs #x2080)
-                      (decode-char 'ucs #x2084))
+                (cons (decode-char 'ucs #x2080)                        ; ₀
+                      (decode-char 'ucs #x2084))                       ; ₄
                 ;; sum/product
-                (cons (decode-char 'ucs #x220f)
-                      (decode-char 'ucs #x221a))
-                (decode-char 'ucs #x2026))
+                (cons (decode-char 'ucs #x220f)                        ; ∏
+                      (decode-char 'ucs #x221a))                       ; √
+                (decode-char 'ucs #x2026))                             ; …
     (set-fontset-font t it "Consolas-14"))
 
   ;; A smattering of other sybols require Symbola
-  (--each '(#x2025
-            #x2218
-            #x2713
-            #x2714
-            #x2718
-            #x2987
-            #x2988
-            #x29f5
-            #x29fa
-            #x29fb
-            #x2a75
-            #x2a76
-            #x2af4)
+  (--each '(#x2025                                                     ; ‥
+            #x2218                                                     ; ∘
+            #x2713                                                     ; ✓
+            #x2714                                                     ; ✔
+            #x2718                                                     ; ✘
+            #x2987                                                     ; ⦇
+            #x2988                                                     ; ⦈
+            #x29f5                                                     ; ⧵
+            #x29fa                                                     ; ⧺
+            #x29fb                                                     ; ⧻
+            #x2a75                                                     ; ⩵
+            #x2a76                                                     ; ⩶
+            #x2af4)                                                    ; ⫴
     (set-fontset-font t (decode-char 'ucs it) "Symbola-14"))
 
   ;; triangles
-  (set-fontset-font t (cons (decode-char 'ucs #x25b2)
-                            (decode-char 'ucs #x25c5)) "Symbola-14")
-
-  ;; misc symbols
-  (set-fontset-font t (cons (decode-char 'ucs #x1f300)
-                            (decode-char 'ucs #x1f5ff)) "Symbola-14"))
+  (set-fontset-font t (cons (decode-char 'ucs #x25b2)                  ; ▲
+                            (decode-char 'ucs #x25c5)) "Symbola-14"))  ; ◅
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
