@@ -93,11 +93,7 @@
 
 (p-configure-feature git-gutter
   (require 'git-gutter-fringe)
-  (setq git-gutter:disabled-modes '(ediff-mode))
-  (global-set-key (kbd "C-x v =") 'git-gutter:popup-hunk)
-  (global-set-key (kbd "C-x v p") 'git-gutter:previous-hunk)
-  (global-set-key (kbd "C-x v n") 'git-gutter:next-hunk)
-  (global-set-key (kbd "C-x v r") 'git-gutter:revert-hunk))
+  (setq git-gutter:disabled-modes '(ediff-mode)))
 
 (add-hook 'prog-mode-hook 'git-gutter-mode)
 
