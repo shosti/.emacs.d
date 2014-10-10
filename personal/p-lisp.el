@@ -33,13 +33,14 @@
 ;; Hooks ;;
 ;;;;;;;;;;;
 
+(defun p-remove-elc ()
+  (if (file-exists-p (concat buffer-file-name "c"))
+      (delete-file (concat buffer-file-name "c"))))
+
 (defun p-remove-elc-on-save ()
   "If you're saving an elisp file, likely the .elc is no longer valid."
   (make-local-variable 'after-save-hook)
-  (add-hook 'after-save-hook
-            (lambda ()
-              (if (file-exists-p (concat buffer-file-name "c"))
-                  (delete-file (concat buffer-file-name "c"))))))
+  (add-hook 'after-save-hook 'p-remove-elc))
 
 (defun p-set-up-lisp-coding ()
   (setq-local tab-width 8)
