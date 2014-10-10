@@ -51,7 +51,7 @@
 (p-configure-feature magit
   (magit-auto-revert-mode 0) ; just use global auto-revert-mode instead
 
-  (evil-add-hjkl-bindings magit-status-mode-map 'emacs
+  (p-add-hjkl-bindings magit-status-mode-map 'emacs
     "K" 'magit-discard-item
     "V" 'magit-revert-item
     "v" 'set-mark-command
@@ -63,7 +63,7 @@
     (kbd "C-n") 'magit-goto-next-section
     (kbd "C-p") 'magit-goto-previous-section)
 
-  (evil-add-hjkl-bindings magit-log-mode-map 'emacs
+  (p-add-hjkl-bindings magit-log-mode-map 'emacs
     "V" 'magit-revert-item
     "l" 'magit-key-mode-popup-logging
     "h" 'magit-log-toggle-margin
@@ -74,7 +74,7 @@
     (kbd "C-n") 'magit-goto-next-section
     (kbd "C-p") 'magit-goto-previous-section)
 
-  (evil-add-hjkl-bindings magit-commit-mode-map 'emacs
+  (p-add-hjkl-bindings magit-commit-mode-map 'emacs
     "V" 'magit-revert-item
     "v" 'set-mark-command
     "l" 'magit-key-mode-popup-logging
@@ -82,13 +82,13 @@
     (kbd "C-n") 'magit-goto-next-section
     (kbd "C-p") 'magit-goto-previous-section)
 
-  (evil-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
+  (p-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
     "K" 'magit-discard-item)
 
   (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
   (add-to-list 'evil-insert-state-modes 'git-commit-mode)
-  (evil-add-hjkl-bindings magit-blame-map)
-  (evil-add-hjkl-bindings git-rebase-mode-map 'emacs
+  (p-add-hjkl-bindings magit-blame-map)
+  (p-add-hjkl-bindings git-rebase-mode-map 'emacs
     "K" 'git-rebase-kill-line))
 
 (p-configure-feature git-gutter

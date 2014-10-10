@@ -20,9 +20,9 @@
   (add-to-list 'evil-motion-state-modes it)
   (setq evil-emacs-state-modes (delq it evil-emacs-state-modes)))
 
-(evil-add-hjkl-bindings gnus-summary-mode-map 'emacs)
-(evil-add-hjkl-bindings gnus-article-mode-map 'emacs)
-(evil-add-hjkl-bindings gnus-group-mode-map 'emacs
+(p-add-hjkl-bindings gnus-summary-mode-map 'emacs)
+(p-add-hjkl-bindings gnus-article-mode-map 'emacs)
+(p-add-hjkl-bindings gnus-group-mode-map 'emacs
   "Gj" 'gnus-group-jump-to-group)
 
 (p-configure-feature gnus-srver

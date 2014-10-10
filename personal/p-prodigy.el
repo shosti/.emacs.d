@@ -17,7 +17,7 @@
 ;;;;;;;;;;;;;;
 
 (evil-define-key 'motion prodigy-view-mode-map "K" 'prodigy-view-clear-buffer)
-(evil-add-hjkl-bindings prodigy-mode-map)
+(p-add-hjkl-bindings prodigy-mode-map)
 (p-set-leader-key "y" 'prodigy)
 
 (provide 'p-prodigy)

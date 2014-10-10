@@ -40,6 +40,13 @@
           (insert (cadr he-tried-table)))
         (setq he-tried-table (cdr he-tried-table))))))
 
+(defmacro p-add-hjkl-bindings (keymap &optional state &rest bindings)
+  (declare (indent defun))
+  `(evil-add-hjkl-bindings ,keymap ,state
+     (kbd "C-f") (lookup-key evil-motion-state-map (kbd "C-f"))
+     (kbd "C-b") (lookup-key evil-motion-state-map (kbd "C-b"))
+     ,@bindings))
+
 (setq evil-complete-next-func 'p-evil-complete)
 (setq evil-complete-previous-func 'p-hippie-expand-previous)
 

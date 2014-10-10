@@ -102,8 +102,12 @@
   (evil-define-key 'motion mu4e-view-mode-map "n" 'mu4e-view-headers-next)
   (evil-define-key 'motion mu4e-view-mode-map "F" 'mu4e-compose-forward)
   (--each (list mu4e-main-mode-map mu4e-headers-mode-map)
-    (evil-add-hjkl-bindings it 'emacs
+    (p-add-hjkl-bindings it 'emacs
       "J" 'mu4e~headers-jump-to-maildir))
+
+  (p-add-hjkl-bindings mu4e-view-mode-map 'emacs
+      "J" 'mu4e~headers-jump-to-maildir
+      "H" 'mu4e-view-toggle-hide-cited)
 
   (define-key mu4e-view-mode-map (kbd "TAB") 'p-mail-cycle-urls)
   (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET")))
