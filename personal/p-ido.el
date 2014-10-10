@@ -31,6 +31,8 @@
       ido-handle-duplicate-virtual-buffers 2
       ido-max-prospects 10)
 
+(ido-everywhere 1)
+
 (defun p-ido-setup-keybindings ()
   (define-key ido-file-completion-map (kbd "~")
     (lambda ()
