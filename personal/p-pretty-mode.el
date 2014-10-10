@@ -5,7 +5,7 @@
 (require 'pretty-mode)
 
 ;; Ruby doesn't really work with logic symbols
-(pretty-deactivate-groups '(:logic) '(ruby-mode))
+(pretty-deactivate-groups '(:logic))
 ;; Stabby lambda!
 (pretty-add-keywords 'ruby-mode '(("->" . ?\u03BB)))
 (pretty-activate-groups '(:greek))
