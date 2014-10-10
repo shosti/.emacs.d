@@ -36,6 +36,7 @@
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
+(require 'warnings)
 (add-to-list 'warning-suppress-types
              '(undo discard-info))
 

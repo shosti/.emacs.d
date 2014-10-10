@@ -14,19 +14,6 @@
 
 (package-initialize)
 
-(unless (package-installed-p 'package-filter)
-  (progn
-    (switch-to-buffer
-     (url-retrieve-synchronously
-      "https://raw.github.com/milkypostman/package-filter/master/package-filter.el"))
-    (package-install-from-buffer  (package-buffer-info) 'single)))
-
-;; Don't get stable packages from melpa
-(setq package-filter-function
-      (lambda (package version archive)
-        (or (not (string-equal archive "melpa"))
-           (memq package p-melpa-packages))))
-
 (when (not package-archive-contents)
   (package-refresh-contents))
 
