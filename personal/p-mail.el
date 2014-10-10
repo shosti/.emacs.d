@@ -80,6 +80,7 @@
         mu4e-view-show-images t
         mu4e-html2text-command "iconv -t utf-8 | pandoc -f html -t plain"
         mu4e-view-html-plaintext-ratio-heuristic 1000 ; Don't want html mail EVER
+        mu4e-compose-dont-reply-to-self t
         mu4e-confirm-quit nil)
 
   ;; Full-screen hackery, similar to magit
@@ -91,16 +92,17 @@
   (defadvice mu4e-quit (after mu4e-restore activate)
     (jump-to-register :mu4e-fullscreen))
 
+  (add-to-list 'mu4e-view-actions
+               '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
   ;; Get some good keybindings
   (--each '(mu4e-main-mode
             mu4e-headers-mode
             mu4e~update-mail-mode
             mu4e-about-mode)
     (add-to-list 'evil-emacs-state-modes it))
-  (add-to-list 'evil-motion-state-modes 'mu4e-view-mode)
+  (add-to-list 'evil-emacs-state-modes 'mu4e-view-mode)
 
-  (evil-define-key 'motion mu4e-view-mode-map "n" 'mu4e-view-headers-next)
-  (evil-define-key 'motion mu4e-view-mode-map "F" 'mu4e-compose-forward)
   (--each (list mu4e-main-mode-map mu4e-headers-mode-map)
     (p-add-hjkl-bindings it 'emacs
       "J" 'mu4e~headers-jump-to-maildir))
