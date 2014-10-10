@@ -83,7 +83,9 @@
           process-menu-mode
           grep-mode
           Man-mode
-          magit-process-mode)
+          magit-process-mode
+          diff-mode
+          cider-test-report-mode)
   (add-to-list 'evil-motion-state-modes it))
 
 (evil-mode 1)
