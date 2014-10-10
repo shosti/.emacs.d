@@ -219,15 +219,18 @@
              (require 'cider)
              (unless (cider-connected-p)
                (cider-jack-in)
-               (p-await 'cider-connected-p))))
+               (p-await 'cider-connected-p)
+               (cider-scratch))))
   (:default
-   (:winconf 2winv)
+   (:winconf 3winv)
    (:frame full)
    (:aux1 (:cmd (lambda ()
                   (switch-to-buffer
-                   (cider-find-or-create-repl-buffer))))))
+                   (cider-find-or-create-repl-buffer)))))
+   (:aux2 "*cider-scratch*"))
   (:2
-   (:aux1 clojure-jump-to-test)))
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 cider-test-show-report)))
 
 (defwacspace erc-mode
   (:project-name-fn (lambda () "erc"))
@@ -236,7 +239,7 @@
    (:frame full)
    (:main "#emacs")
    (:aux1 "#clojure")
-   (:aux2 "#rubyonrails")
+   (:aux2 "#haskell")
    (:aux3 "#ruby")))
 
 (defwacspace pianobar-mode
