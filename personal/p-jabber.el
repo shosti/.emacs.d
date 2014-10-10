@@ -84,15 +84,6 @@
                   (buffer-name b)))))
      (-filter 'car))))
 
-(defun p-hipchat-switch-to-room ()
-  (interactive)
-  (let* ((chatrooms (p-hipchat-rooms))
-         (room-names (-map 'car chatrooms))
-         (room
-          (completing-read "Room: " room-names nil nil nil nil
-                           (car room-names))))
-    (switch-to-buffer (cdr (assoc room chatrooms)))))
-
 (defun p-set-up-jabber-chat-mode ()
   (require 'autosmiley)
   (electric-indent-mode 0)
@@ -118,7 +109,6 @@
 ;;;;;;;;;;;;;;
 
 (add-to-list 'evil-motion-state-modes 'jabber-roster-mode)
-(p-set-leader-key "j" 'p-hipchat-switch-to-room)
 
 (provide 'p-jabber)
 
