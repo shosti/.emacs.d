@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (require 'p-key-chord)
+(require 'p-ace-jump)
 
 (p-require-package 'undo-tree)
 (p-require-package 'goto-last-change 'melpa)
@@ -55,7 +56,9 @@
 (define-key evil-motion-state-map (kbd "TAB") nil)
 (define-key evil-motion-state-map (kbd "H-i") 'evil-jump-forward)
 
-(define-key evil-normal-state-map " " 'ace-jump-mode)
+(define-key evil-normal-state-map (kbd "SPC") 'ace-jump-word-mode)
+(define-key evil-normal-state-map (kbd "S-SPC") 'ace-jump-line-mode)
+(define-key evil-normal-state-map (kbd "M-S-SPC") 'ace-jump-char-mode)
 (define-key evil-normal-state-map "gx" 'imenu)
 (define-key evil-normal-state-map "gd" (kbd "| M-."))
 (define-key evil-normal-state-map "gD" (kbd "| M-,"))
