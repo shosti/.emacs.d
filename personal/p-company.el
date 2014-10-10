@@ -6,7 +6,7 @@
 (setq company-idle-delay 0
       company-require-match nil)
 
-(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'prog-mode-hook 'company-mode)
 
 ;; Use control for all special keys, and make company non-intrusive
 (define-key company-active-map (kbd "C-n") 'company-select-next)
