@@ -1,5 +1,7 @@
-(p-require-package 'deferred 'melpa)
-(p-require-package 'creole 'melpa)
+(p-require-package 'elnode 'marmalade)
+(p-require-package 'web 'marmalade)
+(p-require-package 'deferred)
+(p-require-package 'creole 'marmalade)
 (p-require-package 'org-trello)
 
 (provide 'p-org-trello)

@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'google-c-style 'melpa)
-(p-require-package 'c-eldoc)
+(p-require-package 'c-eldoc 'marmalade)
 
 (defun set-up-cc-mode ()
   (google-set-c-style)

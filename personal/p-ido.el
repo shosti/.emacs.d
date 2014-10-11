@@ -1,4 +1,5 @@
 ;;; -*- lexical-binding: t -*-
+(p-require-package 'flx)
 (p-require-package 'flx-ido)
 (p-require-package 'smex)
 (p-require-package 'ido-ubiquitous)

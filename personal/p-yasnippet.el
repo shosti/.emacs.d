@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'yasnippet 'melpa)
+(p-require-package 'yasnippet)
 
 (require 'yasnippet)
 

@@ -5,6 +5,7 @@
 (p-require-package 'highlight-parentheses)
 (p-require-package 'macrostep)
 (p-require-package 'redshank 'melpa)
+(p-require-package 'elisp-slime-nav)
 
 ;;;;;;;;;;;;
 ;; Config ;;

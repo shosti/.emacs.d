@@ -1,4 +1,4 @@
-(p-require-package 'sml-mode)
+(p-require-package 'sml-mode 'gnu)
 
 (provide 'p-sml)
 

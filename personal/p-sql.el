@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'sql-indent)
+(p-require-package 'sql-indent 'marmalade)
 
 (require 'sql-indent)
 

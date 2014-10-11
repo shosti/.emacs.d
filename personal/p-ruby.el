@@ -4,9 +4,11 @@
 ;;; Commentary:
 ;;; Code:
 (p-require-package 'ruby-tools)
+(p-require-package 'ruby-end)
 (p-require-package 'ruby-compilation)
 (p-require-package 'projectile-rails 'melpa)
 (p-require-package 'rbenv 'melpa)
+(p-require-package 'inf-ruby)
 (p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
 (p-require-package 'yaml-mode 'melpa)

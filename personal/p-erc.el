@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'bitlbee)
+(p-require-package 'bitlbee 'marmalade)
 (p-require-package 'erc-image 'melpa)
 
 (require 'p-options)

@@ -19,22 +19,41 @@
 
 (defvar p-local-elisp-dev-dir (expand-file-name "~/src/elisp/"))
 
-(defun p-require-package (package &optional repo)
-  (if (eq repo 'local)
-      (let ((local-src-dir
-             (concat p-local-elisp-dev-dir
-                     (symbol-name package))))
-        (if (file-exists-p local-src-dir)
-            (progn
-              (add-to-list 'load-path local-src-dir)
-              (require package))
-          (p-require-package package 'melpa)))
-    (let ((is-melpa (equal repo 'melpa)))
-      (when is-melpa
-        (add-to-list 'p-melpa-packages package))
-      (unless (package-installed-p package)
-        (when is-melpa
-          (package-refresh-contents))
-        (package-install package)))))
+(defun p-require-package (package &optional repo-symbol)
+  (let ((repo (if (null repo-symbol) "melpa-stable"
+                (symbol-name repo-symbol))))
+    (if (eq repo-symbol 'local)
+        (let ((local-src-dir
+               (concat p-local-elisp-dev-dir
+                       (symbol-name package))))
+          (if (file-exists-p local-src-dir)
+              (progn
+                (add-to-list 'load-path local-src-dir)
+                (require package))
+            (p-require-package package 'melpa)))
+      (add-to-list 'package-pinned-packages
+                   (cons package repo))
+      (package-install package))))
+
+;; Miscellaneous packages where I don't know where to put them and I
+;; don't want the MELPA version
+
+(p-require-package 'concurrent)
+(p-require-package 'ctable)
+(p-require-package 'db 'marmalade)
+(p-require-package 'epc)
+(p-require-package 'esxml 'marmalade)
+(p-require-package 'findr 'marmalade)
+(p-require-package 'inflections)
+(p-require-package 'jump)
+(p-require-package 'kv 'marmalade)
+(p-require-package 'logito)
+(p-require-package 'noflet 'marmalade)
+(p-require-package 'pkg-info)
+(p-require-package 'pcache)
+(p-require-package 'pcsv 'marmalade)
+(p-require-package 'request-deferred)
 
 (provide 'p-packages)
+
+;;; p-packages.el ends here

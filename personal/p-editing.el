@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 ;;; Settings and keybindings for general editing
 
+(p-require-package 'vlf)
+
 (require 'p-leader)
 
 ;;;;;;;;;;;;;;

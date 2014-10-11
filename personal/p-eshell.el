@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'dirtrack)
-
 (require 'eshell)
 (require 'em-prompt)
 (require 'em-term)
