@@ -30,7 +30,8 @@
       inhibit-startup-message t
       save-place-file "~/.emacs.d/places"
       diff-switches "-u"
-      ediff-window-setup-function 'ediff-setup-windows-plain)
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      load-prefer-newer t)
 
 (setq-default imenu-auto-rescan t)
 
