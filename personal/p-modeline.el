@@ -1,8 +1,14 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'diminish)
+(p-require-package 'powerline 'melpa)
+(p-require-package 'powerline-evil 'melpa)
+
+(powerline-evil-center-color-theme)
 
 (require 'diminish)
+
+(powerline-default-theme)
 
 (--each '(elisp-slime-nav
           highlight-parentheses
