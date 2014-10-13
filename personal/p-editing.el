@@ -4,6 +4,7 @@
 (p-require-package 'vlf)
 
 (require 'p-leader)
+(require 'p-git)
 
 ;;;;;;;;;;;;;;
 ;; Settings ;;
@@ -112,6 +113,28 @@
 (defun p-fast-backward-char ()
   (interactive)
   (ignore-errors (backward-char 5)))
+
+;;;;;;;;;;;;
+;; Saving ;;
+;;;;;;;;;;;;
+
+;; Stolen from evil-mode
+(defun p-save-all ()
+  (save-some-buffers t
+                     (lambda ()
+                       (and (not buffer-read-only)
+                            (buffer-file-name)))))
+
+(defadvice switch-to-buffer (before save-buffer-now activate)
+  (when buffer-file-name (save-buffer)))
+
+(defadvice other-window (before other-window-now activate)
+  (when buffer-file-name (save-buffer)))
+
+(defadvice magit-status (before save-all activate)
+  (p-save-all))
+
+(add-hook 'focus-out-hook 'p-save-all)
 
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
