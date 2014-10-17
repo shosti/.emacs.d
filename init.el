@@ -40,3 +40,4 @@
 (eshell)
 (message "Emacs ready!")
 (message "Total elapsed: %s" (float-time (time-subtract (current-time) t-start)))
+(toggle-frame-fullscreen)
