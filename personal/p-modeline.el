@@ -8,8 +8,6 @@
 
 (require 'diminish)
 
-(powerline-default-theme)
-
 (--each '(elisp-slime-nav
           highlight-parentheses
           eldoc
