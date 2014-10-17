@@ -37,6 +37,8 @@
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 
+(blink-cursor-mode 0)
+
 (require 'warnings)
 (add-to-list 'warning-suppress-types
              '(undo discard-info))
