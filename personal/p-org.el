@@ -80,7 +80,7 @@ point to the divide between the definitions and examples."
 
 (p-set-leader-key
   "o" (make-sparse-keymap)
-  "ol" 'org-store-link
+  "oc" 'org-capture
   "oa" 'org-agenda
   "of" 'p-find-org-file)
 
