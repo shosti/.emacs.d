@@ -53,7 +53,7 @@
 (tool-bar-mode 0)
 (setq-default frame-background-mode 'dark)
 (blink-cursor-mode 1)
-(scroll-bar-mode 1)
+(scroll-bar-mode 0)
 (menu-bar-mode 1)
 
 (when (boundp 'mouse-wheel-scroll-amount)
