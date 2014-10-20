@@ -33,7 +33,14 @@
             (p-require-package package 'melpa)))
       (add-to-list 'package-pinned-packages
                    (cons package repo))
-      (package-install package))))
+      ;; Not entirely sure why this is necessary
+      (unless (package-installed-p package)
+	(let ((package-archives
+	       (cl-remove-if-not (lambda (archive)
+				   (equal (car archive) repo))
+				 package-archives)))
+	  (package-refresh-contents)
+	  (package-install package))))))
 
 ;; Miscellaneous packages where I don't know where to put them and I
 ;; don't want the MELPA version

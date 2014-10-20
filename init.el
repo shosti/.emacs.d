@@ -21,6 +21,7 @@
 (message "Loading personal libraries...")
 
 ;; basic packages and functions come first...
+(require 'cl-lib)
 (require 'p-packages)
 (require 'p-macros)
 (require 'p-functions)
