@@ -7,8 +7,8 @@
 (require 'p-leader)
 (require 'smex)
 
-(ido-mode t)
-(ido-ubiquitous t)
+(ido-mode 1)
+(ido-ubiquitous-mode 1)
 (flx-ido-mode 1)
 
 ;;;;;;;;;;
@@ -32,8 +32,6 @@
       ido-handle-duplicate-virtual-buffers 2
       ido-max-prospects 10)
 
-(ido-everywhere 1)
-
 (defun p-ido-setup-keybindings ()
   (define-key ido-file-completion-map (kbd "~")
     (lambda ()
@@ -42,7 +40,9 @@
           (insert "~/")
         (call-interactively 'self-insert-command))))
   (define-key ido-file-completion-map (kbd "C-w")
-    'ido-delete-backward-word-updir))
+    'ido-delete-backward-word-updir)
+  (define-key ido-common-completion-map (kbd "C-n") 'ido-next-match)
+  (define-key ido-common-completion-map (kbd "C-p") 'ido-prev-match))
 
 (add-hook 'ido-setup-hook
           'p-ido-setup-keybindings)
