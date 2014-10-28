@@ -12,7 +12,8 @@
           helm-source-bookmarks
           helm-source-file-cache
           helm-source-files-in-current-dir
-          helm-source-locate)))
+          helm-source-locate)
+        helm-buffers-fuzzy-matching t))
 
 (p-set-leader-key "b" 'helm-for-files)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
