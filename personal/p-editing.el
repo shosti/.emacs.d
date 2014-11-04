@@ -2,6 +2,7 @@
 ;;; Settings and keybindings for general editing
 
 (p-require-package 'vlf)
+(p-require-package 'ws-butler)
 
 (require 'p-leader)
 (require 'p-git)
@@ -12,7 +13,7 @@
 
 (global-subword-mode 1)
 (global-auto-revert-mode 1)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(ws-butler-global-mode 1)
 (delete-selection-mode 1)
 (setq-default require-final-newline t
               indent-tabs-mode nil
