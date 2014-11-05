@@ -5,6 +5,8 @@
 (p-require-package 'powerline-evil 'melpa)
 
 (powerline-evil-center-color-theme)
+(setq display-time-day-and-date t)
+(display-time-mode 1)
 
 (require 'diminish)
 
