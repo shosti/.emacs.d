@@ -26,7 +26,7 @@
                 (decode-char 'ucs #x2026))                             ; …
     (set-fontset-font t it "Consolas-14"))
 
-  ;; A smattering of other sybols require Symbola
+  ;; A smattering of other symbols require Symbola
   (--each '(#x2025                                                     ; ‥
             #x2218                                                     ; ∘
             #x2713                                                     ; ✓
