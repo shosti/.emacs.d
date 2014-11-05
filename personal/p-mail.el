@@ -38,13 +38,16 @@
             (completing-read (format "Compose with account: (%s) "
                                      (mapconcat #'(lambda (var) (car var)) p-mu4e-account-alist "/"))
                              (mapcar #'(lambda (var) (car var)) p-mu4e-account-alist)
-                             nil t nil nil (caar p-mu4e-account-alist))))
-         (account-vars (cdr (assoc account p-mu4e-account-alist))))
+                             nil t nil nil (caar p-mu4e-account-alist)))))
+    (p-mu4e-set-account-vars account)))
+
+(defun p-mu4e-set-account-vars (account)
+  (let ((account-vars (cdr (assoc account p-mu4e-account-alist))))
     (if account-vars
         (mapc #'(lambda (var)
                   (set (car var) (cadr var)))
               account-vars)
-      (error "No email account found"))))
+      (error "No email account found"))) )
 
 (add-hook 'mu4e-compose-pre-hook 'p-mu4e-set-account)
 
