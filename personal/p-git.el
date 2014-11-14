@@ -16,7 +16,7 @@
 
 (defun p-insert-git-cd-number ()
   (-when-let (project-number
-              (car (s-match "CD-[0-9]+"
+              (car (s-match "\\(CD\\|JZ\\)-[0-9]+"
                             (shell-command-to-string
                              "git symbolic-ref --short HEAD"))))
     (when (and (bolp) (eolp)) (insert project-number " "))))
