@@ -95,12 +95,12 @@
 
   ;; Full-screen hackery, similar to magit
   (defadvice mu4e (around mu4e-fullscreen activate)
-    (window-configuration-to-register :mu4e-fullscreen)
+    (window-configuration-to-register ?µ)
     ad-do-it
     (delete-other-windows))
 
   (defadvice mu4e-quit (after mu4e-restore activate)
-    (jump-to-register :mu4e-fullscreen))
+    (jump-to-register ?µ))
 
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)

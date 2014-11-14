@@ -22,7 +22,8 @@
     (when (and (bolp) (eolp)) (insert project-number " "))))
 
 (defadvice magit-status (around magit-fullscreen activate)
-  (window-configuration-to-register :magit-fullscreen)
+  ;; <option>-g = ©
+  (window-configuration-to-register ?©)
   ad-do-it
   (delete-other-windows))
 
@@ -30,7 +31,7 @@
   "Restores the previous window configuration and kills the magit buffer"
   (interactive)
   (kill-buffer)
-  (jump-to-register :magit-fullscreen))
+  (jump-to-register ?©))
 
 (defun p-magit-toggle-whitespace ()
   (interactive)
