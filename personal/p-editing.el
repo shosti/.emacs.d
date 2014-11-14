@@ -13,7 +13,6 @@
 
 (global-subword-mode 1)
 (global-auto-revert-mode 1)
-(ws-butler-global-mode 1)
 (delete-selection-mode 1)
 (setq-default require-final-newline t
               indent-tabs-mode nil
