@@ -16,7 +16,7 @@
 (p-configure-feature erc
   (require 'erc-image)
   (add-to-list 'erc-modules 'image)
-  (erc-update-modules)
+  (add-to-list 'erc-modules 'smiley)
   (setq erc-autojoin-channels-alist
         (list
          (cons "freenode.net"
