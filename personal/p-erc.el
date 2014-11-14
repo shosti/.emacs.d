@@ -1,6 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'bitlbee 'marmalade)
 (p-require-package 'erc-image 'melpa)
 
 (require 'p-options)
@@ -36,13 +35,6 @@
 (defun p-erc-connect ()
   (interactive)
   (erc :server "irc.freenode.net"))
-
-;;bitlbee configuration
-(autoload 'bitlbee-start "bitlbee" nil t)
-(defun gtalk ()
-  (interactive)
-  (bitlbee-start)
-  (erc :server "localhost" :password erc-pass))
 
 ;; This seems like as good a place as any to put this
 (defun p-switch-to-room ()
