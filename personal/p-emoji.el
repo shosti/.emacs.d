@@ -936,7 +936,8 @@
     ("\\(:picard:\\)\\W" 1 "facepalm")
     ("\\(:friday:\\)\\W" 1 "rebeccablack")
     ("\\(:mustache:\\)\\W" 1 "hipster")
-    ("\\(:hr:\\)\\W" 1 "hrviolation"))
+    ("\\(:hr:\\)\\W" 1 "hrviolation")
+    ("\\(:simple_smile:\\)\\W" 1 "smile"))
   "Alist of emoji regexps for use with smiley-mode.")
 
 (with-eval-after-load 'smiley
