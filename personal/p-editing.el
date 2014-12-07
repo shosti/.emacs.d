@@ -19,6 +19,12 @@
               tab-width 2)
 (auto-fill-mode 0)
 
+(defun p-set-up-text-mode ()
+  (auto-fill-mode 1)
+  (flyspell-mode 1))
+
+(add-hook 'text-mode-hook 'p-set-up-text-mode)
+
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
