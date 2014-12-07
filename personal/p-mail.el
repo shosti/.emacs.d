@@ -20,13 +20,6 @@
     (interactive)
     (error "mu4e not installed on this system")))
 
-(defun p-render-html-message ()
-  "Not sure why this doesn't already exist built-in."
-  (let ((dom (libxml-parse-html-region (point-min) (point-max))))
-    (erase-buffer)
-    (shr-insert-document dom)
-    (goto-char (point-min))))
-
 ;; Stolen from the mu4e manual
 (defun p-mu4e-set-account ()
   "Set the account for composing a message."
@@ -74,6 +67,7 @@
 
   (require 'smtpmail)
   (require 'org-mu4e)
+  (require 'mu4e-contrib)
 
   (imagemagick-register-types)
 
@@ -88,7 +82,7 @@
         mu4e-headers-skip-duplicates t
         mu4e-attachment-dir (expand-file-name "~/Downloads")
         mu4e-view-show-images t
-        mu4e-html2text-command 'p-render-html-message
+        mu4e-html2text-command 'mu4e-shr2text
         mu4e-view-html-plaintext-ratio-heuristic 100
         mu4e-compose-dont-reply-to-self t
         mu4e-confirm-quit nil)
