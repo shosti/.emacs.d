@@ -181,7 +181,8 @@
                  (scss-mode projectile-rails-mode)
                  (css-mode projectile-rails-mode)
                  (feature-mode projectile-rails-mode)
-                 (yaml-mode projectile-rails-mode))
+                 (yaml-mode projectile-rails-mode)
+                 (web-mode projectile-rails-mode))
   (ruby-mode projectile-rails-mode))
 
 (defwacspace scala-mode
