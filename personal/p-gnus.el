@@ -10,6 +10,7 @@
 
 (p-configure-feature gnus
   (p-load-private "gnus-settings.el")
+  (define-key gnus-summary-mode-map (kbd "C-c C-o") 'p-gnus-gmane-link)
   (setq gnus-expert-user t))
 
 ;;;;;;;;;;;;;;
@@ -32,6 +33,26 @@
 
 (p-set-leader-key
   "G" 'gnus)
+
+(defun p-gnus-gmane-link ()
+  "Grabs the article name and generates a url found in Gmane.
+  If successful, sends it to the local web browser."
+  (interactive)
+  (let ((url
+         (with-current-buffer gnus-article-buffer
+           (let ((msgids (split-string (aref gnus-current-headers 8) "[ :]")))
+             (cond ((and (equal (substring (second msgids) 0 6)
+                                "gwene.")
+                         (goto-char (point-max))
+                         (search-backward "Link" (point-min) 'noerror))
+                    (shr-copy-url)
+                    (current-kill 0))
+                   ((equal (substring (second msgids) 0 6)
+                           "gmane.")
+                    (concat "http://comments.gmane.org/" (second msgids) "/" (third msgids))))))))
+    (if url
+        (browse-url (message url))
+      (message "Couldn't find any likely url"))))
 
 (provide 'p-gnus)
 
