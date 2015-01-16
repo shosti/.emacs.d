@@ -18,6 +18,8 @@
 (setq evil-default-cursor t
       evil-lookup-func 'dash-at-point)
 
+(customize-set-variable 'evil-want-C-u-scroll t)
+
 (setq-default evil-symbol-word-search t
               evil-shift-width 2)
 
@@ -69,6 +71,8 @@
 (define-key evil-normal-state-map "\\" 'evil-repeat-find-char-reverse)
 (define-key evil-normal-state-map "|" 'evil-execute-in-emacs-state)
 (define-key evil-motion-state-map "|" 'evil-execute-in-emacs-state)
+(define-key evil-normal-state-map "U" 'universal-argument)
+(define-key evil-motion-state-map "U" 'universal-argument)
 (define-key evil-ex-completion-map (kbd "M-p") (kbd "<up>"))
 (define-key evil-ex-completion-map (kbd "M-n") (kbd "<down>"))
 (define-key evil-insert-state-map (kbd "C-k") nil)
