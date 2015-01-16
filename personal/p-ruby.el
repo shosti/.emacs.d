@@ -23,6 +23,7 @@
 ;;;;;;;;;;;;
 
 (--each '("Guardfile\\'"
+          "Berksfile\\'"
           "\\.watchr$"
           "Procfile\\'"
           "\\.rake$"
