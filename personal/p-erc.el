@@ -12,6 +12,8 @@
                          "#vim"
                          "##security"))
 
+(p-load-private "erc-settings.el")
+
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
 (p-configure-feature erc
   (require 'erc-image)
@@ -24,6 +26,7 @@
 
   (setq erc-track-enable-keybindings nil
         erc-nick "shosti"
+        erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
         erc-password (p-password "Personal/erc"))
 
   ;; auto identify
@@ -36,11 +39,20 @@
   (interactive)
   (erc :server "irc.freenode.net"))
 
+(defun p-erc-rooms ()
+  "Return a list of erc buffers."
+  (-filter (lambda (buffer)
+             (with-current-buffer buffer
+               (eq major-mode 'erc-mode)))
+           (buffer-list)))
+
 ;; This seems like as good a place as any to put this
 (defun p-switch-to-room ()
   (interactive)
   (let* ((chatrooms (append (p-hipchat-rooms)
-                            (--map (cons it it) p-erc-channels)))
+                            (mapcar (lambda (room)
+                                      (cons (buffer-name room) room))
+                                    (p-erc-rooms))))
          (room-names (-map 'car chatrooms))
          (room
           (completing-read "Room: " room-names nil nil nil nil
