@@ -136,6 +136,16 @@
    `(jabber-roster-user-error ((t (:foreground ,red :weight light :slant italic))))
    `(jabber-roster-user-offline ((t (:foreground ,comment :weight light :slant italic))))
 
+   ;; term
+   `(term-color-black ((t (:foreground ,background :background ,background))))
+   `(term-color-red ((t (:foreground ,red :background ,red))))
+   `(term-color-green ((t (:foreground ,green :background ,green))))
+   `(term-color-yellow ((t (:foreground ,yellow :background ,yellow))))
+   `(term-color-blue ((t (:foreground ,blue :background ,blue))))
+   `(term-color-magenta ((t (:foreground ,purple :background ,purple))))
+   `(term-color-cyan ((t (:foreground ,blue :background ,blue))))
+   `(term-color-white ((t (:foreground ,foreground :background ,foreground))))
+
    ;; misc
    `(isearch ((t (:background ,yellow :foreground ,red))))
    `(isearch-fail ((t (:background ,red :foreground ,foreground)))))
@@ -146,9 +156,7 @@
    `(ansi-color-names-vector
      ;; black, red, green, yellow, blue, magenta, cyan, white
      [,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])
-   `(ansi-term-color-vector
-     ;; black, red, green, yellow, blue, magenta, cyan, white
-     [unspecified ,background ,red ,green ,yellow ,blue ,purple ,blue ,foreground])
+
    `(hl-paren-colors
      '(,red ,orange ,yellow ,green)))
 
