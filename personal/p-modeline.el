@@ -4,9 +4,18 @@
 (p-require-package 'powerline 'melpa)
 (p-require-package 'powerline-evil 'melpa)
 
+(require 'p-mail)
+
 (powerline-evil-center-color-theme)
-(setq display-time-day-and-date t)
+(setq display-time-day-and-date t
+      display-time-default-load-average nil
+      display-time-mail-function #'p-unread-mail-p
+      display-time-mail-string "✉")
+
 (display-time-mode 1)
+
+(with-eval-after-load 'mu4e
+  (advice-add 'mu4e-quit :after #'display-time-update))
 
 (require 'diminish)
 

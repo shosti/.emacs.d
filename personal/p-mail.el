@@ -62,6 +62,14 @@
 
 (add-hook 'mu4e-compose-mode-hook 'p-set-up-mu4e-compose-mode)
 
+(defun p-unread-mail-messages ()
+  (string-to-number
+   (s-trim (shell-command-to-string
+            "mu find flag:unread and not flag:trashed 2> /dev/null | wc -l"))))
+
+(defun p-unread-mail-p ()
+  (> (p-unread-mail-messages) 0))
+
 (defun p-config-mu4e ()
   (p-load-private "mail-settings.el")
 
