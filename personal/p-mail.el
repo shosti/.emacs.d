@@ -7,11 +7,10 @@
 
 (defun p-mail-set-up? ()
   (and (executable-find "mu")
-     (executable-find "msmtp")
-     (executable-find "mbsync")
-     (executable-find "pandoc")
-     (file-exists-p (expand-file-name "~/Maildir"))
-     (--any? (s-contains? "mu4e" it) load-path)))
+       (executable-find "msmtp")
+       (executable-find "mbsync")
+       (file-exists-p (expand-file-name "~/Maildir"))
+       (--any? (s-contains? "mu4e" it) load-path)))
 
 (if (p-mail-set-up?)
     (progn (autoload 'mu4e "mu4e" "" t)
@@ -120,8 +119,8 @@
       "J" 'mu4e~headers-jump-to-maildir))
 
   (p-add-hjkl-bindings mu4e-view-mode-map 'emacs
-      "J" 'mu4e~headers-jump-to-maildir
-      "H" 'mu4e-view-toggle-hide-cited)
+    "J" 'mu4e~headers-jump-to-maildir
+    "H" 'mu4e-view-toggle-hide-cited)
 
   (define-key mu4e-view-mode-map (kbd "TAB") 'p-mail-cycle-urls)
   (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET")))
