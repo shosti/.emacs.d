@@ -28,17 +28,6 @@
 (setq company-global-modes
       '(not eshell-mode))
 
-(setq company-backends
-      (-map (lambda (backend)
-              (if (listp backend)
-                  (if (memq 'company-files backend)
-                      backend
-                    (-snoc backend 'company-files))
-                (if (eq backend 'company-files)
-                    backend
-                  (list backend 'company-files))))
-            company-backends))
-
 (provide 'p-company)
 
 ;;; p-company.el ends here
