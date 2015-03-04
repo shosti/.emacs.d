@@ -64,7 +64,8 @@
            ;; Dingbats
            (cons (decode-char 'ucs #x2700)                           ; ✀
                  (decode-char 'ucs #x27bf)))                         ; ➿
-    (set-fontset-font t it (font-spec :name "Apple Color Emoji"))))
+    (set-fontset-font t it (font-spec :name "Apple Color Emoji"
+                                      :size 10))))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
