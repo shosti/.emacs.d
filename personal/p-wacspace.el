@@ -233,16 +233,6 @@
    (:aux1 projectile-toggle-between-implementation-and-test)
    (:aux2 cider-test-show-report)))
 
-(defwacspace erc-mode
-  (:project-name-fn (lambda () "erc"))
-  (:default
-   (:winconf 4win)
-   (:frame full)
-   (:main "#emacs")
-   (:aux1 "#clojure")
-   (:aux2 "#haskell")
-   (:aux3 "#ruby")))
-
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
   (:default
