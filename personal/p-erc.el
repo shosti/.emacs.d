@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'erc-image 'melpa)
-
 (require 'p-options)
 (require 'p-jabber)
 
@@ -16,8 +14,6 @@
 
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
 (p-configure-feature erc
-  (require 'erc-image)
-  (add-to-list 'erc-modules 'image)
   (add-to-list 'erc-modules 'smiley)
   (setq erc-autojoin-channels-alist
         (list
