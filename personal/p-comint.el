@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (require 'comint)
+(require 'p-evil)
 
 (setq comint-scroll-to-bottom-on-input t
       comint-scroll-to-bottom-on-output t
@@ -13,5 +14,13 @@
   'comint-previous-matching-input-from-input)
 (define-key comint-mode-map (kbd "M-n")
   'comint-next-matching-input-from-input)
+
+(defun p-comint-clear-buffer ()
+  (interactive)
+  (let ((comint-buffer-maximum-size 0))
+    (comint-truncate-buffer)))
+
+(evil-define-key 'normal comint-mode-map
+  (kbd "M-k") 'p-comint-clear-buffer)
 
 (provide 'p-comint)

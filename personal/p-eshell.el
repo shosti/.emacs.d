@@ -7,6 +7,7 @@
 (require 'dirtrack)
 (require 'p-path)
 (require 'p-leader)
+(require 'p-evil)
 
 (defvar github-api-token)
 (p-load-private "eshell-settings.el")
@@ -43,6 +44,14 @@
   (let ((inhibit-read-only t))
     (erase-buffer)))
 
+(defun p-eshell-clear-buffer ()
+  (interactive)
+  (let ((eshell-buffer-maximum-lines 0))
+    (eshell-truncate-buffer)))
+
+(evil-define-key 'normal eshell-mode-map
+  (kbd "M-k") 'p-eshell-clear-buffer)
+
 (defun p-eshell-output-to-buffer ()
   "Dump the output of the last command to a temporary buffer."
   (interactive)
@@ -63,7 +72,8 @@
   (visual-line-mode 0)
   (dirtrack-mode 1)
   ;; keybindings with eshell are weird
-  (local-set-key (kbd "C-c C-o") 'p-eshell-output-to-buffer))
+  (local-set-key (kbd "C-c C-o") 'p-eshell-output-to-buffer)
+  (local-set-key (kbd "M-k") 'p-eshell-clear-buffer))
 
 (add-hook 'eshell-mode-hook 'p-set-up-eshell)
 
