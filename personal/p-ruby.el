@@ -150,6 +150,8 @@ window."
     (kbd "C-c C-c")
     'p-ruby-send-buffer))
 
+(add-to-list 'auto-mode-alist '("\\.hamlc\\'" . haml-mode))
+
 (p-configure-feature haml-mode
   (define-key haml-mode-map (kbd "RET") 'newline-and-indent))
 
