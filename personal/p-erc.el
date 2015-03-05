@@ -45,10 +45,9 @@
 ;; This seems like as good a place as any to put this
 (defun p-switch-to-room ()
   (interactive)
-  (let* ((chatrooms (append (p-hipchat-rooms)
-                            (mapcar (lambda (room)
-                                      (cons (buffer-name room) room))
-                                    (p-erc-rooms))))
+  (let* ((chatrooms (mapcar (lambda (room)
+                              (cons (buffer-name room) room))
+                            (p-erc-rooms)))
          (room-names (-map 'car chatrooms))
          (room
           (completing-read "Room: " room-names nil nil nil nil
