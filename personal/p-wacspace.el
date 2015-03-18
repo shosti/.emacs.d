@@ -26,11 +26,8 @@
 
 (defun p-rails-console ()
   (interactive)
-  (let ((buffer (wacs-make-comint "pry" "bundle" nil
-                                  "exec" "pry"
-                                  "-r" (concat (wacs-project-dir) "config/environment")
-                                  "-r" "rails/console/app"
-                                  "-r" "rails/console/helpers")))
+  (let ((buffer (wacs-make-comint "rails" "rails" nil
+                                  "console")))
     (switch-to-buffer buffer)
     (setq-local comint-process-echoes t)
     (setq inf-ruby-buffer buffer)))
@@ -161,6 +158,10 @@
   (:default
    (:winconf 3winv)
    (:aux2 "*ruby*"))
+  (:2
+   (:winconf 3winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 wacs-eshell))
   (:5
    (:winconf 2winh)
    (:aux1 "*ruby*")))
@@ -212,8 +213,8 @@
    (:winconf 2winv)
    (:frame full)
    (:aux1 (lambda (
-              (p-find-first-matching-file "steps.el$"
-                                          default-directory))))))
+                   (p-find-first-matching-file "steps.el$"
+                                               default-directory))))))
 
 (defwacspace clojure-mode
   (:before (lambda ()
