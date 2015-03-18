@@ -32,7 +32,8 @@
 
 (defun p-untabify-buffer ()
   (interactive)
-  (untabify (point-min) (point-max)))
+  (unless indent-tabs-mode
+    (untabify (point-min) (point-max))))
 
 (defun p-indent-buffer ()
   (interactive)
