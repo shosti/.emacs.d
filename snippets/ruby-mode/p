@@ -2,4 +2,5 @@
 # name: p
 # key: p
 # --
-puts "${1:$(upcase yas-text)}: #{$1}"
+puts "${1:$(upcase yas-text)}"
+pp $1
