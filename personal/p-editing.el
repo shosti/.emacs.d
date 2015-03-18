@@ -143,6 +143,8 @@
 
 (add-hook 'focus-out-hook 'p-save-all)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
