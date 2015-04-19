@@ -26,10 +26,12 @@
           company
           git-gutter
           redshank
-          projectile
+          hi-lock
           ruby-tools
           ruby-end
-          robe)
+          robe
+          subword
+          visual-line)
   (eval-after-load it
     `(diminish ',(-> it
                    (symbol-name)
