@@ -6,7 +6,6 @@
 
 (require 'p-mail)
 
-(powerline-evil-center-color-theme)
 (setq display-time-day-and-date t
       display-time-default-load-average nil
       display-time-mail-function #'p-unread-mail-p
