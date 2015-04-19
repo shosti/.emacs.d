@@ -21,7 +21,7 @@
                p-erc-channels)))
 
   (setq erc-track-enable-keybindings nil
-        erc-nick "shosti"
+        erc-nick "emanuel"
         erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
         erc-password (p-password "Personal/erc"))
 
