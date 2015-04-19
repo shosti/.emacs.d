@@ -30,6 +30,7 @@
 (setenv "NODE_PATH" "/usr/local/lib/node")
 (setenv "PYTHONPATH"
         "/usr/local/lib/python2.7/site-packages")
+(setenv "GOPATH" (expand-file-name "~/go"))
 (setenv "HOMEBREW_GITHUB_API_TOKEN" github-api-token)
 
 (setq eshell-visual-commands
