@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: fori
+# key: fori
+# --
+for ${1:i} := 0; $1 < $2; $1++ {
+	$0
+}
