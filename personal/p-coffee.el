@@ -18,4 +18,6 @@
               (if (equal (buffer-name) "*CoffeeREPL*")
                   (setq comint-process-echoes t))))
 
+(add-to-list 'auto-mode-alist '("\\.csjx\\'" . coffee-mode))
+
 (provide 'p-coffee)
