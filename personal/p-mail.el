@@ -90,7 +90,7 @@
         mu4e-attachment-dir (expand-file-name "~/Downloads")
         mu4e-view-show-images t
         mu4e-html2text-command 'mu4e-shr2text
-        mu4e-view-html-plaintext-ratio-heuristic 100
+        mu4e-view-prefer-html t
         mu4e-compose-dont-reply-to-self t
         mu4e-confirm-quit nil)
 
