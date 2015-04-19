@@ -9,7 +9,7 @@
 (global-visual-line-mode 1)
 
 ;; Mostly stolen from ESK
-(setq whitespace-style '(face trailing lines-tail tabs)
+(setq whitespace-style '(face trailing lines-tail)
       whitespace-line-column 100)
 
 (defun p-add-watchwords ()
