@@ -27,6 +27,7 @@
   (when (> (display-color-cells) 8)
     (hl-line-mode 1))
   (whitespace-mode 1)
+  (abbrev-mode 0)
   (idle-highlight-mode t)
   (p-add-watchwords))
 
