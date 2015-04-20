@@ -1,8 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'diminish)
-(p-require-package 'powerline 'melpa)
-(p-require-package 'powerline-evil 'melpa)
 
 (require 'p-mail)
 
