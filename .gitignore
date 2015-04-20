@@ -46,3 +46,4 @@ url
 /snippets/git-commit-mode/
 /var/
 /.sx/
+/rake.cache
