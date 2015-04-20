@@ -104,12 +104,10 @@ window."
 (defun p-set-up-ruby-mode ()
   (setq-local tab-width 2)
   (ruby-end-mode 1)
-  (robe-mode 1)
   (eldoc-mode 0)
   (ruby-tools-mode 1)
   (electric-indent-mode 1)
-  (electric-pair-mode 1)
-  (p-turn-off-robe-complete))
+  (electric-pair-mode 1))
 
 (add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
 
@@ -123,9 +121,7 @@ window."
 (p-set-leader-key "d" 'p-run-remote-pry)
 
 (defun p-set-up-haml-mode ()
-  (robe-mode 1)
-  (eldoc-mode 0)
-  (p-turn-off-robe-complete))
+  (eldoc-mode 0))
 
 (add-hook 'haml-mode-hook 'p-set-up-haml-mode)
 
