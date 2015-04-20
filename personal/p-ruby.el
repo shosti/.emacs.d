@@ -49,6 +49,9 @@
 (defun p-foreman ()
   (p-compilation-buffer "foreman" "foreman" "start"))
 
+(defun p-guard ()
+  (p-compilation-buffer "guard" "bundle" "exec" "guard"))
+
 (defun p-visit-pow-log ()
   (interactive)
   (find-file (expand-file-name (concat "~/Library/Logs/Pow/apps/"
