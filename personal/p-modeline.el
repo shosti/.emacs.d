@@ -31,12 +31,14 @@
           ruby-end
           robe
           subword
-          visual-line)
+          whitespace)
   (eval-after-load it
     `(diminish ',(-> it
                    (symbol-name)
                    (concat "-mode")
                    (intern)))))
+
+(diminish 'visual-line-mode)
 
 (eval-after-load 'yasnippet
   '(diminish 'yas-minor-mode))
