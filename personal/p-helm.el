@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'helm)
+(p-require-package 'helm-unicode 'local)
 
 (require 'p-leader)
 
@@ -15,7 +16,9 @@
           helm-source-locate)
         helm-buffers-fuzzy-matching t))
 
-(p-set-leader-key "b" 'helm-for-files)
+(p-set-leader-key
+  "b" 'helm-for-files
+  "8" 'helm-unicode)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 
 (provide 'p-helm)
