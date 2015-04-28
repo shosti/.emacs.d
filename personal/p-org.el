@@ -78,6 +78,27 @@ point to the divide between the definitions and examples."
   (let ((ido-use-filename-at-point nil))
     (ido-find-file-in-dir org-directory)))
 
+;; Keybindings
+;;
+;; Some of them are stolen from evil-org, which unfortunately doesn't
+;; seem to work.
+(with-eval-after-load 'org
+  (evil-define-key 'normal org-mode-map
+    "^" 'org-beginning-of-line
+    "$" 'org-end-of-line
+    (kbd "M-l") 'org-metaright
+    (kbd "M-h") 'org-metaleft
+    (kbd "M-L") 'org-shiftmetaright
+    (kbd "M-H") 'org-shiftmetaleft
+    (kbd "C-S-L") 'org-shiftcontrolright
+    (kbd "C-S-H") 'org-shiftcontrolleft
+    (kbd "M-k") 'org-metaup
+    (kbd "M-j") 'org-metadown
+    (kbd "M-K") 'org-shiftmetaup
+    (kbd "M-J") 'org-shiftmetadown
+    (kbd "C-S-K") 'org-shiftcontrolup
+    (kbd "C-S-J") 'org-shiftcontroldown))
+
 (p-set-leader-key
   "o" (make-sparse-keymap)
   "oc" 'org-capture
