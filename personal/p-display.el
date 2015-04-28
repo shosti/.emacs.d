@@ -7,12 +7,12 @@
 (defconst at-top 22)
 
 (defun p-set-up-fonts ()
-  ;; Consolas as default
-  (add-to-list 'default-frame-alist '(font . "Consolas-14"))
+  ;; Source code pro
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
   ;; Use Cambria Math as a fallback for math symbols
   (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
-  ;; Consolas has good Greek support and most of the equality operators,
-  ;; plus a few other symbols
+  ;; Source Code Pro has good Greek support and most of the equality
+  ;; operators, plus a few other symbols
   (--each (list 'greek
                 ;; equality
                 (cons (decode-char 'ucs #x2260)                      ; ≠
@@ -24,7 +24,7 @@
                 (cons (decode-char 'ucs #x220f)                      ; ∏
                       (decode-char 'ucs #x221a))                     ; √
                 (decode-char 'ucs #x2026))                           ; …
-    (set-fontset-font t it "Consolas-14"))
+    (set-fontset-font t it "Source Code Pro-14"))
 
   ;; A smattering of other symbols require Symbola
   (--each '(#x2025                                                   ; ‥
@@ -73,7 +73,6 @@
 
 (tool-bar-mode 0)
 (setq-default frame-background-mode 'dark)
-(blink-cursor-mode 1)
 (scroll-bar-mode 0)
 (menu-bar-mode 1)
 
