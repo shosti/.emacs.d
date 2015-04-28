@@ -8,7 +8,7 @@
 
 (defun p-set-up-fonts ()
   ;; Source code pro
-  (add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro-13"))
   ;; Use Cambria Math as a fallback for math symbols
   (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
   ;; Source Code Pro has good Greek support and most of the equality
@@ -24,7 +24,7 @@
                 (cons (decode-char 'ucs #x220f)                      ; ∏
                       (decode-char 'ucs #x221a))                     ; √
                 (decode-char 'ucs #x2026))                           ; …
-    (set-fontset-font t it "Source Code Pro-14"))
+    (set-fontset-font t it "Source Code Pro-13"))
 
   ;; A smattering of other symbols require Symbola
   (--each '(#x2025                                                   ; ‥
