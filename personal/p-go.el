@@ -6,5 +6,7 @@
 
 (add-hook 'go-mode-hook #'p-set-up-go)
 
+(setq gofmt-command "goimports")
+
 (provide 'p-go)
 ;; p-go.el ends here
