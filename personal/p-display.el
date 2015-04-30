@@ -107,10 +107,10 @@
                              (height . ,full-height)
                              (width . ,thin-width))))
 
-;;;;;;;;;;;;;;;;;
-;; Keybindings ;;
-;;;;;;;;;;;;;;;;;
+;; Keybindings
 
 (global-set-key (kbd "C-c s") 'p-rotate-windows)
 
 (provide 'p-display)
+
+;;; p-display.el ends here
