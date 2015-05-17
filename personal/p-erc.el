@@ -3,12 +3,7 @@
 (require 'p-options)
 (require 'p-jabber)
 
-(defvar p-erc-channels '("#emacs"
-                         "#clojure"
-                         "#haskell"
-                         "#ruby"
-                         "#vim"
-                         "##security"))
+(defvar p-erc-channels '("#emacsconf"))
 
 (p-load-private "erc-settings.el")
 
@@ -23,7 +18,7 @@
   (setq erc-track-enable-keybindings nil
         erc-nick "emanuel"
         erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
-        erc-password (p-password "Personal/erc"))
+        erc-password (password-store-get "Personal/erc"))
 
   ;; auto identify
   (erc-services-mode 1)
