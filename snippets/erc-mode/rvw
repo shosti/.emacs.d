@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: rvw
+# key: rvw
+# --
+@channel I can haz review plz? $0
