@@ -116,7 +116,7 @@ window."
 
 (defun p-run-remote-pry (&rest args)
   (interactive)
-  (let ((buffer (apply 'wacs-make-comint "pry-remote" "pry-remote" nil args)))
+  (let ((buffer (apply 'wacs-make-comint "pry-remote" "bundle" nil (append '("exec" "pry-remote") args))))
     (switch-to-buffer buffer)
     (setq-local comint-process-echoes t)))
 
