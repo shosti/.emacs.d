@@ -228,7 +228,7 @@
    (:frame full)
    (:aux1 (:cmd (lambda ()
                   (switch-to-buffer
-                   (cider-find-or-create-repl-buffer)))))
+                   (cider-current-repl-buffer)))))
    (:aux2 "*cider-scratch*"))
   (:2
    (:aux1 projectile-toggle-between-implementation-and-test)
