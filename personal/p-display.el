@@ -5,10 +5,13 @@
 (defconst full-height 53)
 (defconst thin-width 82)
 (defconst at-top 22)
+(defvar main-font (if (eq system-type 'linx)
+                      "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"
+                      "Droid Sans Mono Slashed-14"))
 
 (defun p-set-up-fonts ()
   ;; Source code pro
-  (add-to-list 'default-frame-alist '(font . "Consolas-14"))
+  (add-to-list 'default-frame-alist (cons 'font main-font))
   ;; Use Cambria Math as a fallback for math symbols
   (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
   ;; Source Code Pro has good Greek support and most of the equality
@@ -24,7 +27,7 @@
                 (cons (decode-char 'ucs #x220f)                      ; ∏
                       (decode-char 'ucs #x221a))                     ; √
                 (decode-char 'ucs #x2026))                           ; …
-    (set-fontset-font t it "Consolas-14"))
+    (set-fontset-font t it main-font))
 
   ;; A smattering of other symbols require Symbola
   (--each '(#x2025                                                   ; ‥
@@ -45,7 +48,7 @@
 
   ;; emoji!
   (--each (list
-           ;; Pictographs
+          ;; Pictographs
            (cons (decode-char 'ucs #x1f300)                          ; 🌀
                  (decode-char 'ucs #x1f5ff))                         ; 🗿
 
@@ -64,7 +67,9 @@
            ;; Dingbats
            (cons (decode-char 'ucs #x2700)                           ; ✀
                  (decode-char 'ucs #x27bf)))                         ; ➿
-    (set-fontset-font t it (font-spec :name "Apple Color Emoji"
+    (set-fontset-font t it (font-spec :name (if (eq system-type 'darwin)
+                                                "Apple Color Emoji"
+                                              "Symbola")
                                       :size 10))))
 
 (p-set-up-fonts)
