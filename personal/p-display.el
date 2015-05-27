@@ -5,7 +5,7 @@
 (defconst full-height 53)
 (defconst thin-width 82)
 (defconst at-top 22)
-(defvar main-font (if (eq system-type 'linx)
+(defvar main-font (if (eq system-type 'gnu/linux)
                       "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"
                       "Droid Sans Mono Slashed-14"))
 
