@@ -122,8 +122,8 @@
     "J" 'mu4e~headers-jump-to-maildir
     "H" 'mu4e-view-toggle-hide-cited)
 
-  (define-key mu4e-view-mode-map (kbd "TAB") 'p-mail-cycle-urls)
-  (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET")))
+  (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET"))
+  (define-key mu4e-view-mode-map (kbd "TAB") 'shr-next-link))
 
 (p-set-leader-key "M" 'mu4e)
 
