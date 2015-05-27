@@ -71,10 +71,6 @@
 ;; Functions ;;
 ;;;;;;;;;;;;;;;
 
-(defun p-password (pass)
-  (s-trim (shell-command-to-string
-           (concat "pass show " pass))))
-
 (defun p-backup-each-save-filter (filename)
   (let ((ignored-filenames
          '("^/tmp" "semantic.cache$" "\\.emacs-places$"

@@ -6,7 +6,7 @@
 
 (p-configure-feature pianobar
   (setq pianobar-username "emanuel.evans@gmail.com"
-        pianobar-password (p-password "Personal/pandora"))
+        pianobar-password (password-store-get "Personal/pandora"))
 
   (defun pianobar-make-modeline () nil)
 

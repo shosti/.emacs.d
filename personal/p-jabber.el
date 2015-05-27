@@ -47,7 +47,7 @@
        (s-concat p-hipchat-account-number "_"
                  p-hipchat-user-number)
        server nil nil
-       (p-password "Work/hipchat")
+       (password-store-get "Work/hipchat")
        server 5223 'ssl))))
 
 (defun p-hipchat-join-room (room)
