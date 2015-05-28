@@ -51,4 +51,16 @@
 
 (p-set-leader-key "j" 'p-switch-to-room)
 
+(defun p-erc-newline-hack ()
+  "For some reason, evil mode keeps adding spurious
+newlines. This should fix it."
+  (save-excursion
+    (forward-line)
+    (when (and (bolp) (eolp))
+      (backward-delete-char 1))))
+
+(advice-add #'erc-send-current-line :before #'p-erc-newline-hack)
+
 (provide 'p-erc)
+
+;;; p-erc.el ends here
