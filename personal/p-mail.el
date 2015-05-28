@@ -42,6 +42,7 @@
       (error "No email account found"))) )
 
 (add-hook 'mu4e-compose-pre-hook 'p-mu4e-set-account)
+(add-hook 'mu4e-compose-mode-hook 'mml-secure-message-sign)
 
 (defun p-mail-cycle-urls ()
   "Jump through hyperlinks, like help or gnus."
