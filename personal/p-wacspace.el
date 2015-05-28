@@ -231,8 +231,8 @@
                    (cider-current-repl-buffer)))))
    (:aux2 "*cider-scratch*"))
   (:2
-   (:aux1 projectile-toggle-between-implementation-and-test)
-   (:aux2 cider-test-show-report)))
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)))
 
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
