@@ -32,6 +32,7 @@
         "/usr/local/lib/python2.7/site-packages")
 (setenv "GOPATH" (expand-file-name "~/go"))
 (setenv "HOMEBREW_GITHUB_API_TOKEN" github-api-token)
+(setenv "LANG" "en_US.UTF-8") ; there are some buggy programs out there
 
 (setq eshell-visual-commands
       (append eshell-visual-commands '("ssh" "tail" "mu" "sl")))
