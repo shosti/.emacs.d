@@ -157,6 +157,10 @@ window."
 (put 'ruby-mode 'forward-sexp-fn 'ruby-forward-sexp)
 (put 'ruby-mode 'backward-sexp-fn 'ruby-backward-sexp)
 
+(with-eval-after-load 'projectile-rails
+  (evil-define-key 'motion projectile-rails-generate-mode-map
+    (kbd "TAB") #'forward-button))
+
 ;;;;;;;;;;;;;;;;;
 ;; Workarounds ;;
 ;;;;;;;;;;;;;;;;;
