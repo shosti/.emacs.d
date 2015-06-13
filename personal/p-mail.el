@@ -126,6 +126,14 @@
   (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET"))
   (define-key mu4e-view-mode-map (kbd "TAB") 'shr-next-link))
 
+(defun p-mu4e-goto-body ()
+  (interactive)
+  (goto-char (point-min))
+  (forward-paragraph))
+
+(with-eval-after-load 'mu4e-view
+  (add-hook 'mu4e-view-mode-hook 'p-mu4e-goto-body))
+
 (p-set-leader-key "M" 'mu4e)
 
 (provide 'p-mail)
