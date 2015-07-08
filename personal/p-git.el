@@ -2,8 +2,6 @@
 
 (p-require-package 'magit)
 (p-require-package 'gh)
-(p-require-package 'git-rebase-mode)
-(p-require-package 'git-commit-mode)
 (p-require-package 'gitconfig-mode)
 (p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter)
@@ -14,85 +12,42 @@
 (require 'p-evil)
 (require 'p-leader)
 
-(defun p-insert-git-cd-number ()
-  (-when-let (project-number
-              (car (s-match "\\(CD\\|JZ\\)-[0-9]+"
-                            (shell-command-to-string
-                             "git symbolic-ref --short HEAD"))))
-    (when (and (bolp) (eolp)) (insert project-number " "))))
-
-(defadvice magit-status (around magit-fullscreen activate)
-  ;; <option>-g = ©
-  (window-configuration-to-register ?©)
-  ad-do-it
+(defun p-magit-full-screen (buffer)
+  (switch-to-buffer buffer)
   (delete-other-windows))
 
-(defun p-magit-quit-session ()
-  "Restores the previous window configuration and kills the magit buffer"
-  (interactive)
-  (kill-buffer)
-  (jump-to-register ?©))
-
-(defun p-magit-toggle-whitespace ()
-  (interactive)
-  (if (member "-w" magit-diff-options)
-      (p-magit-dont-ignore-whitespace)
-    (p-magit-ignore-whitespace)))
-
-(defun p-magit-ignore-whitespace ()
-  (interactive)
-  (add-to-list 'magit-diff-options "-w")
-  (magit-refresh))
-
-(defun p-magit-dont-ignore-whitespace ()
-  (interactive)
-  (setq magit-diff-options (remove "-w" magit-diff-options))
-  (magit-refresh))
-
-(add-hook 'git-commit-mode-hook 'p-insert-git-cd-number)
+(setq magit-status-buffer-switch-function #'p-magit-full-screen
+      magit-completing-read-function #'magit-ido-completing-read)
 
 (p-configure-feature magit
-  (magit-auto-revert-mode 0) ; just use global auto-revert-mode instead
+  (mapc (lambda (map)
+          (define-key map "j" #'evil-next-line)
+          (define-key map "K" (lookup-key map "k"))
+          (define-key map "k" #'evil-previous-line))
+        (list magit-diff-mode-map
+              magit-revision-mode-map
+              magit-stashes-mode-map
+              magit-status-mode-map
+              magit-log-mode-map
+              magit-stashes-section-map
+              magit-stash-section-map
+              magit-file-section-map
+              magit-hunk-section-map
+              magit-unstaged-section-map
+              magit-staged-section-map
+              magit-untracked-section-map
+              magit-branch-section-map
+              magit-remote-section-map
+              magit-tag-section-map
+              magit-blame-mode-map))
 
-  (p-add-hjkl-bindings magit-status-mode-map 'emacs
-    "K" 'magit-discard-item
-    "V" 'magit-revert-item
-    "v" 'set-mark-command
-    "l" 'magit-key-mode-popup-logging
-    "h" 'magit-key-mode-popup-diff-options
-    "q" 'p-magit-quit-session
-    "W" 'p-magit-toggle-whitespace
-    ":" 'magit-git-command
-    (kbd "C-n") 'magit-goto-next-section
-    (kbd "C-p") 'magit-goto-previous-section)
+  (define-key magit-file-section-map (kbd "M-S-k") #'magit-file-untrack)
 
-  (p-add-hjkl-bindings magit-log-mode-map 'emacs
-    "V" 'magit-revert-item
-    "l" 'magit-key-mode-popup-logging
-    "h" 'magit-log-toggle-margin
-    "/" 'evil-search-forward
-    "?" 'evil-search-backward
-    "n" 'evil-search-next
-    "N" 'evil-search-previous
-    (kbd "C-n") 'magit-goto-next-section
-    (kbd "C-p") 'magit-goto-previous-section)
-
-  (p-add-hjkl-bindings magit-commit-mode-map 'emacs
-    "V" 'magit-revert-item
-    "v" 'set-mark-command
-    "l" 'magit-key-mode-popup-logging
-    "h" 'magit-key-mode-popup-diff-options
-    (kbd "C-n") 'magit-goto-next-section
-    (kbd "C-p") 'magit-goto-previous-section)
-
-  (p-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
-    "K" 'magit-discard-item)
-
-  (add-to-list 'evil-emacs-state-modes 'git-rebase-mode)
-  (add-to-list 'evil-insert-state-modes 'git-commit-mode)
-  (p-add-hjkl-bindings magit-blame-map)
-  (p-add-hjkl-bindings git-rebase-mode-map 'emacs
-    "K" 'git-rebase-kill-line))
+  (mapc (lambda (mode)
+          (add-to-list 'evil-emacs-state-modes mode))
+        '(magit-popup-mode
+          magit-popup-sequence-mode
+          magit-revision-mode)))
 
 (p-configure-feature git-gutter
   (require 'git-gutter-fringe)
@@ -110,14 +65,18 @@
     (evil-normal-state 1)))
 
 (p-set-leader-key
-  "m" 'magit-blame-mode
+  "m" 'magit-blame
   "g" 'magit-status)
 
 ;;;;;;;;;;;
 ;; Hooks ;;
 ;;;;;;;;;;;
 
-(add-hook 'git-commit-mode-hook 'auto-fill-mode)
+(defun p-set-up-git-commit-mode ()
+  (auto-fill-mode 1)
+  (evil-insert-state 1))
+
+(add-hook 'git-commit-mode-hook #'p-set-up-git-commit-mode)
 
 (provide 'p-git)
 
