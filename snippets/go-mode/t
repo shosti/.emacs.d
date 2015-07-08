@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: t
+# key: t
+# --
+type $1 struct {
+$0
+}
