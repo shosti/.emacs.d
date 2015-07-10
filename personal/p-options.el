@@ -142,9 +142,12 @@ With a prefix ARG always prompt for command to use."
                     (t (read-shell-command "Open current file with: ")))
                    (shell-quote-argument buffer-file-name))))
 
-(defun p-tmp-buffer (&rest _)
-  (interactive)
-  (switch-to-buffer-other-window "*tmp*"))
+(defun p-tmp-buffer (arg)
+  (interactive "P")
+  (let ((buffer-name (if arg
+                         (concat "*tmp*<" (number-to-string arg) ">")
+                       "*tmp*")))
+    (switch-to-buffer-other-window buffer-name)))
 
 (p-set-leader-key
   "T" 'p-tmp-buffer)
