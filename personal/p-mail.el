@@ -76,6 +76,7 @@
   (require 'smtpmail)
   (require 'org-mu4e)
   (require 'mu4e-contrib)
+  (require 'shr)
 
   (imagemagick-register-types)
 
