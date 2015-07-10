@@ -17,7 +17,8 @@
   (delete-other-windows))
 
 (setq magit-status-buffer-switch-function #'p-magit-full-screen
-      magit-completing-read-function #'magit-ido-completing-read)
+      magit-completing-read-function #'magit-ido-completing-read
+      magit-branch-arguments nil)
 
 (p-configure-feature magit
   (mapc (lambda (map)
