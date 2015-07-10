@@ -22,8 +22,13 @@
 (p-configure-feature magit
   (mapc (lambda (map)
           (define-key map "j" #'evil-next-line)
-          (define-key map "K" (lookup-key map "k"))
-          (define-key map "k" #'evil-previous-line))
+          ;; idempotently remap "k" to "K"
+          (let ((cur-k-cmd (lookup-key map "k")))
+            (unless (eq cur-k-cmd #'evil-previous-line)
+              (define-key map "K" cur-k-cmd)))
+          (define-key map "k" #'evil-previous-line)
+          (define-key map (kbd "C-f") #'evil-scroll-page-down)
+          (define-key map (kbd "C-b") #'evil-scroll-page-up))
         (list magit-diff-mode-map
               magit-revision-mode-map
               magit-stashes-mode-map
