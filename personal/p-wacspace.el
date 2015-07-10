@@ -153,6 +153,14 @@
    (:winconf 2winh)
    (:aux1 p-rails-console)))
 
+(defwacspace go-mode
+  (:default
+   (:winconf 2winv))
+  (:2
+   (:winconf 3winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 wacs-eshell)))
+
 (defwacspace ruby-mode
   (:before run-ruby)
   (:default
