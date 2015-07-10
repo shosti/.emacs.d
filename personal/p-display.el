@@ -8,6 +8,9 @@
 (defvar main-font (if (eq system-type 'gnu/linux)
                       "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"
                       "Droid Sans Mono Slashed-14"))
+(defvar symbola-font (if (eq system-type 'gnu/linux)
+                         (font-spec :name "Symbola" :size 14)
+                       "Symbola-14"))
 
 (defun p-set-up-fonts ()
   ;; Source code pro
@@ -40,11 +43,11 @@
             #x2a75                                                   ; ⩵
             #x2a76                                                   ; ⩶
             #x2af4)                                                  ; ⫴
-    (set-fontset-font t (decode-char 'ucs it) "Symbola-14"))
+    (set-fontset-font t (decode-char 'ucs it) symbola-font))
 
   ;; triangles
   (set-fontset-font t (cons (decode-char 'ucs #x25b2)                ; ▲
-                            (decode-char 'ucs #x25c5)) "Symbola-14") ; ◅
+                            (decode-char 'ucs #x25c5)) symbola-font) ; ◅
 
   ;; emoji!
   (--each (list
@@ -67,10 +70,11 @@
            ;; Dingbats
            (cons (decode-char 'ucs #x2700)                           ; ✀
                  (decode-char 'ucs #x27bf)))                         ; ➿
-    (set-fontset-font t it (font-spec :name (if (eq system-type 'darwin)
-                                                "Apple Color Emoji"
-                                              "Symbola")
-                                      :size 10))))
+    (set-fontset-font t it (if (eq system-type 'darwin)
+                               (font-spec :name "Apple Color Emoji"
+                                          :size 10)
+                             (font-spec :name "Noto Emoji"
+                                        :size 14)))))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
