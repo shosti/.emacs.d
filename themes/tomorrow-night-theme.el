@@ -163,12 +163,7 @@
   (eval-after-load 'diff-mode
     `(progn
        (set-face-foreground 'diff-added ,green)
-       (set-face-foreground 'diff-removed ,red)))
-
-  (eval-after-load 'magit
-    `(progn
-       (set-face-foreground 'magit-diff-add ,green)
-       (set-face-foreground 'magit-diff-del ,red))))
+       (set-face-foreground 'diff-removed ,red))))
 
 (provide-theme 'tomorrow-night)
 
