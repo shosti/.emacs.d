@@ -6,7 +6,7 @@
 (defconst thin-width 82)
 (defconst at-top 22)
 (defvar main-font (if (eq system-type 'gnu/linux)
-                      "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-13-*-*-*-m-0-iso10646-1"
+                      "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"
                       "Droid Sans Mono Slashed-14"))
 (defvar symbola-font (if (eq system-type 'gnu/linux)
                          (font-spec :name "Symbola" :size 14)
