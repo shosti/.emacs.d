@@ -18,7 +18,8 @@
 
 (setq magit-status-buffer-switch-function #'p-magit-full-screen
       magit-completing-read-function #'magit-ido-completing-read
-      magit-branch-arguments nil)
+      magit-branch-arguments nil
+      magit-revert-buffers nil)
 
 (p-configure-feature magit
   (mapc (lambda (map)
