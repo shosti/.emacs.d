@@ -1,6 +1,9 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'magit)
+(p-require-package 'with-editor)
+(p-require-package 'git-commit)
+(p-require-package 'magit-popup)
 (p-require-package 'gh)
 (p-require-package 'gitconfig-mode)
 (p-require-package 'gitignore-mode)
