@@ -154,8 +154,10 @@
    (:aux1 p-rails-console)))
 
 (defwacspace go-mode
+  (:before go-scratch)
   (:default
-   (:winconf 2winv))
+   (:winconf 3winv)
+   (:aux2 "*go-scratch*"))
   (:2
    (:winconf 3winv)
    (:aux1 projectile-toggle-between-implementation-and-test)

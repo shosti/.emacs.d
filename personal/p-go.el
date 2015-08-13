@@ -2,6 +2,8 @@
 
 (p-require-package 'go-mode)
 (p-require-package 'company-go)
+(p-require-package 'go-eldoc)
+(p-require-package 'go-scratch)
 
 (defun p-godoc-at-point ()
   (interactive)
@@ -12,8 +14,9 @@
   (setq-local tab-width 4)
   (setq-local evil-lookup-func #'p-godoc-at-point)
   (company-mode-on)
-  (flycheck-mode-on-safe)
-  (setq-local company-backends '(company-go))
+  (when buffer-file-name
+    (flycheck-mode 1)
+    (setq-local company-backends '(company-go)))
   (electric-pair-mode 1))
 
 (add-hook 'go-mode-hook #'p-set-up-go)
