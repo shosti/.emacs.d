@@ -7,7 +7,7 @@
   (setq ns-pop-up-frames nil)
 
   (defvar locate-dirs
-    '("~/.emacs.d" "~/src" "~/org" "~/Dropbox/src"))
+    '("~/.emacs.d" "~/src" "~/org" "~/Dropbox/src" "~/go/src"))
 
   (setq helm-case-fold-search t)
   (setq helm-locate-case-fold-search t)
