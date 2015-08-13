@@ -76,6 +76,7 @@
   (require 'smtpmail)
   (require 'org-mu4e)
   (require 'mu4e-contrib)
+  (require 'shr)
 
   (imagemagick-register-types)
 
@@ -93,6 +94,7 @@
         mu4e-html2text-command 'mu4e-shr2text
         mu4e-view-prefer-html t
         mu4e-compose-dont-reply-to-self t
+        mu4e-compose-signature-auto-include nil
         mu4e-confirm-quit nil)
 
   ;; Full-screen hackery, similar to magit

@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: want
+# key: want
+# --
+if want != got {
+   t.Errorf("$0", want, got)
+}

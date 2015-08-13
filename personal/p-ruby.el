@@ -93,7 +93,9 @@ window."
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
 
-(setq rbenv-executable "/usr/local/bin/rbenv"
+(setq rbenv-executable (if (eq system-type 'darwin)
+                           "/usr/local/bin/rbenv"
+                         "/usr/bin/rbenv")
       rbenv-show-active-ruby-in-modeline nil)
 
 (global-rbenv-mode)

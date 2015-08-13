@@ -12,12 +12,17 @@
   (setq-local tab-width 4)
   (setq-local evil-lookup-func #'p-godoc-at-point)
   (company-mode-on)
+  (flycheck-mode-on-safe)
   (setq-local company-backends '(company-go))
   (electric-pair-mode 1))
 
 (add-hook 'go-mode-hook #'p-set-up-go)
 
 (setq gofmt-command "goimports")
+
+(p-configure-feature go-mode
+  (define-key go-mode-map (kbd "M-.") #'godef-jump)
+  (define-key go-mode-map (kbd "M-,") #'pop-tag-mark))
 
 (provide 'p-go)
 ;; p-go.el ends here
