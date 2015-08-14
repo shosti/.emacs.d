@@ -125,7 +125,8 @@
     "J" 'mu4e~headers-jump-to-maildir
     "H" 'mu4e-view-toggle-hide-cited)
 
-  (define-key mu4e-view-mode-map (kbd "RET") (kbd "M-RET"))
+  (define-key mu4e-view-clickable-urls-keymap (kbd "RET") #'mu4e~view-browse-url-from-binding)
+  (define-key mu4e-view-attachments-header-keymap (kbd "RET") #'mu4e~view-open-attach-from-binding)
   (define-key mu4e-view-mode-map (kbd "TAB") 'shr-next-link))
 
 (defun p-mu4e-goto-body ()
