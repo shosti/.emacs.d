@@ -32,7 +32,8 @@
       diff-switches "-u"
       ediff-window-setup-function 'ediff-setup-windows-plain
       load-prefer-newer t
-      shr-external-browser browse-url-browser-function)
+      shr-external-browser browse-url-browser-function
+      find-function-C-source-directory (expand-file-name "~/src/emacs/src"))
 
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-chromium))
