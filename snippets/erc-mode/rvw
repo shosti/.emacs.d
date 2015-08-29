@@ -2,4 +2,4 @@
 # name: rvw
 # key: rvw
 # --
-@channel I can haz review plz? $0
+@channel I can haz review plz? `(yank)`$0
