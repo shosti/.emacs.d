@@ -58,7 +58,8 @@
 
 (defun p-set-up-mu4e-compose-mode ()
   (setq-local fill-column 80)
-  (auto-fill-mode 1))
+  (auto-fill-mode 1)
+  (p-company-emoji-init))
 
 (add-hook 'mu4e-compose-mode-hook 'p-set-up-mu4e-compose-mode)
 

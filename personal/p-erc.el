@@ -60,6 +60,11 @@ newlines. This should fix it."
 
 (advice-add #'erc-send-current-line :before #'p-erc-newline-hack)
 
+(defun p-set-up-erc ()
+  (p-company-emoji-init))
+
+(add-hook 'erc-mode-hook #'p-set-up-erc)
+
 (provide 'p-erc)
 
 ;;; p-erc.el ends here

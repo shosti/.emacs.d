@@ -84,7 +84,8 @@
 
 (defun p-set-up-git-commit-mode ()
   (auto-fill-mode 1)
-  (evil-insert-state 1))
+  (evil-insert-state 1)
+  (p-company-emoji-init))
 
 (add-hook 'git-commit-mode-hook #'p-set-up-git-commit-mode)
 

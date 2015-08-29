@@ -1,4 +1,11 @@
+(p-require-package 'company-emoji)
+
 (add-to-list 'load-path (concat user-emacs-directory "opt/emacs-emoji-cheat-sheet/"))
+
+(defun p-company-emoji-init ()
+  "Turn on company mode and also set it to only do emoji."
+  (company-mode-on)
+  (setq-local company-backends '(company-emoji)))
 
 (require 'emoji-cheat-sheet)
 

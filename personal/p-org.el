@@ -67,7 +67,8 @@ point to the divide between the definitions and examples."
 
 (defun p-set-up-org-mode ()
   (auto-fill-mode 1)
-  (flyspell-mode 1))
+  (flyspell-mode 1)
+  (p-company-emoji-init))
 
 (add-hook 'org-mode-hook 'p-set-up-org-mode)
 
