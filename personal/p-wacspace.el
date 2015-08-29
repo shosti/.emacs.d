@@ -12,6 +12,13 @@
 
 (wacs-set-up-keys)
 (setq wacs-save-frame nil)
+;; Hack to get things working properly with client-server, should fix
+;; properly in the future
+(defun p-handle-delete-frame (&rest args)
+  (message "Clearing wacspaces...")
+  (wacs-clear-all-saved))
+
+(advice-add #'server-handle-delete-frame :before #'p-handle-delete-frame)
 
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Helper Functions ;;
