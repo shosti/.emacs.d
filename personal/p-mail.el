@@ -4,6 +4,7 @@
 ;; General mail settings
 
 (defvar p-mu4e-account-alist)
+(defvar p-mail-default-account)
 
 (defun p-mail-set-up? ()
   (and (executable-find "mu")
@@ -105,7 +106,8 @@
     (delete-other-windows))
 
   (defadvice mu4e-quit (after mu4e-restore activate)
-    (jump-to-register ?µ))
+    (jump-to-register ?µ)
+    (p-mu4e-set-account-vars p-mail-default-account))
 
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
