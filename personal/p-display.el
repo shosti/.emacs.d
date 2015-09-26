@@ -1,4 +1,4 @@
-;;; -*- lexical-binding: t -*-
+;; -*- lexical-binding: t -*-
 
 (require 'p-darwin)
 
@@ -6,10 +6,10 @@
 (defconst thin-width 82)
 (defconst at-top 22)
 (defvar main-font (if (eq system-type 'gnu/linux)
-                      "-unknown-Droid Sans Mono Slashed-normal-normal-normal-*-24-*-*-*-m-0-iso10646-1"
+                      "Droid Sans Mono Slashed-11"
                       "Droid Sans Mono Slashed-14"))
 (defvar symbola-font (if (eq system-type 'gnu/linux)
-                         (font-spec :name "Symbola" :size 14)
+                         (font-spec :name "Symbola" :size 20)
                        "Symbola-14"))
 
 (defun p-set-up-fonts ()
@@ -74,7 +74,7 @@
                                (font-spec :name "Apple Color Emoji"
                                           :size 10)
                              (font-spec :name "Noto Emoji"
-                                        :size 20)))))
+                                        :size 30)))))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
