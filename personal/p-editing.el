@@ -154,6 +154,7 @@
 (global-set-key (kbd "C-w") 'p-backward-kill-word)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "C-S-k") 'p-delete-current-line)
+(global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
 (global-set-key " " 'just-one-space)
 (p-set-leader-key "n" 'p-cleanup-buffer)
 
