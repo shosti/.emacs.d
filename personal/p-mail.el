@@ -132,6 +132,24 @@
   (define-key mu4e-view-attachments-header-keymap (kbd "RET") #'mu4e~view-open-attach-from-binding)
   (define-key mu4e-view-mode-map (kbd "TAB") 'shr-next-link))
 
+(require 'gnus-dired)
+;; make the `gnus-dired-mail-buffers' function also work on
+;; message-mode derived modes, such as mu4e-compose-mode
+(defun gnus-dired-mail-buffers ()
+  "Return a list of active message buffers."
+  (let (buffers)
+    (save-current-buffer
+      (dolist (buffer (buffer-list t))
+	(set-buffer buffer)
+	(when (and (derived-mode-p 'message-mode)
+		(null message-sent-message-via))
+	  (push (buffer-name buffer) buffers))))
+    (nreverse buffers)))
+
+(setq gnus-dired-mail-mode 'mu4e-user-agent)
+(add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode)
+
+
 (defun p-mu4e-goto-body ()
   (interactive)
   (goto-char (point-min))
