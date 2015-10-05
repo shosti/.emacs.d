@@ -36,7 +36,9 @@
       shr-external-browser browse-url-browser-function
       find-function-C-source-directory (expand-file-name "~/src/emacs/src")
       ;; shr seems to crap out with the default limit
-      max-specpdl-size 3900)
+      max-specpdl-size 3900
+      netrc-file "~/.netrc.gpg"
+      auth-sources '("~/.netrc.gpg"))
 
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-chromium))
