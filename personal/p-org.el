@@ -3,6 +3,26 @@
 (require 'p-evil)
 (require 'p-leader)
 
+(setq org-directory (expand-file-name "~/org")
+      org-default-notes-file (concat org-directory "/new.org")
+      org-agenda-files (concat org-directory "/agenda.org")
+      org-list-allow-alphabetical t
+      org-startup-indented t
+      org-src-fontify-natively t
+      org-irc-link-to-logs t)
+
+(with-eval-after-load 'org
+  (add-to-list 'org-structure-template-alist
+               '("se"
+                 "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
+                 "<SRC lang=\"emacs-lisp\">\n\n</src>"))
+
+  (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
+
+(with-eval-after-load 'org-agenda
+  (p-add-hjkl-bindings org-agenda-mode-map 'emacs
+    "J" 'org-agenda-goto-date))
+
 (defun p-pretty-eval-org-src-block ()
   "Evaluate and insert values of Elisp code blocks.
 
@@ -49,22 +69,6 @@ point to the divide between the definitions and examples."
   (end-of-line)
   (org-meta-return arg))
 
-(p-configure-feature org
-  (setq org-startup-indented t
-        org-src-fontify-natively t
-        org-agenda-files (concat org-directory "/agenda.org"))
-
-  (add-to-list 'org-structure-template-alist
-               '("se"
-                 "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
-                 "<src lang=\"emacs-lisp\">\n\n</src>"))
-
-  (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
-
-(p-configure-feature org-agenda
-  (p-add-hjkl-bindings org-agenda-mode-map 'emacs
-    "J" 'org-agenda-goto-date))
-
 (defun p-set-up-org-mode ()
   (auto-fill-mode 1)
   (flyspell-mode 1)
@@ -78,6 +82,8 @@ point to the divide between the definitions and examples."
   (interactive)
   (let ((ido-use-filename-at-point nil))
     (ido-find-file-in-dir org-directory)))
+
+;(defadvice)
 
 ;; Keybindings
 ;;
@@ -97,6 +103,8 @@ point to the divide between the definitions and examples."
     (kbd "M-j") 'org-metadown
     (kbd "M-K") 'org-shiftmetaup
     (kbd "M-J") 'org-shiftmetadown
+    (kbd "M-v") 'org-mark-element
+    (kbd "M-p") 'org-yank
     (kbd "C-S-K") 'org-shiftcontrolup
     (kbd "C-S-J") 'org-shiftcontroldown))
 
@@ -104,7 +112,8 @@ point to the divide between the definitions and examples."
   "o" (make-sparse-keymap)
   "oc" 'org-capture
   "oa" 'org-agenda
-  "of" 'p-find-org-file)
+  "of" 'p-find-org-file
+  "ol" 'org-store-link)
 
 (provide 'p-org)
 
