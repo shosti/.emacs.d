@@ -121,6 +121,12 @@
           (message "File '%s' successfully renamed to '%s'"
                    name (file-name-nondirectory new-name)))))))
 
+(defvar-local p-test-runner #'ert-run-tests-interactively)
+
+(defun p-run-tests ()
+  (interactive)
+  (call-interactively p-test-runner))
+
 ;; Nice hack from Stack Overflow
 (defun p-maybe-make-directory ()
   "Create parent directory if not exists while visiting file."
