@@ -23,11 +23,17 @@
   "Select whole buffer."
   (list (buffer-end -1) (buffer-end 1)))
 
+(defun p-lisp-evil-change-line (arg)
+  (interactive "p")
+  (evil-insert 1)
+  (paredit-kill))
+
 (define-key evil-normal-state-map (kbd "M-l") 'p-forward-sexp)
 (define-key evil-normal-state-map (kbd "M-h") 'p-backward-sexp)
 
-(evil-define-key 'normal evil-paredit-mode-map "D" 'paredit-kill)
-(evil-define-key 'normal evil-paredit-mode-map "C" "Di")
+(evil-define-key 'normal evil-paredit-mode-map "D" #'paredit-kill)
+(evil-define-key 'normal evil-paredit-mode-map "C"
+  #'p-lisp-evil-change-line)
 (evil-define-key 'normal evil-paredit-mode-map "Y"
   #'(lambda ()
       (interactive)
