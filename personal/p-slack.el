@@ -3,12 +3,12 @@
 (require 'request)
 (require 'json)
 
-(defvar *slack-token*)
+(defvar slack-token nil)
 
 (defun p-slack-token ()
-  (when (null *slack-token*)
-    (setq *slack-token* (password-store-get "Work/slack-token")))
-  *slack-token*)
+  (when (null slack-token)
+    (setq slack-token (password-store-get "Work/slack-token")))
+  slack-token)
 
 (defun p-slack-mark-all ()
   (request

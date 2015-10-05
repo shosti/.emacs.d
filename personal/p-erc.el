@@ -17,7 +17,9 @@
 
   (setq erc-track-enable-keybindings nil
         erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
-        erc-password (password-store-get "Personal/erc"))
+        erc-password (password-store-get "Personal/erc")
+        erc-log-channels-directory (expand-file-name "~/.erc/logs")
+        erc-save-queries-on-quit t)
 
   ;; auto identify
   (erc-services-mode 1)
