@@ -4,7 +4,7 @@
 (require 'p-leader)
 
 (setq org-directory (expand-file-name "~/org")
-      org-default-notes-file (concat org-directory "/new.org")
+      org-default-notes-file (concat org-directory "/todo.org")
       org-agenda-files (concat org-directory "/agenda.org")
       org-list-allow-alphabetical t
       org-startup-indented t
