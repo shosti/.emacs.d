@@ -34,6 +34,9 @@
       "N" #'evil-search-backward)
     (add-hook 'proced-mode-hook #'p-set-up-proced-mode)))
 
+(add-to-list 'auto-mode-alist
+             '("\\.service\\'" . conf-mode))
+
 (provide 'p-linux)
 
 ;;; p-linux.el ends here
