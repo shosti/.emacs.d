@@ -24,6 +24,7 @@
 (when (eq system-type 'gnu/linux)
   (setq x-super-keysym 'meta)
   (global-set-key (kbd "<XF86PowerOff>") #'p-sleep-message)
+  (setq battery-status-function #'p-battery-acpi)
 
   (with-eval-after-load 'proced
     (p-add-hjkl-bindings proced-mode-map 'emacs

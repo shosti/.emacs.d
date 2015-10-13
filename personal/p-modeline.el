@@ -11,6 +11,7 @@
       battery-mode-line-format " [%b%p%% (%t)]")
 
 (display-time-mode 1)
+(display-battery-mode 1)
 
 (with-eval-after-load 'mu4e
   (advice-add 'mu4e-quit :after #'display-time-update))
