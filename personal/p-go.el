@@ -9,10 +9,15 @@
   (interactive)
   (godoc-at-point (point)))
 
+(defun p-go-test ()
+  (interactive)
+  (compile "godep go test"))
+
 (defun p-set-up-go ()
   (setq-local before-save-hook '(gofmt))
   (setq-local tab-width 4)
   (setq-local evil-lookup-func #'p-godoc-at-point)
+  (setq-local p-test-runner #'p-go-test)
   (company-mode-on)
   (when buffer-file-name
     (flycheck-mode 1)

@@ -166,9 +166,8 @@
    (:winconf 3winv)
    (:aux2 "*go-scratch*"))
   (:2
-   (:winconf 3winv)
-   (:aux1 projectile-toggle-between-implementation-and-test)
-   (:aux2 wacs-eshell)))
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)))
 
 (defwacspace ruby-mode
   (:before run-ruby)
