@@ -11,7 +11,7 @@
 
 (defun p-go-test ()
   (interactive)
-  (compile "godep go test"))
+  (compile "godep go test -v"))
 
 (defun p-set-up-go ()
   (setq-local before-save-hook '(gofmt))
