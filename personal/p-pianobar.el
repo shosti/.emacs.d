@@ -12,9 +12,7 @@
 
   (defun p-send-to-pianobar ()
     (interactive)
-    (pianobar-send-command (read-char)))
-
-  (p-set-leader-key "P" 'p-send-to-pianobar))
+    (pianobar-send-command (read-char))))
 
 (provide 'p-pianobar)
 
