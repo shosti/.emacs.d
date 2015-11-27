@@ -6,11 +6,11 @@
   "A list of packages that should be installed from melpa")
 
 (setq package-archives
-      (append package-archives
-              '(("melpa-stable" . "http://stable.melpa.org/packages/")
-                ("melpa" . "http://melpa.org/packages/")
-                ("org" . "http://orgmode.org/elpa/")
-                ("marmalade" . "http://marmalade-repo.org/packages/"))))
+      '(("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa-stable" . "https://stable.melpa.org/packages/")
+        ("melpa" . "https://melpa.org/packages/")
+        ("org" . "http://orgmode.org/elpa/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 (package-initialize)
 
