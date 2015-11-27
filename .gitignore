@@ -47,3 +47,4 @@ url
 /var/
 /.sx/
 /rake.cache
+/company-statistics-cache.el
