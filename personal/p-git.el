@@ -80,7 +80,9 @@
           (add-to-list 'evil-emacs-state-modes mode))
         '(magit-popup-mode
           magit-popup-sequence-mode
-          magit-revision-mode)))
+          magit-revision-mode))
+  ;; For some reason this isn't happening automatically 😞
+  (global-git-commit-mode 1))
 
 (p-configure-feature git-gutter
   (require 'git-gutter-fringe)
