@@ -1,4 +1,5 @@
 (p-require-package 'company)
+(p-require-package 'company-statistics 'gnu)
 
 ;; No point autoloading since it's enabled globally
 (require 'company)
@@ -6,7 +7,10 @@
 (setq company-idle-delay 0
       company-require-match nil)
 
-(add-hook 'prog-mode-hook 'company-mode)
+(add-hook 'prog-mode-hook #'company-mode)
+
+(with-eval-after-load 'company
+  (company-statistics-mode 1))
 
 ;; Use control for all special keys, and make company non-intrusive
 (define-key company-active-map (kbd "C-n") 'company-select-next)
