@@ -1,7 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'helm)
-(p-require-package 'helm-unicode 'local)
+(p-require-package 'helm 'melpa)
 
 (require 'p-leader)
 
