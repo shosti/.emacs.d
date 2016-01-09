@@ -1,5 +1,5 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: tag
-# key: @
+# name: frozen
+# key: fr
 # --
-@rainforestapp/core
+# frozen-string-literal: true
