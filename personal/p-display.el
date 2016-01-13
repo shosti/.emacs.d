@@ -17,9 +17,12 @@
   (add-to-list 'default-frame-alist (cons 'font main-font))
   ;; Use Cambria Math as a fallback for math symbols
   (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
-  ;; Source Code Pro has good Greek support and most of the equality
+  ;; Droid Sans Mono has good Greek support and most of the equality
   ;; operators, plus a few other symbols
   (--each (list 'greek
+                ;; curly-quotes
+                (cons (decode-char 'ucs #x2018)                      ; ‘
+                      (decode-char 'ucs #x201d))                     ; ”
                 ;; equality
                 (cons (decode-char 'ucs #x2260)                      ; ≠
                       (decode-char 'ucs #x2265))                     ; ≥
@@ -51,7 +54,7 @@
 
   ;; emoji!
   (--each (list
-          ;; Pictographs
+           ;; Pictographs
            (cons (decode-char 'ucs #x1f300)                          ; 🌀
                  (decode-char 'ucs #x1f5ff))                         ; 🗿
 
@@ -74,7 +77,7 @@
                                (font-spec :name "Apple Color Emoji"
                                           :size 10)
                              (font-spec :name "Noto Emoji"
-                                        :size 30)))))
+                                        :size 15)))))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
