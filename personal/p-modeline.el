@@ -2,7 +2,7 @@
 
 (p-require-package 'diminish)
 
-(require 'p-mail)
+(require 'p-gnus)
 
 (setq display-time-day-and-date t
       display-time-default-load-average nil

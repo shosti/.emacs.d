@@ -48,3 +48,4 @@ url
 /.sx/
 /rake.cache
 /company-statistics-cache.el
+/bbdb
