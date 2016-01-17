@@ -3,13 +3,14 @@
 (require 'p-options)
 (require 'p-evil)
 (require 'p-leader)
-(require 'dired)
 (require 'seq)
 (require 's)
 
 ;;;;;;;;;;;;;;
 ;; Settings ;;
 ;;;;;;;;;;;;;;
+
+(p-load-private "gnus-settings.el")
 
 (setq gnus-expert-user t
       gnus-select-method '(nntp "news.gmane.org")
@@ -18,6 +19,7 @@
       gnus-gcc-mark-as-read t
       gnus-agent-queue-mail nil
       gnus-asynchronous t
+      gnus-treat-hide-signature t
       mm-verify-option 'known
       mm-decrypt-option 'known
       mm-inline-text-html-with-images t
@@ -35,14 +37,12 @@
       message-kill-buffer-on-exit t
 
       ;; Some settings to speed up startup a bit
-      gnus-save-killed-list nil
       gnus-save-newsrc-file nil
-      gnus-activate-level 5 ; don't query unsubscribed groups
       gnus-read-newsrc-file nil
+      gnus-activate-level 5 ; don't query unsubscribed groups
 
       ;; Some more settings to make things look cooler (stolen from
       ;; http://doc.rix.si/cce/cce-gnus.html )
-
       gnus-summary-line-format "%U%R%z %(%&user-date; %-15,15f  %B%s%)\n"
       gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
       gnus-sum-thread-tree-false-root ""
@@ -51,10 +51,11 @@
       gnus-sum-thread-tree-root ""
       gnus-sum-thread-tree-single-leaf "╰► "
       gnus-sum-thread-tree-vertical "│"
-
-      ;; Sorting and scoring, also mostly stolen
+      ;; Sorting and scoring, also mostly stolen from rrix
       gnus-thread-sort-functions '(gnus-thread-sort-by-number
                                    gnus-thread-sort-by-total-score)
+      gnus-parameters '(("nnir.*"
+                         (gnus-thread-sort-functions '((not gnus-thread-sort-by-date)))))
 
       gnus-use-adaptive-scoring '(word line)
       gnus-adaptive-word-length-limit 5
@@ -73,7 +74,8 @@
         (gnus-low-score-mark)
         (gnus-catchup-mark (from -1) (subject -1))))
 
-(add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode)
+(with-eval-after-load 'dired
+  (add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode))
 
 (p-configure-feature gnus
   (require 'gnus-art)
@@ -83,7 +85,6 @@
   (require 'bbdb-message)
   (bbdb-initialize 'gnus 'message)
   (bbdb-mua-auto-update-init 'gnus 'message)
-  (p-load-private "gnus-settings.el")
   (define-key gnus-summary-mode-map (kbd "C-c C-o") #'p-gnus-gmane-link)
 
   (add-hook 'gnus-summary-exit-hook #'gnus-summary-bubble-group)
@@ -108,7 +109,8 @@
 (p-add-hjkl-bindings gnus-summary-mode-map 'emacs)
 (p-add-hjkl-bindings gnus-article-mode-map 'emacs
   "v" #'evil-visual-char
-  "V" #'evil-visual-line)
+  "V" #'evil-visual-line
+  "y" #'evil-yank)
 (p-add-hjkl-bindings gnus-group-mode-map 'emacs
   "q" #'gnus-group-suspend ; to prevent restarting all the time
   "Q" #'gnus-group-exit
