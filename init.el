@@ -37,7 +37,13 @@
 
 (load-file (concat p-private-dir "private.el"))
 
-(server-start)
+(require 'server)
+(if (server-running-p)
+    ;; Let us know we're in an auxiliary emacs
+    (set-face-attribute 'mode-line nil
+                        :background "yellow")
+  (server-start))
+
 (eshell)
 (message "Emacs ready!")
 (message "Total elapsed: %s" (float-time (time-subtract (current-time) t-start)))
