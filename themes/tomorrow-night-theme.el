@@ -87,6 +87,20 @@
    `(org-link ((t (:foreground ,aqua :underline t))))
    `(org-todo ((t (:foreground ,red))))
 
+   ;; gnus
+   `(gnus-summary-high-read ((t (:foreground ,comment :slant italic))))
+   `(gnus-summary-normal-read ((t (:foreground ,comment :slant italic))))
+   `(gnus-summary-low-read ((t (:foreground ,comment :slant italic))))
+   `(gnus-summary-high-ticked ((t (:foreground ,orange))))
+   `(gnus-summary-high-ancient ((t (:foreground ,blue :weight bold))))
+   `(gnus-summary-normal-ancient ((t (:foreground ,blue))))
+   `(gnus-group-mail-1 ((t (:foreground ,orange :weight bold))))
+   `(gnus-group-mail-1-empty ((t (:foreground ,orange))))
+   `(gnus-group-mail-3 ((t (:foreground ,yellow :weight bold))))
+   `(gnus-group-mail-3-empty ((t (:foreground ,yellow))))
+   `(gnus-group-mail-low ((t (:foreground ,comment :weight bold))))
+   `(gnus-group-mail-low-empty ((t (:foreground ,comment))))
+
    ;; show-paren-mode
    `(show-paren-match-face ((t (:foreground ,blue))))
    `(show-paren-mismatch-face ((t (:background ,orange
