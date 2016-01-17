@@ -9,17 +9,18 @@
                       "Droid Sans Mono Slashed-11"
                       "Droid Sans Mono Slashed-14"))
 (defvar symbola-font (if (eq system-type 'gnu/linux)
-                         (font-spec :name "Symbola" :size 20)
+                         (font-spec :name "Symbola" :size 15)
                        "Symbola-14"))
 
 (defun p-set-up-fonts ()
   ;; Source code pro
   (add-to-list 'default-frame-alist (cons 'font main-font))
   ;; Use Cambria Math as a fallback for math symbols
-  (set-fontset-font t 'symbol (font-spec :name "Cambria Math" :size 11.8))
+  (set-fontset-font t 'symbol symbola-font)
   ;; Droid Sans Mono has good Greek support and most of the equality
   ;; operators, plus a few other symbols
   (--each (list 'greek
+                #x2014
                 ;; curly-quotes
                 (cons (decode-char 'ucs #x2018)                      ; ‘
                       (decode-char 'ucs #x201d))                     ; ”
@@ -45,7 +46,10 @@
             #x29fb                                                   ; ⧻
             #x2a75                                                   ; ⩵
             #x2a76                                                   ; ⩶
-            #x2af4)                                                  ; ⫴
+            #x2af4                                                   ; ⫴
+            #x2502
+            #x2570
+            #x251c)
     (set-fontset-font t (decode-char 'ucs it) symbola-font))
 
   ;; triangles
