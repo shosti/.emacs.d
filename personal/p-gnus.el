@@ -10,8 +10,6 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-(p-load-private "gnus-settings.el")
-
 (setq gnus-expert-user t
       gnus-select-method '(nntp "news.gmane.org")
       gnus-startup-file (concat user-emacs-directory ".newsrc")
@@ -73,6 +71,8 @@
         (gnus-ancient-mark)
         (gnus-low-score-mark)
         (gnus-catchup-mark (from -1) (subject -1))))
+
+(p-load-private "gnus-settings.el")
 
 (with-eval-after-load 'dired
   (add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode))
