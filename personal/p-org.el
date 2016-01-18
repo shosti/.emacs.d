@@ -1,4 +1,5 @@
 ;;; -*- lexical-binding: t -*-
+(p-require-package 'org-plus-contrib 'org)
 
 (require 'p-evil)
 (require 'p-leader)
