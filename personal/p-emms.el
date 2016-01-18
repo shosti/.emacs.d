@@ -4,7 +4,7 @@
 (require 's)
 
 (defvar p-emms-mpd-extra-protocols
-  '("spotify:" "yt:" "pandora:" "http://"))
+  '("spotify:" "yt:" "youtube:" "pandora:" "http://"))
 
 (setq emms-info-functions '(emms-info-mpd)
       emms-player-list '(emms-player-mpd))
@@ -32,10 +32,15 @@
   (emms-standard)
   (emms-player-mpd-connect))
 
-(defun p-browse-mopidy ()
-  "Browse web frontend for mopidy."
+(defun p-browse-mopify ()
+  "Browse mopify web frontend for mopidy."
   (interactive)
   (browse-url "http://localhost:6680/mopify"))
+
+(defun p-browse-moped ()
+  "Browse moped web frontend for mopidy."
+  (interactive)
+  (browse-url "http://localhost:6680/moped"))
 
 (p-set-leader-key
   "Mm" #'emms
@@ -44,6 +49,7 @@
   "MN" #'emms-previous
   "Ma" #'emms-add-url
   "Me" #'p-browse-mopidy
+  "ME" #'p-browse-moped
   "Mg" #'emms-player-mpd-connect)
 
 (provide 'p-emms)
