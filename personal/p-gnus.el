@@ -94,8 +94,13 @@
   (add-hook 'gnus-group-mode-hook #'gnus-topic-mode)
   (add-hook 'kill-emacs-hook #'p-quit-gnus)
   (add-hook 'gnus-select-group-hook #'gnus-group-set-timestamp)
+  (add-hook 'message-mode-hook #'p-set-up-message-mode)
   (add-to-list 'message-subscribed-address-functions #'gnus-find-subscribed-addresses)
   (add-to-list 'gnus-buttonized-mime-types "multipart/signed"))
+
+(defun p-set-up-message-mode ()
+  (company-mode 1)
+  (company-emoji-init))
 
 (defun p-quit-gnus ()
   "Quit gnus if it is suspended."
