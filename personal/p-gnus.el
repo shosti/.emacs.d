@@ -39,6 +39,10 @@
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-kill-buffer-on-exit t
 
+      ;; icalendar!
+      gnus-icalendar-org-capture-file "~/org/cal.org"
+      gnus-icalendar-org-capture-headline '("Calendar")
+
       ;; Some settings to speed up startup a bit
       gnus-save-newsrc-file nil
       gnus-read-newsrc-file nil
@@ -83,6 +87,7 @@
 
 (p-configure-feature gnus
   (require 'gnus-art)
+  (require 'gnus-icalendar)
   (require 'message)
   (require 'bbdb)
   (require 'bbdb-gnus)
@@ -90,6 +95,7 @@
   (bbdb-initialize 'gnus 'message)
   (bbdb-mua-auto-update-init 'gnus 'message)
   (define-key gnus-summary-mode-map (kbd "C-c C-o") #'p-gnus-gmane-link)
+  (gnus-icalendar-setup)
 
   (add-hook 'gnus-summary-exit-hook #'gnus-summary-bubble-group)
   (add-hook 'gnus-group-mode-hook #'gnus-topic-mode)
