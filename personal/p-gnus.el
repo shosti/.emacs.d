@@ -95,6 +95,7 @@
   (add-hook 'kill-emacs-hook #'p-quit-gnus)
   (add-hook 'gnus-select-group-hook #'gnus-group-set-timestamp)
   (add-hook 'message-mode-hook #'p-set-up-message-mode)
+  (add-hook 'message-setup-hook #'mml-secure-message-sign-pgpmime)
   (add-to-list 'message-subscribed-address-functions #'gnus-find-subscribed-addresses)
   (add-to-list 'gnus-buttonized-mime-types "multipart/signed"))
 
