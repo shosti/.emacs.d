@@ -30,7 +30,8 @@
       ido-use-filename-at-point nil
       ido-use-virtual-buffers t
       ido-handle-duplicate-virtual-buffers 2
-      ido-max-prospects 10)
+      ido-max-prospects 10
+      read-file-name-function #'ido-read-file-name)
 
 (defun p-ido-setup-keybindings ()
   (define-key ido-file-completion-map (kbd "~")
