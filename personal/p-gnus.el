@@ -10,6 +10,10 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
+(defvar p-gnus-parameters nil) ; set in private settings
+
+(p-load-private "gnus-settings.el")
+
 (setq gnus-expert-user t
       gnus-select-method '(nntp "news.gmane.org")
       gnus-startup-file (concat user-emacs-directory ".newsrc")
@@ -52,8 +56,9 @@
       ;; Sorting and scoring, also mostly stolen from rrix
       gnus-thread-sort-functions '(gnus-thread-sort-by-number
                                    gnus-thread-sort-by-total-score)
-      gnus-parameters '(("nnir.*"
-                         (gnus-thread-sort-functions '((not gnus-thread-sort-by-date)))))
+      gnus-parameters (append p-gnus-parameters
+                              '(("nnir.*"
+                                 (gnus-thread-sort-functions '((not gnus-thread-sort-by-date))))))
 
       gnus-use-adaptive-scoring '(word line)
       gnus-adaptive-word-length-limit 5
@@ -71,8 +76,6 @@
         (gnus-ancient-mark)
         (gnus-low-score-mark)
         (gnus-catchup-mark (from -1) (subject -1))))
-
-(p-load-private "gnus-settings.el")
 
 (with-eval-after-load 'dired
   (add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode))
