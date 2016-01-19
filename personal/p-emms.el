@@ -48,7 +48,7 @@
   "Mn" #'emms-next
   "MN" #'emms-previous
   "Ma" #'emms-add-url
-  "Me" #'p-browse-mopidy
+  "Me" #'p-browse-mopify
   "ME" #'p-browse-moped
   "Mg" #'emms-player-mpd-connect)
 
