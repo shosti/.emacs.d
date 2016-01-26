@@ -10,7 +10,10 @@
       org-list-allow-alphabetical t
       org-startup-indented t
       org-src-fontify-natively t
-      org-irc-link-to-logs t)
+      org-irc-link-to-logs t
+      org-todo-keywords '((sequence "☛ TODO(t)" "|" "DONE(d)")
+                          (sequence "⚑ WAITING(w)" "|")
+                          (sequence "|" "✘ CANCELED(c)")))
 
 (with-eval-after-load 'org
   (add-to-list 'org-structure-template-alist
@@ -107,7 +110,9 @@ point to the divide between the definitions and examples."
     (kbd "M-v") 'org-mark-element
     (kbd "M-p") 'org-yank
     (kbd "C-S-K") 'org-shiftcontrolup
-    (kbd "C-S-J") 'org-shiftcontroldown))
+    (kbd "C-S-J") 'org-shiftcontroldown)
+
+  (add-hook 'org-mode-hook #'org-bullets-mode))
 
 (p-set-leader-key
   "o" (make-sparse-keymap)
