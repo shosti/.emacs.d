@@ -28,7 +28,7 @@
       mm-inline-text-html-with-images t
       bbdb-mua-pop-up nil
       bbdb-update-records-p t
-      bbdb-ignore-message-alist '(("From" . "\\(notifications\\|no-?reply\\|news\\)@")
+      bbdb-ignore-message-alist '(("From" . "\\(notifications\\|no[-_]?reply\\|news\\)@")
                                   ("From" . "[^@]*paper@dropbox.com")
                                   ("From" . "[^@]+@\\(gwene\\|public\\.gmane\\)\\.org"))
       message-send-mail-function #'message-send-mail-with-sendmail
@@ -59,11 +59,11 @@
       gnus-sum-thread-tree-single-leaf "╰► "
       gnus-sum-thread-tree-vertical "│"
       ;; Sorting and scoring, also mostly stolen from rrix
-      gnus-thread-sort-functions '(gnus-thread-sort-by-number
-                                   gnus-thread-sort-by-total-score)
+      gnus-thread-sort-functions '((not gnus-thread-sort-by-number)
+                                   p-gnus-thread-sort-by-importance)
       gnus-parameters (append p-gnus-parameters
                               '(("nnir.*"
-                                 (gnus-thread-sort-functions '((not gnus-thread-sort-by-date))))))
+                                 (gnus-thread-sort-functions '((not gnus-thread-sort-by-number))))))
 
       gnus-use-adaptive-scoring '(word line)
       gnus-adaptive-word-length-limit 5
@@ -102,7 +102,6 @@
   (add-hook 'kill-emacs-hook #'p-quit-gnus)
   (add-hook 'gnus-select-group-hook #'gnus-group-set-timestamp)
   (add-hook 'message-mode-hook #'p-set-up-message-mode)
-  (add-hook 'message-setup-hook #'mml-secure-message-sign-pgpmime)
   (add-to-list 'message-subscribed-address-functions #'gnus-find-subscribed-addresses)
   (add-to-list 'gnus-buttonized-mime-types "multipart/signed"))
 
@@ -113,6 +112,17 @@
 (defun p-quit-gnus ()
   "Quit gnus if it is suspended."
   (ignore-errors (gnus-group-exit)))
+
+(defun p-gnus-thread-sort-by-importance (h1 h2)
+  "Sort threads by importance postitive vs 0 vs negative score."
+  (> (p-gnus-score-normalize (gnus-thread-total-score h1))
+     (p-gnus-score-normalize (gnus-thread-total-score h2))))
+
+(defun p-gnus-score-normalize (n)
+  "Normalize a score number to 1, 0, or -1."
+  (cond ((zerop n) 0)
+        ((> n 0) 1)
+        (t -1)))
 
 ;;;;;;;;;;;;;;
 ;; Bindings ;;
@@ -130,8 +140,7 @@
 (p-add-hjkl-bindings gnus-group-mode-map 'emacs
   "q" #'gnus-group-suspend ; to prevent restarting all the time
   "Q" #'gnus-group-exit
-  "l" #'gnus-group-list-groups
-  "Gj" #'gnus-group-jump-to-group)
+  "l" #'gnus-group-list-groups)
 
 (p-configure-feature gnus-srver
   (define-key gnus-server-mode-map (kbd "M-o") nil)
@@ -175,6 +184,9 @@
                                (shell-command-to-string
                                 (format "doveadm search -u %s UNSEEN | wc -l" addr))))
                             (p-mail-addresses)) 0)))
+
+(with-eval-after-load 'gnus-hydra
+  (define-key hydra-gnus-group-group/keymap "j" #'gnus-group-jump-to-group))
 
 (provide 'p-gnus)
 
