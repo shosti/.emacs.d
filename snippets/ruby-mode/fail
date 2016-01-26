@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: fail
+# key: fail
+# --
+expect(2).to eq 3
