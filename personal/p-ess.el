@@ -9,7 +9,7 @@
 
 ;; WHY DO SO MANY INFERIOR MODES INSIST ON SCROLLING TO THE
 ;; BOTTOM?????
-(p-configure-feature ess-mode
+(with-eval-after-load 'ess-mode
   (defadvice inferior-ess-input-sender (after recenter activate)
     (recenter)))
 

@@ -14,7 +14,7 @@
       (newline)
     (newline-and-indent)))
 
-(p-configure-feature python-mode
+(with-eval-after-load 'python-mode
   (setq jedi:setup-keys t)
   (add-hook 'python-mode-hook 'jedi:setup)
   (add-hook 'python-mode-hook 'p-set-up-python-mode)

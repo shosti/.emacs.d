@@ -11,7 +11,7 @@
 (require 'dash-functional)
 (require 'f)
 
-(p-configure-feature dash
+(with-eval-after-load 'dash
   (dash-enable-font-lock))
 
 (defun p-list-elisp-files (dir)

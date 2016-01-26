@@ -37,7 +37,7 @@
           "Vagrantfile$")
   (add-to-list 'auto-mode-alist (cons it 'ruby-mode)))
 
-(p-configure-feature ruby-mode
+(with-eval-after-load 'ruby-mode
   (setq ruby-deep-arglist t
         ruby-deep-indent-paren t
         ruby-insert-encoding-magic-comment nil))
@@ -146,14 +146,14 @@ window."
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
-(p-configure-feature ruby-mode
+(with-eval-after-load 'ruby-mode
   (define-key ruby-mode-map
     (kbd "C-c C-c")
     'p-ruby-send-buffer))
 
 (add-to-list 'auto-mode-alist '("\\.hamlc\\'" . haml-mode))
 
-(p-configure-feature haml-mode
+(with-eval-after-load 'haml-mode
   (define-key haml-mode-map (kbd "RET") 'newline-and-indent))
 
 (put 'ruby-mode 'forward-sexp-fn 'ruby-forward-sexp)

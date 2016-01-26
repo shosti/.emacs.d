@@ -15,13 +15,13 @@
 ;; Config ;;
 ;;;;;;;;;;;;
 
-(p-configure-feature cider
+(with-eval-after-load 'cider
   (define-key cider-test-report-mode-map "q" 'other-window)
   (font-lock-add-keywords
    'nrepl-mode
    '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face))))
 
-(p-configure-feature clojure-mode
+(with-eval-after-load 'clojure-mode
   (font-lock-add-keywords
    'clojure-mode
    '(("(\\|)\\|\\[\\|\\]\\|{\\|}" . 'p-paren-face)
@@ -44,7 +44,7 @@
 ;;;;;;;;;;;;;;;;;
 
 ;; Get rid of horrible scrolling to the bottom
-(p-configure-feature cider-repl
+(with-eval-after-load 'cider-repl
   (defun cider-repl--show-maximum-output ()))
 
 (provide 'p-clojure)

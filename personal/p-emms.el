@@ -11,7 +11,7 @@
 
 (autoload 'emms "emms" nil t nil)
 
-(p-configure-feature emms
+(with-eval-after-load 'emms
   (require 'emms-setup)
   (require 'emms-player-mpd)
   (require 'emms-mode-line)

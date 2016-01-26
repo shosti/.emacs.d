@@ -5,7 +5,7 @@
 (require 'dired)
 (require 'dired-x)
 
-(p-configure-feature dired-x
+(with-eval-after-load 'dired-x
   (evil-define-key 'normal dired-mode-map (kbd "?")
     'makey-key-mode-popup-dired)
   (define-key dired-mode-map (kbd "M-o") nil)

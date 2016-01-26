@@ -5,7 +5,7 @@
 
 (setq scss-compile-at-save nil)
 
-(p-configure-feature scss-mode
+(with-eval-after-load 'scss-mode
   (define-key scss-mode-map (kbd "RET") 'newline-and-indent))
 
 (provide 'p-css)

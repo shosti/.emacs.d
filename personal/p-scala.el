@@ -15,7 +15,7 @@
 
 (defun p-set-up-scala ())
 
-(p-configure-feature scala-mode2
+(with-eval-after-load 'scala-mode2
   (p-load-ensime)
   (add-hook 'scala-mode-hook 'p-set-up-scala)
   (define-key scala-mode-map (kbd "RET") 'newline-and-indent)

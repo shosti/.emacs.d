@@ -2,7 +2,7 @@
 
 (p-require-package 'feature-mode 'marmalade)
 
-(p-configure-feature feature-mode
+(with-eval-after-load 'feature-mode
   (define-key feature-mode-map (kbd "RET") 'newline-and-indent))
 
 (provide 'p-feature)

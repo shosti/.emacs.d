@@ -8,7 +8,7 @@
 (p-load-private "erc-settings.el")
 
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
-(p-configure-feature erc
+(with-eval-after-load 'erc
   (add-to-list 'erc-modules 'smiley)
   (setq erc-autojoin-channels-alist
         (list

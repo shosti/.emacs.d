@@ -85,7 +85,7 @@
 (with-eval-after-load 'dired
   (add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode))
 
-(p-configure-feature gnus
+(with-eval-after-load 'gnus
   (require 'gnus-art)
   (require 'gnus-icalendar)
   (require 'message)
@@ -142,7 +142,7 @@
   "Q" #'gnus-group-exit
   "l" #'gnus-group-list-groups)
 
-(p-configure-feature gnus-srver
+(with-eval-after-load 'gnus-srver
   (define-key gnus-server-mode-map (kbd "M-o") nil)
   (define-key gnus-server-mode-map
     (kbd "C-x o") 'gnus-server-open-all-servers))

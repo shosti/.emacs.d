@@ -6,7 +6,7 @@
 
 (require 'p-leader)
 
-(p-configure-feature ag
+(with-eval-after-load 'ag
   (setq ag-highlight-search t)
   (define-key ag-mode-map (kbd "C-x C-q") 'wgrep-change-to-wgrep-mode))
 

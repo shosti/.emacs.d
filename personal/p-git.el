@@ -46,7 +46,7 @@
       magit-branch-arguments nil
       magit-push-always-verify nil)
 
-(p-configure-feature magit
+(with-eval-after-load 'magit
   (mapc (lambda (map)
           (define-key map "j" #'evil-next-line)
           ;; idempotently remap "k" to "K"
@@ -83,7 +83,7 @@
   ;; For some reason this isn't happening automatically 😞
   (global-git-commit-mode 1))
 
-(p-configure-feature git-gutter
+(with-eval-after-load 'git-gutter
   (require 'git-gutter-fringe)
   (setq git-gutter:disabled-modes '(ediff-mode)))
 

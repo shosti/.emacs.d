@@ -4,7 +4,7 @@
 
 (require 'p-leader)
 
-(p-configure-feature helm
+(with-eval-after-load 'helm
   (define-key helm-map (kbd "C-w") nil)
   (setq helm-for-files-preferred-list
         '(helm-source-buffers-list

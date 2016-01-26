@@ -2,7 +2,7 @@
 
 (p-require-package 'coffee-mode)
 
-(p-configure-feature coffee-mode
+(with-eval-after-load 'coffee-mode
   (setq coffee-tab-width 2)
   (define-key coffee-mode-map (kbd "C-c C-k") 'coffee-compile-file))
 

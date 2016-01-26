@@ -10,7 +10,7 @@
   (c-toggle-auto-hungry-state 1)
   (c-toggle-auto-newline 0))
 
-(p-configure-feature cc-mode
+(with-eval-after-load 'cc-mode
   (require 'google-c-style)
   (require 'c-eldoc)
   (setq indent-tabs-mode nil

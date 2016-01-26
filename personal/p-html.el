@@ -2,10 +2,10 @@
 
 (p-require-package 'slim-mode)
 
-(p-configure-feature html-mode
+(with-eval-after-load 'html-mode
   (define-key html-mode-map (kbd "RET") 'newline-and-indent))
 
-(p-configure-feature mmm-erb
+(with-eval-after-load 'mmm-erb
   (define-key html-erb-mode-map (kbd "RET") 'newline-and-indent)  )
 
 (provide 'p-html)

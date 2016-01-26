@@ -30,7 +30,7 @@
   (setq p-hipchat-emoticons
         (-map #'caddr smiley-regexp-alist)))
 
-(p-configure-feature jabber
+(with-eval-after-load 'jabber
   (p-hipchat-load-smileys)
   (add-to-list 'company-backends 'p-company-emoticon)
   ;; With great power comes great responsibility

@@ -5,7 +5,7 @@
 (add-to-list 'auto-mode-alist
              '("\\.eex\\'" . web-mode))
 
-(p-configure-feature elixir-mode
+(with-eval-after-load 'elixir-mode
   (add-to-list 'elixir-mode-hook #'p-config-elixir-end-mode)
   (add-to-list 'elixir-mode-hook #'alchemist-mode))
 

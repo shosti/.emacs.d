@@ -28,7 +28,7 @@
 
 (setq gofmt-command "goimports")
 
-(p-configure-feature go-mode
+(with-eval-after-load 'go-mode
   (define-key go-mode-map (kbd "M-.") #'godef-jump)
   (define-key go-mode-map (kbd "M-,") #'pop-tag-mark))
 

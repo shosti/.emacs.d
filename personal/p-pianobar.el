@@ -4,7 +4,7 @@
 
 (require 'p-leader)
 
-(p-configure-feature pianobar
+(with-eval-after-load 'pianobar
   (setq pianobar-username "emanuel.evans@gmail.com"
         pianobar-password (password-store-get "Personal/pandora"))
 
