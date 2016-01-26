@@ -101,6 +101,10 @@
    `(gnus-group-mail-low ((t (:foreground ,comment :weight bold))))
    `(gnus-group-mail-low-empty ((t (:foreground ,comment))))
 
+   ;; hydra
+   `(hydra-face-blue ((t (:foreground ,blue))))
+   `(hydra-face-red ((t (:foreground ,red))))
+
    ;; show-paren-mode
    `(show-paren-match-face ((t (:foreground ,blue))))
    `(show-paren-mismatch-face ((t (:background ,orange
