@@ -44,7 +44,6 @@
 (setq magit-display-buffer-function #'p-magit-full-screen
       magit-completing-read-function #'magit-ido-completing-read
       magit-branch-arguments nil
-      magit-revert-buffers nil
       magit-push-always-verify nil)
 
 (p-configure-feature magit
