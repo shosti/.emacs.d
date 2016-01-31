@@ -13,6 +13,7 @@
 (p-require-package 'haml-mode)
 (p-require-package 'yaml-mode 'melpa)
 (p-require-package 'robe 'melpa)
+(p-require-package 'rubocop)
 
 (require 'p-wacspace)
 (require 'p-evil)
@@ -112,9 +113,10 @@ window."
   (eldoc-mode 0)
   (ruby-tools-mode 1)
   (electric-indent-mode 1)
-  (electric-pair-mode 1))
+  (electric-pair-mode 1)
+  (flycheck-mode 1))
 
-(add-hook 'ruby-mode-hook 'p-set-up-ruby-mode)
+(add-hook 'ruby-mode-hook #'p-set-up-ruby-mode)
 
 (defun p-run-remote-pry (&rest args)
   (interactive)
