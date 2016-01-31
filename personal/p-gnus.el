@@ -29,7 +29,7 @@
       bbdb-mua-pop-up nil
       bbdb-update-records-p t
       bbdb-ignore-message-alist '(("From" . "\\(notifications\\|no[-_]?reply\\|news\\)@")
-                                  ("From" . "[^@]*paper@dropbox.com")
+                                  ("From" . "[^@]*paper\\(\\+[^@]+\\)?@dropbox.com")
                                   ("From" . "[^@]+@\\(gwene\\|public\\.gmane\\)\\.org"))
       message-send-mail-function #'message-send-mail-with-sendmail
       send-mail-function #'message-send-mail-with-sendmail
