@@ -51,7 +51,7 @@
 
       ;; Some more settings to make things look cooler (stolen from
       ;; http://doc.rix.si/cce/cce-gnus.html )
-      gnus-summary-line-format "%U%R%z %(%&user-date; %-15,15f  %B%s%)\n"
+      gnus-summary-line-format "%U%R%z %(%~(pad-right 17)&user-date; %-15,15f  %B%s%)\n"
       gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
       gnus-sum-thread-tree-false-root ""
       gnus-sum-thread-tree-indent " "
