@@ -28,7 +28,8 @@
       mm-inline-text-html-with-images t
       bbdb-mua-pop-up nil
       bbdb-update-records-p t
-      bbdb-ignore-message-alist '(("From" . "\\(notifications\\|no[-_]?reply\\|news\\)@")
+      bbdb-ignore-message-alist '(("From" . ".+@debbugs\\.gnu\\.org")
+                                  ("From" . "\\(notifications\\|no[-_]?reply\\|news\\)@")
                                   ("From" . "[^@]*paper\\(\\+[^@]+\\)?@dropbox.com")
                                   ("From" . "[^@]+@\\(gwene\\|public\\.gmane\\)\\.org"))
       message-send-mail-function #'message-send-mail-with-sendmail
