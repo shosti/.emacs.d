@@ -183,7 +183,7 @@
                    (seq-map (lambda (addr)
                               (string-to-number
                                (shell-command-to-string
-                                (format "doveadm search -u %s UNSEEN | wc -l" addr))))
+                                (format "doveadm search -u %s UNSEEN MAILBOX INBOX | wc -l" addr))))
                             (p-mail-addresses)) 0)))
 
 (with-eval-after-load 'gnus-hydra
