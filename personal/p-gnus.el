@@ -39,6 +39,7 @@
       message-sendmail-envelope-from 'from
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-kill-buffer-on-exit t
+      nnmail-split-fancy-match-partial-words t
 
       ;; icalendar!
       gnus-icalendar-org-capture-file "~/org/cal.org"
