@@ -10,7 +10,7 @@
 
 ;; Mostly stolen from ESK
 (setq whitespace-style '(face trailing lines-tail)
-      whitespace-line-column 100)
+      whitespace-line-column 120)
 
 (defun p-add-watchwords ()
   (font-lock-add-keywords
