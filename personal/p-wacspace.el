@@ -170,14 +170,19 @@
    (:aux1 projectile-toggle-between-implementation-and-test)))
 
 (defwacspace ruby-mode
-  (:before run-ruby)
+  (:before (lambda ()
+             (rbenv-use-corresponding)
+             (p-guard)
+             (run-ruby)))
   (:default
    (:winconf 3winv)
    (:aux2 "*ruby*"))
   (:2
    (:winconf 3winv)
-   (:aux1 projectile-toggle-between-implementation-and-test)
-   (:aux2 wacs-eshell))
+   (:aux1 projectile-toggle-between-implementation-and-test))
+  (:3
+   (:winconf 2winv)
+   (:aux1 p-guard))
   (:5
    (:winconf 2winh)
    (:aux1 "*ruby*")))
