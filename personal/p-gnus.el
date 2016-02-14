@@ -31,7 +31,8 @@
       bbdb-ignore-message-alist '(("From" . ".+@debbugs\\.gnu\\.org")
                                   ("From" . "\\(notifications\\|no[-_]?reply\\|news\\)@")
                                   ("From" . "[^@]*paper\\(\\+[^@]+\\)?@dropbox.com")
-                                  ("From" . "[^@]+@\\(gwene\\|public\\.gmane\\)\\.org"))
+                                  ("From" . "[^@]+@\\(gwene\\|public\\.gmane\\)\\.org")
+                                  ("From" . "invitations@linkedin.com"))
       message-send-mail-function #'message-send-mail-with-sendmail
       send-mail-function #'message-send-mail-with-sendmail
       sendmail-program (executable-find "msmtp")
