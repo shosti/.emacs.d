@@ -172,6 +172,17 @@ With a prefix ARG always prompt for command to use."
 
 (add-hook 'kill-emacs-hook 'p-kill-emacs-hook)
 
+;; Hack to prevent excess garbage collection
+(defun p-prevent-gc ()
+  (setq gc-cons-threshold most-positive-fixnum))
+
+(defun p-enable-gc ()
+  (setq gc-cons-threshold 800000))
+
+(add-hook 'minibuffer-setup-hook #'p-prevent-gc)
+(add-hook 'minibuffer-exit-hook #'p-enable-gc)
+
+
 (provide 'p-options)
 
 ;;; p-options.el ends here
