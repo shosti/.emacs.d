@@ -35,7 +35,7 @@
 (setenv "LANG" "en_US.UTF-8") ; there are some buggy programs out there
 
 (setq eshell-visual-commands
-      (append eshell-visual-commands '("ssh" "tail" "mu" "sl")))
+      (append eshell-visual-commands '("ssh" "tail" "mu" "sl" "htop")))
 
 (defun eshell/cdg ()
   "Change directory to the project's root."
