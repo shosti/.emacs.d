@@ -38,10 +38,9 @@
           "Vagrantfile$")
   (add-to-list 'auto-mode-alist (cons it 'ruby-mode)))
 
-(with-eval-after-load 'ruby-mode
-  (setq ruby-deep-arglist t
-        ruby-deep-indent-paren t
-        ruby-insert-encoding-magic-comment nil))
+(setq ruby-deep-arglist t
+      ruby-deep-indent-paren t
+      ruby-insert-encoding-magic-comment nil)
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
