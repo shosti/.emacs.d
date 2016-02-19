@@ -10,7 +10,9 @@
 ;; Settings ;;
 ;;;;;;;;;;;;;;
 
-(defvar p-gnus-parameters nil) ; set in private settings
+;; A few parameters set in private settings
+(defvar p-gnus-parameters nil)
+(defvar p-gnus-checked-accounts nil)
 
 (p-load-private "gnus-settings.el")
 
@@ -186,7 +188,7 @@
                               (string-to-number
                                (shell-command-to-string
                                 (format "doveadm search -u %s UNSEEN MAILBOX INBOX | wc -l" addr))))
-                            (p-mail-addresses)) 0)))
+                            p-gnus-checked-accounts) 0)))
 
 (with-eval-after-load 'gnus-hydra
   (define-key hydra-gnus-group-group/keymap "j" #'gnus-group-jump-to-group))
