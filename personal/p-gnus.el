@@ -42,6 +42,7 @@
       message-sendmail-envelope-from 'from
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-kill-buffer-on-exit t
+      message-fill-column 80
       nnmail-split-fancy-match-partial-words t
 
       ;; icalendar!
