@@ -101,6 +101,19 @@
    `(gnus-group-mail-low ((t (:foreground ,comment :weight bold))))
    `(gnus-group-mail-low-empty ((t (:foreground ,comment))))
 
+   ;; ledger
+   `(ledger-font-auto-xact-face ((t :foreground ,orange :weight normal)))
+   `(ledger-font-other-face ((t :foreground ,purple :weight normal)))
+   `(ledger-font-periodic-xact-face ((t :foreground ,green :weight normal)))
+   `(ledger-font-payee-uncleared-face ((t :foreground ,red :weight bold)))
+   `(ledger-font-payee-pending-face ((t :foreground ,red :weight normal)))
+   `(ledger-font-pending-face ((t :foreground ,orange :weight normal)))
+   `(ledger-font-posting-account-face ((t (:foreground ,blue))))
+   `(ledger-font-posting-amount-face ((t (:foreground ,orange))))
+   `(ledger-font-posting-date-face ((t (:foreground ,orange))))
+   `(ledger-font-report-clickable-face ((t (:foreground ,orange))))
+   `(ledger-occur-xact-face ((t (:background ,current-line))))
+
    ;; hydra
    `(hydra-face-blue ((t (:foreground ,blue))))
    `(hydra-face-red ((t (:foreground ,red))))
