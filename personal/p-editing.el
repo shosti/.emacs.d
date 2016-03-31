@@ -16,7 +16,8 @@
 (delete-selection-mode 1)
 (setq-default require-final-newline t
               indent-tabs-mode nil
-              tab-width 2)
+              tab-width 2
+              fill-column 80)
 (auto-fill-mode 0)
 
 (defun p-set-up-text-mode ()
