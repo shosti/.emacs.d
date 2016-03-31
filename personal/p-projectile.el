@@ -4,7 +4,20 @@
 
 (require 'p-key-chord)
 
-(setq projectile-keymap-prefix [key-chord ?, ?. ?p])
+(setq projectile-keymap-prefix (kbd "C-c p")
+      projectile-test-suffix-function #'p-projectile-test-suffix)
+
+(with-eval-after-load 'projectile
+  (projectile-register-project-type 'elixir '("mix.exs")))
+
+(defun p-projectile-test-suffix (project-type)
+  "Find default test files suffix based on PROJECT-TYPE."
+  (cond
+   ((member project-type '(rails-rspec ruby-rspec)) "_spec")
+   ((member project-type '(rails-test ruby-test lein-test go elixir)) "_test")
+   ((member project-type '(scons)) "test")
+   ((member project-type '(maven symfony)) "Test")
+   ((member project-type '(gradle grails)) "Spec")))
 
 (projectile-global-mode)
 
