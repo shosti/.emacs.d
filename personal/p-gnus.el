@@ -57,7 +57,7 @@
       ;; Some more settings to make things look cooler (stolen from
       ;; http://doc.rix.si/cce/cce-gnus.html )
       gnus-summary-line-format "%U%R%z %(%~(pad-right 17)&user-date; %-15,15f  %B%s%)\n"
-      gnus-summary-thread-gathering-function 'gnus-gather-threads-by-references
+      gnus-summary-thread-gathering-function 'gnus-gather-threads-by-subject
       gnus-sum-thread-tree-false-root ""
       gnus-sum-thread-tree-indent " "
       gnus-sum-thread-tree-leaf-with-other "├► "
@@ -146,7 +146,8 @@
 (p-add-hjkl-bindings gnus-group-mode-map 'emacs
   "q" #'gnus-group-suspend ; to prevent restarting all the time
   "Q" #'gnus-group-exit
-  "l" #'gnus-group-list-groups)
+  "l" #'gnus-group-list-groups
+  "Gj" #'gnus-group-jump-to-group)
 
 (with-eval-after-load 'gnus-srver
   (define-key gnus-server-mode-map (kbd "M-o") nil)
