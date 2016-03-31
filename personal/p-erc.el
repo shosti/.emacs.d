@@ -7,19 +7,19 @@
 
 (p-load-private "erc-settings.el")
 
+(setq erc-track-enable-keybindings nil
+      erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
+      erc-log-channels-directory (expand-file-name "~/.erc/logs")
+      erc-save-queries-on-quit t
+      erc-join-buffer 'bury
+      erc-autojoin-channels-alist (list
+                                   (cons "freenode.net"
+                                         p-erc-channels)))
+
 ;; Join the a couple of interesting channels whenever connecting to Freenode.
 (with-eval-after-load 'erc
   (add-to-list 'erc-modules 'smiley)
-  (setq erc-autojoin-channels-alist
-        (list
-         (cons "freenode.net"
-               p-erc-channels)))
-
-  (setq erc-track-enable-keybindings nil
-        erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
-        erc-password (password-store-get "Personal/erc")
-        erc-log-channels-directory (expand-file-name "~/.erc/logs")
-        erc-save-queries-on-quit t)
+  (setq erc-password (password-store-get "Personal/erc"))
 
   ;; auto identify
   (erc-services-mode 1)
