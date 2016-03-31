@@ -2,4 +2,4 @@
 # name: let
 # key: let
 # --
-let(:$1) { FactoryGirl.${2:create}(:$1$0) }
+let(:$1) { ${2:create} :$1$0 }
