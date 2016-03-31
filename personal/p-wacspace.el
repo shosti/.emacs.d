@@ -169,6 +169,13 @@
    (:winconf 2winv)
    (:aux1 projectile-toggle-between-implementation-and-test)))
 
+(defwacspace elixir-mode
+  (:default
+   (:winconf 2winv))
+  (:2
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)))
+
 (defwacspace ruby-mode
   (:before (lambda ()
              (rbenv-use-corresponding)
