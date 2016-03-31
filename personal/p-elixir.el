@@ -2,12 +2,17 @@
 (p-require-package 'alchemist)
 (p-require-package 'ac-alchemist)
 
+(require 'p-evil)
+
 (add-to-list 'auto-mode-alist
              '("\\.eex\\'" . web-mode))
 
 (with-eval-after-load 'elixir-mode
-  (add-to-list 'elixir-mode-hook #'p-config-elixir-end-mode)
-  (add-to-list 'elixir-mode-hook #'alchemist-mode))
+  (add-hook 'elixir-mode-hook #'p-config-elixir-end-mode)
+  (add-hook 'elixir-mode-hook #'alchemist-mode)
+  (seq-each (lambda (mode)
+              (add-to-list 'evil-motion-state-modes mode))
+            '(alchemist-test-report-mode)))
 
 (setq alchemist-key-command-prefix (kbd "C-c C-a"))
 
