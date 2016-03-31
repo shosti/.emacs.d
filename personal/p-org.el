@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'org-plus-contrib 'org)
+(p-require-package 'ox-reveal 'melpa)
 
 (require 'p-evil)
 (require 'p-leader)
@@ -16,6 +17,7 @@
                           (sequence "|" "✘ CANCELED(c)")))
 
 (with-eval-after-load 'org
+  (require 'ox-reveal)
   (add-to-list 'org-structure-template-alist
                '("se"
                  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
