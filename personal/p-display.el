@@ -81,7 +81,7 @@
                                (font-spec :name "Apple Color Emoji"
                                           :size 10)
                              (font-spec :name "Noto Emoji"
-                                        :size 15)))))
+                                        :size 20)))))
 
 (p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
