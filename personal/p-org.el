@@ -18,6 +18,7 @@
 
 (with-eval-after-load 'org
   (require 'ox-reveal)
+  (require 'ox-md)
   (add-to-list 'org-structure-template-alist
                '("se"
                  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
