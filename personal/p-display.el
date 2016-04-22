@@ -83,9 +83,15 @@
                              (font-spec :name "Noto Emoji"
                                         :size 20)))))
 
-(p-set-up-fonts)
 (add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
+(p-set-up-fonts)
+
+(defun p-frame-set-up-fonts (frame)
+  (select-frame frame)
+  (p-set-up-fonts))
+
+(add-hook 'after-make-frame-functions #'p-frame-set-up-fonts)
 
 (tool-bar-mode 0)
 (setq-default frame-background-mode 'dark)
