@@ -43,6 +43,7 @@
       message-sendmail-extra-arguments '("--read-envelope-from")
       message-kill-buffer-on-exit t
       message-fill-column 80
+      message-valid-fqdn-regexp "[a-z0-9][-.a-z0-9]+\\.[a-z]+"
       nnmail-split-fancy-match-partial-words t
 
       ;; icalendar!
