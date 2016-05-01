@@ -38,7 +38,8 @@
       ;; shr seems to crap out with the default limit
       max-specpdl-size 3900
       netrc-file "~/.netrc.gpg"
-      auth-sources '("~/.netrc.gpg"))
+      auth-sources '("~/.netrc.gpg")
+      gnutls-verify-error t)
 
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-chromium))
