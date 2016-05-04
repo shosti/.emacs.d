@@ -39,7 +39,8 @@
       max-specpdl-size 3900
       netrc-file "~/.netrc.gpg"
       auth-sources '("~/.netrc.gpg")
-      gnutls-verify-error t)
+      gnutls-verify-error '(("news\\.gmane\\.org" (:hostname))
+                            (".*" (:trustfiles :hostname))))
 
 (when (eq system-type 'gnu/linux)
   (setq browse-url-browser-function 'browse-url-chromium))
