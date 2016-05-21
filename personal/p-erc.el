@@ -63,7 +63,12 @@ newlines. This should fix it."
 (advice-add #'erc-send-current-line :before #'p-erc-newline-hack)
 
 (defun p-set-up-erc ()
-  (p-company-emoji-init))
+  (p-company-emoji-init)
+  (seq-each (lambda (num)
+              (evil-local-set-key
+               'normal num
+               (lambda () (interactive) (user-error "No fat-fingering!"))))
+            (seq-map #'number-to-string '(1 2 3 4 5 6 7 8 9))))
 
 (add-hook 'erc-mode-hook #'p-set-up-erc)
 
