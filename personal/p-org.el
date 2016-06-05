@@ -14,7 +14,9 @@
       org-irc-link-to-logs t
       org-todo-keywords '((sequence "☛ TODO(t)" "|" "DONE(d)")
                           (sequence "⚑ WAITING(w)" "|")
-                          (sequence "|" "✘ CANCELED(c)")))
+                          (sequence "|" "✘ CANCELED(c)"))
+      org-export-with-toc nil
+      org-export-with-section-numbers nil)
 
 (with-eval-after-load 'org
   (require 'ox-reveal)
