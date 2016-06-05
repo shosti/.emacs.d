@@ -8,7 +8,8 @@
 (p-load-private "erc-settings.el")
 
 (setq erc-track-enable-keybindings nil
-      erc-hide-list '("JOIN" "PART" "QUIT" "MODE")
+      erc-hide-list '("JOIN" "PART" "QUIT" "MODE" "324" "329" "332" "333" "353" )
+      erc-track-exclude-server-buffer t
       erc-log-channels-directory (expand-file-name "~/.erc/logs")
       erc-save-queries-on-quit t
       erc-join-buffer 'bury
