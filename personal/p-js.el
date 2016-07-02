@@ -1,16 +1,17 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'js2-mode)
-;(p-require-package 'simple-httpd 'melpa)
-;(p-require-package 'skewer-mode 'melpa)
+
+
 
 ;;;;;;;;;;;;
 ;; Config ;;
 ;;;;;;;;;;;;
 
+(setq js2-mode-show-strict-warnings nil)
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;(skewer-setup)
-(setq-default js2-basic-offset 2)
+(setq js-indent-level 2)
 
 ;;;;;;;;;;;;;;;
 ;; Functions ;;
@@ -27,7 +28,11 @@
   (add-to-list 'comint-preoutput-filter-functions
                'p-js-comint-filter))
 
-;(add-hook 'inferior-js-mode-hook 'set-up-inferior-js-mode t)
+(defun p-set-up-js2-mode ()
+  (flycheck-mode 1))
+
+(with-eval-after-load 'js2-mode
+  (add-hook 'js2-mode-hook #'p-set-up-js2-mode))
 
 (provide 'p-js)
 
