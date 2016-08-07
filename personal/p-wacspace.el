@@ -39,6 +39,14 @@
     (setq-local comint-process-echoes t)
     (setq inf-ruby-buffer buffer)))
 
+(defun p-elixir-console ()
+  (interactive)
+  (let ((buffer (wacs-make-comint "iex" "iex" nil "-S" "mix")))
+    (switch-to-buffer buffer)
+    (setq alchemist-iex-buffer buffer)
+    (alchemist-iex-mode)
+    (run-hooks 'alchemist-iex-mode-hook)))
+
 (defun p-set-up-ruby-env ()
   (rbenv-use-corresponding)
   (setq inf-ruby-buffer
@@ -170,8 +178,10 @@
    (:aux1 projectile-toggle-between-implementation-and-test)))
 
 (defwacspace elixir-mode
+  (:before p-elixir-console)
   (:default
-   (:winconf 2winv))
+   (:winconf 3winv)
+   (:aux2 p-elixir-console))
   (:2
    (:winconf 2winv)
    (:aux1 projectile-toggle-between-implementation-and-test)))
@@ -261,6 +271,15 @@
   (:2
    (:winconf 2winv)
    (:aux1 projectile-toggle-between-implementation-and-test)))
+
+(defwacspace js2-jsx-mode
+  (:default
+   (:winconf 2winv)
+   (:aux1 wacs-eshell))
+  (:2
+   (:winconf 3winv)
+   (:aux1 p-js-switch-between-imp-and-test)
+   (:aux2 wacs-eshell)))
 
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
