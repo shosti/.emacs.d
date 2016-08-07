@@ -5,7 +5,8 @@
 (require 'p-key-chord)
 
 (setq projectile-keymap-prefix (kbd "C-c p")
-      projectile-test-suffix-function #'p-projectile-test-suffix)
+      projectile-test-suffix-function #'p-projectile-test-suffix
+      projectile-test-prefix-function #'p-projectile-test-prefix)
 
 (with-eval-after-load 'projectile
   (projectile-register-project-type 'elixir '("mix.exs")))
@@ -18,6 +19,11 @@
    ((member project-type '(scons)) "test")
    ((member project-type '(maven symfony)) "Test")
    ((member project-type '(gradle grails)) "Spec")))
+
+(defun p-projectile-test-prefix (project-type)
+  "Find default test files prefix based on PROJECT-TYPE."
+  (cond
+   ((member project-type '(javascript)) "__tests__/")))
 
 (projectile-global-mode)
 
