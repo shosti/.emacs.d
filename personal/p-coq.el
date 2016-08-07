@@ -2,7 +2,8 @@
 
 (defconst p-coq-symbols
   '(("->" . ?→)
-    ("==>" . ?⇒)
+    ("<-" . ?←)
+    ("=>" . ?⇒)
     ("forall" . ?∀)
     ("|-" . ?⊢)
     ("\\/" . ?∨)
@@ -13,7 +14,8 @@
   (seq-each (lambda (sym)
               (push sym prettify-symbols-alist))
             p-coq-symbols)
-  (prettify-symbols-mode 1))
+  (prettify-symbols-mode 1)
+  (abbrev-mode 0))
 
 (with-eval-after-load 'coq
   (add-hook 'coq-mode-hook #'p-set-up-coq-mode))
