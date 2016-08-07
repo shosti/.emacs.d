@@ -155,6 +155,9 @@
   (define-key gnus-server-mode-map
     (kbd "C-x o") 'gnus-server-open-all-servers))
 
+(with-eval-after-load 'gnus-topic
+  (define-key gnus-topic-mode-map (kbd "<tab>") #'gnus-topic-select-group))
+
 (p-set-leader-key
   "G" 'gnus)
 
