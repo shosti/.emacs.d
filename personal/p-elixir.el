@@ -7,9 +7,15 @@
 (add-to-list 'auto-mode-alist
              '("\\.eex\\'" . web-mode))
 
+(defun p-set-up-elixir ()
+  (p-config-elixir-end-mode)
+  (setq-local evil-lookup-func #'alchemist-help-search-at-point))
+
 (with-eval-after-load 'elixir-mode
-  (add-hook 'elixir-mode-hook #'p-config-elixir-end-mode)
+  (add-hook 'elixir-mode-hook #'p-set-up-elixir)
   (add-hook 'elixir-mode-hook #'alchemist-mode)
+  (add-hook 'alchemist-help-minor-mode-hook #'evil-motion-state)
+  (add-hook 'alchemist-macroexpand-mode-hook #'evil-motion-state)
   (seq-each (lambda (mode)
               (add-to-list 'evil-motion-state-modes mode))
             '(alchemist-test-report-mode)))
