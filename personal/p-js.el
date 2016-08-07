@@ -3,6 +3,7 @@
 (p-require-package 'js2-mode)
 (p-require-package 'mocha 'melpa)
 (p-require-package 'flycheck-flow 'melpa)
+(p-require-package 'jade)
 
 ;;;;;;;;;;;;
 ;; Config ;;
