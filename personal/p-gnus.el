@@ -100,7 +100,6 @@
   (require 'bbdb-gnus)
   (require 'bbdb-message)
   (bbdb-initialize 'gnus 'message)
-  (bbdb-mua-auto-update-init 'gnus 'message)
   (define-key gnus-summary-mode-map (kbd "C-c C-o") #'p-gnus-gmane-link)
   (gnus-icalendar-setup)
 
