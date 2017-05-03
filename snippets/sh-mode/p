@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: p
+# key:  p
+# --
+echo "$1: $$1" >&2
