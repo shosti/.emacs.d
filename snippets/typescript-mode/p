@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: p
+# key: p
+# --
+console.log("${1:$(upcase yas-text)}", $1)
