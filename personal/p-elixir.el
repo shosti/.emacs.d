@@ -1,13 +1,24 @@
 (p-require-package 'elixir-mode)
 (p-require-package 'alchemist)
 (p-require-package 'ac-alchemist)
+(p-require-package 'ob-elixir 'melpa)
 
 (require 'p-evil)
+
+(defconst p-elixir-symbols
+  '(("->" . ?→)
+    ("<-" . ?←)
+    ("fn" . ?λ)
+    ("nil" . ?∅)))
 
 (add-to-list 'auto-mode-alist
              '("\\.eex\\'" . web-mode))
 
 (defun p-set-up-elixir ()
+  (seq-each (lambda (sym)
+              (push sym prettify-symbols-alist))
+            p-elixir-symbols)
+  (prettify-symbols-mode 1)
   (p-config-elixir-end-mode)
   (setq-local evil-lookup-func #'alchemist-help-search-at-point))
 
