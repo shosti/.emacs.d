@@ -82,8 +82,16 @@
 
 (defun p-set-up-git-commit-mode ()
   (auto-fill-mode 1)
+  (end-of-line)
   (evil-insert-state 1)
   (p-company-emoji-init))
+
+(defun p-git-jira-tag ()
+  (save-excursion
+    (goto-char (point-min))
+    (if (looking-at "[A-Z]+-[0-9]+")
+        (apply #'buffer-substring-no-properties (match-data))
+      "")))
 
 (add-hook 'git-commit-mode-hook #'p-set-up-git-commit-mode)
 

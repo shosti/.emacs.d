@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: git-done
+# key: done
+# --
+`(p-git-jira-tag)` #done$0
