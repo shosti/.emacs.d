@@ -5,20 +5,16 @@
 (p-require-package 'flycheck-flow 'melpa)
 (p-require-package 'jade)
 
-;;;;;;;;;;;;
-;; Config ;;
-;;;;;;;;;;;;
-
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js-indent-level 2
       js-switch-indent-offset 2
       js2-mode-show-strict-warnings nil
-      mocha-options "--recursive --compilers js:babel-register")
+      mocha-options "--recursive --compilers js:babel-register"
+      typescript-indent-level 2)
 
-;;;;;;;;;;;;;;;
-;; Functions ;;
-;;;;;;;;;;;;;;;
-
+(defconst p-js-symbols
+  '(("=>" . ?⇒)
+    ("null" . ?∅)))
 
 (defun p-js-comint-filter (output)
   (replace-regexp-in-string ".*1G\.\.\..*5G" "..."
@@ -45,8 +41,12 @@
       (user-error "%s does not exist" new-fname))))
 
 (defun p-set-up-js2-mode ()
+  (seq-each (lambda (sym)
+              (push sym prettify-symbols-alist))
+            p-js-symbols)
   (setq-local sgml-basic-offset js-indent-level)
-  (flycheck-mode 1))
+  (flycheck-mode 1)
+  (prettify-symbols-mode 1))
 
 (with-eval-after-load 'js2-mode
   (add-hook 'js2-mode-hook #'p-set-up-js2-mode))
