@@ -2,7 +2,7 @@
 
 (define-minor-mode p-quiet-mode
   "Turn off notifications for ERC and mail."
-  :lighter " 😯" :global t
+  :lighter " shhh!" :global t
   (if p-quiet-mode
       (p-quiet-mode-on)
     (p-quiet-mode-off)))
