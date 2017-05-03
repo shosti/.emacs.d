@@ -2,6 +2,7 @@
 
 (require 'p-options)
 (require 'p-jabber)
+(require 'p-leader)
 
 (defvar p-erc-channels '("#emacsconf"))
 
