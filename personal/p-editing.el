@@ -186,6 +186,15 @@ abort completely with `C-g'."
 (setq save-abbrevs 'silently)
 (setq-default abbrev-mode t)
 
+(defun p-kill-ring-save-current-buffer ()
+  (interactive)
+  (let ((fname (cond
+                (buffer-file-name)
+                ((eq major-mode 'dired-mode) default-directory))))
+    (when fname
+      (kill-new fname)
+      (message "%s" fname))))
+
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
@@ -198,6 +207,7 @@ abort completely with `C-g'."
 (global-set-key (kbd "M--") (lambda () (interactive) (insert "—")))
 (global-set-key " " 'just-one-space)
 (p-set-leader-key "n" 'p-cleanup-buffer)
+(p-set-leader-key "Y" 'p-kill-ring-save-current-buffer)
 
 (provide 'p-editing)
 
