@@ -6,6 +6,9 @@
 
 (add-to-list 'evil-motion-state-modes 'ess-help-mode)
 
+(with-eval-after-load 'ess-inf
+  (define-key inferior-ess-mode-map (kbd "_") nil))
+
 ;;;;;;;;;;;
 ;; HACKS ;;
 ;;;;;;;;;;;
