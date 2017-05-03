@@ -11,16 +11,21 @@
       org-list-allow-alphabetical t
       org-startup-indented t
       org-src-fontify-natively t
+      org-footnote-auto-adjust t
       org-irc-link-to-logs t
       org-todo-keywords '((sequence "☛ TODO(t)" "|" "DONE(d)")
                           (sequence "⚑ WAITING(w)" "|")
                           (sequence "|" "✘ CANCELED(c)"))
       org-export-with-toc nil
-      org-export-with-section-numbers nil)
+      org-export-with-section-numbers nil
+      org-export-with-author nil
+      org-export-with-creator nil
+      org-html-postamble nil)
 
 (with-eval-after-load 'org
   (require 'ox-reveal)
   (require 'ox-md)
+  (require 'ob-elixir)
   (add-to-list 'org-structure-template-alist
                '("se"
                  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
