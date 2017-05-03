@@ -4,6 +4,9 @@
 
 (require 'yasnippet)
 
+(with-eval-after-load 'yasnippet
+  (add-to-list 'warning-suppress-types '(yasnippet backquote-change)))
+
 (setq yas-snippet-dirs (list (concat user-emacs-directory "snippets")))
 (yas-global-mode 1)
 
