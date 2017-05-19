@@ -33,8 +33,7 @@
 (setenv "GOPATH" (expand-file-name "~/go"))
 (setenv "HOMEBREW_GITHUB_API_TOKEN" github-api-token)
 (setenv "LANG" "en_US.UTF-8") ; there are some buggy programs out there
-(setenv "TMPDIR") ; not sure what's up with this but it gets set weirdly on
-                  ; nixos
+(setenv "EDITOR" "ec")
 
 (setq eshell-visual-commands
       (append eshell-visual-commands '("ssh" "tail" "mu" "sl" "htop")))
