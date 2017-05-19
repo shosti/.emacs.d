@@ -1,10 +1,9 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'wacspace 'local)
-
 (require 'p-display)
 (require 'findr)
 (require 'p-leader)
+(require 'p-projectile)
 
 ;;;;;;;;;;;;
 ;; Config ;;
@@ -33,7 +32,7 @@
 
 (defun p-rails-console ()
   (interactive)
-  (let ((buffer (wacs-make-comint "rails" "rails" nil
+  (let ((buffer (wacs-make-comint "rails" (concat (wacs-project-dir) "bin/rails") nil
                                   "console")))
     (switch-to-buffer buffer)
     (setq-local comint-process-echoes t)
