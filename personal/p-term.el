@@ -1,8 +1,6 @@
 (require 'p-leader)
 
 (with-eval-after-load 'term
-  (setq explicit-shell-file-name "/bin/bash")
-
   ;; Term seems to hate evil-mode
   (setq evil-insert-state-modes (delq 'term-mode evil-insert-state-modes))
   (add-to-list 'evil-emacs-state-modes 'term-mode)
