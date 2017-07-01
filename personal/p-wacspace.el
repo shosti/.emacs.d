@@ -47,7 +47,6 @@
     (run-hooks 'alchemist-iex-mode-hook)))
 
 (defun p-set-up-ruby-env ()
-  (rbenv-use-corresponding)
   (setq inf-ruby-buffer
         (p-buffer-with-name (concat "*pry*<" (wacs-project-name) ">"))))
 
@@ -146,7 +145,6 @@
 
 (defwacspace (ruby-mode projectile-rails-mode)
   (:before (lambda ()
-             (rbenv-use-corresponding)
              (p-guard)
              (p-rails-console)))
   (:base-file "Gemfile")
@@ -187,7 +185,6 @@
 
 (defwacspace ruby-mode
   (:before (lambda ()
-             (rbenv-use-corresponding)
              (p-guard)
              (run-ruby)))
   (:default
