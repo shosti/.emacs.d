@@ -57,10 +57,12 @@
 ;; Backup ;;
 ;;;;;;;;;;;;
 
-(setq make-backup-files nil
-      auto-save-default nil
-      backup-each-save-filter-function 'p-backup-each-save-filter)
-(add-hook 'after-save-hook 'backup-each-save)
+(unless (eq system-type 'windows-nt)
+  (setq make-backup-files nil
+        auto-save-default nil
+        backup-each-save-filter-function 'p-backup-each-save-filter)
+  (add-hook 'after-save-hook 'backup-each-save))
+
 
 ;;;;;;;;;;
 ;; File ;;
