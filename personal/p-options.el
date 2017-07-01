@@ -3,7 +3,7 @@
 
 (p-require-package 'backup-each-save 'melpa)
 (p-require-package 'rainbow-mode 'gnu)
-(p-require-package 'request)
+(p-require-package 'request 'melpa)
 
 (require 'p-path)
 (require 'uniquify)

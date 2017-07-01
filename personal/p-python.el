@@ -1,6 +1,10 @@
 ;;; -*- lexical-binding: t -*-
 
-;(p-require-package 'jedjdi 'melpa)
+(p-require-package 'ein 'melpa)
+
+(require 'p-evil)
+
+(add-to-list 'evil-motion-state-modes 'ein:notebooklist-mode)
 
 (defun p-set-up-python-mode ()
   (electric-indent-mode 0)
