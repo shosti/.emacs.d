@@ -3,13 +3,22 @@
 
 ;; No point autoloading since it's enabled globally
 (require 'company)
+(require 'seq)
 
 (setq company-idle-delay 0
       company-require-match nil)
 
-(add-hook 'prog-mode-hook #'company-mode)
+(defun p-company-prog-mode-hook ()
+  (company-mode-on)
+  (add-to-list 'company-backends
+               '(company-dabbrev-code company-keywords)))
+
+(add-hook 'prog-mode-hook #'p-company-prog-mode-hook)
 
 (with-eval-after-load 'company
+  ;; Company is pretty darn slow by default...
+  (setq company-backends
+        '(company-bbdb company-files company-emoji))
   (company-statistics-mode 1))
 
 ;; Use control for all special keys, and make company non-intrusive
