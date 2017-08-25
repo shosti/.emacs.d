@@ -7,7 +7,7 @@
 (defconst at-top 22)
 (defvar main-font (if (eq system-type 'gnu/linux)
                       "Droid Sans Mono Slashed-11"
-                      "Droid Sans Mono Slashed-14"))
+                      "Droid Sans Mono Slashed-12"))
 (defvar symbola-font (if (eq system-type 'gnu/linux)
                          (font-spec :name "Symbola" :size 15)
                        "Symbola-14"))

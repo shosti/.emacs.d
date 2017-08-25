@@ -98,8 +98,10 @@ window."
                          "/usr/bin/rbenv")
       rbenv-show-active-ruby-in-modeline nil)
 
-(global-rbenv-mode)
-(rbenv-use-global)
+(unless (eq 'system-type 'windows-nt)
+  (global-rbenv-mode)
+  (rbenv-use-global))
+
 
 (defun p-turn-off-robe-complete ()
   (setq-local completion-at-point-functions
