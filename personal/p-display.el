@@ -54,34 +54,7 @@
 
   ;; triangles
   (set-fontset-font t (cons (decode-char 'ucs #x25b2)                ; ▲
-                            (decode-char 'ucs #x25c5)) symbola-font) ; ◅
-
-  ;; emoji!
-  (--each (list
-           ;; Pictographs
-           (cons (decode-char 'ucs #x1f300)                          ; 🌀
-                 (decode-char 'ucs #x1f5ff))                         ; 🗿
-
-           ;; Emoticons
-           (cons (decode-char 'ucs #x1f600)                          ; 😀
-                 (decode-char 'ucs #x1f64f))                         ; 🙏
-
-           ;; Transport symbols
-           (cons (decode-char 'ucs #x1f680)                          ; 🚀
-                 (decode-char 'ucs #x1f6ff))
-
-           ;; Misc symbol
-           (cons (decode-char 'ucs #x2600)                           ; ☀
-                 (decode-char 'ucs #x26ff))                          ; ⛿
-
-           ;; Dingbats
-           (cons (decode-char 'ucs #x2700)                           ; ✀
-                 (decode-char 'ucs #x27bf)))                         ; ➿
-    (set-fontset-font t it (if (eq system-type 'darwin)
-                               (font-spec :name "Apple Color Emoji"
-                                          :size 10)
-                             (font-spec :name "Noto Emoji"
-                                        :size 20)))))
+                            (decode-char 'ucs #x25c5)) symbola-font)); ◅
 
 (add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
