@@ -120,9 +120,7 @@ point to the divide between the definitions and examples."
     (kbd "M-v") 'org-mark-element
     (kbd "M-p") 'org-yank
     (kbd "C-S-K") 'org-shiftcontrolup
-    (kbd "C-S-J") 'org-shiftcontroldown)
-
-  (add-hook 'org-mode-hook #'org-bullets-mode))
+    (kbd "C-S-J") 'org-shiftcontroldown))
 
 (p-set-leader-key
   "o" (make-sparse-keymap)
