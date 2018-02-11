@@ -25,6 +25,7 @@
       gnus-asynchronous t
       gnus-treat-hide-signature t
       gnus-completing-read-function #'gnus-ido-completing-read
+      gnus-inhibit-images t
       mm-verify-option 'known
       mm-decrypt-option 'known
       mm-inline-text-html-with-images t
