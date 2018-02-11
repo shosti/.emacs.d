@@ -2,4 +2,4 @@
 # name: strict
 # key: strict
 # --
-set -eou pipefail
+set -euo pipefail
