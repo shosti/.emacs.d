@@ -5,15 +5,13 @@
 
 (with-eval-after-load 'emms
   (require 'emms-setup)
-  (require 'emms-player-mpd)
   (emms-all)
   (p-add-hjkl-bindings emms-playlist-mode-map 'emacs)
   (add-to-list 'evil-motion-state-modes 'emms-browser-mode)
   (setq emms-player-list '(emms-player-mpd)
         emms-info-functions '(emms-info-mpd))
 
-  ;; (setq emms-player-mpd-music-directory "/mnt/media/Media/Music")
-  )
+  (setq emms-player-mpd-music-directory "/mnt/media/Media/Music"))
 
 (p-set-leader-key
   "Mm" #'emms
