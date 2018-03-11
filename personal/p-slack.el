@@ -1,40 +1,46 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'request)
-(require 'json)
+(p-require-package 'slack 'melpa)
 
-(defvar slack-token nil)
+(require 'p-evil)
+(require 'p-leader)
 
-(defun p-slack-token ()
-  (when (null slack-token)
-    (setq slack-token (password-store-get "Work/slack-token")))
-  slack-token)
+(setq slack-prefer-current-team t
+      ;; Get rid of annoying scrolling
+      lui-scroll-behavior nil)
 
-(defun p-slack-mark-all ()
-  (request
-   "https://slack.com/api/channels.list"
-   :parser #'json-read
-   :data `(("token" . ,(p-slack-token)) ("exclude_archived" . "1"))
-   :success (lambda (_key data &rest _)
-              (seq-do (lambda (chan)
-                        (let ((chan-id (cdr (assq 'id chan))))
-                          (p-slack-mark chan-id)))
-                      (cdr (assq 'channels data))))))
+(evil-define-key 'normal slack-info-mode-map
+  ",u" 'slack-room-update-messages)
 
-(defun p-slack-mark (chan-id)
-  (message "RESETTING %s" chan-id)
-  (let ((ts (number-to-string (float-time))))
-    (request
-     "https://slack.com/api/channels.mark"
-     :parser #'json-read
-     :type "POST"
-     :data (list (cons "token" (p-slack-token))
-                 (cons "channel" chan-id)
-                 (cons "ts" ts))
-     :success (lambda (_key data &rest _)
-                (message "DATA: %s" data))
-     :error (lambda (key error &rest _)
-              (message "ERROR: %s %s" key err)))))
+(evil-define-key 'normal slack-mode-map
+  ",c" 'slack-buffer-kill
+  ",ra" 'slack-message-add-reaction
+  ",rr" 'slack-message-remove-reaction
+  ",rs" 'slack-message-show-reaction-users
+  ",pl" 'slack-room-pins-list
+  ",pa" 'slack-message-pins-add
+  ",pr" 'slack-message-pins-remove
+  ",mm" 'slack-message-write-another-buffer
+  ",me" 'slack-message-edit
+  ",md" 'slack-message-delete
+  ",u" 'slack-room-update-messages
+  ",2" 'slack-message-embed-mention
+  ",3" 'slack-message-embed-channel
+  "\C-n" 'slack-buffer-goto-next-message
+  "\C-p" 'slack-buffer-goto-prev-message)
+
+(evil-define-key 'normal slack-edit-message-mode-map
+  ",k" 'slack-message-cancel-edit
+  ",s" 'slack-message-send-from-buffer
+  ",2" 'slack-message-embed-mention
+  ",3" 'slack-message-embed-channel)
+
+(p-load-private "slack-settings.el")
+
+(with-eval-after-load 'slack
+  (p-set-leader-key
+    "j" #'slack-group-select
+    "J" #'slack-im-select))
 
 (provide 'p-slack)
 

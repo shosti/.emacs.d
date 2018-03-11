@@ -6,8 +6,6 @@
 
 (defvar p-erc-channels '("#emacsconf"))
 
-(p-load-private "erc-settings.el")
-
 (setq erc-track-enable-keybindings nil
       erc-hide-list '("JOIN" "PART" "QUIT" "MODE" "324" "329" "332" "333" "353" )
       erc-track-exclude-server-buffer t
@@ -51,8 +49,6 @@
           (completing-read "Room: " room-names nil nil nil nil
                            (car room-names))))
     (switch-to-buffer (cdr (assoc room chatrooms)))))
-
-(p-set-leader-key "j" 'p-switch-to-room)
 
 (defun p-erc-newline-hack ()
   "For some reason, evil mode keeps adding spurious
