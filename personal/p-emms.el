@@ -3,22 +3,26 @@
 (require 'p-evil)
 (require 's)
 
-(setq emms-source-file-default-directory (expand-file-name "~/Music"))
-
 (with-eval-after-load 'emms
   (require 'emms-setup)
+  (require 'emms-player-mpd)
   (emms-all)
-  (emms-default-players)
-  (p-add-hjkl-bindings emms-playlist-mode-map 'emacs))
+  (p-add-hjkl-bindings emms-playlist-mode-map 'emacs)
+  (add-to-list 'evil-motion-state-modes 'emms-browser-mode)
+  (setq emms-player-list '(emms-player-mpd)
+        emms-info-functions '(emms-info-mpd))
+
+  ;; (setq emms-player-mpd-music-directory "/mnt/media/Media/Music")
+  )
 
 (p-set-leader-key
   "Mm" #'emms
+  "Mb" #'emms-smart-browse
+  "Ma" #'emms-browse-by-album
+  "MA" #'emms-browse-by-artist
   "Mp" #'emms-pause
   "Mn" #'emms-next
   "MN" #'emms-previous
-  "Ma" #'emms-add-url
-  "Me" #'p-browse-mopify
-  "ME" #'p-browse-moped
   "Mg" #'emms-player-mpd-connect)
 
 (provide 'p-emms)
