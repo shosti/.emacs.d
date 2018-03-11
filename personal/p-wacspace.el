@@ -64,7 +64,7 @@
               (findr dir)
               (car))
       (find-file it)
-    (wacs-eshell)))
+    (wacs-shell)))
 
 (defun p-scala-test-file ()
   (p-find-first-matching-file "Suite.scala$"
@@ -101,7 +101,7 @@
   (:default
    (:winconf 2winv)
    (:frame full)
-   (:aux1 wacs-eshell))
+   (:aux1 wacs-shell))
   (:1
    (:winconf 1win))
   (:2)
@@ -196,7 +196,7 @@
    (:winconf 3winv)
    (:aux1 projectile-toggle-between-implementation-and-test))
   (:3
-   (:winconf 2winv)
+   (:winconf 2win :2 v)
    (:aux1 p-guard))
   (:5
    (:winconf 2winh)
@@ -273,11 +273,11 @@
 (defwacspace js2-jsx-mode
   (:default
    (:winconf 2winv)
-   (:aux1 wacs-eshell))
+   (:aux1 wacs-shell))
   (:2
    (:winconf 3winv)
    (:aux1 p-js-switch-between-imp-and-test)
-   (:aux2 wacs-eshell)))
+   (:aux2 wacs-shell)))
 
 (defwacspace pianobar-mode
   (:project-name-fn (lambda () "pianobar"))
