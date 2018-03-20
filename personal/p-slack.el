@@ -7,7 +7,8 @@
 
 (setq slack-prefer-current-team t
       ;; Get rid of annoying scrolling
-      lui-scroll-behavior nil)
+      lui-scroll-behavior nil
+      slack-image-max-height 100)
 
 (evil-define-key 'normal slack-info-mode-map
   ",u" 'slack-room-update-messages)
@@ -39,8 +40,20 @@
 
 (with-eval-after-load 'slack
   (p-set-leader-key
-    "j" #'slack-group-select
+    "j" #'slack-channel-select
+    "\M-j" #'slack-group-select
     "J" #'slack-im-select))
+
+(defun p-set-up-slack ()
+  (p-company-emoji-init)
+  (seq-each (lambda (num)
+              (evil-local-set-key
+               'normal num
+               (lambda () (interactive) (user-error "No fat-fingering!"))))
+            (seq-map #'number-to-string '(1 2 3 4 5 6 7 8 9))))
+
+(with-eval-after-load 'slack-message-buffer
+  (add-hook 'slack-message-buffer-mode-hook #'p-set-up-slack))
 
 (provide 'p-slack)
 
