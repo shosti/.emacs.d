@@ -4,7 +4,6 @@
 (add-to-list 'load-path (concat user-emacs-directory "opt/emacs-emoji-cheat-sheet/"))
 
 (global-emojify-mode 1)
-(global-emojify-mode-line-mode 1)
 
 (defun p-company-emoji-init ()
   "Turn on company mode and also set it to only do emoji."

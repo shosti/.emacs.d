@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'prodigy 'local)
+(p-require-package 'prodigy)
 
 (require 'prodigy)
 (require 'p-leader)

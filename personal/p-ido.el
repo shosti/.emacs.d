@@ -2,12 +2,12 @@
 (p-require-package 'flx)
 (p-require-package 'flx-ido)
 (p-require-package 'smex)
-(p-require-package 'ido-ubiquitous)
 
 (require 'p-leader)
 (require 'smex)
 
 (ido-mode 1)
+(ido-everywhere 1)
 (ido-ubiquitous-mode 1)
 (flx-ido-mode 1)
 

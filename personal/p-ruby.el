@@ -7,13 +7,10 @@
 (p-require-package 'ruby-end)
 (p-require-package 'ruby-compilation)
 (p-require-package 'projectile-rails 'melpa)
-(p-require-package 'rbenv 'melpa)
 (p-require-package 'inf-ruby)
 (p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
 (p-require-package 'yaml-mode 'melpa)
-(p-require-package 'robe 'melpa)
-(p-require-package 'rubocop)
 
 (require 'p-wacspace)
 (require 'p-evil)
@@ -92,16 +89,6 @@ window."
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Hooks and Config ;;
 ;;;;;;;;;;;;;;;;;;;;;;
-
-(setq rbenv-executable (if (eq system-type 'darwin)
-                           "/usr/local/bin/rbenv"
-                         "/usr/bin/rbenv")
-      rbenv-show-active-ruby-in-modeline nil)
-
-(unless (eq 'system-type 'windows-nt)
-  (global-rbenv-mode)
-  (rbenv-use-global))
-
 
 (defun p-turn-off-robe-complete ()
   (setq-local completion-at-point-functions

@@ -1,7 +1,5 @@
 (p-require-package 'elixir-mode)
 (p-require-package 'alchemist)
-(p-require-package 'ac-alchemist)
-(p-require-package 'ob-elixir 'melpa)
 
 (require 'p-evil)
 

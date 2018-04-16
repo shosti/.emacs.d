@@ -1,9 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'js2-mode)
-(p-require-package 'mocha 'melpa)
-(p-require-package 'flycheck-flow 'melpa)
-(p-require-package 'jade)
 
 (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
 (setq js-indent-level 2

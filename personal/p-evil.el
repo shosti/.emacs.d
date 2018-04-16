@@ -5,7 +5,6 @@
 
 (p-require-package 'undo-tree 'gnu)
 (p-require-package 'goto-last-change 'melpa)
-(p-require-package 'goto-chg 'marmalade)
 (p-require-package 'evil)
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)

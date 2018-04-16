@@ -1,11 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'clojure-mode)
-(p-require-package 'slamhound)
 (p-require-package 'cider)
-(p-require-package 'clojure-cheatsheet)
-(p-require-package 'request 'melpa)
-(p-require-package '4clojure 'melpa)
 
 (require 'p-functions)
 (require 'p-lisp)

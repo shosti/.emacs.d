@@ -1,5 +1,3 @@
-(p-require-package 'howdoi 'melpa)
-
 (require 'spotify-autoload)
 (require 'p-leader)
 

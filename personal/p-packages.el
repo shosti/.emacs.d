@@ -41,25 +41,6 @@
 	  (package-refresh-contents)
 	  (package-install package))))))
 
-;; Miscellaneous packages where I don't know where to put them and I
-;; don't want the MELPA version
-
-(p-require-package 'concurrent)
-(p-require-package 'ctable)
-(p-require-package 'db 'marmalade)
-(p-require-package 'epc)
-(p-require-package 'esxml 'marmalade)
-(p-require-package 'findr 'marmalade)
-(p-require-package 'inflections)
-(p-require-package 'jump)
-(p-require-package 'kv 'marmalade)
-(p-require-package 'logito)
-(p-require-package 'noflet 'marmalade)
-(p-require-package 'pkg-info)
-(p-require-package 'pcache)
-(p-require-package 'pcsv 'marmalade)
-(p-require-package 'request-deferred)
-
 (provide 'p-packages)
 
 ;;; p-packages.el ends here

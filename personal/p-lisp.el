@@ -4,7 +4,6 @@
 (p-require-package 'clojure-mode)
 (p-require-package 'highlight-parentheses)
 (p-require-package 'macrostep)
-(p-require-package 'redshank 'melpa)
 (p-require-package 'elisp-slime-nav)
 
 ;;;;;;;;;;;;
@@ -50,7 +49,6 @@
   (highlight-parentheses-mode))
 
 (defun p-set-up-emacs-lisp-mode ()
-  (redshank-mode 1)
   (turn-on-eldoc-mode)
   (elisp-slime-nav-mode)
   (p-remove-elc-on-save))

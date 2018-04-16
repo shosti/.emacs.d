@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'ein 'melpa)
-
 (require 'p-evil)
 
 (add-to-list 'evil-motion-state-modes 'ein:notebooklist-mode)

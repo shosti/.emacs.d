@@ -1,4 +1,4 @@
-(require 'nix-mode nil 'noerror)
+(p-require-package 'nix-mode)
 
 (provide 'p-nix)
 

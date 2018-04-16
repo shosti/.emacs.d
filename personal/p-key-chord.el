@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'key-chord 'marmalade)
+(p-require-package 'key-chord)
 
 (key-chord-mode 1)
 
