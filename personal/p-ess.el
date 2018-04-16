@@ -1,7 +1,5 @@
 ;;; -*- lexical-binding: t -*-
 
-(require 'ess-site nil 'noerror)
-
 (require 'p-evil)
 
 (add-to-list 'evil-motion-state-modes 'ess-help-mode)
