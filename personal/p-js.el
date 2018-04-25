@@ -49,8 +49,7 @@
   (add-hook 'js2-mode-hook #'p-set-up-js2-mode))
 
 (with-eval-after-load 'flycheck
-  (require 'flycheck-flow)
-  (flycheck-add-next-checker 'javascript-eslint 'javascript-flow))
+  (flycheck-add-next-checker 'javascript-eslint))
 
 (provide 'p-js)
 
