@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'wacspace 'local)
+
 (require 'p-display)
 (require 'findr)
 (require 'p-leader)
