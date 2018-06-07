@@ -61,7 +61,7 @@
 (defun p-insert-date ()
   "Insert a time-stamp according to locale's date and time format."
   (interactive)
-  (insert (format-time-string "%c" (current-time))))
+  (insert (format-time-string "%F" (current-time))))
 
 (defun p-backward-kill-word (arg)
   "If the region is active, kills region.  Otherwise, backwards kills word."
