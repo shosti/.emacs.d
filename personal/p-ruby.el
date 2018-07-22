@@ -10,7 +10,6 @@
 (p-require-package 'inf-ruby)
 (p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
-(p-require-package 'yaml-mode 'melpa)
 
 (require 'p-wacspace)
 (require 'p-evil)
