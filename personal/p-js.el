@@ -48,9 +48,6 @@
 (with-eval-after-load 'js2-mode
   (add-hook 'js2-mode-hook #'p-set-up-js2-mode))
 
-(with-eval-after-load 'flycheck
-  (flycheck-add-next-checker 'javascript-eslint))
-
 (provide 'p-js)
 
 ;;; p-js.el ends here
