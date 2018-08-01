@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: posix
+# key: posix
+# --
+#!/bin/sh
+
+set -eu
