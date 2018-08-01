@@ -34,6 +34,14 @@
       "N" #'evil-search-backward)
     (add-hook 'proced-mode-hook #'p-set-up-proced-mode)))
 
+(defun p-proced-format-args (oldformat &rest args)
+  (let ((args (mapcar (lambda (arg)
+                        (replace-regexp-in-string "/nix/store/[^/]+" "{nix}" arg))
+                      args)))
+    (apply oldformat args)))
+
+(advice-add #'proced-format-args :around #'p-proced-format-args)
+
 (add-to-list 'auto-mode-alist
              '("\\.service\\'" . conf-mode))
 
