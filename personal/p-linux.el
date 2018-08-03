@@ -21,6 +21,14 @@
 (defun p-set-up-proced-mode ()
   (visual-line-mode 0))
 
+(defun p-proced-format-args (oldformat &rest args)
+  (let ((args (mapcar (lambda (arg)
+                        (replace-regexp-in-string "/nix/store/[^/]+"
+                                                  "{nix}"
+                                                  arg))
+                      args)))
+    (apply oldformat args)))
+
 (when (eq system-type 'gnu/linux)
   (setq x-super-keysym 'meta)
   (global-set-key (kbd "<XF86PowerOff>") #'p-sleep-message)
@@ -32,15 +40,12 @@
       "/" #'evil-search-forward
       "n" #'evil-search-next
       "N" #'evil-search-backward)
-    (add-hook 'proced-mode-hook #'p-set-up-proced-mode)))
+    (p-set-leader-key "p" #'proced)
+    (add-hook 'proced-mode-hook #'p-set-up-proced-mode)
+    (advice-add #'proced-format-args :around #'p-proced-format-args)))
 
-(defun p-proced-format-args (oldformat &rest args)
-  (let ((args (mapcar (lambda (arg)
-                        (replace-regexp-in-string "/nix/store/[^/]+" "{nix}" arg))
-                      args)))
-    (apply oldformat args)))
 
-(advice-add #'proced-format-args :around #'p-proced-format-args)
+
 
 (add-to-list 'auto-mode-alist
              '("\\.service\\'" . conf-mode))
