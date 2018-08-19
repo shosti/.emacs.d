@@ -33,6 +33,7 @@
   (setq x-super-keysym 'meta)
   (global-set-key (kbd "<XF86PowerOff>") #'p-sleep-message)
   (setq battery-status-function #'p-battery-acpi)
+  (p-set-leader-key "p" #'proced)
 
   (with-eval-after-load 'proced
     (p-add-hjkl-bindings proced-mode-map 'emacs
@@ -40,7 +41,6 @@
       "/" #'evil-search-forward
       "n" #'evil-search-next
       "N" #'evil-search-backward)
-    (p-set-leader-key "p" #'proced)
     (add-hook 'proced-mode-hook #'p-set-up-proced-mode)
     (advice-add #'proced-format-args :around #'p-proced-format-args)))
 
