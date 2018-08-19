@@ -1,7 +1,13 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'bash-completion 'melpa)
+
 (require 'p-bindings)
 (require 'p-leader)
+
+(with-eval-after-load 'shell
+  (setq bash-completion-prog (executable-find "bash"))
+  (bash-completion-setup))
 
 (global-set-key (kbd "C-z C-t") 'ansi-term)
 
