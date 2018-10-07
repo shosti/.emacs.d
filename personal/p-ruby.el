@@ -8,7 +8,6 @@
 (p-require-package 'ruby-compilation)
 (p-require-package 'projectile-rails 'melpa)
 (p-require-package 'inf-ruby)
-(p-require-package 'mmm-mode)
 (p-require-package 'haml-mode)
 
 (require 'p-wacspace)
