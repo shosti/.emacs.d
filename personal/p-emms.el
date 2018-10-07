@@ -9,7 +9,8 @@
   (p-add-hjkl-bindings emms-playlist-mode-map 'emacs)
   (add-to-list 'evil-motion-state-modes 'emms-browser-mode)
   (setq emms-player-list '(emms-player-mpd)
-        emms-info-functions '(emms-info-mpd))
+        emms-info-functions '(emms-info-mpd)
+        emms-browser-track-sort-function #'emms-sort-natural-order-less-p)
 
   (setq emms-player-mpd-music-directory "/mnt/media/Media/Music"))
 
