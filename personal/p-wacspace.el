@@ -147,27 +147,27 @@
    (:winconf 1win)
    (:run p-term-right)))
 
-(defwacspace (ruby-mode projectile-rails-mode)
-  (:before (lambda ()
-             (p-guard)
-             (p-rails-console)))
-  (:base-file "Gemfile")
-  (:after-switch p-set-up-ruby-env)
-  (:default
-   (:winconf 3winv)
-   (:aux2 p-rails-console))
-  (:2
-   (:winconf 2winv)
-   (:aux1 projectile-toggle-between-implementation-and-test))
-  (:3
-   (:winconf 2winv)
-   (:aux1 p-guard))
-  (:5
-   (:winconf 2winh)
-   (:aux1 p-rails-console))
-  (:8
-   (:winconf 2winh)
-   (:aux1 p-rails-console)))
+;; (defwacspace (ruby-mode projectile-rails-mode)
+;;   (:before (lambda ()
+;;              (p-guard)
+;;              (p-rails-console)))
+;;   (:base-file "Gemfile")
+;;   (:after-switch p-set-up-ruby-env)
+;;   (:default
+;;    (:winconf 3winv)
+;;    (:aux2 p-rails-console))
+;;   (:2
+;;    (:winconf 2winv)
+;;    (:aux1 projectile-toggle-between-implementation-and-test))
+;;   (:3
+;;    (:winconf 2winv)
+;;    (:aux1 p-guard))
+;;   (:5
+;;    (:winconf 2winh)
+;;    (:aux1 p-rails-console))
+;;   (:8
+;;    (:winconf 2winh)
+;;    (:aux1 p-rails-console)))
 
 (defwacspace go-mode
   (:before go-scratch)
@@ -187,22 +187,22 @@
    (:winconf 2winv)
    (:aux1 projectile-toggle-between-implementation-and-test)))
 
-(defwacspace ruby-mode
-  (:before (lambda ()
-             (p-guard)
-             (run-ruby)))
-  (:default
-   (:winconf 3winv)
-   (:aux2 "*ruby*"))
-  (:2
-   (:winconf 3winv)
-   (:aux1 projectile-toggle-between-implementation-and-test))
-  (:3
-   (:winconf 2win :2 v)
-   (:aux1 p-guard))
-  (:5
-   (:winconf 2winh)
-   (:aux1 "*ruby*")))
+;; (defwacspace ruby-mode
+;;   (:before (lambda ()
+;;              (p-guard)
+;;              (run-ruby)))
+;;   (:default
+;;    (:winconf 3winv)
+;;    (:aux2 "*ruby*"))
+;;   (:2
+;;    (:winconf 3winv)
+;;    (:aux1 projectile-toggle-between-implementation-and-test))
+;;   (:3
+;;    (:winconf 2win :2 v)
+;;    (:aux1 p-guard))
+;;   (:5
+;;    (:winconf 2winh)
+;;    (:aux1 "*ruby*")))
 
 (defwacspace python-mode
   (:before (lambda () (run-python python-shell-interpreter t)))
@@ -213,15 +213,15 @@
    (:winconf 2winh)
    (:aux1 "*Python")))
 
-(defwacsaliases ((html-erb-mode projectile-rails-mode)
-                 (haml-mode projectile-rails-mode)
-                 (js-mode projectile-rails-mode)
-                 (coffee-mode projectile-rails-mode)
-                 (scss-mode projectile-rails-mode)
-                 (css-mode projectile-rails-mode)
-                 (feature-mode projectile-rails-mode)
-                 (web-mode projectile-rails-mode))
-  (ruby-mode projectile-rails-mode))
+;; (defwacsaliases ((html-erb-mode projectile-rails-mode)
+;;                  (haml-mode projectile-rails-mode)
+;;                  (js-mode projectile-rails-mode)
+;;                  (coffee-mode projectile-rails-mode)
+;;                  (scss-mode projectile-rails-mode)
+;;                  (css-mode projectile-rails-mode)
+;;                  (feature-mode projectile-rails-mode)
+;;                  (web-mode projectile-rails-mode))
+;;   (ruby-mode projectile-rails-mode))
 
 (defwacspace scala-mode
   (:before (lambda ()
