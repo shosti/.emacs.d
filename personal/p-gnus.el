@@ -18,7 +18,8 @@
 
 (setq gnus-expert-user t
       gnus-select-method '(nntp "news.gmane.org")
-      gnus-startup-file (concat user-emacs-directory ".newsrc")
+      gnus-home-directory (expand-file-name "~/Sync/gnus")
+      gnus-backup-startup-file t
       gnus-group-sort-function #'gnus-group-sort-by-rank
       gnus-gcc-mark-as-read t
       gnus-agent-queue-mail nil
