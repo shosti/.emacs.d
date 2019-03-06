@@ -3,6 +3,8 @@
 (require 'p-evil)
 (require 's)
 
+(require 'emms-auto)
+
 (with-eval-after-load 'emms
   (require 'emms-setup)
   (emms-all)
@@ -13,29 +15,7 @@
 
   (setq emms-player-mpd-music-directory "/mnt/media/Media/Music")
 
-  (add-hook 'emms-browser-mode-hook #'p-set-up-emms-browser-mode)
-
-  ;; Horrible bug where disc numbers don't get parsed; here's a hack to get around it until it's fixed
-  (defun emms-info-mpd-process (track info)
-    (dolist (data info)
-      (let ((name (car data))
-            (value (cdr data)))
-        (setq name (cond ((string= name "artist") 'info-artist)
-                         ((string= name "composer") 'info-composer)
-                         ((string= name "performer") 'info-performer)
-                         ((string= name "title") 'info-title)
-                         ((string= name "album") 'info-album)
-                         ((string= name "track") 'info-tracknumber)
-                         ((string= name "date") 'info-year)
-                         ((string= name "genre") 'info-genre)
-                         ((string= name "disc") 'info-discnumber)
-                         ((string= name "time")
-                          (setq value (string-to-number value))
-                          'info-playing-time)
-                         (t nil)))
-        (when name
-          (emms-track-set track name value)))))
-  )
+  (add-hook 'emms-browser-mode-hook #'p-set-up-emms-browser-mode))
 
 (defun p-set-up-emms-browser-mode ()
   (evil-motion-state 1))
