@@ -4,19 +4,11 @@
 
 (require 'p-gnus)
 
-(setq display-time-day-and-date t
+(setq display-time-day-and-date nil
       display-time-default-load-average nil
       display-time-mail-function #'p-unread-mail-p
       display-time-mail-string "✉"
       battery-mode-line-format " [%b%p%% (%t)]")
-
-(display-time-mode 1)
-(unless (getenv "DESKTOP")
-  (display-battery-mode 1))
-
-
-(with-eval-after-load 'mu4e
-  (advice-add 'mu4e-quit :after #'display-time-update))
 
 (require 'diminish)
 
