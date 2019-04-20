@@ -223,25 +223,6 @@
 ;;                  (web-mode projectile-rails-mode))
 ;;   (ruby-mode projectile-rails-mode))
 
-(defwacspace scala-mode
-  (:before (lambda ()
-             (ensime-sbt)
-             (ensime-inf-switch)))
-  (:base-file ".ensime")
-  (:default
-   (:winconf 3winv)
-   (:aux1 p-scala-test-file)
-   (:aux2 "*ensime-sbt*"))
-  (:2
-   (:winconf 2winv)
-   (:aux1 p-scala-test-file))
-  (:3
-   (:winconf 2winv)
-   (:aux1 "*ensime-inferior-scala*"))
-  (:5
-   (:aux1 "*ensime-inferior-scala*"))
-  (:8
-   (:aux1 "*ensime-inferior-scala*")))
 
 (defwacspace (feature-mode
               (lambda ()
