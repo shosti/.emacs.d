@@ -78,6 +78,8 @@
 (define-key evil-motion-state-map (kbd "<return>") nil)
 (define-key evil-motion-state-map (kbd "RET") nil)
 (define-key evil-motion-state-map (kbd "SPC") nil)
+(define-key evil-normal-state-map (kbd "C-c +") #'evil-numbers/inc-at-pt)
+(define-key evil-normal-state-map (kbd "C-c -") #'evil-numbers/dec-at-pt)
 
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 (key-chord-define evil-visual-state-map "jk" 'evil-exit-visual-state)
