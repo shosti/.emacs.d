@@ -69,6 +69,8 @@ newlines. This should fix it."
 
 (add-hook 'erc-mode-hook #'p-set-up-erc)
 
+(p-set-leader-key "j" #'p-switch-to-room)
+
 (provide 'p-erc)
 
 ;;; p-erc.el ends here
