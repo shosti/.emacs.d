@@ -1,5 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'bbdb 'gnu)
+
 (require 'p-options)
 (require 'p-evil)
 (require 'p-leader)
