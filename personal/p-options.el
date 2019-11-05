@@ -174,7 +174,8 @@ With a prefix ARG always prompt for command to use."
     (unless (file-exists-p (concat user-init-file "c"))
       (byte-compile-file user-init-file))))
 
-(add-hook 'kill-emacs-hook 'p-kill-emacs-hook)
+(unless noninteractive
+  (add-hook 'kill-emacs-hook 'p-kill-emacs-hook))
 
 ;; Hack to prevent excess garbage collection
 (defun p-prevent-gc ()
