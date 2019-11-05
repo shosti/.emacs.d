@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'clojure-mode)
+(p-require-package 'queue 'gnu)
+(p-require-package 'spinner 'gnu)
 (p-require-package 'cider)
 
 (require 'p-functions)
