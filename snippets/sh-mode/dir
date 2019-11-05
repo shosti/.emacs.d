@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dir
+# key: dir
+# --
+DIR="$( cd "$( dirname "\${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
+$0
