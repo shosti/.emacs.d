@@ -195,14 +195,14 @@
    (:aux1 projectile-toggle-between-implementation-and-test)
    (:aux2 wacs-shell)))
 
-(defwacspace python-mode
-  (:before (lambda () (run-python python-shell-interpreter t)))
-  (:default
-   (:winconf 3winv)
-   (:aux2 "*Python"))
-  (:5
-   (:winconf 2winh)
-   (:aux1 "*Python")))
+;; (defwacspace python-mode
+;;   (:before (lambda () (run-python python-shell-interpreter t)))
+;;   (:default
+;;    (:winconf 3winv)
+;;    (:aux2 "*Python"))
+;;   (:5
+;;    (:winconf 2winh)
+;;    (:aux1 "*Python")))
 
 ;; (defwacsaliases ((html-erb-mode projectile-rails-mode)
 ;;                  (haml-mode projectile-rails-mode)
