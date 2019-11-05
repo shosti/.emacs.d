@@ -3,3 +3,7 @@
 # key: sheb
 # --
 #!/usr/bin/env bash
+
+set -euo pipefail
+
+$0
