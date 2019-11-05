@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'flycheck)
-(p-require-package 'flycheck-package)
+;(p-require-package 'flycheck-package)
 
 (provide 'p-flycheck)
 

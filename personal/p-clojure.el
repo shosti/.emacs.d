@@ -1,7 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
 (p-require-package 'clojure-mode)
-(p-require-package 'cider)
+;; (p-require-package 'cider)
 
 (require 'p-functions)
 (require 'p-lisp)

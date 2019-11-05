@@ -16,7 +16,8 @@ it to exec-path and the PATH variable"
     (interactive)
     (p-path-from-file "~/.path"))
 
-  (p-update-path))
+ ; (p-update-path)
+  )
 
 
 

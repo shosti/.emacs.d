@@ -2,6 +2,7 @@
 (p-require-package 'flx)
 (p-require-package 'flx-ido)
 (p-require-package 'smex)
+(p-require-package 'ido-completing-read+)
 
 (require 'p-leader)
 (require 'smex)
