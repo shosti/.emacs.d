@@ -6,7 +6,7 @@
 (p-require-package 'ruby-tools)
 (p-require-package 'ruby-end)
 (p-require-package 'ruby-compilation)
-(p-require-package 'projectile-rails 'melpa)
+(p-require-package 'projectile-rails)
 (p-require-package 'inf-ruby)
 (p-require-package 'haml-mode)
 
@@ -128,13 +128,12 @@ window."
 
 (add-hook 'inf-ruby-mode-hook 'p-set-up-inf-ruby-mode)
 
-(add-hook 'projectile-mode-hook 'projectile-rails-on)
-
 ;;;;;;;;;;;;;;;;;
 ;; Keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
 (with-eval-after-load 'ruby-mode
+  (projectile-rails-global-mode 1)
   (define-key ruby-mode-map
     (kbd "C-c C-c")
     'p-ruby-send-buffer))

@@ -146,27 +146,27 @@
    (:winconf 1win)
    (:run p-term-right)))
 
-;; (defwacspace (ruby-mode projectile-rails-mode)
-;;   (:before (lambda ()
-;;              (p-guard)
-;;              (p-rails-console)))
-;;   (:base-file "Gemfile")
-;;   (:after-switch p-set-up-ruby-env)
-;;   (:default
-;;    (:winconf 3winv)
-;;    (:aux2 p-rails-console))
-;;   (:2
-;;    (:winconf 2winv)
-;;    (:aux1 projectile-toggle-between-implementation-and-test))
-;;   (:3
-;;    (:winconf 2winv)
-;;    (:aux1 p-guard))
-;;   (:5
-;;    (:winconf 2winh)
-;;    (:aux1 p-rails-console))
-;;   (:8
-;;    (:winconf 2winh)
-;;    (:aux1 p-rails-console)))
+(defwacspace (ruby-mode projectile-rails-mode)
+  (:before (lambda ()
+             (p-guard)
+             (p-rails-console)))
+  (:base-file "Gemfile")
+  (:after-switch p-set-up-ruby-env)
+  (:default
+   (:winconf 3winv)
+   (:aux2 p-rails-console))
+  (:2
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test))
+  (:3
+   (:winconf 2winv)
+   (:aux1 p-guard))
+  (:5
+   (:winconf 2winh)
+   (:aux1 p-rails-console))
+  (:8
+   (:winconf 2winh)
+   (:aux1 p-rails-console)))
 
 (defwacspace go-mode
   (:before go-scratch)
