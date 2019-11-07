@@ -41,7 +41,7 @@
       auth-sources '("~/.netrc.gpg"))
 
 (when (eq system-type 'gnu/linux)
-  (setq browse-url-browser-function 'browse-url-chromium))
+  (setq browse-url-browser-function 'browse-url-default-browser))
 
 (setq-default imenu-auto-rescan t)
 
