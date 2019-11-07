@@ -22,8 +22,6 @@
 
 (advice-add #'server-handle-delete-frame :before #'p-handle-delete-frame)
 
-(advice-add #'wacspace :before #'direnv)
-
 ;;;;;;;;;;;;;;;;;;;;;;
 ;; Helper Functions ;;
 ;;;;;;;;;;;;;;;;;;;;;;
