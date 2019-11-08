@@ -53,6 +53,4 @@
     (message "Compiling and exiting...")
     (byte-recompile-directory p-dir 0)
     (byte-compile-file (concat user-emacs-directory "init.el"))
-    (kill-emacs))
-
-  (toggle-frame-fullscreen))
+    (kill-emacs)))
