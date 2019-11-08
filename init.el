@@ -45,7 +45,7 @@
                           :background "yellow")
     (server-start))
 
-  (eshell)
+  (shell)
   (message "Emacs ready!")
   (message "Total elapsed: %s" (float-time (time-subtract (current-time) t-start)))
 
