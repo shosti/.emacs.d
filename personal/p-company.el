@@ -15,12 +15,6 @@
 
 (add-hook 'prog-mode-hook #'p-company-prog-mode-hook)
 
-(with-eval-after-load 'company
-  ;; Company is pretty darn slow by default...
-  (setq company-backends
-        '(company-bbdb company-files company-emoji))
-  (company-statistics-mode 1))
-
 ;; Use control for all special keys, and make company non-intrusive
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)

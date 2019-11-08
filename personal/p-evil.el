@@ -14,8 +14,7 @@
 (require 'evil)
 (require 'evil-surround)
 
-(setq evil-default-cursor t
-      evil-lookup-func 'dash-at-point)
+(setq evil-default-cursor t)
 
 (customize-set-variable 'evil-want-C-u-scroll t)
 
