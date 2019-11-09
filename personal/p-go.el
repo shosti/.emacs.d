@@ -1,7 +1,7 @@
 (require 'p-company)
 
 (p-require-package 'go-mode)
-(p-require-package 'company-go)
+(p-require-package 'company-go 'melpa)
 (p-require-package 'go-eldoc)
 (p-require-package 'go-scratch)
 
