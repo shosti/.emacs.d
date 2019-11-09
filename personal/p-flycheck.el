@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'flycheck)
+(p-require-package 'flycheck 'melpa)
 
 (provide 'p-flycheck)
 
