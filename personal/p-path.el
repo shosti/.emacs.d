@@ -2,7 +2,8 @@
 
 (unless (eq system-type 'windows-nt)
   (defvar path-extra
-    '("~/.cargo/bin"
+    '("~/go/bin"
+      "~/.cargo/bin"
       "~/.asdf/bin"
       "~/.asdf/shims"
       "~/.poetry/bin"))
