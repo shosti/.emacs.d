@@ -4,6 +4,7 @@
 (require 'p-evil)
 
 (p-require-package 'lsp-mode)
+(p-require-package 'lsp-ui)
 (p-require-package 'company-lsp)
 
 (setq lsp-prefer-flymake nil
