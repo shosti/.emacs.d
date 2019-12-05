@@ -5,7 +5,7 @@
 (defconst full-height 53)
 (defconst thin-width 82)
 (defconst at-top 22)
-(defvar main-font "Noto Sans Mono-11")
+(defvar main-font "Fira Code-12")
 (defvar symbola-font (if (eq system-type 'gnu/linux)
                          (font-spec :name "Symbola" :size 15)
                        "Symbola-14"))
