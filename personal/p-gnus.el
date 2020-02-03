@@ -19,7 +19,7 @@
 (p-load-private "gnus-settings.el")
 
 (setq gnus-expert-user t
-      gnus-select-method '(nntp "news.gmane.org")
+      gnus-select-method '(nntp "news.gmane.io")
       gnus-backup-startup-file t
       gnus-group-sort-function #'gnus-group-sort-by-rank
       gnus-gcc-mark-as-read t
