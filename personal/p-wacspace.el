@@ -183,8 +183,9 @@
    (:winconf 3winv)
    (:aux2 p-elixir-console))
   (:2
-   (:winconf 2winv)
-   (:aux1 projectile-toggle-between-implementation-and-test)))
+   (:winconf 3winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 wacs-shell)))
 
 (defwacspace ruby-mode
   (:default
