@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'htmlize)
+(p-require-package 'ox-reveal 'melpa)
 
 (require 'p-evil)
 (require 'p-leader)
