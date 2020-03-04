@@ -56,3 +56,4 @@ url
 /newsticker/feeds/Emacs Wiki/data
 /history
 /.lsp-session-v1
+/org-clock-save.el

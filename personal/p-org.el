@@ -20,16 +20,18 @@
       org-export-with-section-numbers nil
       org-export-with-author nil
       org-export-with-creator nil
-      org-html-postamble nil)
+      org-html-postamble nil
+      org-clock-persist t)
 
 (with-eval-after-load 'org
   (require 'ox-reveal)
   (require 'ox-md)
+  (require 'org-clock)
+  (org-clock-persistence-insinuate)
   (add-to-list 'org-structure-template-alist
                '("se"
                  "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
                  "<SRC lang=\"emacs-lisp\">\n\n</src>"))
-
   (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
 
 (with-eval-after-load 'org-agenda
