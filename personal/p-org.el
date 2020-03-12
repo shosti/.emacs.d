@@ -99,7 +99,9 @@ point to the divide between the definitions and examples."
   (let ((ido-use-filename-at-point nil))
     (ido-find-file-in-dir org-directory)))
 
-;(defadvice)
+(defun p-org-open-work-file ()
+  (interactive)
+  (find-file (expand-file-name "~/org/work.org")))
 
 ;; Keybindings
 ;;
@@ -126,10 +128,13 @@ point to the divide between the definitions and examples."
 
 (p-set-leader-key
   "o" (make-sparse-keymap)
-  "oc" 'org-capture
-  "oa" 'org-agenda
-  "of" 'p-find-org-file
-  "ol" 'org-store-link)
+  "oc" #'org-capture
+  "oa" #'org-agenda
+  "of" #'p-find-org-file
+  "ol" #'org-store-link
+  "oww" #'p-org-open-work-file
+  "owo" #'org-clock-out
+  "owi" #'org-clock-in-last)
 
 (provide 'p-org)
 
