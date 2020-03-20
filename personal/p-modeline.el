@@ -6,7 +6,6 @@
 
 (setq display-time-day-and-date nil
       display-time-default-load-average nil
-      display-time-mail-function #'p-unread-mail-p
       display-time-mail-string "✉"
       battery-mode-line-format " [%b%p%% (%t)]")
 
