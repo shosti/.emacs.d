@@ -63,6 +63,8 @@
   (interactive)
   (insert (format-time-string "%F" (current-time))))
 
+(p-set-leader-key "d" #'p-insert-date)
+
 (defun p-backward-kill-word (arg)
   "If the region is active, kills region.  Otherwise, backwards kills word."
   (interactive "p")

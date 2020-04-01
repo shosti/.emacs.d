@@ -110,9 +110,6 @@ window."
     (switch-to-buffer buffer)
     (setq-local comint-process-echoes t)))
 
-;; TODO: debug for different modes
-(p-set-leader-key "d" 'p-run-remote-pry)
-
 (defun p-set-up-haml-mode ()
   (eldoc-mode 0))
 
