@@ -146,8 +146,7 @@
   "V" #'evil-visual-line
   "y" #'evil-yank)
 (p-add-hjkl-bindings gnus-group-mode-map 'emacs
-  "q" #'gnus-group-suspend ; to prevent restarting all the time
-  "Q" #'gnus-group-exit
+  "q" #'gnus-group-exit
   "l" #'gnus-group-list-groups
   "Gj" #'gnus-group-jump-to-group)
 
