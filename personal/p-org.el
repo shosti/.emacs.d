@@ -28,11 +28,8 @@
   (require 'ox-reveal)
   (require 'ox-md)
   (require 'org-clock)
+  (require 'org-tempo)
   (org-clock-persistence-insinuate)
-  (add-to-list 'org-structure-template-alist
-               '("se"
-                 "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"
-                 "<SRC lang=\"emacs-lisp\">\n\n</src>"))
   (org-defkey org-mode-map [(meta return)] 'p-org-meta-return))
 
 (with-eval-after-load 'org-agenda
