@@ -91,7 +91,8 @@
           magit-process-mode
           diff-mode
           image-mode
-          cider-test-report-mode)
+          cider-test-report-mode
+          xref--xref-buffer-mode)
   (add-to-list 'evil-motion-state-modes it))
 
 (evil-mode 1)
