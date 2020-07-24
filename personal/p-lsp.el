@@ -36,8 +36,6 @@
 (add-hook 'lsp-mode-hook #'lsp-ui-mode)
 (add-hook 'lsp-ui-mode-hook #'p-set-up-lsp-ui)
 
-(add-hook 'go-mode-hook #'lsp-deferred)
-
 (provide 'p-lsp)
 
 ;;; p-lsp.el ends here
