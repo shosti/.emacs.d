@@ -16,7 +16,8 @@
   (setq-local p-test-runner #'p-go-test)
   (company-mode-on)
   (when buffer-file-name
-    (flycheck-mode 1))
+    (flycheck-mode 1)
+    (setq-local company-backends '(company-go)))
   (electric-pair-mode 1))
 
 (add-hook 'go-mode-hook #'p-set-up-go)
