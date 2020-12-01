@@ -34,8 +34,6 @@
                   (p-keep-until-regexp fname "\.el$"))
                 (p-list-elisp-files p-dir)))
 
-  (load-theme 'tomorrow-night t)
-
   (load-file (concat p-private-dir "private.el"))
 
   (require 'server)
