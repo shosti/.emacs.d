@@ -9,7 +9,6 @@
       projectile-test-prefix-function #'p-projectile-test-prefix)
 
 (with-eval-after-load 'projectile
-  (add-to-list 'projectile-project-root-files-top-down-recurring "BUILD.bazel")
   (projectile-register-project-type 'elixir '("mix.exs")))
 
 (defun p-projectile-test-suffix (project-type)
