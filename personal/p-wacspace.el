@@ -60,10 +60,14 @@
     (switch-to-buffer buffer)
     (compilation-shell-minor-mode 1)))
 
+(defun p-watch ()
+  (interactive)
+  (p-compilation-buffer "watch" (concat (wacs-project-dir) "bin/watch")))
+
 (defun p-find-first-matching-file (name dir)
   (--if-let (-> name
-              (findr dir)
-              (car))
+                (findr dir)
+                (car))
       (find-file it)
     (wacs-shell)))
 
@@ -174,8 +178,9 @@
    (:winconf 3winv)
    (:aux2 "*go-scratch*"))
   (:2
-   (:winconf 2winv)
-   (:aux1 projectile-toggle-between-implementation-and-test)))
+   (:winconf 3winv)
+   (:aux1 projectile-toggle-between-implementation-and-test)
+   (:aux2 p-watch)))
 
 (defwacspace elixir-mode
   (:before p-elixir-console)
