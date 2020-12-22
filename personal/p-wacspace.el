@@ -178,9 +178,11 @@
    (:winconf 3winv)
    (:aux2 "*go-scratch*"))
   (:2
-   (:winconf 3winv)
-   (:aux1 projectile-toggle-between-implementation-and-test)
-   (:aux2 p-watch)))
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test))
+  (:3
+   (:winconf 2winv)
+   (:aux1 p-watch)))
 
 (defwacspace elixir-mode
   (:before p-elixir-console)
