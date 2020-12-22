@@ -5,10 +5,10 @@
 (p-require-package 'prettier-js 'melpa)
 
 (defun p-set-up-web-mode-tsx ()
-  (when (string-equal "tsx" (file-name-extension buffer-file-name))
+  (when (string-match-p "tsx?" (file-name-extension buffer-file-name))
     (prettier-js-mode 1)))
 
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
 
 (with-eval-after-load 'web-mode
   (add-hook 'web-mode-hook #'add-node-modules-path)
