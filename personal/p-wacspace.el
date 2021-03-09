@@ -184,6 +184,17 @@
    (:winconf 2winv)
    (:aux1 p-watch)))
 
+(defwacspace rego-mode
+  (:default
+   (:winconf 2winv)
+   (:aux1 wacs-shell))
+  (:2
+   (:winconf 2winv)
+   (:aux1 projectile-toggle-between-implementation-and-test))
+  (:3
+   (:winconf 2winv)
+   (:aux1 p-watch)))
+
 (defwacspace elixir-mode
   (:before p-elixir-console)
   (:default
