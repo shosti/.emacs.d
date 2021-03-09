@@ -2,4 +2,4 @@
 # name: p
 # key: p
 # --
-fmt.Println("${1:$(upcase yas-text)}", $1)
+fmt.Printf("${1:$(upcase yas-text)}: %+v\n", $1)
