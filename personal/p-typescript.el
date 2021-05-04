@@ -6,6 +6,7 @@
 
 (defun p-set-up-web-mode-tsx ()
   (when (string-match-p "tsx?" (file-name-extension buffer-file-name))
+    (flycheck-mode 1)
     (prettier-js-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
@@ -16,6 +17,9 @@
 
 (with-eval-after-load 'typescript-mode
   (add-hook 'typescript-mode-hook #'prettier-js-mode))
+
+(with-eval-after-load 'flycheck
+  (flycheck-add-mode 'javascript-eslint 'web-mode))
 
 (provide 'p-typescript)
 
