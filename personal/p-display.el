@@ -13,46 +13,8 @@
 (defun p-set-up-fonts ()
   ;; Source code pro
   (add-to-list 'default-frame-alist (cons 'font main-font))
-  ;; Use Cambria Math as a fallback for math symbols
-  (set-fontset-font t 'symbol symbola-font)
-  ;; Droid Sans Mono has good Greek support and most of the equality
-  ;; operators, plus a few other symbols
-  (--each (list 'greek
-                #x2014
-                ;; curly-quotes
-                (cons (decode-char 'ucs #x2018)                      ; ‘
-                      (decode-char 'ucs #x201d))                     ; ”
-                ;; equality
-                (cons (decode-char 'ucs #x2260)                      ; ≠
-                      (decode-char 'ucs #x2265))                     ; ≥
-                ;; subscript
-                (cons (decode-char 'ucs #x2080)                      ; ₀
-                      (decode-char 'ucs #x2084))                     ; ₄
-                ;; sum/product
-                (cons (decode-char 'ucs #x220f)                      ; ∏
-                      (decode-char 'ucs #x221a))                     ; √
-                (decode-char 'ucs #x2026))                           ; …
-    (set-fontset-font t it main-font))
-
-  ;; A smattering of other symbols require Symbola
-  (--each '(#x2025                                                   ; ‥
-            #x2218                                                   ; ∘
-            #x2987                                                   ; ⦇
-            #x2988                                                   ; ⦈
-            #x29f5                                                   ; ⧵
-            #x29fa                                                   ; ⧺
-            #x29fb                                                   ; ⧻
-            #x2a75                                                   ; ⩵
-            #x2a76                                                   ; ⩶
-            #x2af4                                                   ; ⫴
-            #x2502
-            #x2570
-            #x251c)
-    (set-fontset-font t (decode-char 'ucs it) symbola-font))
-
-  ;; triangles
-  (set-fontset-font t (cons (decode-char 'ucs #x25b2)                ; ▲
-                            (decode-char 'ucs #x25c5)) symbola-font)); ◅
+  ;; EMOJI 💥💥💥
+  (set-fontset-font t 'symbol "Noto Color Emoji" nil 'append))
 
 (add-to-list 'default-frame-alist `(height . ,full-height))
 (add-to-list 'default-frame-alist '(width . 155))
