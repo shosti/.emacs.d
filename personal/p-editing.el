@@ -18,8 +18,11 @@
               indent-tabs-mode nil
               tab-width 2
               fill-column 80
+              bidi-paragraph-direction 'left-to-right
               create-lockfiles nil)
+(setq bidi-inhibit-bpa t)
 (auto-fill-mode 0)
+(global-so-long-mode 1)
 
 (defun p-set-up-text-mode ()
   (auto-fill-mode 1)
