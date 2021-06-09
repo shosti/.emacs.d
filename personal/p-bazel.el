@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'bazel-mode 'melpa)
+(p-require-package 'bazel 'melpa)
 
 ;; Stolen from https://github.com/brown/bazel-mode/blob/master/bazel-mode.el
 (defun p-starlark-file-type (file-name)
