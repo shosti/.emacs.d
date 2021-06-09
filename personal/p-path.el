@@ -9,6 +9,9 @@
       "~/.asdf/shims"
       "~/.poetry/bin"))
 
+  (when (eq system-type 'darwin)
+    (add-to-list 'path-extra "/opt/homebrew/bin" t))
+
   (setq exec-path
         (append (mapcar #'expand-file-name path-extra)
                 exec-path))
