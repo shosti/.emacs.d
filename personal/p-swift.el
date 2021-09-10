@@ -33,6 +33,7 @@
 (defun p-set-up-swift ()
   (when (eq system-type 'darwin)
     (lsp)
+    (setq company-backends '(company-capf))
     (add-hook 'before-save-hook #'p-swift-format-buffer)))
 
 (add-hook 'swift-mode-hook #'p-set-up-swift)
