@@ -2,19 +2,14 @@
 
 (require 'p-evil)
 
-(add-to-list 'evil-motion-state-modes 'ein:notebooklist-mode)
+(p-require-package 'websocket 'melpa)
+(p-require-package 'jupyter 'melpa)
 
-(defun p-set-up-python-mode ()
-  (electric-indent-mode 0))
-
-(defun p-py-newline-and-indent ()
-  (interactive)
-  (if (bolp)
-      (newline)
-    (newline-and-indent)))
-
-(with-eval-after-load 'python-mode
-  (add-hook 'python-mode-hook 'p-set-up-python-mode)
-  (define-key python-mode-map (kbd "RET") 'p-py-newline-and-indent))
+(with-eval-after-load 'org
+  (org-babel-do-load-languages 'org-babel-load-languages
+                               '((emacs-lisp . t)
+                                 (python . t)
+                                 (jupyter . t)))
+  (add-to-list 'org-src-lang-modes '("jupyter" . python)))
 
 (provide 'p-python)

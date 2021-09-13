@@ -11,7 +11,9 @@
       org-agenda-files (concat org-directory "/agenda.org")
       org-list-allow-alphabetical t
       org-startup-indented t
+      org-confirm-babel-evaluate nil
       org-src-fontify-natively t
+      org-src-tab-acts-natively t
       org-footnote-auto-adjust t
       org-irc-link-to-logs t
       org-todo-keywords '((sequence "☛ TODO(t)" "|" "DONE(d)")
