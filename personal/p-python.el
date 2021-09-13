@@ -14,6 +14,8 @@
                                '((emacs-lisp . t)
                                  (python . t)
                                  (jupyter . t)))
-  (add-to-list 'org-src-lang-modes '("jupyter" . python)))
+  (add-to-list 'org-src-lang-modes '("jupyter" . python))
+  (add-to-list 'org-structure-template-alist
+               '("j" . "src jupyter")))
 
 (provide 'p-python)
