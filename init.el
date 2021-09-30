@@ -9,8 +9,7 @@
                        (concat user-emacs-directory "private/")))
 
 ;; Performance hacks
-(let ((gc-cons-threshold most-positive-fixnum)
-      (file-name-handler-alist nil))
+(let ((file-name-handler-alist nil))
   (add-to-list 'load-path p-dir)
   (add-to-list 'load-path p-opt-dir)
 

@@ -177,15 +177,10 @@ With a prefix ARG always prompt for command to use."
 (unless noninteractive
   (add-hook 'kill-emacs-hook 'p-kill-emacs-hook))
 
-;; Hack to prevent excess garbage collection
-(defun p-prevent-gc ()
-  (setq gc-cons-threshold most-positive-fixnum))
-
-(defun p-enable-gc ()
-  (setq gc-cons-threshold 800000))
-
-(add-hook 'minibuffer-setup-hook #'p-prevent-gc)
-(add-hook 'minibuffer-exit-hook #'p-enable-gc)
+;; Miscellaneous performance hacks, see
+;; https://emacs-lsp.github.io/lsp-mode/page/performance/
+(setq gc-cons-threshold 100000000
+      read-process-output-max (* 1024 1024))
 
 
 (provide 'p-options)
