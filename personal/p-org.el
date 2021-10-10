@@ -13,6 +13,7 @@
       org-list-allow-alphabetical t
       org-startup-indented t
       org-confirm-babel-evaluate nil
+      org-edit-src-content-indentation 0
       org-src-fontify-natively t
       org-src-tab-acts-natively t
       org-footnote-auto-adjust t
