@@ -5,7 +5,11 @@
 
 (require 'p-evil)
 
-(setq lsp-ui-doc-show-with-cursor nil)
+(setq lsp-ui-doc-show-with-cursor nil
+      lsp-ui-doc-delay 0
+      lsp-ui-doc-alignment 'window
+      lsp-ui-doc-max-height 500
+      lsp-ui-doc-max-width 100)
 
 (defun p-lsp-ui-doc-toggle ()
   (interactive)
