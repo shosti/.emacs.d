@@ -7,6 +7,7 @@
 (setq rust-format-on-save nil)
 
 (defun p-set-up-rust ()
+  (setq company-backends '(company-capf))
   (lsp))
 
 (with-eval-after-load 'rust-mode
