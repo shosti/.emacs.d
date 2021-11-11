@@ -10,7 +10,6 @@
       lsp-ui-doc-alignment 'window
       lsp-ui-doc-max-height 500
       lsp-ui-doc-max-width 100
-      lsp-ui-sideline-enable nil
       lsp-keymap-prefix "C-c s")
 
 (defun p-lsp-ui-doc-toggle ()
