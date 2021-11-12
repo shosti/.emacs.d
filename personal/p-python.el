@@ -3,6 +3,7 @@
 (require 'p-evil)
 
 (p-require-package 'websocket 'melpa)
+(p-require-package 'zmq 'melpa)
 (p-require-package 'jupyter 'melpa)
 
 (setq org-babel-default-header-args:jupyter '((:async . "yes")
