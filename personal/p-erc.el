@@ -28,7 +28,7 @@
 
 (defun p-erc-connect ()
   (interactive)
-  (erc :server "irc.freenode.net"))
+  (erc :server "irc.libera.chat"))
 
 (defun p-erc-rooms ()
   "Return a list of erc buffers."
