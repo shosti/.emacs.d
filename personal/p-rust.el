@@ -15,7 +15,7 @@
   (lsp))
 
 (with-eval-after-load 'rust-mode
-  (evil-define-key 'normal 'rust-mode-map "J" #'lsp-rust-analyzer-join-lines)
+  (evil-define-key 'normal rust-mode-map "J" #'lsp-rust-analyzer-join-lines)
   (add-hook 'rust-mode-hook #'p-set-up-rust))
 
 (provide 'p-rust)
