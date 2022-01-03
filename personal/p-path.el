@@ -7,6 +7,7 @@
       "~/.cargo/bin"
       "~/.asdf/bin"
       "~/.asdf/shims"
+      "~/.local/bin"
       "~/.poetry/bin"))
 
   (when (eq system-type 'darwin)
