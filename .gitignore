@@ -58,3 +58,4 @@ url
 /.lsp-session-v1
 /org-clock-save.el
 /transient
+/.cache
