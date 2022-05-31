@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: assert
+# key: assert
+# --
+if $1 != $2 {
+   t.Errorf("$3: want %+v, got %+v", $2, $1)
+}
