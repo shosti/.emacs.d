@@ -2,7 +2,7 @@
 
 (p-require-package 'eldoc 'gnu)
 
-(setq eldoc-echo-area-use-multiline-p nil)
+(setq eldoc-echo-area-use-multiline-p 5)
 
 ;; Annoying hack to get motion states working (since eldoc buffer uses fundamental mode)
 (defun p-eldoc-doc-buffer-setup (&optional interactive)
