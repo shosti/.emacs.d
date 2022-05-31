@@ -9,6 +9,7 @@
 (p-require-package 'evil-paredit 'melpa)
 (p-require-package 'evil-matchit)
 (p-require-package 'evil-surround 'melpa)
+(p-require-package 'evil-numbers)
 
 (require 'undo-tree)
 (require 'evil)
