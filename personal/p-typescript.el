@@ -6,8 +6,7 @@
 
 (defun p-set-up-web-mode-tsx ()
   (when (string-match-p "tsx?" (file-name-extension buffer-file-name))
-    (flycheck-mode 1)
-    (lsp)))
+    (flycheck-mode 1)))
 
 (add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
 
