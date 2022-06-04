@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'idle-highlight-mode)
+(p-require-package 'idle-highlight-mode 'melpa)
 (p-require-package 'nlinum 'gnu)
 
 (require 'saveplace)
