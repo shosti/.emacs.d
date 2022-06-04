@@ -5,8 +5,6 @@
 (p-require-package 'git-commit)
 (p-require-package 'magit-popup)
 (p-require-package 'gh)
-(p-require-package 'gitconfig-mode)
-(p-require-package 'gitignore-mode)
 (p-require-package 'git-gutter)
 (p-require-package 'fringe-helper)
 (p-require-package 'git-gutter-fringe)
