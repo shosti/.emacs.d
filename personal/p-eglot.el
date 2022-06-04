@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 
-(p-require-package 'eglot)
+(p-require-package 'jsonrpc 'gnu)
+(p-require-package 'eglot 'gnu)
 
 (defun p-set-up-eglot ()
   ;; Get eldoc and flymake working together in harmony
