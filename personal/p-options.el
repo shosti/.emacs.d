@@ -5,6 +5,9 @@
 (p-require-package 'rainbow-mode 'gnu)
 (p-require-package 'request 'melpa)
 
+;; Spinner is a dependency of something but I'm not sure what...
+(p-require-package 'spinner 'gnu)
+
 (require 'p-path)
 (require 'uniquify)
 (require 'p-leader)
