@@ -8,6 +8,7 @@
 (p-require-package 'git-gutter)
 (p-require-package 'fringe-helper)
 (p-require-package 'git-gutter-fringe)
+(p-require-package 'git-modes)
 
 (require 'p-evil)
 (require 'p-leader)
