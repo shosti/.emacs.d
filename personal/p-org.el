@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'htmlize)
-(p-require-package 'org-plus-contrib 'org)
+(p-require-package 'org 'gnu)
 (p-require-package 'ox-reveal 'melpa)
 (p-require-package 'ob-async 'melpa)
 
