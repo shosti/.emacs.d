@@ -9,7 +9,8 @@
       projectile-test-prefix-function #'p-projectile-test-prefix)
 
 (with-eval-after-load 'projectile
-  (projectile-register-project-type 'elixir '("mix.exs")))
+  (projectile-register-project-type 'elixir '("mix.exs"))
+  (assq-delete-all 'make projectile-project-types))
 
 (defun p-projectile-test-suffix (project-type)
   "Find default test files suffix based on PROJECT-TYPE."
