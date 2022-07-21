@@ -15,7 +15,9 @@
 (require 'evil)
 (require 'evil-surround)
 
-(setq evil-default-cursor t)
+(setq evil-default-cursor t
+      ; See https://github.com/syl20bnr/spacemacs/issues/99
+      undo-tree-enable-undo-in-region nil)
 
 (customize-set-variable 'evil-want-C-u-scroll t)
 
