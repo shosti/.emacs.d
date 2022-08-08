@@ -17,7 +17,6 @@
   "n" 'p-cleanup-buffer
   "l" 'p-find-personal-file
   "L" 'p-find-private-file
-  "r" 'p-run-tests
   "R" 'p-rename-current-buffer-file
   "K" 'p-delete-current-buffer-file
   "t" 'toggle-debug-on-error

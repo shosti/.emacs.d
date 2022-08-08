@@ -8,7 +8,8 @@
   (setq-local eldoc-documentation-strategy #'eldoc-documentation-compose))
 
 (with-eval-after-load 'eglot
-  (add-hook 'eglot-managed-mode-hook #'p-set-up-eglot))
+  (add-hook 'eglot-managed-mode-hook #'p-set-up-eglot)
+  (p-set-leader-key "r" #'eglot-rename))
 
 (provide 'p-eglot)
 
