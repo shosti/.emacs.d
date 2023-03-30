@@ -172,10 +172,11 @@ With a prefix ARG always prompt for command to use."
 
 ;; recompile modules directory
 (defun p-kill-emacs-hook ()
-  (byte-recompile-directory p-dir 0)
-  (when user-init-file
-    (unless (file-exists-p (concat user-init-file "c"))
-      (byte-compile-file user-init-file))))
+  ;; (byte-recompile-directory p-dir 0)
+  ;; (when user-init-file
+  ;;   (unless (file-exists-p (concat user-init-file "c"))
+  ;;     (byte-compile-file user-init-file)))
+  )
 
 (unless noninteractive
   (add-hook 'kill-emacs-hook 'p-kill-emacs-hook))
