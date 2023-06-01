@@ -5,6 +5,8 @@
 
 (require 'saveplace)
 
+(setq undo-tree-history-directory-alist `(("." . ,(expand-file-name "~/.undo"))))
+
 (global-undo-tree-mode 1)
 (global-visual-line-mode 1)
 
