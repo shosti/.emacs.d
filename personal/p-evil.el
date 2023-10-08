@@ -20,6 +20,7 @@
       undo-tree-enable-undo-in-region nil)
 
 (customize-set-variable 'evil-want-C-u-scroll t)
+(customize-set-variable 'evil-undo-system 'undo-tree)
 
 (setq-default evil-symbol-word-search t
               evil-shift-width 2)
