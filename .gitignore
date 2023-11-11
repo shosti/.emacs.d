@@ -61,3 +61,4 @@ url
 /.cache
 /eln-cache/
 /tree-sitter/
+/quelpa/
