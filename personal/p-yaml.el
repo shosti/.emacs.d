@@ -1,11 +1,11 @@
-;;; -*- lexical-binding: t -*-
-(p-require-package 'yaml-mode 'melpa)
+(require 'p-programming)
 
-(defun p-yaml-hook ()
-  (auto-fill-mode 0))
+(use-package yaml-ts-mode
+  :init
+  (add-hook 'yaml-ts-mode-hook #'p-set-up-yaml))
 
-(with-eval-after-load 'yaml-mode
-  (add-hook 'yaml-mode-hook #'p-yaml-hook))
+(defun p-set-up-yaml ()
+  (p-set-up-prog-mode))
 
 (provide 'p-yaml)
 
