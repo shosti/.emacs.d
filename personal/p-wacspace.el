@@ -152,7 +152,7 @@
 
 (defwacspace (ruby-mode projectile-rails-mode)
   (:before (lambda ()
-             (p-guard)
+             ;; (p-guard)
              (p-rails-console)))
   (:base-file "Gemfile")
   (:after-switch p-set-up-ruby-env)
@@ -163,8 +163,7 @@
    (:winconf 2winv)
    (:aux1 projectile-toggle-between-implementation-and-test))
   (:3
-   (:winconf 2winv)
-   (:aux1 p-guard))
+   (:winconf 2winv))
   (:5
    (:winconf 2winh)
    (:aux1 p-rails-console))
