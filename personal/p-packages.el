@@ -40,6 +40,12 @@
 	  (package-refresh-contents)
 	  (package-install package))))))
 
+(p-require-package 'compat 'gnu)
+
+;; They removed global-linum-mode from emacs 29 :( . Set this to keep the
+;; compiler happy. See https://github.com/emacsorphanage/git-gutter/issues/226
+(setq global-linum-mode nil)
+
 (provide 'p-packages)
 
 ;;; p-packages.el ends here

@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t -*-
 
+(p-require-package 'wfnames 'melpa)
 (p-require-package 'helm)
 
 (require 'p-leader)
