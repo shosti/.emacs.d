@@ -2,5 +2,4 @@
 # name: p
 # key: p
 # --
-puts "${1:$(upcase yas-text)}"
-ap $1
+puts "${1:$(upcase yas-text)}: #{$1.inspect}"
