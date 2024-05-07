@@ -100,7 +100,8 @@ window."
   (ruby-tools-mode 1)
   (electric-indent-mode 1)
   (electric-pair-mode 1)
-  (flycheck-mode 1))
+  (flycheck-mode 1)
+  (add-to-list 'flycheck-disabled-checkers 'ruby-reek))
 
 (add-hook 'ruby-mode-hook #'p-set-up-ruby-mode)
 
