@@ -1,23 +1,15 @@
 ;;; -*- lexical-binding: t -*-
-(p-require-package 'ts-comint 'melpa)
-(p-require-package 'typescript-mode 'melpa)
 (p-require-package 'add-node-modules-path 'melpa)
 (p-require-package 'prettier-js 'melpa)
 
-(defun p-set-up-web-mode-tsx ()
-  (when (string-match-p "tsx?" (file-name-extension buffer-file-name))
-    (flycheck-mode 1)))
+(setq major-mode-remap-alist
+      (cons '(typescript-mode . typescript-ts-mode) major-mode-remap-alist))
 
-(add-to-list 'auto-mode-alist '("\\.tsx?\\'" . web-mode))
+(use-package typescript-ts-mode
+  :init
+  (add-hook 'typescript-ts-mode #'p-set-up-typescript))
 
-(with-eval-after-load 'web-mode
-  (require 'prettier-js)
-  (define-key web-mode-map (kbd "C-c C-f") #'prettier-js)
-  (add-hook 'web-mode-hook #'add-node-modules-path)
-  (add-hook 'web-mode-hook #'p-set-up-web-mode-tsx))
-
-(with-eval-after-load 'flycheck
-  (flycheck-add-mode 'javascript-eslint 'web-mode))
+(defun p-set-up-typescript ())
 
 (provide 'p-typescript)
 
