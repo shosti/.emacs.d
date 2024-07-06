@@ -96,6 +96,7 @@
           diff-mode
           image-mode
           cider-test-report-mode
+          special-mode
           xref--xref-buffer-mode)
   (add-to-list 'evil-motion-state-modes it))
 
