@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: tests
+# key: tests
+# --
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn test_$1 {
+    $0
+  }
+}
