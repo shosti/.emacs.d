@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t -*-
 (p-require-package 'add-node-modules-path 'melpa)
 (p-require-package 'prettier-js 'melpa)
+(p-require-package 'prisma-ts-mode 'melpa)
 
 (setq major-mode-remap-alist
       (cons '(typescript-mode . typescript-ts-mode) major-mode-remap-alist))
