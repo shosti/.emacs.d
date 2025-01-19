@@ -48,6 +48,9 @@
 (with-eval-after-load 'js2-mode
   (add-hook 'js2-mode-hook #'p-set-up-js2-mode))
 
+(setq prettier-js-command "prettier"
+      prettier-js-args '())
+
 (provide 'p-js)
 
 ;;; p-js.el ends here
