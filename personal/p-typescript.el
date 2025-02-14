@@ -7,9 +7,11 @@
 
 (use-package typescript-ts-mode
   :init
-  (add-hook 'typescript-ts-mode #'p-set-up-typescript))
+  (add-hook 'typescript-ts-mode #'p-set-up-typescript)
+  (add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-ts-mode)))
 
-(defun p-set-up-typescript ())
+(defun p-set-up-typescript ()
+  (prettier-js-mode))
 
 (provide 'p-typescript)
 
