@@ -1,8 +1,7 @@
 (unless (package-installed-p 'aider)
   (package-vc-install '(aider :url "https://github.com/tninja/aider.el")))
 
-;; (setq aider-args
-;;       '("--model" "anthropic/claude-3-5-sonnet-20241022"))
+(setq aider-args nil)
 
 (with-eval-after-load 'aider
   (require 'aider-helm))
