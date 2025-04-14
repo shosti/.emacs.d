@@ -5,7 +5,7 @@
 (p-require-package 'company-solidity)
 
 (with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs '(solidity-mode . ("npx" "solidity-ls" "--stdio" "--yes"))))
+  (add-to-list 'eglot-server-programs '(solidity-mode . ("npx" "nomicfoundation-solidity-language-server" "--stdio" "--yes"))))
 
 (provide 'p-solidity)
 
