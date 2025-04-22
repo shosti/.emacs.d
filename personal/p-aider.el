@@ -1,5 +1,4 @@
-(unless (package-installed-p 'aider)
-  (package-vc-install '(aider :url "git@github.com:tninja/aider.el")))
+(p-require-package 'aider)
 
 (with-eval-after-load 'aider
   (setq aider-args nil)
