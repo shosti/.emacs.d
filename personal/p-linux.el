@@ -33,7 +33,6 @@
   (setq x-super-keysym 'meta)
   (global-set-key (kbd "<XF86PowerOff>") #'p-sleep-message)
   (setq battery-status-function #'p-battery-acpi)
-  (p-set-leader-key "p" #'proced)
 
   (with-eval-after-load 'proced
     (p-add-hjkl-bindings proced-mode-map 'emacs
